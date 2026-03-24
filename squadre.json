@@ -17,9 +17,9 @@
         },
         {
             "nome": "SergioMattarella",
-            "prezzo": 50,
+            "prezzo": 20,
             "status": "vivo",
-            "punti": 0
+            "punti": 2
         }
     ],
     "campionato": [
@@ -29,9 +29,6 @@
             "partecipanti": [
                 {
                     "nome": "Papa Francesco"
-                },
-                {
-                    "nome": "SergioMattarella"
                 }
             ],
             "totPunti": 0
@@ -42,9 +39,6 @@
             "partecipanti": [
                 {
                     "nome": "Elon Musk"
-                },
-                {
-                    "nome": "SergioMattarella"
                 }
             ],
             "totPunti": 12
