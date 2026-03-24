@@ -16,7 +16,7 @@
             "punti": 12
         },
         {
-            "nome": "Sergio Mattarella",
+            "nome": "SergioMattarella",
             "prezzo": 50,
             "status": "vivo",
             "punti": 0
@@ -31,7 +31,7 @@
                     "nome": "Papa Francesco"
                 },
                 {
-                    "nome": "Sergio Mattarella"
+                    "nome": "SergioMattarella"
                 }
             ],
             "totPunti": 0
@@ -44,7 +44,7 @@
                     "nome": "Elon Musk"
                 },
                 {
-                    "nome": "Sergio Mattarella"
+                    "nome": "SergioMattarella"
                 }
             ],
             "totPunti": 12
