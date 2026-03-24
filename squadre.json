@@ -33,7 +33,7 @@
                     "nome": "Britney Spears",
                     "nascita": 1981,
                     "prezzo": 50,
-                    "status": "deceduto",
+                    "status": "morto",
                     "punti": 0
                 }
             ],
@@ -44,10 +44,10 @@
             "proprietario": "Luca",
             "partecipanti": [
                 {
-                    "nome": "Regina Elisabetta III (ipotetica)",
+                    "nome": "Regina Elisabetta II",
                     "nascita": 1970,
                     "prezzo": 400,
-                    "status": "deceduto",
+                    "status": "morto",
                     "punti": 3
                 },
                 {

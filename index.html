@@ -3,51 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantamorto 2026 - Pro Edition</title>
+    <title>Fantamorto 2026 - Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
-        :root { --background-body: #121212; --accent: #ff4444; }
-        nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
-        .view { display: none; } .view.active { display: block; }
-        .team-card { background: #1e1e1e; border: 1px solid #333; padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; }
-        .dead-text { text-decoration: line-through; color: #888; }
-        .save-section { background: #252525; padding: 15px; border-radius: 8px; border: 1px solid #444; margin-top: 20px; }
-        button.btn-save { background: #28a745; color: white; width: 100%; font-weight: bold; }
-        .points-badge { background: #333; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; margin-left: 5px; color: #44ff44; }
+        :root { --background-body: #121212; --card-bg: #1e1e1e; --accent: #ff4444; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* Menu Navigazione */
+        nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+        nav button { background: transparent; border: 1px solid #444; color: #777; cursor: pointer; padding: 10px 20px; transition: 0.3s; }
+        nav button.active { border-color: var(--accent); color: var(--accent); background: #251010; font-weight: bold; }
+        #btn-admin { display: none; } /* Nascosto di default */
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Card e Tabelle */
+        .team-card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .rank-punti { color: #44ff44; font-weight: bold; font-size: 1.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
+        
+        /* Allineamenti Classifica */
+        .col-nome { text-align: left; width: 70%; }
+        .col-punti { text-align: right; width: 30%; font-weight: bold; color: #44ff44; }
+        .dead-text { color: #fff; }
+
+        /* Allineamenti Admin */
+        .admin-header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+        .admin-squad-info { display: flex; align-items: center; gap: 5px; }
+        .admin-input-header { background: #111; border: 1px solid #444; color: #fff; padding: 6px 8px; font-size: 0.9rem; border-radius: 4px; font-weight: 500; }
+        .admin-input-header:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+        .admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        .admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
+        .admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+        .admin-table th { background: #0a0a0a; color: #888; font-weight: bold; font-size: 0.8rem; padding: 8px 4px; text-align: center; border: 1px solid #333; }
+        .admin-table th:first-child { text-align: left; }
+        .admin-table td { padding: 6px 4px; border: 1px solid #2a2a2a; vertical-align: middle; text-align: center; font-size: 0.85rem; }
+        .admin-table td:first-child { text-align: left; padding-left: 6px; }
+        .admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
+        .admin-table button:hover { background: var(--accent); border-color: var(--accent); }
+        .admin-row-dead { background: #1a0a0a; }
+        .admin-row-dead input { background: #0a0505; }
+
+        textarea { width: 100%; height: 120px; font-family: 'Courier New', monospace; background: #000; color: #0f0; border: 1px solid #444; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
-        <button id="btn-admin" onclick="switchView('admin')">⚙️ Gestione</button>
-    </nav>
+    <header>
+        <h1 style="text-align: center;">☠️ Fantamorto Cup 2026</h1>
+        <nav id="main-nav">
+            <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
+            <button id="btn-admin" onclick="switchView('admin')">⚙️ Gestione</button>
+        </nav>
+    </header>
 
-    <div id="view-rank" class="view active"><div id="rank-container"></div></div>
+    <div id="view-rank" class="view active">
+        <div id="rank-container"></div>
+    </div>
 
     <div id="view-admin" class="view">
         <div id="admin-container"></div>
-        <div class="save-section">
-            <h3>🚀 Salva su GitHub</h3>
-            <input type="password" id="gh-token" placeholder="Incolla qui il tuo GitHub Token Classic">
-            <p><small>Il token serve per autorizzare il sito a scrivere nel file squadra.json.</small></p>
-            <button class="btn-save" onclick="saveToGitHub()">SALVA DATI DEFINITIVAMENTE</button>
-            <p id="save-status"></p>
+        <div class="team-card" style="border: 2px dashed var(--accent);">
+            <h3>💾 Salva su GitHub</h3>
+            <input type="password" id="gh-token" placeholder="GitHub Personal Access Token" style="width: 100%; padding: 8px; margin-bottom: 10px; background: #111; border: 1px solid #444; color: #fff; border-radius: 4px;">
+            <button onclick="saveToGitHub()" style="width: 100%; padding: 10px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">📤 Salva JSON</button>
+            <div id="query-result" style="margin-top: 15px; padding: 12px; background: #0a0a0a; border: 1px solid #333; border-radius: 4px; min-height: 60px; max-height: 300px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #0f0; white-space: pre-wrap; word-break: break-word;"></div>
         </div>
     </div>
 
     <script>
-        let db = { config: {}, campionato: [] };
-        const urlParams = new URLSearchParams(window.location.search);
-        const isAdmin = urlParams.get('admin') === '1234'; // La tua password URL
+        let db = { config: { crediti_iniziali: 1000 }, campionato: [] };
+        
+        // Configurazione GitHub (modificare con i tuoi dati)
+        const REPO_INFO = {
+            OWNER: 'marcoschepis',
+            REPO: 'fantamorto',
+            PATH: 'squadre.json'
+        };
+        
+        // Hash della password "1234"
+        const SECRET_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
+        let isAuthorized = false;
 
-        if (!isAdmin) document.getElementById('btn-admin').style.display = 'none';
+        async function verifyAdmin() {
+            const params = new URLSearchParams(window.location.search);
+            const key = params.get('admin');
+            if (!key) return;
 
-        fetch('squadra.json?t=' + Date.now()).then(r => r.json()).then(data => { db = data; render(); });
+            const msg = new TextEncoder().encode(key);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msg);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashedKey = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-        function switchView(v) {
-            document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
-            document.getElementById('view-' + v).classList.add('active');
+            if (hashedKey === SECRET_HASH) {
+                isAuthorized = true;
+                document.getElementById('btn-admin').style.display = 'block';
+            }
+        }
+
+        function loadData() {
+            fetch('squadre.json')
+                .then(r => r.json())
+                .then(data => {
+                    db = data;
+                    render();
+                })
+                .catch(e => console.error("Errore caricamento JSON:", e));
+        }
+
+        function switchView(name) {
+            if (name === 'admin' && !isAuthorized) return;
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            document.getElementById('view-' + name).classList.add('active');
+            document.getElementById('btn-' + name).classList.add('active');
             render();
         }
 
@@ -56,96 +129,140 @@
             render();
         }
 
+        function toggleStatus(tIdx, pIdx) {
+            let p = db.campionato[tIdx].partecipanti[pIdx];
+            p.status = p.status === 'vivo' ? 'morto' : 'vivo';
+            render();
+        }
+
         function render() {
             const rankCont = document.getElementById('rank-container');
             const adminCont = document.getElementById('admin-container');
-            rankCont.innerHTML = ''; adminCont.innerHTML = '';
+            rankCont.innerHTML = '';
+            adminCont.innerHTML = '';
 
-            // Calcoliamo i punti totali prima di ordinare
+            // Calcoli e ordinamento
             db.campionato.forEach(s => {
                 s.totPunti = s.partecipanti.reduce((acc, p) => acc + (p.punti || 0), 0);
+                const spesa = s.partecipanti.reduce((acc, p) => acc + (p.prezzo || 0), 0);
+                s.residui = (db.config.crediti_iniziali || 1000) - spesa;
             });
 
-            // ORDINA LE SQUADRE PER PUNTI (DAL PIÙ ALTO)
-            const campionatoOrdinato = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
+            const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
 
-            campionatoOrdinato.forEach((squadra) => {
-                const tIdx = db.campionato.indexOf(squadra);
-                
-                // RENDER CLASSIFICA
+            sortedTeams.forEach((s) => {
+                const tIdx = db.campionato.indexOf(s);
+
+                // --- VISTA CLASSIFICA ---
                 rankCont.innerHTML += `
                     <div class="team-card">
-                        <div style="display:flex; justify-content:space-between">
-                            <h3>${squadra.nome_squadra}</h3>
-                            <span style="color:#44ff44; font-size:1.5rem"><b>${squadra.totPunti}</b></span>
-                        </div>
-                        <ul>
-                            ${squadra.partecipanti.map(p => `
-                                <li class="${p.status === 'deceduto' ? 'dead-text' : ''}">
-                                    ${p.nome} <span class="points-badge">${p.punti} pt</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>`;
-
-                // RENDER ADMIN
-                adminCont.innerHTML += `
-                    <div class="team-card">
-                        <h4>Edit: ${squadra.nome_squadra}</h4>
-                        ${squadra.partecipanti.map((p, pIdx) => `
-                            <div style="display:flex; gap:5px; margin-bottom:5px">
-                                <input type="text" value="${p.nome}" onchange="updateValue(${tIdx}, ${pIdx}, 'nome', this.value)">
-                                <input type="number" value="${p.punti}" onchange="updateValue(${tIdx}, ${pIdx}, 'punti', this.value)">
-                                <button onclick="db.campionato[${tIdx}].partecipanti[${pIdx}].status = (db.campionato[${tIdx}].partecipanti[${pIdx}].status === 'vivo' ? 'deceduto' : 'vivo'); render();">
-                                    ${p.status === 'vivo' ? '😇' : '💀'}
-                                </button>
+                        <div class="team-header">
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <span style="font-size: 1.2rem; font-weight: bold;">${s.nome_squadra}</span>
+                                <span style="color: #666;">-</span>
+                                <span style="font-size: 0.85rem; color: #888;">${s.proprietario}</span>
                             </div>
-                        `).join('')}
-                    </div>`;
+                            <div class="rank-punti">${s.totPunti} <small style="font-size:0.6em">PT</small></div>
+                        </div>
+                        <table>
+                            ${[...s.partecipanti].sort((a, b) => b.punti - a.punti).map(p => `
+                                <tr>
+                                    <td class="col-nome ${p.status === 'morto' ? 'dead-text' : ''}">
+                                        ${p.status === 'morto' ? '💀' : '😒'} ${p.nome}
+                                    </td>
+                                    <td class="col-punti">${p.punti > 0 ? '+' + p.punti : ''}</td>
+                                </tr>
+                            `).join('')}
+                        </table>
+                    </div>
+                `;
+
+                // --- VISTA ADMIN (SOLO SE AUTORIZZATO) ---
+                if (isAuthorized) {
+                    adminCont.innerHTML += `
+                        <div class="team-card">
+                            <div class="admin-header">
+                                <div class="admin-squad-info">
+                                    <input type="text" class="admin-input-header admin-input-main" value="${s.nome_squadra}" placeholder="Nome Squadra" style="width: 65%; margin-right: 5px; font-size: 1rem; font-weight: bold;">
+                                    <span style="color: #666;">-</span>
+                                    <input type="text" class="admin-input-header admin-input-owner" value="${s.proprietario}" placeholder="Proprietario" style="width: 30%; margin-left: 5px; font-size: 0.85rem;">
+                                </div>
+                            </div>
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 45%;">Nome</th>
+                                        <th style="width: 15%;">€</th>
+                                        <th style="width: 15%;">Pt</th>
+                                        <th style="width: 25%;">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${s.partecipanti
+                                        .map((p, pIdx) => ({p, pIdx}))
+                                        .sort((a, b) => b.p.punti - a.p.punti)
+                                        .map(({p, pIdx}) => `
+                                            <tr class="${p.status === 'morto' ? 'admin-row-dead' : ''}">
+                                                <td><input type="text" value="${p.nome}" onchange="updateValue(${tIdx}, ${pIdx}, 'nome', this.value)" placeholder="Nome"></td>
+                                                <td><input type="number" value="${p.prezzo}" onchange="updateValue(${tIdx}, ${pIdx}, 'prezzo', this.value)" placeholder="€"></td>
+                                                <td><input type="number" value="${p.punti}" onchange="updateValue(${tIdx}, ${pIdx}, 'punti', this.value)" placeholder="Pt"></td>
+                                                <td><button onclick="toggleStatus(${tIdx}, ${pIdx})" title="Cambia status">${p.status === 'vivo' ? '😒' : '💀'}</button></td>
+                                            </tr>
+                                        `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                }
             });
         }
 
         async function saveToGitHub() {
-            const token = document.getElementById('gh-token').value;
-            const status = document.getElementById('save-status');
-            if (!token) return alert("Inserisci il token!");
-
-            status.innerText = "Salvataggio in corso...";
+            const resultDiv = document.getElementById('query-result');
+            const tk = document.getElementById('gh-token').value;
+            if (!tk) { resultDiv.textContent = "❌ Inserisci il token GitHub"; return; }
             
-            // Impostazioni (CAMBIA QUESTE CON I TUOI DATI)
-            const OWNER = "marcoschepis";
-            const REPO = "fantamorto";
-            const PATH = "squadra.json";
-
+            resultDiv.textContent = "🔄 Salvataggio in corso...";
+            localStorage.setItem('ft_tk', tk);
+            
             try {
-                // 1. Ottieni lo SHA del file attuale (necessario per sovrascrivere)
-                const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`, {
-                    headers: { 'Authorization': `token ${token}` }
-                });
-                const fileData = await res.json();
-                const sha = fileData.sha;
-
-                // 2. Invia il nuovo JSON
-                const content = btoa(unescape(encodeURIComponent(JSON.stringify(db, null, 4))));
-                const updateRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`, {
-                    method: 'PUT',
-                    headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        message: "Aggiornamento punti dal sito",
-                        content: content,
-                        sha: sha
-                    })
-                });
-
-                if (updateRes.ok) {
-                    status.innerText = "✅ Salvato con successo! Tra 1 minuto il sito si aggiornerà.";
-                } else {
-                    status.innerText = "❌ Errore nel salvataggio. Controlla il token.";
+                resultDiv.textContent += "\n📡 Scaricando metadati file...";
+                const res = await fetch(`https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`, { headers: { Authorization: `token ${tk}` } });
+                const f = await res.json();
+                
+                if (!f.sha) {
+                    resultDiv.textContent = "❌ File non trovato o token invalido";
+                    return;
                 }
-            } catch (e) {
-                status.innerText = "❌ Errore di connessione.";
+                
+                resultDiv.textContent += "\n📝 Codificando JSON...";
+                const jsonStr = JSON.stringify(db, null, 4);
+                const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+                
+                resultDiv.textContent += "\n📤 Inviando a GitHub...";
+                const upd = await fetch(`https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`, {
+                    method: 'PUT',
+                    headers: { Authorization: `token ${tk}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: "Update - " + new Date().toLocaleString('it-IT'), content: encoded, sha: f.sha })
+                });
+                
+                const updResponse = await upd.json();
+                
+                if (upd.ok) {
+                    resultDiv.textContent = "✅ SALVATO SU GITHUB!\n\n";
+                    resultDiv.textContent += "📄 File: " + REPO_INFO.PATH + "\n";
+                    resultDiv.textContent += "🔗 SHA: " + updResponse.commit.sha.substring(0, 8) + "\n";
+                    resultDiv.textContent += "⏰ Data: " + new Date().toLocaleString('it-IT');
+                } else {
+                    resultDiv.textContent = "❌ ERRORE: " + (updResponse.message || "Errore sconosciuto");
+                }
+            } catch(e) { 
+                resultDiv.textContent = "❌ ERRORE CONNESSIONE:\n" + e.message;
             }
         }
+
+        // Avvio
+        verifyAdmin().then(loadData);
     </script>
 </body>
 </html>
