@@ -1,40 +1,22 @@
 {
     "config": {
-        "crediti_iniziali": 1000,
-        "ultimo_aggiornamento": "2026-03-24 18:00"
+        "crediti_iniziali": 1000
     },
+    "morituri": [
+        {
+            "nome": "Papa Francesco",
+            "prezzo": 1,
+            "status": "vivo",
+            "punti": 0
+        }
+    ],
     "campionato": [
         {
             "nome_squadra": "I Necrofori F.C.",
             "proprietario": "Marco",
             "partecipanti": [
                 {
-                    "nome": "Clint Eastwood",
-                    "nascita": 1930,
-                    "prezzo": 350,
-                    "status": "vivo",
-                    "punti": 0
-                },
-                {
-                    "nome": "Papa Francesco",
-                    "nascita": 1936,
-                    "prezzo": 250,
-                    "status": "vivo",
-                    "punti": 0
-                },
-                {
-                    "nome": "Keith Richards",
-                    "nascita": 1943,
-                    "prezzo": 150,
-                    "status": "vivo",
-                    "punti": 0
-                },
-                {
-                    "nome": "Britney Spears",
-                    "nascita": 1981,
-                    "prezzo": 50,
-                    "status": "deceduto",
-                    "punti": 0
+                    "nome": "Papa Francesco"
                 }
             ],
             "totPunti": 0
@@ -44,20 +26,10 @@
             "proprietario": "Luca",
             "partecipanti": [
                 {
-                    "nome": "Regina Elisabetta III (ipotetica)"
-                },
-                {
-                    "nome": "Morgan Freeman"
-                },
-                {
-                    "nome": "Elon Musk",
-                    "nascita": 1971,
-                    "prezzo": 100,
-                    "status": "vivo",
-                    "punti": 1
+                    "nome": "Papa Francesco"
                 }
             ],
-            "totPunti": 4
+            "totPunti": 0
         }
     ]
 }
