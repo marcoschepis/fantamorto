@@ -2,51 +2,150 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Fantamorto Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantamorto 2026 - Pro Edition</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
-        .morto { background-color: #ff444433; color: #ff6666; text-decoration: line-through; }
-        .vivo { color: #44ff44; }
-        table { width: 100%; }
+        :root { --background-body: #121212; --accent: #ff4444; }
+        nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .view { display: none; } .view.active { display: block; }
+        .team-card { background: #1e1e1e; border: 1px solid #333; padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; }
+        .dead-text { text-decoration: line-through; color: #888; }
+        .save-section { background: #252525; padding: 15px; border-radius: 8px; border: 1px solid #444; margin-top: 20px; }
+        button.btn-save { background: #28a745; color: white; width: 100%; font-weight: bold; }
+        .points-badge { background: #333; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; margin-left: 5px; color: #44ff44; }
     </style>
 </head>
 <body>
-    <h1>💀 Fantamorto 2026: Leaderboard</h1>
-    <p>Ultimo aggiornamento automatico: <span id="update-time">--</span></p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Anno</th>
-                <th>Status</th>
-                <th>Punti</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-            </tbody>
-    </table>
+
+    <nav>
+        <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
+        <button id="btn-admin" onclick="switchView('admin')">⚙️ Gestione</button>
+    </nav>
+
+    <div id="view-rank" class="view active"><div id="rank-container"></div></div>
+
+    <div id="view-admin" class="view">
+        <div id="admin-container"></div>
+        <div class="save-section">
+            <h3>🚀 Salva su GitHub</h3>
+            <input type="password" id="gh-token" placeholder="Incolla qui il tuo GitHub Token Classic">
+            <p><small>Il token serve per autorizzare il sito a scrivere nel file squadra.json.</small></p>
+            <button class="btn-save" onclick="saveToGitHub()">SALVA DATI DEFINITIVAMENTE</button>
+            <p id="save-status"></p>
+        </div>
+    </div>
 
     <script>
-        async function loadData() {
-            const response = await fetch('squadra.json');
-            const data = await response.json();
-            const container = document.getElementById('table-body');
-            
-            data.giocatori.sort((a, b) => b.punti - a.punti); // Ordina per chi ha più punti
+        let db = { config: {}, campionato: [] };
+        const urlParams = new URLSearchParams(window.location.search);
+        const isAdmin = urlParams.get('admin') === '1234'; // La tua password URL
 
-            container.innerHTML = data.giocatori.map(g => `
-                <tr class="${g.status}">
-                    <td>${g.nome}</td>
-                    <td>${g.nascita}</td>
-                    <td>${g.status.toUpperCase()}</td>
-                    <td><strong>${g.punti}</strong></td>
-                </tr>
-            `).join('');
-            
-            document.getElementById('update-time').innerText = new Date().toLocaleString();
+        if (!isAdmin) document.getElementById('btn-admin').style.display = 'none';
+
+        fetch('squadra.json?t=' + Date.now()).then(r => r.json()).then(data => { db = data; render(); });
+
+        function switchView(v) {
+            document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
+            document.getElementById('view-' + v).classList.add('active');
+            render();
         }
-        loadData();
+
+        function updateValue(tIdx, pIdx, field, val) {
+            db.campionato[tIdx].partecipanti[pIdx][field] = (field === 'nome') ? val : parseInt(val) || 0;
+            render();
+        }
+
+        function render() {
+            const rankCont = document.getElementById('rank-container');
+            const adminCont = document.getElementById('admin-container');
+            rankCont.innerHTML = ''; adminCont.innerHTML = '';
+
+            // Calcoliamo i punti totali prima di ordinare
+            db.campionato.forEach(s => {
+                s.totPunti = s.partecipanti.reduce((acc, p) => acc + (p.punti || 0), 0);
+            });
+
+            // ORDINA LE SQUADRE PER PUNTI (DAL PIÙ ALTO)
+            const campionatoOrdinato = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
+
+            campionatoOrdinato.forEach((squadra) => {
+                const tIdx = db.campionato.indexOf(squadra);
+                
+                // RENDER CLASSIFICA
+                rankCont.innerHTML += `
+                    <div class="team-card">
+                        <div style="display:flex; justify-content:space-between">
+                            <h3>${squadra.nome_squadra}</h3>
+                            <span style="color:#44ff44; font-size:1.5rem"><b>${squadra.totPunti}</b></span>
+                        </div>
+                        <ul>
+                            ${squadra.partecipanti.map(p => `
+                                <li class="${p.status === 'deceduto' ? 'dead-text' : ''}">
+                                    ${p.nome} <span class="points-badge">${p.punti} pt</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>`;
+
+                // RENDER ADMIN
+                adminCont.innerHTML += `
+                    <div class="team-card">
+                        <h4>Edit: ${squadra.nome_squadra}</h4>
+                        ${squadra.partecipanti.map((p, pIdx) => `
+                            <div style="display:flex; gap:5px; margin-bottom:5px">
+                                <input type="text" value="${p.nome}" onchange="updateValue(${tIdx}, ${pIdx}, 'nome', this.value)">
+                                <input type="number" value="${p.punti}" onchange="updateValue(${tIdx}, ${pIdx}, 'punti', this.value)">
+                                <button onclick="db.campionato[${tIdx}].partecipanti[${pIdx}].status = (db.campionato[${tIdx}].partecipanti[${pIdx}].status === 'vivo' ? 'deceduto' : 'vivo'); render();">
+                                    ${p.status === 'vivo' ? '😇' : '💀'}
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>`;
+            });
+        }
+
+        async function saveToGitHub() {
+            const token = document.getElementById('gh-token').value;
+            const status = document.getElementById('save-status');
+            if (!token) return alert("Inserisci il token!");
+
+            status.innerText = "Salvataggio in corso...";
+            
+            // Impostazioni (CAMBIA QUESTE CON I TUOI DATI)
+            const OWNER = "marcoschepis";
+            const REPO = "fantamorto";
+            const PATH = "squadra.json";
+
+            try {
+                // 1. Ottieni lo SHA del file attuale (necessario per sovrascrivere)
+                const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`, {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+                const fileData = await res.json();
+                const sha = fileData.sha;
+
+                // 2. Invia il nuovo JSON
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(db, null, 4))));
+                const updateRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: "Aggiornamento punti dal sito",
+                        content: content,
+                        sha: sha
+                    })
+                });
+
+                if (updateRes.ok) {
+                    status.innerText = "✅ Salvato con successo! Tra 1 minuto il sito si aggiornerà.";
+                } else {
+                    status.innerText = "❌ Errore nel salvataggio. Controlla il token.";
+                }
+            } catch (e) {
+                status.innerText = "❌ Errore di connessione.";
+            }
+        }
     </script>
 </body>
 </html>
