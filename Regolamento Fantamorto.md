@@ -60,4 +60,4 @@ I seguenti bonus vengono assegnati solo in abbinata al bonus Morte:
 # Classifiche
 Alla fine del campionato verranno stilate due classifiche:
 - CLASSIFICA FANTAMORTO: somma di tutti i punti raccolti dai morituri di ogni singola squadra, tiene conto dei bonus e dei malus;
-- CLASSIFICA DECESSI: viene assegnato un punto per ogni decesso avvenuto. La squadra che totalizza più punti vince;
+- CLASSIFICA DECESSI: viene assegnato un punto per ogni decesso avvenuto. La squadra che totalizza più punti vince.
