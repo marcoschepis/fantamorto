@@ -19,7 +19,7 @@
                     "nome": "Papa Francesco",
                     "nascita": 1936,
                     "prezzo": 250,
-                    "status": "deceduto",
+                    "status": "vivo",
                     "punti": 0
                 },
                 {
@@ -33,7 +33,7 @@
                     "nome": "Britney Spears",
                     "nascita": 1981,
                     "prezzo": 50,
-                    "status": "vivo",
+                    "status": "deceduto",
                     "punti": 0
                 }
             ],
