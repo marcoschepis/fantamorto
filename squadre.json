@@ -19,8 +19,8 @@
                     "nome": "Papa Francesco",
                     "nascita": 1936,
                     "prezzo": 250,
-                    "status": "vivo",
-                    "punti": 0
+                    "status": "morto",
+                    "punti": 10
                 },
                 {
                     "nome": "Keith Richards",
@@ -33,11 +33,12 @@
                     "nome": "Britney Spears",
                     "nascita": 1981,
                     "prezzo": 50,
-                    "status": "deceduto",
+                    "status": "vivo",
                     "punti": 0
                 }
             ],
-            "totPunti": 0
+            "totPunti": 10,
+            "residui": 200
         },
         {
             "nome_squadra": "Real Mortis",
@@ -47,7 +48,7 @@
                     "nome": "Regina Elisabetta III (ipotetica)",
                     "nascita": 1970,
                     "prezzo": 400,
-                    "status": "deceduto",
+                    "status": "morto",
                     "punti": 3
                 },
                 {
@@ -65,7 +66,8 @@
                     "punti": 1
                 }
             ],
-            "totPunti": 4
+            "totPunti": 4,
+            "residui": 300
         }
     ]
 }
