@@ -20,14 +20,14 @@
                     "nascita": 1936,
                     "prezzo": 250,
                     "status": "vivo",
-                    "punti": 0
+                    "punti": 1
                 },
                 {
                     "nome": "Keith Richards",
                     "nascita": 1943,
                     "prezzo": 150,
                     "status": "vivo",
-                    "punti": 0
+                    "punti": 1
                 },
                 {
                     "nome": "Britney Spears",
@@ -37,7 +37,7 @@
                     "punti": 0
                 }
             ],
-            "totPunti": 0,
+            "totPunti": 2,
             "residui": 200
         },
         {
@@ -56,7 +56,7 @@
                     "nascita": 1937,
                     "prezzo": 200,
                     "status": "vivo",
-                    "punti": 0
+                    "punti": 1
                 },
                 {
                     "nome": "Elon Musk",
@@ -66,7 +66,7 @@
                     "punti": 1
                 }
             ],
-            "totPunti": 4,
+            "totPunti": 5,
             "residui": 300
         }
     ]
