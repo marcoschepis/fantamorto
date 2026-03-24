@@ -129,9 +129,40 @@
             render();
         }
 
-        function toggleStatus(tIdx, pIdx) {
-            let p = db.campionato[tIdx].partecipanti[pIdx];
-            p.status = p.status === 'vivo' ? 'morto' : 'vivo';
+        function updateMoritoStatus(idx) {
+            db.morituri[idx].status = db.morituri[idx].status === 'vivo' ? 'deceduto' : 'vivo';
+            render();
+        }
+
+        function updateMoritoPoints(idx, points) {
+            db.morituri[idx].punti = parseInt(points) || 0;
+            render();
+        }
+
+        function updateMoritoPrezzo(idx, prezzo) {
+            db.morituri[idx].prezzo = parseInt(prezzo) || 0;
+            render();
+        }
+
+        function getMoritoByName(nome) {
+            return db.morituri.find(m => m.nome === nome);
+        }
+
+        function removeMorto(idx) {
+            if (confirm('Rimuovere ' + db.morituri[idx].nome + '?')) {
+                db.morituri.splice(idx, 1);
+                render();
+            }
+        }
+
+        function addMorto() {
+            const nome = document.getElementById('new-morto-nome').value.trim();
+            const prezzo = parseInt(document.getElementById('new-morto-prezzo').value) || 0;
+            if (!nome) { alert('Inserisci un nome'); return; }
+            if (db.morituri.find(m => m.nome === nome)) { alert('Morto già esistente'); return; }
+            db.morituri.push({ nome, prezzo, status: 'vivo', punti: 0 });
+            document.getElementById('new-morto-nome').value = '';
+            document.getElementById('new-morto-prezzo').value = '';
             render();
         }
 
@@ -141,11 +172,12 @@
             rankCont.innerHTML = '';
             adminCont.innerHTML = '';
 
-            // Calcoli e ordinamento
+            // Calcoli totali per squadra
             db.campionato.forEach(s => {
-                s.totPunti = s.partecipanti.reduce((acc, p) => acc + (p.punti || 0), 0);
-                const spesa = s.partecipanti.reduce((acc, p) => acc + (p.prezzo || 0), 0);
-                s.residui = (db.config.crediti_iniziali || 1000) - spesa;
+                s.totPunti = s.partecipanti.reduce((acc, p) => {
+                    const morto = getMoritoByName(p.nome);
+                    return acc + (morto ? morto.punti : 0);
+                }, 0);
             });
 
             const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
@@ -165,56 +197,113 @@
                             <div class="rank-punti">${s.totPunti} <small style="font-size:0.6em">PT</small></div>
                         </div>
                         <table>
-                            ${[...s.partecipanti].sort((a, b) => b.punti - a.punti).map(p => `
-                                <tr>
-                                    <td class="col-nome ${p.status === 'morto' ? 'dead-text' : ''}">
-                                        ${p.status === 'morto' ? '💀' : '😒'} ${p.nome}
-                                    </td>
-                                    <td class="col-punti">${p.punti > 0 ? '+' + p.punti : ''}</td>
-                                </tr>
-                            `).join('')}
+                            ${[...s.partecipanti].sort((a, b) => {
+                                const mA = getMoritoByName(a.nome);
+                                const mB = getMoritoByName(b.nome);
+                                return (mB?.punti || 0) - (mA?.punti || 0);
+                            }).map(p => {
+                                const morto = getMoritoByName(p.nome);
+                                return `
+                                    <tr>
+                                        <td class="col-nome ${morto && morto.status === 'deceduto' ? 'dead-text' : ''}">
+                                            ${morto && morto.status === 'deceduto' ? '💀' : '😒'} ${p.nome}
+                                        </td>
+                                        <td class="col-punti">${morto && morto.punti > 0 ? '+' + morto.punti : ''}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
                         </table>
                     </div>
                 `;
-
-                // --- VISTA ADMIN (SOLO SE AUTORIZZATO) ---
-                if (isAuthorized) {
-                    adminCont.innerHTML += `
-                        <div class="team-card">
-                            <div class="admin-header">
-                                <div class="admin-squad-info">
-                                    <input type="text" class="admin-input-header admin-input-main" value="${s.nome_squadra}" placeholder="Nome Squadra" style="width: 65%; margin-right: 5px; font-size: 1rem; font-weight: bold;">
-                                    <span style="color: #666;">-</span>
-                                    <input type="text" class="admin-input-header admin-input-owner" value="${s.proprietario}" placeholder="Proprietario" style="width: 30%; margin-left: 5px; font-size: 0.85rem;">
-                                </div>
-                            </div>
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 45%;">Nome</th>
-                                        <th style="width: 15%;">€</th>
-                                        <th style="width: 15%;">Pt</th>
-                                        <th style="width: 25%;">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${s.partecipanti
-                                        .map((p, pIdx) => ({p, pIdx}))
-                                        .sort((a, b) => b.p.punti - a.p.punti)
-                                        .map(({p, pIdx}) => `
-                                            <tr class="${p.status === 'morto' ? 'admin-row-dead' : ''}">
-                                                <td><input type="text" value="${p.nome}" onchange="updateValue(${tIdx}, ${pIdx}, 'nome', this.value)" placeholder="Nome"></td>
-                                                <td><input type="number" value="${p.prezzo}" onchange="updateValue(${tIdx}, ${pIdx}, 'prezzo', this.value)" placeholder="€"></td>
-                                                <td><input type="number" value="${p.punti}" onchange="updateValue(${tIdx}, ${pIdx}, 'punti', this.value)" placeholder="Pt"></td>
-                                                <td><button onclick="toggleStatus(${tIdx}, ${pIdx})" title="Cambia status">${p.status === 'vivo' ? '😒' : '💀'}</button></td>
-                                            </tr>
-                                        `).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                }
             });
+
+            // --- SEZIONE GESTIONE ADMIN ---
+            if (isAuthorized) {
+                // Gestione Morituri
+                adminCont.innerHTML += `
+                    <div class="team-card" style="border: 2px solid var(--accent);">
+                        <h3 style="margin-top: 0; color: var(--accent);">💀 Gestione Morituri</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%;">Nome</th>
+                                    <th style="width: 12%;">Prezzo</th>
+                                    <th style="width: 12%;">Punti</th>
+                                    <th style="width: 20%;">Status</th>
+                                    <th style="width: 12%;">Azione</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${db.morituri.map((m, mIdx) => `
+                                    <tr style="background: ${m.status === 'deceduto' ? '#1a0a0a' : ''};">
+                                        <td><strong>${m.nome}</strong></td>
+                                        <td><input type="number" value="${m.prezzo}" onchange="updateMoritoPrezzo(${mIdx}, this.value)" style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white; box-sizing: border-box;"></td>
+                                        <td><input type="number" value="${m.punti}" onchange="updateMoritoPoints(${mIdx}, this.value)" style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white; box-sizing: border-box;"></td>
+                                        <td style="text-align: center; cursor: pointer; user-select: none; font-size: 1.2rem; padding: 8px;" onclick="updateMoritoStatus(${mIdx})" title="Clicca per cambiare status">${m.status === 'deceduto' ? '💀' : '😒'}</td>
+                                        <td><button onclick="removeMorto(${mIdx})" style="width: 100%; padding: 4px; background: #8B0000; border: 1px solid #555; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">❌</button></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        <div style="margin-top: 15px; padding: 12px; background: #0a0a0a; border-radius: 8px; display: flex; gap: 8px;">
+                            <input type="text" id="new-morto-nome" placeholder="Nome" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <input type="number" id="new-morto-prezzo" placeholder="Prezzo (€)" value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <button onclick="addMorto()" style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Aggiungi</button>
+                        </div>
+                    </div>
+                `;
+
+                // Gestione Squadre
+                adminCont.innerHTML += `
+                    <div class="team-card" style="border: 2px solid var(--accent); margin-top: 30px;">
+                        <h3 style="margin-top: 0; color: var(--accent);">⚽ Gestione Squadre</h3>
+                        ${db.campionato.map((s, tIdx) => {
+                            const totCrediti = s.partecipanti.reduce((acc, p) => {
+                                const morto = getMoritoByName(p.nome);
+                                return acc + (morto ? morto.prezzo : 0);
+                            }, 0);
+                            const residui = (db.config.crediti_iniziali || 1000) - totCrediti;
+                            return `
+                                <div style="margin-bottom: 25px; padding: 15px; background: #0a0a0a; border-radius: 8px;">
+                                    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                                        <input type="text" value="${s.nome_squadra}" onchange="db.campionato[${tIdx}].nome_squadra = this.value; render();" placeholder="Nome Squadra" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                                        <input type="text" value="${s.proprietario}" onchange="db.campionato[${tIdx}].proprietario = this.value; render();" placeholder="Proprietario" style="flex: 0.6; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                                        <span style="padding: 6px; color: #44ff44; font-weight: bold;">Crediti: ${totCrediti}/${db.config.crediti_iniziali} (Residui: ${residui})</span>
+                                    </div>
+                                    <table class="admin-table" style="font-size: 0.85rem;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50%;">Partecipante</th>
+                                                <th style="width: 25%;">Crediti</th>
+                                                <th style="width: 25%;">Azione</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${s.partecipanti.map((p, pIdx) => {
+                                                const morto = getMoritoByName(p.nome);
+                                                return `
+                                                    <tr ${morto && morto.status === 'deceduto' ? 'style="background: #1a0a0a;"' : ''}>
+                                                        <td>${p.nome}</td>
+                                                        <td>${morto ? morto.prezzo : '?'}</td>
+                                                        <td><button onclick="db.campionato[${tIdx}].partecipanti.splice(${pIdx}, 1); render();" style="width: 100%; padding: 4px; background: #333; border: 1px solid #555; color: white; border-radius: 4px; cursor: pointer;">❌</button></td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
+                                        </tbody>
+                                    </table>
+                                    <div style="margin-top: 10px; display: flex; gap: 5px;">
+                                        <select id="moriti-list-${tIdx}" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                                            <option value="">-- Aggiungi partecipante --</option>
+                                            ${db.morituri.filter(m => !s.partecipanti.find(p => p.nome === m.nome)).map(m => `<option value="${m.nome}">${m.nome}</option>`).join('')}
+                                        </select>
+                                        <button onclick="const sel = document.getElementById('moriti-list-${tIdx}'); if(sel.value) { db.campionato[${tIdx}].partecipanti.push({nome: sel.value}); render(); }" style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕</button>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
         }
 
         async function saveToGitHub() {
