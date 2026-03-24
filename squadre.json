@@ -14,6 +14,12 @@
             "prezzo": 10,
             "status": "deceduto",
             "punti": 12
+        },
+        {
+            "nome": "Sergio Mattarella",
+            "prezzo": 50,
+            "status": "vivo",
+            "punti": 3
         }
     ],
     "campionato": [
