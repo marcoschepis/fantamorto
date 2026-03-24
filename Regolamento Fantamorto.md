@@ -14,7 +14,7 @@
 # Regole base
 Questo campionato del Fantamorto ha inizio il 1 aprile 2026 e termina il 31 marzo 2027.<br>
 Ogni giocatore deve schierare una squadra composta da una lista di 13 "Morituri".
-Un morituro può essere inserito nella squadra solo se realmente che abbia una pagina Wikipedia almeno in una lingua tra queste: italiano, inglese, spagnolo, portoghese e francese.<br>
+Un morituro può essere inserito nella squadra solo se ha una pagina Wikipedia almeno in una lingua tra queste: italiano, inglese, spagnolo, portoghese e francese.<br>
 In nessun caso i concorrenti potranno inserire nelle loro rose morituri già condannati a morte in via definitiva e in stato di detenzione nel Paese che deve eseguire la pena capitale.
 
 # Rosa

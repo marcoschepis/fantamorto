@@ -25,14 +25,14 @@
         .team-card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
         #rank-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .rank-punti { color: #44ff44; font-weight: bold; font-size: 1.5rem; }
+        .rank-punti { color: #fff; font-weight: bold; font-size: 1.5rem; }
         
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
         
         /* Allineamenti Classifica */
         .col-nome { text-align: left; width: 70%; }
-        .col-punti { text-align: right; width: 30%; font-weight: bold; color: #44ff44; }
+        .col-punti { text-align: right; width: 30%; font-weight: bold; color: #fff; }
         .dead-text { color: #fff; }
 
         /* Allineamenti Admin */
@@ -192,27 +192,48 @@
                 // --- VISTA CLASSIFICA ---
                 rankCont.innerHTML += `
                     <div class="team-card">
-                        <div class="team-header">
-                            <div style="display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 1.2rem; font-weight: bold;">${s.nome_squadra}</span>
-                                <span style="color: #666;">-</span>
-                                <span style="font-size: 0.85rem; color: #888;">${s.proprietario}</span>
+                        <div class="team-header" style="display: flex; align-items: flex-end; padding-bottom: 15px; margin-bottom: 10px;">
+                            <div style="flex: 0 0 50%; text-align: left;">
+                                <div style="display: flex; align-items: center; gap: 5px;">
+                                    <span style="font-size: 1.2rem; font-weight: bold; color: #fff;">${s.nome_squadra}</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #888;">${s.proprietario}</div>
                             </div>
-                            <div class="rank-punti">${s.totPunti} <small style="font-size:0.6em">PT</small></div>
+
+                            <div style="flex: 0 0 25%; text-align: center;">
+                                <div style="color: #888; font-size: 0.75rem;">Bossetti</div>
+                                <div style="color: #fff; font-weight: bold;">
+                                    ${s.partecipanti.reduce((acc, p) => acc + (getMoritoByName(p.nome)?.prezzo || 0), 0)}
+                                    <span style="font-weight: normal; color: #fff; font-size: 0.8em;"> / ${db.config.crediti_iniziali || 330}</span>
+                                </div>
+                            </div>
+
+                            <div style="flex: 0 0 25%; text-align: right;">
+                                <div style="color: #888; font-size: 0.75rem;">Punti</div>
+                                <div class="rank-punti" style="line-height: 1; margin-top: 2px;">${s.totPunti}</div>
+                            </div>
                         </div>
-                        <table>
+
+                        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
                             ${[...s.partecipanti].sort((a, b) => {
                                 const mA = getMoritoByName(a.nome);
                                 const mB = getMoritoByName(b.nome);
                                 return (mB?.punti || 0) - (mA?.punti || 0);
                             }).map(p => {
                                 const morto = getMoritoByName(p.nome);
+                                const isDead = morto && morto.status === 'deceduto';
                                 return `
-                                    <tr>
-                                        <td class="col-nome ${morto && morto.status === 'deceduto' ? 'dead-text' : ''}">
-                                            ${morto && morto.status === 'deceduto' ? '💀' : '😒'} ${p.nome}
+                                    <tr class="${isDead ? 'dead-row' : ''}">
+                                        <td class="col-nome" style="width: 50%; padding: 8px 0; text-align: left;">
+                                            <span style="margin-right: 5px;">${isDead ? '💀' : '😒'}</span>
+                                            <span style="color: #eee;">${p.nome}</span>
                                         </td>
-                                        <td class="col-punti">${morto && morto.punti > 0 ? '+' + morto.punti : ''}</td>
+                                        <td style="width: 25%; text-align: right; font-size: 1rem; color: #aaa; font-family: monospace;">
+                                            ${morto ? morto.prezzo : '?'} <small style="color: #555;">BS</small>
+                                        </td>
+                                        <td class="col-punti" style="width: 25%; text-align: right; font-weight: bold;">
+                                            ${morto && morto.punti > 0 ? '+' + morto.punti : '0'}
+                                        </td>
                                     </tr>
                                 `;
                             }).join('')}
