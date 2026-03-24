@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Fantamorto Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .morto { background-color: #ff444433; color: #ff6666; text-decoration: line-through; }
+        .vivo { color: #44ff44; }
+        table { width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>💀 Fantamorto 2026: Leaderboard</h1>
+    <p>Ultimo aggiornamento automatico: <span id="update-time">--</span></p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Anno</th>
+                <th>Status</th>
+                <th>Punti</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            </tbody>
+    </table>
+
+    <script>
+        async function loadData() {
+            const response = await fetch('squadra.json');
+            const data = await response.json();
+            const container = document.getElementById('table-body');
+            
+            data.giocatori.sort((a, b) => b.punti - a.punti); // Ordina per chi ha più punti
+
+            container.innerHTML = data.giocatori.map(g => `
+                <tr class="${g.status}">
+                    <td>${g.nome}</td>
+                    <td>${g.nascita}</td>
+                    <td>${g.status.toUpperCase()}</td>
+                    <td><strong>${g.punti}</strong></td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('update-time').innerText = new Date().toLocaleString();
+        }
+        loadData();
+    </script>
+</body>
+</html>

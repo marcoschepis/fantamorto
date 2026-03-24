@@ -1,7 +1,16 @@
 {
-  "giocatori": [
-    {"nome": "Keith Richards", "status": "vivo"},
-    {"nome": "Clint Eastwood", "status": "vivo"},
-    {"nome": "Papa Francesco", "status": "vivo"}
-  ]
+    "giocatori": [
+        {
+            "nome": "Keith Richards",
+            "status": "vivo"
+        },
+        {
+            "nome": "Clint Eastwood",
+            "status": "vivo"
+        },
+        {
+            "nome": "Papa Francesco",
+            "status": "morto"
+        }
+    ]
 }
