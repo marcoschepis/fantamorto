@@ -6,13 +6,13 @@
         {
             "nome": "Papa Francesco",
             "prezzo": 1,
-            "status": "vivo",
-            "punti": 0
+            "status": "deceduto",
+            "punti": 60
         },
         {
             "nome": "Elon Musk",
             "prezzo": 10,
-            "status": "deceduto",
+            "status": "vivo",
             "punti": 12
         },
         {
@@ -34,7 +34,7 @@
                     "nome": "Sergio Mattarella"
                 }
             ],
-            "totPunti": 0
+            "totPunti": 60
         },
         {
             "nome_squadra": "Real Mortis",
