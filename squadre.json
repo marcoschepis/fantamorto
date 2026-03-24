@@ -6,20 +6,20 @@
         {
             "nome": "Papa Francesco",
             "prezzo": 1,
-            "status": "vivo",
-            "punti": 0
+            "status": "deceduto",
+            "punti": 60
         },
         {
             "nome": "Elon Musk",
             "prezzo": 10,
-            "status": "deceduto",
+            "status": "vivo",
             "punti": 12
         },
         {
-            "nome": "SergioMattarella",
-            "prezzo": 20,
+            "nome": "Sergio Mattarella",
+            "prezzo": 3,
             "status": "vivo",
-            "punti": 2
+            "punti": 0
         }
     ],
     "campionato": [
@@ -31,10 +31,10 @@
                     "nome": "Papa Francesco"
                 },
                 {
-                    "nome": "SergioMattarella"
+                    "nome": "Sergio Mattarella"
                 }
             ],
-            "totPunti": 2
+            "totPunti": 60
         },
         {
             "nome_squadra": "Real Mortis",
@@ -44,10 +44,10 @@
                     "nome": "Elon Musk"
                 },
                 {
-                    "nome": "SergioMattarella"
+                    "nome": "Sergio Mattarella"
                 }
             ],
-            "totPunti": 14
+            "totPunti": 12
         }
     ]
 }
