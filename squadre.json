@@ -29,9 +29,12 @@
             "partecipanti": [
                 {
                     "nome": "Papa Francesco"
+                },
+                {
+                    "nome": "SergioMattarella"
                 }
             ],
-            "totPunti": 0
+            "totPunti": 2
         },
         {
             "nome_squadra": "Real Mortis",
@@ -39,9 +42,12 @@
             "partecipanti": [
                 {
                     "nome": "Elon Musk"
+                },
+                {
+                    "nome": "SergioMattarella"
                 }
             ],
-            "totPunti": 12
+            "totPunti": 14
         }
     ]
 }
