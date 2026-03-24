@@ -47,8 +47,8 @@
                     "nome": "Regina Elisabetta III (ipotetica)",
                     "nascita": 1970,
                     "prezzo": 400,
-                    "status": "vivo",
-                    "punti": 0
+                    "status": "deceduto",
+                    "punti": 3
                 },
                 {
                     "nome": "Morgan Freeman",
@@ -61,11 +61,11 @@
                     "nome": "Elon Musk",
                     "nascita": 1971,
                     "prezzo": 100,
-                    "status": "deceduto",
+                    "status": "vivo",
                     "punti": 1
                 }
             ],
-            "totPunti": 1
+            "totPunti": 4
         }
     ]
 }
