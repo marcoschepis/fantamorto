@@ -1,6 +1,6 @@
 {
     "config": {
-        "crediti_iniziali": 330
+        "crediti_iniziali": 1000
     },
     "morituri": [
         {
@@ -8,6 +8,12 @@
             "prezzo": 1,
             "status": "vivo",
             "punti": 0
+        },
+        {
+            "nome": "Elon Musk",
+            "prezzo": 10,
+            "status": "deceduto",
+            "punti": 12
         }
     ],
     "campionato": [
@@ -26,10 +32,10 @@
             "proprietario": "Luca",
             "partecipanti": [
                 {
-                    "nome": "Papa Francesco"
+                    "nome": "Elon Musk"
                 }
             ],
-            "totPunti": 0
+            "totPunti": 12
         }
     ]
 }
