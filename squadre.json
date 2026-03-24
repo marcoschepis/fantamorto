@@ -1,68 +1,43 @@
 {
     "config": {
-        "crediti_iniziali": 1000
+        "crediti_iniziali": 1000,
+        "ultimo_aggiornamento": "2026-03-24 18:00"
     },
-    "morituri": [
-        {
-            "nome": "Clint Eastwood",
-            "prezzo": 350,
-            "status": "vivo",
-            "punti": 0
-        },
-        {
-            "nome": "Papa Francesco",
-            "prezzo": 250,
-            "status": "vivo",
-            "punti": 0
-        },
-        {
-            "nome": "Keith Richards",
-            "prezzo": 150,
-            "status": "vivo",
-            "punti": 0
-        },
-        {
-            "nome": "Britney Spears",
-            "prezzo": 50,
-            "status": "deceduto",
-            "punti": 3
-        },
-        {
-            "nome": "Regina Elisabetta III (ipotetica)",
-            "prezzo": 400,
-            "status": "deceduto",
-            "punti": 3
-        },
-        {
-            "nome": "Morgan Freeman",
-            "prezzo": 200,
-            "status": "vivo",
-            "punti": 0
-        },
-        {
-            "nome": "Elon Musk",
-            "prezzo": 100,
-            "status": "vivo",
-            "punti": 1
-        }
-    ],
     "campionato": [
         {
             "nome_squadra": "I Necrofori F.C.",
             "proprietario": "Marco",
             "partecipanti": [
                 {
-                    "nome": "Clint Eastwood"                },
-                {
-                    "nome": "Papa Francesco"
-                                },
-                {
-                    "nome": "Keith Richards"
+                    "nome": "Clint Eastwood",
+                    "nascita": 1930,
+                    "prezzo": 350,
+                    "status": "vivo",
+                    "punti": 0
                 },
                 {
-                    "nome": "Britney Spears"
+                    "nome": "Papa Francesco",
+                    "nascita": 1936,
+                    "prezzo": 250,
+                    "status": "vivo",
+                    "punti": 0
+                },
+                {
+                    "nome": "Keith Richards",
+                    "nascita": 1943,
+                    "prezzo": 150,
+                    "status": "vivo",
+                    "punti": 0
+                },
+                {
+                    "nome": "Britney Spears",
+                    "nascita": 1981,
+                    "prezzo": 50,
+                    "status": "deceduto",
+                    "punti": 0
                 }
-            ]
+            ],
+            "totPunti": 0
         },
         {
             "nome_squadra": "Real Mortis",
@@ -75,9 +50,14 @@
                     "nome": "Morgan Freeman"
                 },
                 {
-                    "nome": "Elon Musk"
+                    "nome": "Elon Musk",
+                    "nascita": 1971,
+                    "prezzo": 100,
+                    "status": "vivo",
+                    "punti": 1
                 }
-            ]
+            ],
+            "totPunti": 4
         }
     ]
 }
