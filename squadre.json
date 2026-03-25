@@ -74,6 +74,16 @@
                 }
             ],
             "totPunti": 60
+        },
+        {
+            "nome_squadra": "Nuova Squadra",
+            "proprietario": "Proprietario",
+            "partecipanti": [
+                {
+                    "nome": "Papa Francesco"
+                }
+            ],
+            "totPunti": 60
         }
     ]
 }
