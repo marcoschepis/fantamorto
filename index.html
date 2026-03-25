@@ -23,7 +23,7 @@
 
         /* Card e Tabelle */
         .team-card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-        #rank-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        #rank-container { display: grid; grid-template-columns: 1fr; }
         .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .rank-punti { color: #fff; font-weight: bold; font-size: 1.5rem; }
         
@@ -89,8 +89,8 @@
             PATH: 'squadre.json'
         };
         
-        // Hash della password "1234"
-        const SECRET_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
+        // Hash della password
+        const SECRET_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
         let isAuthorized = false;
 
         async function verifyAdmin() {
@@ -201,7 +201,7 @@
                             </div>
 
                             <div style="flex: 0 0 25%; text-align: center;">
-                                <div style="color: #888; font-size: 0.75rem;">Bossetti</div>
+                                <div style="color: #888; font-size: 0.75rem; text-align: center; ">Bossetti</div>
                                 <div style="color: #fff; font-weight: bold;">
                                     ${s.partecipanti.reduce((acc, p) => acc + (getMoritoByName(p.nome)?.prezzo || 0), 0)}
                                     <span style="font-weight: normal; color: #fff; font-size: 0.8em;"> / ${db.config.crediti_iniziali || 330}</span>
@@ -224,12 +224,12 @@
                                 const isDead = morto && morto.status === 'deceduto';
                                 return `
                                     <tr class="${isDead ? 'dead-row' : ''}">
-                                        <td class="col-nome" style="width: 50%; padding: 8px 0; text-align: left;">
+                                        <td class="col-nome" style="width: 50%; text-align: left;">
                                             <span style="margin-right: 5px;">${isDead ? '💀' : '😒'}</span>
                                             <span style="color: #eee;">${p.nome}</span>
                                         </td>
-                                        <td style="width: 25%; text-align: right; font-size: 1rem; color: #aaa; font-family: monospace;">
-                                            ${morto ? morto.prezzo : '?'} <small style="color: #555;">BS</small>
+                                        <td style="width: 25%; text-align: center; font-size: 1rem; color: #aaa; font-family: monospace;">
+                                            ${morto ? morto.prezzo : '?'} <small style="color: #555; text-align: center;">BS</small>
                                         </td>
                                         <td class="col-punti" style="width: 25%; text-align: right; font-weight: bold;">
                                             ${morto && morto.punti > 0 ? '+' + morto.punti : '0'}
