@@ -22,7 +22,7 @@
         .view.active { display: block; }
 
         /* Card e Tabelle */
-        .team-card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
         #rank-container { display: grid; grid-template-columns: 1fr; }
         .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .rank-punti { color: #fff; font-weight: bold; font-size: 1.5rem; }
@@ -61,6 +61,7 @@
         <h1 style="text-align: center;">☠️ Fantamorto Cup 2026</h1>
         <nav id="main-nav">
             <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
+            <button id="btn-teams"  onclick="switchView('teams')">👪 Squadre</button>
             <button id="btn-admin" onclick="switchView('admin')">⚙️ Gestione</button>
         </nav>
     </header>
@@ -69,9 +70,13 @@
         <div id="rank-container"></div>
     </div>
 
+    <div id="view-teams" class="view">
+        <div id="teams-container"></div>
+    </div>
+
     <div id="view-admin" class="view">
         <div id="admin-container"></div>
-        <div class="team-card" style="border: 2px dashed var(--accent);">
+        <div class="card" style="border: 2px dashed var(--accent);">
             <h3>💾 Salva su GitHub</h3>
             <input type="password" id="gh-token" placeholder="GitHub Personal Access Token" style="width: 100%; padding: 8px; margin-bottom: 10px; background: #111; border: 1px solid #444; color: #fff; border-radius: 4px;">
             <button onclick="saveToGitHub()" style="width: 100%; padding: 10px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">📤 Salva JSON</button>
@@ -172,8 +177,10 @@
 
         function render() {
             const rankCont = document.getElementById('rank-container');
+            const teamsCont = document.getElementById('teams-container');
             const adminCont = document.getElementById('admin-container');
             rankCont.innerHTML = '';
+            teamsCont.innerHTML = '';
             adminCont.innerHTML = '';
 
             // Calcoli totali per squadra
@@ -186,12 +193,54 @@
 
             const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
 
+            // --- Vista Classifica ---
+            rankCont.innerHTML += `
+                <div style="display: flex; padding: 0 20px 10px 20px; font-size: 0.75rem; color: #666; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">
+                    <div style="flex: 0 0 40px;">Pos</div>
+                    <div style="flex: 1; text-align: left;">Squadra</div>
+                    <div style="text-align: right;">Punti</div>
+                </div>
+            `;
+            rankCont.innerHTML += sortedTeams.map((s, index) => {
+                const posizione = index + 1;
+                let icona = posizione;
+                if (posizione === 1) icona = '🥇';
+                else if (posizione === 2) icona = '🥈';
+                else if (posizione === 3) icona = '🥉';
+
+                const podioColor = posizione === 1 ? '#FFD700' : // Oro
+                   posizione === 2 ? '#C0C0C0' : // Argento
+                   posizione === 3 ? '#CD7F32' : // Bronzo
+                   '#333';                       // Grigio scuro per gli altri
+
+                return `
+                    <div class="team-card" style="display: flex; align-items: center; padding: 15px; margin-bottom: 12px; border-left: 4px solid ${podioColor};">
+                        <div style="flex: 0 0 40px; font-size: 1.2rem; font-weight: bold; color: ${podioColor};">
+                            ${icona}
+                        </div>
+                        <div style="flex: 1; text-align: left;">
+                            <div style="flex: 1; align-items: center; gap: 5px;">
+                                <div style="font-size: 1.1rem; font-weight: bold; color: #fff; line-height: 1.2;">
+                                    ${s.nome_squadra}
+                                </div>
+                            </div>
+                            <div style="font-size: 0.85rem; color: #888">
+                                ${s.proprietario}
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1;">
+                            ${s.totPunti}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // --- Vista Squadre ---
             sortedTeams.forEach((s) => {
                 const tIdx = db.campionato.indexOf(s);
 
-                // --- VISTA CLASSIFICA ---
-                rankCont.innerHTML += `
-                    <div class="team-card">
+                teamsCont.innerHTML += `
+                    <div class="card">
                         <div class="team-header" style="display: flex; align-items: flex-end; padding-bottom: 15px; margin-bottom: 10px;">
                             <div style="flex: 0 0 50%; text-align: left;">
                                 <div style="display: flex; align-items: center; gap: 5px;">
@@ -246,7 +295,7 @@
             if (isAuthorized) {
                 // Gestione Morituri
                 adminCont.innerHTML += `
-                    <div class="team-card" style="border: 2px solid var(--accent);">
+                    <div class="card" style="border: 2px solid var(--accent);">
                         <h3 style="margin-top: 0; color: var(--accent);">💀 Gestione Morituri</h3>
                         <table class="admin-table">
                             <thead>
@@ -280,7 +329,7 @@
 
                 // Gestione Squadre
                 adminCont.innerHTML += `
-                    <div class="team-card" style="border: 2px solid var(--accent); margin-top: 30px;">
+                    <div class="card" style="border: 2px solid var(--accent); margin-top: 30px;">
                         <h3 style="margin-top: 0; color: var(--accent);">⚽ Gestione Squadre</h3>
                         ${db.campionato.map((s, tIdx) => {
                             const totCrediti = s.partecipanti.reduce((acc, p) => {

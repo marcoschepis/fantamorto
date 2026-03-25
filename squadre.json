@@ -48,6 +48,32 @@
                 }
             ],
             "totPunti": 12
+        },
+        {
+            "nome_squadra": "Morituri Te Salutant",
+            "proprietario": "Giulia",
+            "partecipanti": [
+                {
+                    "nome": "Elon Musk"
+                },
+                {
+                    "nome": "Papa Francesco"
+                }
+            ],
+            "totPunti": 72
+        },
+        {
+            "nome_squadra": "I Morti Viventi",
+            "proprietario": "Alessandro",
+            "partecipanti": [
+                {
+                    "nome": "Sergio Mattarella"
+                },
+                {
+                    "nome": "Papa Francesco"
+                }
+            ],
+            "totPunti": 60
         }
     ]
 }
