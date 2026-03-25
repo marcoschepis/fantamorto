@@ -175,6 +175,23 @@
             render();
         }
 
+        function addSquadra() {
+            db.campionato.push({
+                nome_squadra: "Nuova Squadra",
+                proprietario: "Proprietario",
+                partecipanti: [],
+                totPunti: 0
+            });
+            render();
+        }
+        function removeSquadra(idx) {
+            const nome = db.campionato[idx].nome_squadra;
+            if (confirm(`Sei sicuro di voler eliminare definitivamente la squadra "${nome}"?`)) {
+                db.campionato.splice(idx, 1);
+                render();
+            }
+        }
+
         function render() {
             const rankCont = document.getElementById('rank-container');
             const teamsCont = document.getElementById('teams-container');
@@ -330,7 +347,10 @@
                 // Gestione Squadre
                 adminCont.innerHTML += `
                     <div class="card" style="border: 2px solid var(--accent); margin-top: 30px;">
-                        <h3 style="margin-top: 0; color: var(--accent);">⚽ Gestione Squadre</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 style="margin: 0; color: var(--accent);">⚽ Gestione Squadre</h3>
+                            <button onclick="addSquadra()" style="padding: 8px 15px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
+                        </div>
                         ${db.campionato.map((s, tIdx) => {
                             const totCrediti = s.partecipanti.reduce((acc, p) => {
                                 const morto = getMortoByName(p.nome);
@@ -343,7 +363,10 @@
                                         <input type="text" value="${s.nome_squadra}" onchange="db.campionato[${tIdx}].nome_squadra = this.value; render();" placeholder="Nome Squadra" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                         <input type="text" value="${s.proprietario}" onchange="db.campionato[${tIdx}].proprietario = this.value; render();" placeholder="Proprietario" style="flex: 0.6; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                         <span style="padding: 6px; color: #44ff44; font-weight: bold;">Crediti: ${totCrediti}/${db.config.crediti_iniziali} (Residui: ${residui})</span>
-                                    </div>
+                                        <button onclick="removeSquadra(${tIdx})" 
+                                                style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">🗑️
+                                        </button>
+                                        </div>
                                     <table class="admin-table" style="font-size: 0.85rem;">
                                         <thead>
                                             <tr>
