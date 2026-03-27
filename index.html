@@ -192,6 +192,53 @@
             }
         }
 
+        function aggiungiPartecipante(tIdx) {        
+            const sel = document.getElementById(`moriti-list-${tIdx}`);
+            const nomeSelezionato = sel.value;
+            
+            if (!nomeSelezionato) return;
+
+            const squadra = db.campionato[tIdx];
+            const mortoInfo = getMortoByName(nomeSelezionato);
+            
+            // CONTEGGIO SOLO VIVI: Filtriamo i partecipanti della squadra
+            const viviInSquadra = squadra.partecipanti.filter(p => {
+                    const m = getMortoByName(p.nome);
+                    // Se non trovo lo status o è 'vivo', lo conto come vivo
+                    return !m || m.status === 'vivo'; 
+            }).length;
+
+            // Ricalcolo crediti attuali della squadra
+            const spesaAttuale = squadra.partecipanti.reduce((acc, p) => {
+                const m = getMortoByName(p.nome);
+                return acc + (m ? m.prezzo : 0);
+            }, 0);
+
+            // --- CONTROLLO 1: Limite 13 partecipanti ---
+            if (viviInSquadra >= 4) {
+                alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha già 13 morituri.`);
+                return;
+            }
+
+            // --- CONTROLLO 2: Budget 330 BS ---
+            if (spesaAttuale + mortoInfo.prezzo > (db.config.crediti_iniziali || 330)) {
+                const avanzo = (db.config.crediti_iniziali || 330) - spesaAttuale;
+                alert(`💰 Budget insufficiente!\n${nomeSelezionato} costa ${mortoInfo.prezzo} BS, ma ne hai solo ${avanzo} residui.`);
+                return;
+            }
+
+            // Se i controlli passano, aggiungiamo
+            squadra.partecipanti.push({ nome: nomeSelezionato });
+            render(); // Ridisegna per aggiornare la tabella e i crediti
+        }
+
+        function calculateCreditiSquadra(squadra) {
+            return squadra.partecipanti.reduce((acc, p) => {
+                const morto = getMortoByName(p.nome);
+                return acc + (morto ? morto.prezzo : 0);
+            }, 0);
+        }
+
         function render() {
             const rankCont = document.getElementById('rank-container');
             const teamsCont = document.getElementById('teams-container');
@@ -267,10 +314,9 @@
                             </div>
 
                             <div style="flex: 0 0 25%; text-align: center;">
-                                <div style="color: #888; font-size: 0.75rem; text-align: center; ">Bossetti</div>
+                                <div style="color: #888; font-size: 0.75rem; text-align: center; ">Bossetti rimanenti</div>
                                 <div style="color: #fff; font-weight: bold;">
-                                    ${s.partecipanti.reduce((acc, p) => acc + (getMortoByName(p.nome)?.prezzo || 0), 0)}
-                                    <span style="font-weight: normal; color: #fff; font-size: 0.8em;"> / ${db.config.crediti_iniziali || 330}</span>
+                                    ${(db.config.crediti_iniziali || 330) - calculateCreditiSquadra(s)}
                                 </div>
                             </div>
 
@@ -352,18 +398,15 @@
                             <button onclick="addSquadra()" style="padding: 8px 15px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
                         </div>
                         ${db.campionato.map((s, tIdx) => {
-                            const totCrediti = s.partecipanti.reduce((acc, p) => {
-                                const morto = getMortoByName(p.nome);
-                                return acc + (morto ? morto.prezzo : 0);
-                            }, 0);
+                            const totCrediti = calculateCreditiSquadra(s);
                             const residui = (db.config.crediti_iniziali || 330) - totCrediti;
                             return `
                                 <div style="margin-bottom: 25px; padding: 15px; background: #0a0a0a; border-radius: 8px;">
                                     <div style="display: flex; gap: 10px; margin-bottom: 12px;">
                                         <input type="text" value="${s.nome_squadra}" onchange="db.campionato[${tIdx}].nome_squadra = this.value; render();" placeholder="Nome Squadra" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                         <input type="text" value="${s.proprietario}" onchange="db.campionato[${tIdx}].proprietario = this.value; render();" placeholder="Proprietario" style="flex: 0.6; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
-                                        <span style="padding: 6px; color: #44ff44; font-weight: bold;">Crediti: ${totCrediti}/${db.config.crediti_iniziali} (Residui: ${residui})</span>
-                                        <button onclick="removeSquadra(${tIdx})" 
+                                        <span style="padding: 6px; color: ${residui < 0 ? '#ff4444' : '#44ff44'}; font-weight: bold;">Crediti residui: ${residui}</span>
+                                        <button onclick="removeSquadra(${tIdx})"
                                                 style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">🗑️
                                         </button>
                                         </div>
@@ -393,7 +436,8 @@
                                             <option value="">-- Aggiungi partecipante --</option>
                                             ${db.morituri.filter(m => !s.partecipanti.find(p => p.nome === m.nome)).map(m => `<option value="${m.nome}">${m.nome}</option>`).join('')}
                                         </select>
-                                        <button onclick="const sel = document.getElementById('moriti-list-${tIdx}'); if(sel.value) { db.campionato[${tIdx}].partecipanti.push({nome: sel.value}); render(); }" style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕</button>
+                                        <button onclick="aggiungiPartecipante(${tIdx})" style="padding: 6px 12px; background: ${s.partecipanti.length >= 13 ? '#333' : 'var(--accent)'}; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕
+                                        </button>
                                     </div>
                                 </div>
                             `;
