@@ -4,37 +4,49 @@
     },
     "morituri": [
         {
-            "nome": "Papa Francesco",
-            "prezzo": 1,
-            "status": "morto",
-            "punti": 60
+            "nome": "Ketama126",
+            "prezzo": 20,
+            "status": "vivo",
+            "punti": 0
         },
         {
-            "nome": "Elon Musk",
+            "nome": "Side Baby",
+            "prezzo": 20,
+            "status": "vivo",
+            "punti": 0
+        },
+        {
+            "nome": "Mr. Rain",
             "prezzo": 10,
             "status": "vivo",
-            "punti": 12
+            "punti": 0
         },
         {
-            "nome": "Sergio Mattarella",
-            "prezzo": 3,
+            "nome": "Andrea Bocelli",
+            "prezzo": 35,
             "status": "vivo",
             "punti": 0
         }
     ],
     "campionato": [
         {
-            "nome_squadra": "I Necrofori F.C.",
+            "nome_squadra": "Hellas Verano",
             "proprietario": "Marco",
             "partecipanti": [
                 {
-                    "nome": "Papa Francesco"
+                    "nome": "Ketama126"
                 },
                 {
-                    "nome": "Sergio Mattarella"
+                    "nome": "Side Baby"
+                },
+                {
+                    "nome": "Mr. Rain"
+                },
+                {
+                    "nome": "Andrea Bocelli"
                 }
             ],
-            "totPunti": 60
+            "totPunti": 0
         },
         {
             "nome_squadra": "Real Mortis",
@@ -47,33 +59,19 @@
                     "nome": "Sergio Mattarella"
                 }
             ],
-            "totPunti": 12
+            "totPunti": 0
         },
         {
             "nome_squadra": "Morituri Te Salutant",
             "proprietario": "Giulia",
-            "partecipanti": [
-                {
-                    "nome": "Elon Musk"
-                },
-                {
-                    "nome": "Papa Francesco"
-                }
-            ],
-            "totPunti": 72
+            "partecipanti": [],
+            "totPunti": 0
         },
         {
             "nome_squadra": "I Morti Viventi",
             "proprietario": "Alessandro",
-            "partecipanti": [
-                {
-                    "nome": "Sergio Mattarella"
-                },
-                {
-                    "nome": "Papa Francesco"
-                }
-            ],
-            "totPunti": 60
+            "partecipanti": [],
+            "totPunti": 0
         }
     ]
 }
