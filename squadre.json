@@ -7,25 +7,29 @@
             "nome": "Ketama126",
             "prezzo": 20,
             "status": "vivo",
-            "punti": 0
+            "punti": 0,
+            "rimborso": 0
         },
         {
             "nome": "Side Baby",
             "prezzo": 20,
             "status": "vivo",
-            "punti": 0
+            "punti": 0,
+            "rimborso": 0
         },
         {
             "nome": "Mr. Rain",
             "prezzo": 10,
             "status": "vivo",
-            "punti": 0
+            "punti": 0,
+            "rimborso": 0
         },
         {
             "nome": "Andrea Bocelli",
             "prezzo": 35,
             "status": "vivo",
-            "punti": 0
+            "punti": 0,
+            "rimborso": 0
         }
     ],
     "campionato": [
@@ -51,14 +55,7 @@
         {
             "nome_squadra": "Real Mortis",
             "proprietario": "Luca",
-            "partecipanti": [
-                {
-                    "nome": "Elon Musk"
-                },
-                {
-                    "nome": "Sergio Mattarella"
-                }
-            ],
+            "partecipanti": [],
             "totPunti": 0
         },
         {
