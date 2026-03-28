@@ -30,6 +30,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Aaron Martin",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -55,7 +62,11 @@
     {
       "nome_squadra": "Real Mortis",
       "proprietario": "Luca",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Aaron Martin"
+        }
+      ],
       "totPunti": 0
     },
     {
