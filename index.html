@@ -602,7 +602,7 @@
 
             // Popola la select se vuota (una sola volta)
             if (userSelect && userSelect.options.length <= 1) {
-                userSelect.innerHTML = '<option value="">-- Seleziona la tua Squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
+                userSelect.innerHTML = '<option value="">-- Seleziona la tua squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
             }
 
             if (userIdx !== "" && mercatoEditor) {
