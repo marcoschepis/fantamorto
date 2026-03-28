@@ -122,6 +122,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Buddy Valastro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -186,6 +193,9 @@
         },
         {
           "nome": "Avril Lavigne"
+        },
+        {
+          "nome": "Buddy Valastro"
         }
       ],
       "totPunti": 0
