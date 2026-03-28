@@ -559,7 +559,7 @@
                                 `).join('')}
                             </tbody>
                         </table>
-                        <div style="margin-top: 15px; padding: 12px; background: #0a0a0a; border-radius: 8px; display: flex; gap: 8px;">
+                        <div style="margin-top: 15px; padding: 12px; background: #0a0a0a; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
                             <input type="text" id="new-morto-nome" list="lista-suggerimenti" placeholder="Cerca nome..." oninput="aggiornaPrezzoAutomatico(this.value, 'new-morto-prezzo')" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase();">
                             <datalist id="lista-suggerimenti"></datalist>
                             <input type="number" id="new-morto-prezzo" placeholder="BS" value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
@@ -580,7 +580,7 @@
                             const residui = calculateCreditiResidui(s);
                             return `
                                 <div style="margin-bottom: 25px; padding: 15px; background: #0a0a0a; border-radius: 8px;">
-                                    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
                                         <input type="text" value="${s.nome_squadra}" onchange="db.campionato[${tIdx}].nome_squadra = this.value; render();" placeholder="Nome Squadra" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                         <input type="text" value="${s.proprietario}" onchange="db.campionato[${tIdx}].proprietario = this.value; render();" placeholder="Proprietario" style="flex: 0.6; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                         <span style="padding: 6px; color: ${residui < 0 ? '#ff4444' : '#44ff44'}; font-weight: bold;">Crediti residui: ${residui}</span>
@@ -682,7 +682,7 @@
                             </tbody>
                         </table>
                         
-                        <div style="display:flex; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
+                        <div style="display:flex; flex-wrap: wrap; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
                             <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
                                 oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
                                 style="flex:1;">
