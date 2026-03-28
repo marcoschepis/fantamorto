@@ -80,7 +80,6 @@
         <div class="card" style="border-top: 4px solid #44aaff;">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; margin-bottom: 20px;">
                 <select id="user-team-select" onchange="render()" style="margin: 0; min-width: 0;"><option value="">-- Seleziona Squadra --</option></select>
-                <div id="mercato-nome-display" style="flex: 1; text-align: left; white-space: nowrap;"></div>
                 <div id="mercato-budget-display" style="flex-shrink: 0; text-align: right; white-space: nowrap;"></div>
             </div>
             <div id="mercato-editor"></div>
@@ -598,13 +597,12 @@
             // Gestione Squadra
             const userIdx = document.getElementById('user-team-select').value;
             const mercatoEditor = document.getElementById('mercato-editor');
-            const nomeDisplay = document.getElementById('mercato-nome-display');
             const budgetDisplay = document.getElementById('mercato-budget-display');
             const userSelect = document.getElementById('user-team-select');
 
             // Popola la select se vuota (una sola volta)
             if (userSelect && userSelect.options.length <= 1) {
-                userSelect.innerHTML = '<option value="">-- Seleziona la tua Squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra}</option>`).join('');
+                userSelect.innerHTML = '<option value="">-- Seleziona la tua Squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
             }
 
             if (userIdx !== "" && mercatoEditor) {
@@ -613,7 +611,6 @@
 
                 // 1. Aggiorna il nome e il budget accanto alla select
                 budgetDisplay.innerHTML = `<strong>Crediti: <span style="color:${res<0?'#ff4444':'#44ff44'}">${res} BS</span></strong>`;
-                nomeDisplay.innerHTML = `<strong>${s.proprietario}</strong>`;
 
                 // 2. Renderizza la tabella dei partecipanti
                 mercatoEditor.innerHTML = `
