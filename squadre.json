@@ -1,7 +1,7 @@
 {
   "config": {
     "crediti_iniziali": 330,
-    "mostra_mercato": false
+    "mostra_mercato": true
   },
   "morituri": [
     {
