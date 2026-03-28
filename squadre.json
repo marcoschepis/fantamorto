@@ -30,6 +30,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "2 Chainz",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -61,7 +68,11 @@
     {
       "nome_squadra": "Morituri Te Salutant",
       "proprietario": "Giulia",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "2 Chainz"
+        }
+      ],
       "totPunti": 0
     },
     {
