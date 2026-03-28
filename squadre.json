@@ -31,24 +31,34 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Abd al-Aziz bin Turki bin Faysal Al Saud,
+      prezzo: 10,
+      status: vivo,
+      punti: 0,
+      rimborso: 0
     }
   ],
-  "campionato": [
+  campionato: [
     {
-      "nome_squadra": "Hellas Verano",
-      "proprietario": "Marco",
-      "partecipanti": [
+      nome_squadra: Hellas Verano,
+      proprietario: Marco,
+      partecipanti: [
         {
-          "nome": "Ketama126"
+          nome: Ketama126
         },
         {
-          "nome": "Side Baby"
+          nome: Side Baby
         },
         {
-          "nome": "Mr. Rain"
+          nome: Mr. Rain
         },
         {
-          "nome": "Andrea Bocelli"
+          nome: Andrea Bocelli
+        },
+        {
+          nome: Abd al-Aziz bin Turki bin Faysal Al Saud"
         }
       ],
       "totPunti": 0
