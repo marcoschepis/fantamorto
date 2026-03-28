@@ -115,6 +115,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Marcelino Abad Tolentino",
+      "prezzo": 65,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -148,6 +155,9 @@
         },
         {
           "nome": "Sophia Loren"
+        },
+        {
+          "nome": "Marcelino Abad Tolentino"
         }
       ],
       "totPunti": 0
