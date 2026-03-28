@@ -38,6 +38,34 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Ali al-Sistani",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mario Borghezio",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Ahmad Jannati",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sophia Loren",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -59,6 +87,18 @@
         },
         {
           "nome": "Marcello Colafigli"
+        },
+        {
+          "nome": "Ali al-Sistani"
+        },
+        {
+          "nome": "Mario Borghezio"
+        },
+        {
+          "nome": "Ahmad Jannati"
+        },
+        {
+          "nome": "Sophia Loren"
         }
       ],
       "totPunti": 0
