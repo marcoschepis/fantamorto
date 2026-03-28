@@ -1,0 +1,20 @@
+name: Save Team Data
+on:
+  repository_dispatch:
+    types: [update_json]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update JSON File
+        run: |
+          echo '${{ github.event.client_payload.db }}' > squadre.json
+          git config user.name "Fantamorto Bot"
+          git config user.email "actions@github.com"
+          git add squadre.json
+          git commit -m "Update: ${{ github.event.client_payload.autore }}"
+          git push
