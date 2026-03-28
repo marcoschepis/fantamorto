@@ -164,6 +164,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Edoardo Bove",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -227,9 +234,6 @@
           "nome": "Lele Mora"
         },
         {
-          "nome": "Avril Lavigne"
-        },
-        {
           "nome": "Buddy Valastro"
         },
         {
@@ -243,6 +247,9 @@
         },
         {
           "nome": "John Irving"
+        },
+        {
+          "nome": "Edoardo Bove"
         }
       ],
       "totPunti": 0
