@@ -496,6 +496,23 @@
 
             // --- SEZIONE GESTIONE ADMIN ---
             if (isAuthorized) {
+                // Configurazione Visibilità
+                adminCont.innerHTML += `
+                    <div class="card" style="border: 2px solid #44aaff;">
+                        <h3 style="margin-top: 0; color: #44aaff;">🌐 Configurazione Visibilità</h3>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" id="check-visibilita-mercato" 
+                                ${db.config.mostra_mercato !== false ? 'checked' : ''} 
+                                onchange="db.config.mostra_mercato = this.checked; render();"
+                                style="width: 20px; height: 20px;">
+                            <span style="font-size: 1.1rem; font-weight: bold;">Abilita Tab "Gestione Squadra" per gli utenti</span>
+                        </label>
+                        <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">
+                            Se disattivato, il tasto ⚙️ sparirà dal menu per tutti i visitatori.
+                        </p>
+                    </div>
+                `;
+
                 // Gestione Morituri
                 adminCont.innerHTML += `
                     <div class="card" style="border: 2px solid var(--accent);">
@@ -596,58 +613,81 @@
 
 
             // Gestione Squadra
+            const btnMercato = document.getElementById('btn-mercato');
             const userIdx = document.getElementById('user-team-select').value;
             const mercatoEditor = document.getElementById('mercato-editor');
             const budgetDisplay = document.getElementById('mercato-budget-display');
             const userSelect = document.getElementById('user-team-select');
+            const headerMercato = document.querySelector('#view-mercato .card > div:first-child');
+            const saveBtnMercato = document.querySelector('#view-mercato button[onclick*="saveToGitHub"]');
 
-            // Popola la select se vuota (una sola volta)
-            if (userSelect && userSelect.options.length <= 1) {
-                userSelect.innerHTML = '<option value="">-- Seleziona la tua squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
-            }
+            if (db.config.mostra_mercato) {
+                btnMercato.innerHTML = "⚙️ Gestione Squadra";
 
-            if (userIdx !== "" && mercatoEditor) {
-                const s = db.campionato[userIdx];
-                const res = calculateCreditiResidui(s);
+                if (headerMercato) headerMercato.style.display = 'flex';
+                if (saveBtnMercato) saveBtnMercato.style.display = 'inline-block';
 
-                // 1. Aggiorna il nome e il budget accanto alla select
-                budgetDisplay.innerHTML = `<strong>Crediti: <span style="color:${res<0?'#ff4444':'#44ff44'}">${res} BS</span></strong>`;
+                // Popola la select se vuota (una sola volta)
+                if (userSelect && userSelect.options.length <= 1) {
+                    userSelect.innerHTML = '<option value="">-- Seleziona la tua squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
+                }
 
-                // 2. Renderizza la tabella dei partecipanti
-                mercatoEditor.innerHTML = `
-                    <table>
-                        <thead>
-                            <tr><th>Nome</th><th style="text-align:center;">Bossetti</th><th style="text-align:right;">Azione</th></tr>
-                        </thead>
-                        <tbody>
-                            ${s.partecipanti.map((p, i) => {
-                                const m = getMortoByName(p.nome);
-                                return `
-                                <tr>
-                                    <td>${p.nome}</td>
-                                    <td style="text-align:center;">${m ? m.prezzo : 0} BS</td>
-                                    <td style="text-align:right;">
-                                        <button class="btn-del" 
-                                        style="height: 32px; width: 48px; padding: 0; display: inline-flex; align-items: center; justify-content: center; line-height: 1;"
-                                        onclick="db.campionato[${userIdx}].partecipanti.splice(${i},1);render();">❌</button>
-                                    </td>
-                                </tr>`;
-                            }).join('')}
-                        </tbody>
-                    </table>
-                    
-                    <div style="display:flex; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
-                        <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
-                            oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
-                            style="flex:1;">
-                        <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
-                        <button class="btn-add" onclick="aggiungiASquadraMercato(${userIdx})" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
-                    </div>
-                `;
+                if (userIdx !== "" && mercatoEditor) {
+                    const s = db.campionato[userIdx];
+                    const res = calculateCreditiResidui(s);
+
+                    // 1. Aggiorna il nome e il budget accanto alla select
+                    budgetDisplay.innerHTML = `<strong>Crediti: <span style="color:${res<0?'#ff4444':'#44ff44'}">${res} BS</span></strong>`;
+
+                    // 2. Renderizza la tabella dei partecipanti
+                    mercatoEditor.innerHTML = `
+                        <table>
+                            <thead>
+                                <tr><th>Nome</th><th style="text-align:center;">Bossetti</th><th style="text-align:right;">Azione</th></tr>
+                            </thead>
+                            <tbody>
+                                ${s.partecipanti.map((p, i) => {
+                                    const m = getMortoByName(p.nome);
+                                    return `
+                                    <tr>
+                                        <td>${p.nome}</td>
+                                        <td style="text-align:center;">${m ? m.prezzo : 0} BS</td>
+                                        <td style="text-align:right;">
+                                            <button class="btn-del" 
+                                            style="height: 32px; width: 48px; padding: 0; display: inline-flex; align-items: center; justify-content: center; line-height: 1;"
+                                            onclick="db.campionato[${userIdx}].partecipanti.splice(${i},1);render();">❌</button>
+                                        </td>
+                                    </tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                        
+                        <div style="display:flex; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
+                            <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
+                                oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
+                                style="flex:1;">
+                            <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <button class="btn-add" onclick="aggiungiASquadraMercato(${userIdx})" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
+                        </div>
+                    `;
+                } else {
+                    // Pulisce se non è selezionato nulla
+                    if(budgetDisplay) budgetDisplay.innerHTML = "";
+                    if(mercatoEditor) mercatoEditor.innerHTML = '<p style="text-align:center; color:#666;">Seleziona la tua squadra per iniziare.</p>';
+                }
             } else {
-                // Pulisce se non è selezionato nulla
-                if(budgetDisplay) budgetDisplay.innerHTML = "";
-                if(mercatoEditor) mercatoEditor.innerHTML = '<p style="text-align:center; color:#666;">Seleziona la tua squadra per iniziare.</p>';
+                btnMercato.innerHTML = "🔒 Mercato Chiuso";
+                if (headerMercato) headerMercato.style.display = 'none';
+                if (saveBtnMercato) saveBtnMercato.style.display = 'none';
+                
+                if (mercatoEditor) {
+                    mercatoEditor.innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px; color: #555;">
+                            <h2 style="color: #444; letter-spacing: 2px;">Non è possibile effettuare modifiche</h2>
+                            <p>Il mercato di riparazione riaprirà dal 1° al 15 Agosto 2026 e dal 1° al 15 Dicembre 2026.</p>
+                        </div>
+                    `;
+                }
             }
         }
 
