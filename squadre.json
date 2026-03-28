@@ -171,6 +171,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Takeshi Kitano",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -250,6 +257,9 @@
         },
         {
           "nome": "Edoardo Bove"
+        },
+        {
+          "nome": "Takeshi Kitano"
         }
       ],
       "totPunti": 0
