@@ -31,13 +31,6 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
-    },
-    {
-      "nome": "Al Bano",
-      "prezzo": 70,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
     }
   ],
   "campionato": [
@@ -56,9 +49,6 @@
         },
         {
           "nome": "Andrea Bocelli"
-        },
-        {
-          "nome": "Al Bano"
         }
       ],
       "totPunti": 0
