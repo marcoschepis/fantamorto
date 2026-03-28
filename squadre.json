@@ -157,6 +157,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "John Irving",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -233,6 +240,9 @@
         },
         {
           "nome": "Dario Argento"
+        },
+        {
+          "nome": "John Irving"
         }
       ],
       "totPunti": 0
