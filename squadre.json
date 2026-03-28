@@ -66,6 +66,55 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Isabel Allende",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Margaret Atwood",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Tadej Pogačar",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bella Thorne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mina (cantante)",
+      "prezzo": 75,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Lele Mora",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Avril Lavigne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -106,7 +155,29 @@
     {
       "nome_squadra": "(re)al creatore",
       "proprietario": "Emma",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Isabel Allende"
+        },
+        {
+          "nome": "Margaret Atwood"
+        },
+        {
+          "nome": "Tadej Pogačar"
+        },
+        {
+          "nome": "Bella Thorne"
+        },
+        {
+          "nome": "Mina (cantante)"
+        },
+        {
+          "nome": "Lele Mora"
+        },
+        {
+          "nome": "Avril Lavigne"
+        }
+      ],
       "totPunti": 0
     },
     {
