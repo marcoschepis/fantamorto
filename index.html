@@ -342,8 +342,12 @@
             }
 
             // --- CONTROLLO 2: Limite 13 partecipanti ---
-            if (squadra.partecipanti.length >= 13) {
-                alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha già 13 morituri.`);
+            const conteggioMorti = squadra.partecipanti.filter(p => {
+                const m = getMortoByName(p.nome);
+                return m && m.status === 'morto';
+            }).length;
+            if (squadra.partecipanti.length >= 13 + conteggioMorti) {
+                alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha raggiunto il limite di morituri.`);
                 return;
             }
 
