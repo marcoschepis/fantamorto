@@ -69,11 +69,7 @@
     {
       "nome_squadra": "Real Mortis",
       "proprietario": "Luca",
-      "partecipanti": [
-        {
-          "nome": "Aaron Martin"
-        }
-      ],
+      "partecipanti": [],
       "totPunti": 0
     },
     {
