@@ -30,27 +30,6 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
-    },
-    {
-      "nome": "Aaron Martin",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Aaron Fotheringham",
-      "prezzo": 15,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Aaron Rodgers",
-      "prezzo": 15,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
     }
   ],
   "campionato": [
@@ -71,28 +50,6 @@
           "nome": "Andrea Bocelli"
         }
       ],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "Real Mortis",
-      "proprietario": "Luca",
-      "partecipanti": [],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "Morituri Te Salutant",
-      "proprietario": "Giulia",
-      "partecipanti": [
-        {
-          "nome": "Aaron Rodgers"
-        }
-      ],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "I Morti Viventi",
-      "proprietario": "Alessandro",
-      "partecipanti": [],
       "totPunti": 0
     }
   ]
