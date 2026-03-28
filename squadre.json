@@ -31,6 +31,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Marcello Colafigli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -49,8 +56,17 @@
         },
         {
           "nome": "Andrea Bocelli"
+        },
+        {
+          "nome": "Marcello Colafigli"
         }
       ],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "(re)al creatore",
+      "proprietario": "Emma",
+      "partecipanti": [],
       "totPunti": 0
     }
   ]
