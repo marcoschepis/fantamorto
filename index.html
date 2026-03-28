@@ -255,46 +255,6 @@
             }
         }
 
-        function aggiungiPartecipante(tIdx) {        
-            const sel = document.getElementById(`moriti-list-${tIdx}`);
-            const nomeSelezionato = sel.value;
-            
-            if (!nomeSelezionato) return;
-
-            const squadra = db.campionato[tIdx];
-            const mortoInfo = getMortoByName(nomeSelezionato);
-            
-            // CONTEGGIO SOLO VIVI: Filtriamo i partecipanti della squadra
-            const viviInSquadra = squadra.partecipanti.filter(p => {
-                    const m = getMortoByName(p.nome);
-                    // Se non trovo lo status o è 'vivo', lo conto come vivo
-                    return !m || m.status === 'vivo'; 
-            }).length;
-
-            // Ricalcolo crediti attuali della squadra
-            const spesaAttuale = squadra.partecipanti.reduce((acc, p) => {
-                const m = getMortoByName(p.nome);
-                return acc + (m ? m.prezzo : 0);
-            }, 0);
-
-            // --- CONTROLLO 1: Limite 13 partecipanti ---
-            if (viviInSquadra >= 4) {
-                alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha già 13 morituri.`);
-                return;
-            }
-
-            // --- CONTROLLO 2: Budget 330 BS ---
-            if (spesaAttuale + mortoInfo.prezzo > (db.config.crediti_iniziali || 330)) {
-                const avanzo = (db.config.crediti_iniziali || 330) - spesaAttuale;
-                alert(`💰 Budget insufficiente!\n${nomeSelezionato} costa ${mortoInfo.prezzo} BS, ma ne hai solo ${avanzo} residui.`);
-                return;
-            }
-
-            // Se i controlli passano, aggiungiamo
-            squadra.partecipanti.push({ nome: nomeSelezionato });
-            render(); // Ridisegna per aggiornare la tabella e i crediti
-        }
-
         function calculateCreditiSquadra(squadra) {
             return squadra.partecipanti.reduce((acc, p) => {
                 const morto = getMortoByName(p.nome);
@@ -357,14 +317,62 @@
             }
         }
 
-        function aggiungiASquadraMercato(tIdx) {
-            const nome = document.getElementById('user-add-nome').value.trim();
-            const info = catalogoMorituri.find(m => m.nome.toLowerCase() === nome.toLowerCase());
-            if (!info || db.campionato[tIdx].partecipanti.length >= 13 || info.prezzo > calculateCreditiResidui(db.campionato[tIdx])) {
-                alert("Errore: Listino, Budget o Limite 13 raggiunto!"); return;
+        function aggiungiADb(tIdx, fonteInputId) {
+            const inputElement = document.getElementById(fonteInputId);
+            const nomeSelezionato = inputElement.value.trim();
+            
+            if (!nomeSelezionato || nomeSelezionato.startsWith("--")) {
+                alert("Seleziona o inserisci un nome valido.");
+                return;
             }
-            if (!getMortoByName(info.nome)) db.morituri.push({...info, status:'vivo', punti:0, rimborso:0});
-            db.campionato[tIdx].partecipanti.push({nome: info.nome});
+
+            const squadra = db.campionato[tIdx];
+            // Cerchiamo le info nel catalogo generale (morituri.json)
+            const infoMorituro = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeSelezionato.toLowerCase());
+
+            if (!infoMorituro) {
+                alert("Errore: Il personaggio non è presente nel listino ufficiale.");
+                return;
+            }
+
+            // --- CONTROLLO 1: Già in squadra ---
+            if (squadra.partecipanti.find(p => p.nome.toLowerCase() === infoMorituro.nome.toLowerCase())) {
+                alert(`⚠️ ${infoMorituro.nome} è già presente in questa squadra.`);
+                return;
+            }
+
+            // --- CONTROLLO 2: Limite 13 partecipanti ---
+            if (squadra.partecipanti.length >= 13) {
+                alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha già 13 morituri.`);
+                return;
+            }
+
+            // --- CONTROLLO 3: Budget ---
+            const costo = infoMorituro.prezzo;
+            const residui = calculateCreditiResidui(squadra);
+            if (costo > residui) {
+                alert(`💰 Budget insufficiente!\n${infoMorituro.nome} costa ${costo} BS, ma ne hai solo ${residui} residui.`);
+                return;
+            }
+
+            // --- ESECUZIONE ---
+            // 1. Se il morto non esiste ancora nel DB globale dei punteggi, lo aggiungiamo come 'vivo'
+            if (!getMortoByName(infoMorituro.nome)) {
+                db.morituri.push({
+                    nome: infoMorituro.nome,
+                    prezzo: infoMorituro.prezzo,
+                    status: 'vivo',
+                    punti: 0,
+                    rimborso: 0
+                });
+            }
+
+            // 2. Aggiungiamo il partecipante alla squadra
+            squadra.partecipanti.push({ nome: infoMorituro.nome });
+            
+            // Reset input (se è un text input)
+            if (inputElement.tagName === "INPUT") inputElement.value = "";
+            
             render();
         }
 
@@ -593,7 +601,7 @@
                                             <option value="">-- Aggiungi partecipante --</option>
                                             ${db.morituri.filter(m => !s.partecipanti.find(p => p.nome === m.nome)).map(m => `<option value="${m.nome}">${m.nome}</option>`).join('')}
                                         </select>
-                                        <button onclick="aggiungiPartecipante(${tIdx})" style="padding: 6px 12px; background: ${s.partecipanti.length >= 13 ? '#333' : 'var(--accent)'}; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕
+                                        <button onclick="aggiungiADb(${tIdx}, 'moriti-list-${tIdx}')" style="padding: 6px 12px; background: ${s.partecipanti.length >= 13 ? '#333' : 'var(--accent)'}; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕
                                         </button>
                                     </div>
                                 </div>
@@ -664,7 +672,7 @@
                                 oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
                                 style="flex:1;">
                             <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
-                            <button class="btn-add" onclick="aggiungiASquadraMercato(${userIdx})" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
+                            <button class="btn-add" onclick="aggiungiADb(${userIdx}, 'user-add-nome')" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
                         </div>
                     `;
                 } else {
