@@ -75,11 +75,7 @@
     {
       "nome_squadra": "Morituri Te Salutant",
       "proprietario": "Giulia",
-      "partecipanti": [
-        {
-          "nome": "Aaron Fotheringham"
-        }
-      ],
+      "partecipanti": [],
       "totPunti": 0
     },
     {
