@@ -32,8 +32,8 @@
       "rimborso": 0
     },
     {
-      "nome": "Al Bano",
-      "prezzo": 70,
+      "nome": "Aaron Martin",
+      "prezzo": 10,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
@@ -62,17 +62,17 @@
     {
       "nome_squadra": "Real Mortis",
       "proprietario": "Luca",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Aaron Martin"
+        }
+      ],
       "totPunti": 0
     },
     {
       "nome_squadra": "Morituri Te Salutant",
       "proprietario": "Giulia",
-      "partecipanti": [
-        {
-          "nome": "Al Bano"
-        }
-      ],
+      "partecipanti": [],
       "totPunti": 0
     },
     {
