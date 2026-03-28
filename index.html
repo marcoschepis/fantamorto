@@ -80,6 +80,7 @@
         <div class="card" style="border-top: 4px solid #44aaff;">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; margin-bottom: 20px;">
                 <select id="user-team-select" onchange="render()" style="margin: 0; min-width: 0;"><option value="">-- Seleziona Squadra --</option></select>
+                <div id="mercato-nome-display" style="flex: 1; text-align: left; white-space: nowrap;"></div>
                 <div id="mercato-budget-display" style="flex-shrink: 0; text-align: right; white-space: nowrap;"></div>
             </div>
             <div id="mercato-editor"></div>
@@ -597,6 +598,7 @@
             // Gestione Squadra
             const userIdx = document.getElementById('user-team-select').value;
             const mercatoEditor = document.getElementById('mercato-editor');
+            const nomeDisplay = document.getElementById('mercato-nome-display');
             const budgetDisplay = document.getElementById('mercato-budget-display');
             const userSelect = document.getElementById('user-team-select');
 
@@ -609,14 +611,15 @@
                 const s = db.campionato[userIdx];
                 const res = calculateCreditiResidui(s);
 
-                // 1. Aggiorna il Budget accanto alla select
+                // 1. Aggiorna il nome e il budget accanto alla select
                 budgetDisplay.innerHTML = `<strong>Crediti: <span style="color:${res<0?'#ff4444':'#44ff44'}">${res} BS</span></strong>`;
+                nomeDisplay.innerHTML = `<strong>${s.proprietario}</strong>`;
 
                 // 2. Renderizza la tabella dei partecipanti
                 mercatoEditor.innerHTML = `
                     <table>
                         <thead>
-                            <tr><th>Nome</th><th style="text-align:center;">Costo</th><th style="text-align:right;">Azione</th></tr>
+                            <tr><th>Nome</th><th style="text-align:center;">Bossetti</th><th style="text-align:right;">Azione</th></tr>
                         </thead>
                         <tbody>
                             ${s.partecipanti.map((p, i) => {
@@ -688,6 +691,14 @@
 
             if (response.ok) {
                 btn.innerText = "🚀 Richiesta inviata! Il sito si aggiornerà tra circa 30 secondi.";
+                btn.style.backgroundColor = "#28a745"; // Opzionale: diventa verde
+                
+                // Dopo 5 secondi lo facciamo tornare normale se vuoi
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.style.backgroundColor = ""; 
+                }, 5000);
             } else {
                 const err = await response.json();
                 if (response.status === 401 || response.status === 403) {
@@ -700,9 +711,6 @@
             }
         } catch (e) {
             alert("❌ Errore di connessione.");
-        } finally {
-            btn.innerText = originalText;
-            btn.disabled = false;
         }
     }
 
