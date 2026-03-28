@@ -37,6 +37,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Aaron Fotheringham",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -72,7 +79,11 @@
     {
       "nome_squadra": "Morituri Te Salutant",
       "proprietario": "Giulia",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Aaron Fotheringham"
+        }
+      ],
       "totPunti": 0
     },
     {
