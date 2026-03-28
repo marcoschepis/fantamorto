@@ -339,8 +339,8 @@
             return (db.config.crediti_iniziali || 330) - spesa;
         }
 
-        function aggiornaPrezzoAutomatico(nomeInserito) {
-            const prezzoInput = document.getElementById('new-morto-prezzo');
+        function aggiornaPrezzoAutomatico(nomeInserito, inputElement) {
+            const prezzoInput = document.getElementById(inputElement);
             
             // Cerchiamo nel catalogo se il nome inserito corrisponde esattamente a uno esistente
             const trovato = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeInserito.toLowerCase());
@@ -348,10 +348,10 @@
             if (trovato) {
                 // Se lo trova, aggiorna la casella del prezzo con il valore ufficiale
                 prezzoInput.value = trovato.prezzo;
-                // Opzionale: diamo un feedback visivo (es. bordo verde)
                 prezzoInput.style.borderColor = "#44ff44";
             } else {
-                // Se non lo trova (sta ancora scrivendo o è un nome nuovo), resetta o lascia decidere all'utente
+                // Se non lo trova (sta ancora scrivendo o è un nome nuovo), resetta
+                prezzoInput.value = '?';
                 prezzoInput.style.borderColor = "#444";
             }
         }
@@ -524,9 +524,9 @@
                             </tbody>
                         </table>
                         <div style="margin-top: 15px; padding: 12px; background: #0a0a0a; border-radius: 8px; display: flex; gap: 8px;">
-                            <input type="text" id="new-morto-nome" list="lista-suggerimenti" placeholder="Cerca nome..." oninput="aggiornaPrezzoAutomatico(this.value)" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase();">
+                            <input type="text" id="new-morto-nome" list="lista-suggerimenti" placeholder="Cerca nome..." oninput="aggiornaPrezzoAutomatico(this.value, 'new-morto-prezzo')" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase();">
                             <datalist id="lista-suggerimenti"></datalist>
-                            <input type="number" id="new-morto-prezzo" placeholder="Prezzo (€)" value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <input type="number" id="new-morto-prezzo" placeholder="BS" value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                             <button onclick="addMorto()" style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Aggiungi</button>
                         </div>
                     </div>
@@ -594,7 +594,7 @@
             }
 
 
-            // Gestione Tab Mercato
+            // Gestione Squadra
             const userIdx = document.getElementById('user-team-select').value;
             const mercatoEditor = document.getElementById('mercato-editor');
             const budgetDisplay = document.getElementById('mercato-budget-display');
@@ -637,9 +637,9 @@
                     
                     <div style="display:flex; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
                         <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
-                            oninput="const m=catalogoMorituri.find(x=>x.nome.toLowerCase()===this.value.toLowerCase()); document.getElementById('user-add-prezzo').value=m?m.prezzo:''"
+                            oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
                             style="flex:1;">
-                        <input type="number" id="user-add-prezzo" placeholder="BS" readonly style="width:80px; text-align:center; background:#222;">
+                        <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                         <button class="btn-add" onclick="aggiungiASquadraMercato(${userIdx})" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
                     </div>
                 `;
@@ -650,50 +650,61 @@
             }
         }
 
-        async function saveToGitHub(autore = "null") {
-            const tokenInserito = "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";
-
-            if (!tokenInserito) {
-                alert("Inserisci il token per salvare!");
-                return;
-            }
-
-            const resDiv = document.getElementById('query-result'); // Assicurati di avere un div per i messaggi
-            if(resDiv) resDiv.innerText = "Sincronizzazione in corso...";
-
-            try {
-                const url = `https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`;
-                
-                // 1. Recuperiamo lo SHA del file attuale (necessario per sovrascrivere)
-                const fileRes = await fetch(url + '?' + Date.now());
-                const fileData = await fileRes.json();
-                
-                // 2. Inviamo il nuovo JSON
-                const response = await fetch(url, {
-                    method: 'PUT',
-                    headers: { 
-                        'Authorization': `token ${tokenInserito}`, 
-                        'Content-Type': 'application/json' 
-                    },
-                    body: JSON.stringify({
-                        message: "Update - " + autore,
-                        content: btoa(unescape(encodeURIComponent(JSON.stringify(db, null, 2)))),
-                        sha: fileData.sha
-                    })
-                });
-
-                if (response.ok) {
-                    alert("✅ Squadra salvata correttamente sul sito!");
-                    if(resDiv) resDiv.innerText = "Dati aggiornati!";
-                } else {
-                    const errorData = await response.json();
-                    alert("❌ Errore: " + errorData.message);
-                }
-            } catch (e) {
-                console.error(e);
-                alert("❌ Errore di connessione o Token non valido.");
-            }
+        async function saveToGitHub(autorId = "utente") {
+        // Chiediamo il codice segreto agli amici (il tuo Token)
+        // Lo metteranno una volta sola, poi il browser lo ricorda
+        const sel = document.getElementById('user-team-select');
+        autore = sel.options[sel.selectedIndex].text || 'utente';
+        
+        let token = localStorage.getItem('fantamorto_access_token');
+        
+        if (!token) {
+            token = prompt("🔑 Inserisci il codice segreto per autorizzare il salvataggio:");
+            if (token) localStorage.setItem('fantamorto_access_token', token);
+            else return;
         }
+
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = "⏳ Invio in corso...";
+        btn.disabled = true;
+
+        try {
+            const response = await fetch(`https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/dispatches`, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Accept": "application/vnd.github.v3+json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    event_type: "update_json",
+                    client_payload: {
+                        autore: autore,
+                        db: JSON.stringify(db, null, 2)
+                    }
+                })
+            });
+
+            if (response.ok) {
+                btn.innerText = "🚀 Richiesta inviata! Il sito si aggiornerà tra circa 30 secondi.";
+            } else {
+                const err = await response.json();
+                if (response.status === 401 || response.status === 403) {
+                    alert("❌ Accesso negato o Token scaduto.");
+                    localStorage.removeItem('fantamorto_access_token'); // Rimuove il token sbagliato
+                } else {
+                    const err = await response.json();
+                    alert("❌ Errore: " + err.message);
+                }
+            }
+        } catch (e) {
+            alert("❌ Errore di connessione.");
+        } finally {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    }
 
         // Avvio
         verifyAdmin().then(loadData);
