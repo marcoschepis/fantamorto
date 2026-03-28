@@ -91,7 +91,8 @@
         const REPO_INFO = {
             OWNER: 'marcoschepis',
             REPO: 'fantamorto',
-            PATH: 'squadre.json'
+            PATH: 'squadre.json',
+            MORITURI: 'morituri.json'
         };
         
         // Hash della password
@@ -115,13 +116,18 @@
         }
 
         function loadData() {
-            fetch('squadre.json?' + new Date().getTime())
+            fetch(REPO_INFO.PATH + '?' + new Date().getTime())
                 .then(r => r.json())
                 .then(data => {
                     db = data;
+                    return fetch(REPO_INFO.MORITURI + '?' + new Date().getTime());
+                })
+                .then(r => r.json())
+                .then(lista => {
+                    catalogoMorituri = lista;
                     render();
                 })
-                .catch(e => console.error("Errore caricamento JSON:", e));
+                .catch(e => console.error("Errore caricamento dati:", e));
         }
 
         function switchView(name) {
@@ -171,12 +177,44 @@
 
         function addMorto() {
             const nome = document.getElementById('new-morto-nome').value.trim();
-            const prezzo = parseInt(document.getElementById('new-morto-prezzo').value) || 0;
+            
             if (!nome) { alert('Inserisci un nome'); return; }
+
+            const prezzo = parseInt(document.getElementById('new-morto-prezzo').value) || 0;
+
             if (db.morituri.find(m => m.nome === nome)) { alert('Morto già esistente'); return; }
-            db.morituri.push({ nome, prezzo, status: 'vivo', punti: 0, rimborso: 0 });
+
+            const infoDalCatalogo = catalogoMorituri.find(m => m.nome.toLowerCase() === nome.toLowerCase());
+
+            if (infoDalCatalogo) {
+                db.morituri.push({
+                    nome: infoDalCatalogo.nome,
+                    prezzo: infoDalCatalogo.prezzo,
+                    status: 'vivo',
+                    punti: 0,
+                    rimborso: 0
+                });
+                console.log(`Recuperato ${infoDalCatalogo.nome} dal catalogo.`);
+            } else {
+                // Se NON lo trova (magari è un nome personalizzato/fuori listino),
+                // usa il prezzo inserito manualmente nell'input
+                const prezzoManuale = parseInt(document.getElementById('new-morto-prezzo').value) || 0;
+                
+                db.morituri.push({
+                    nome: nomeInput,
+                    prezzo: prezzoManuale,
+                    nascita: "",
+                    descrizione: "Inserimento manuale",
+                    status: 'vivo',
+                    punti: 0,
+                    rimborso: 0
+                });
+                console.log(`Personaggio non in catalogo. Aggiunto manualmente.`);
+            }
+
+            // Reset campi e aggiornamento vista
             document.getElementById('new-morto-nome').value = '';
-            document.getElementById('new-morto-prezzo').value = '';
+            document.getElementById('new-morto-prezzo').value = '0';
             render();
         }
 
@@ -280,6 +318,23 @@
         function calculateCreditiResidui(squadra) {
             const spesa = calculateCreditiSquadra(squadra);
             return (db.config.crediti_iniziali || 330) - spesa;
+        }
+
+        function aggiornaPrezzoAutomatico(nomeInserito) {
+            const prezzoInput = document.getElementById('new-morto-prezzo');
+            
+            // Cerchiamo nel catalogo se il nome inserito corrisponde esattamente a uno esistente
+            const trovato = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeInserito.toLowerCase());
+            
+            if (trovato) {
+                // Se lo trova, aggiorna la casella del prezzo con il valore ufficiale
+                prezzoInput.value = trovato.prezzo;
+                // Opzionale: diamo un feedback visivo (es. bordo verde)
+                prezzoInput.style.borderColor = "#44ff44";
+            } else {
+                // Se non lo trova (sta ancora scrivendo o è un nome nuovo), resetta o lascia decidere all'utente
+                prezzoInput.style.borderColor = "#444";
+            }
         }
 
         function render() {
@@ -439,7 +494,8 @@
                             </tbody>
                         </table>
                         <div style="margin-top: 15px; padding: 12px; background: #0a0a0a; border-radius: 8px; display: flex; gap: 8px;">
-                            <input type="text" id="new-morto-nome" placeholder="Nome" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <input type="text" id="new-morto-nome" list="lista-suggerimenti" placeholder="Cerca nome..." oninput="aggiornaPrezzoAutomatico(this.value)" style="flex: 1; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase();">
+                            <datalist id="lista-suggerimenti"></datalist>
                             <input type="number" id="new-morto-prezzo" placeholder="Prezzo (€)" value="0" style="width: 120px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                             <button onclick="addMorto()" style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Aggiungi</button>
                         </div>
@@ -500,6 +556,11 @@
                         }).join('')}
                     </div>
                 `;
+            }
+            
+            const datalist = document.getElementById('lista-suggerimenti');
+            if (datalist) {
+                datalist.innerHTML = catalogoMorituri.map(m => `<option value="${m.nome}">`).join('');
             }
         }
 
