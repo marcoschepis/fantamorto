@@ -62,7 +62,8 @@
         <nav id="main-nav">
             <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
             <button id="btn-teams"  onclick="switchView('teams')">👪 Squadre</button>
-            <button id="btn-admin" onclick="switchView('admin')">⚙️ Gestione</button>
+            <button id="btn-mercato" onclick="switchView('mercato')">⚙️ Gestione Squadra</button>
+            <button id="btn-admin" onclick="switchView('admin')">🔧 Gestione Admin</button>
         </nav>
     </header>
 
@@ -74,13 +75,24 @@
         <div id="teams-container"></div>
     </div>
 
+    <div id="view-mercato" class="view">
+        <datalist id="lista-suggerimenti"></datalist>
+        <div class="card" style="border-top: 4px solid #44aaff;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; margin-bottom: 20px;">
+                <select id="user-team-select" onchange="render()" style="margin: 0; min-width: 0;"><option value="">-- Seleziona Squadra --</option></select>
+                <div id="mercato-budget-display" style="flex-shrink: 0; text-align: right; white-space: nowrap;"></div>
+            </div>
+            <div id="mercato-editor"></div>
+        </div>
+        <div style="text-align:center;">
+            <button onclick="saveToGitHub(document.getElementById('user-team-select').value || 'utente')">💾 Salva sul sito</button>
+        </div>
+    </div>
+
     <div id="view-admin" class="view">
         <div id="admin-container"></div>
-        <div class="card" style="border: 2px dashed var(--accent);">
-            <h3>💾 Salva su GitHub</h3>
-            <input type="password" id="gh-token" placeholder="GitHub Personal Access Token" style="width: 100%; padding: 8px; margin-bottom: 10px; background: #111; border: 1px solid #444; color: #fff; border-radius: 4px;">
-            <button onclick="saveToGitHub()" style="width: 100%; padding: 10px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">📤 Salva JSON</button>
-            <div id="query-result" style="margin-top: 15px; padding: 12px; background: #0a0a0a; border: 1px solid #333; border-radius: 4px; min-height: 60px; max-height: 300px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #0f0; white-space: pre-wrap; word-break: break-word;"></div>
+        <div style="text-align:center;">
+            <button onclick="saveToGitHub('admin')">💾 Salva sul sito</button>
         </div>
     </div>
 
@@ -125,6 +137,13 @@
                 .then(r => r.json())
                 .then(lista => {
                     catalogoMorituri = lista;
+                    
+                    // AGGIUNGI QUESTE RIGHE QUI:
+                    const dl = document.getElementById('lista-suggerimenti');
+                    if (dl) {
+                        dl.innerHTML = catalogoMorituri.map(m => `<option value="${m.nome}">`).join('');
+                    }
+                    
                     render();
                 })
                 .catch(e => console.error("Errore caricamento dati:", e));
@@ -335,6 +354,17 @@
                 // Se non lo trova (sta ancora scrivendo o è un nome nuovo), resetta o lascia decidere all'utente
                 prezzoInput.style.borderColor = "#444";
             }
+        }
+
+        function aggiungiASquadraMercato(tIdx) {
+            const nome = document.getElementById('user-add-nome').value.trim();
+            const info = catalogoMorituri.find(m => m.nome.toLowerCase() === nome.toLowerCase());
+            if (!info || db.campionato[tIdx].partecipanti.length >= 13 || info.prezzo > calculateCreditiResidui(db.campionato[tIdx])) {
+                alert("Errore: Listino, Budget o Limite 13 raggiunto!"); return;
+            }
+            if (!getMortoByName(info.nome)) db.morituri.push({...info, status:'vivo', punti:0, rimborso:0});
+            db.campionato[tIdx].partecipanti.push({nome: info.nome});
+            render();
         }
 
         function render() {
@@ -562,49 +592,106 @@
             if (datalist) {
                 datalist.innerHTML = catalogoMorituri.map(m => `<option value="${m.nome}">`).join('');
             }
+
+
+            // Gestione Tab Mercato
+            const userIdx = document.getElementById('user-team-select').value;
+            const mercatoEditor = document.getElementById('mercato-editor');
+            const budgetDisplay = document.getElementById('mercato-budget-display');
+            const userSelect = document.getElementById('user-team-select');
+
+            // Popola la select se vuota (una sola volta)
+            if (userSelect && userSelect.options.length <= 1) {
+                userSelect.innerHTML = '<option value="">-- Seleziona la tua Squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra}</option>`).join('');
+            }
+
+            if (userIdx !== "" && mercatoEditor) {
+                const s = db.campionato[userIdx];
+                const res = calculateCreditiResidui(s);
+
+                // 1. Aggiorna il Budget accanto alla select
+                budgetDisplay.innerHTML = `<strong>Crediti: <span style="color:${res<0?'#ff4444':'#44ff44'}">${res} BS</span></strong>`;
+
+                // 2. Renderizza la tabella dei partecipanti
+                mercatoEditor.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr><th>Nome</th><th style="text-align:center;">Costo</th><th style="text-align:right;">Azione</th></tr>
+                        </thead>
+                        <tbody>
+                            ${s.partecipanti.map((p, i) => {
+                                const m = getMortoByName(p.nome);
+                                return `
+                                <tr>
+                                    <td>${p.nome}</td>
+                                    <td style="text-align:center;">${m ? m.prezzo : 0} BS</td>
+                                    <td style="text-align:right;">
+                                        <button class="btn-del" 
+                                        style="height: 32px; width: 48px; padding: 0; display: inline-flex; align-items: center; justify-content: center; line-height: 1;"
+                                        onclick="db.campionato[${userIdx}].partecipanti.splice(${i},1);render();">❌</button>
+                                    </td>
+                                </tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                    
+                    <div style="display:flex; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
+                        <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
+                            oninput="const m=catalogoMorituri.find(x=>x.nome.toLowerCase()===this.value.toLowerCase()); document.getElementById('user-add-prezzo').value=m?m.prezzo:''"
+                            style="flex:1;">
+                        <input type="number" id="user-add-prezzo" placeholder="BS" readonly style="width:80px; text-align:center; background:#222;">
+                        <button class="btn-add" onclick="aggiungiASquadraMercato(${userIdx})" style="width:auto; padding:0 20px;">➕ Aggiungi</button>
+                    </div>
+                `;
+            } else {
+                // Pulisce se non è selezionato nulla
+                if(budgetDisplay) budgetDisplay.innerHTML = "";
+                if(mercatoEditor) mercatoEditor.innerHTML = '<p style="text-align:center; color:#666;">Seleziona la tua squadra per iniziare.</p>';
+            }
         }
 
-        async function saveToGitHub() {
-            const resultDiv = document.getElementById('query-result');
-            const tk = document.getElementById('gh-token').value;
-            if (!tk) { resultDiv.textContent = "❌ Inserisci il token GitHub"; return; }
-            
-            resultDiv.textContent = "🔄 Salvataggio in corso...";
-            localStorage.setItem('ft_tk', tk);
-            
+        async function saveToGitHub(autore = "null") {
+            const tokenInserito = "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";
+
+            if (!tokenInserito) {
+                alert("Inserisci il token per salvare!");
+                return;
+            }
+
+            const resDiv = document.getElementById('query-result'); // Assicurati di avere un div per i messaggi
+            if(resDiv) resDiv.innerText = "Sincronizzazione in corso...";
+
             try {
-                resultDiv.textContent += "\n📡 Scaricando metadati file...";
-                const res = await fetch(`https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`, { headers: { Authorization: `token ${tk}` } });
-                const f = await res.json();
+                const url = `https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`;
                 
-                if (!f.sha) {
-                    resultDiv.textContent = "❌ File non trovato o token invalido";
-                    return;
-                }
+                // 1. Recuperiamo lo SHA del file attuale (necessario per sovrascrivere)
+                const fileRes = await fetch(url + '?' + Date.now());
+                const fileData = await fileRes.json();
                 
-                resultDiv.textContent += "\n📝 Codificando JSON...";
-                const jsonStr = JSON.stringify(db, null, 4);
-                const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
-                
-                resultDiv.textContent += "\n📤 Inviando a GitHub...";
-                const upd = await fetch(`https://api.github.com/repos/${REPO_INFO.OWNER}/${REPO_INFO.REPO}/contents/${REPO_INFO.PATH}`, {
+                // 2. Inviamo il nuovo JSON
+                const response = await fetch(url, {
                     method: 'PUT',
-                    headers: { Authorization: `token ${tk}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: "Update - " + new Date().toLocaleString('it-IT'), content: encoded, sha: f.sha })
+                    headers: { 
+                        'Authorization': `token ${tokenInserito}`, 
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({
+                        message: "Update - " + autore,
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(db, null, 2)))),
+                        sha: fileData.sha
+                    })
                 });
-                
-                const updResponse = await upd.json();
-                
-                if (upd.ok) {
-                    resultDiv.textContent = "✅ SALVATO SU GITHUB!\n\n";
-                    resultDiv.textContent += "📄 File: " + REPO_INFO.PATH + "\n";
-                    resultDiv.textContent += "🔗 SHA: " + updResponse.commit.sha.substring(0, 8) + "\n";
-                    resultDiv.textContent += "⏰ Data: " + new Date().toLocaleString('it-IT');
+
+                if (response.ok) {
+                    alert("✅ Squadra salvata correttamente sul sito!");
+                    if(resDiv) resDiv.innerText = "Dati aggiornati!";
                 } else {
-                    resultDiv.textContent = "❌ ERRORE: " + (updResponse.message || "Errore sconosciuto");
+                    const errorData = await response.json();
+                    alert("❌ Errore: " + errorData.message);
                 }
-            } catch(e) { 
-                resultDiv.textContent = "❌ ERRORE CONNESSIONE:\n" + e.message;
+            } catch (e) {
+                console.error(e);
+                alert("❌ Errore di connessione o Token non valido.");
             }
         }
 
