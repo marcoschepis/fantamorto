@@ -18,15 +18,15 @@ Un morituro può essere inserito nella squadra solo se ha una pagina Wikipedia a
 In nessun caso i concorrenti potranno inserire nelle loro rose morituri già condannati a morte in via definitiva e in stato di detenzione nel Paese che deve eseguire la pena capitale.
 
 # Rosa
-L'organizzazione redige un listino di possibili morituri, consultabile [qui](https://www.fantamorto.org/app/listino.php), assegnando a ciascuno un valore tra 10 e 100 crediti (chiamati "bossetti"). Durante il campionato, il valore di un morituro varia.<br>
-Ogni giocatore ha a disposizione 330 bossetti per poter acquistare la propria rosa.<br>
+L'organizzazione redige un listino di possibili morituri assegnando a ciascuno un valore tra 10 e 100 crediti (chiamati "Bossetti" o "BS"). Durante il campionato, il valore di un morituro varia.<br>
+Ogni giocatore ha a disposizione 330 BS per poter acquistare la propria rosa.<br>
 Ogni squadra deve scegliere il proprio capitano pena l'assegnazione d'ufficio del ruolo al più giovane in rosa. Il capitano riceverà il relativo bonus solo in caso di decesso. Si possono sostituire i capitani non deceduti solo nelle due finestre di mercato di riparazione.<br>
-Quando un morituro passa a miglior vita, la squadra che lo ha in formazione riceverà un credito pari al suo valore aggiornato (da listino) al momento del decesso, più un bonus di 15 bossetti. Ad esempio, se hai acquistato un morituro a 20 bossetti e il suo valore sale a 50 bossetti, guadagnerai 65 bossetti (50+15) al momento della sua morte.<br>
+Quando un morituro passa a miglior vita, la squadra che lo ha in formazione riceverà un credito pari al suo valore aggiornato (da listino) al momento del decesso, più un bonus di 15 BS. Ad esempio, se hai acquistato un morituro a 20 BS e il suo valore sale a 50 BS, guadagnerai 65 BS (50+15) al momento della sua morte.<br>
 Questo credito potrà essere usato per sostituire il deceduto e per aggiungere un morituro omaggio alla squadra (seguendo le modalità di inserimento standard).<br>
-L'aggiunta dei due nuovi morituri deve avvenire entro 7 giorni dall'assegnazione del punteggio, altrimenti la possibilità di sostituzione andrà persa. Eventuali bossetti non utilizzate rimangono nelle disponibilità del giocatore fino alla fine del campionato.<br>
+L'aggiunta dei due nuovi morituri deve avvenire entro 7 giorni dall'assegnazione del punteggio, altrimenti la possibilità di sostituzione andrà persa. Eventuali BS non utilizzate rimangono nelle disponibilità del giocatore fino alla fine del campionato.<br>
 
 # Mercato di riparazione
-Non è possibile sostituire i morituri durante la stagione. Tuttavia, sono previste due finestre di mercato di riparazione: dal 1° al 15 Agosto e dal 1° al 15 Dicembre. In ciascuno di questi due periodi di tempo sarà possibile sostituire fino a 3 morituri che non abbiano ancora totalizzato punti, fermo restando che la squadra deve essere composta da almeno 13 morituri.<br>
+Non è possibile sostituire i morituri durante la stagione. Tuttavia, sono previste due finestre di mercato di riparazione: dal 1° al 15 Agosto 2026 e dal 1° al 15 Dicembre 2026. In ciascuno di questi due periodi di tempo sarà possibile sostituire fino a 3 morituri che non abbiano ancora totalizzato punti, fermo restando che la squadra deve essere composta da almeno 13 morituri.<br>
 
 # Assegnazione punti
 1. Il giocatore ha solo 7 giorni solari, dal momento in cui viene a conoscenza della disgrazia, per richiedere all'organizzazione l'assegnazione del punteggio.
