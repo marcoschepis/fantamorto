@@ -129,6 +129,20 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Adonis",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alfredo Cospito",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -196,6 +210,12 @@
         },
         {
           "nome": "Buddy Valastro"
+        },
+        {
+          "nome": "Adonis"
+        },
+        {
+          "nome": "Alfredo Cospito"
         }
       ],
       "totPunti": 0
