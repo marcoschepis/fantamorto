@@ -38,6 +38,146 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Ali al-Sistani",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mario Borghezio",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Ahmad Jannati",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sophia Loren",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Isabel Allende",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Margaret Atwood",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Tadej Pogačar",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bella Thorne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mina (cantante)",
+      "prezzo": 75,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Lele Mora",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Avril Lavigne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marcelino Abad Tolentino",
+      "prezzo": 65,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Buddy Valastro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Adonis",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alfredo Cospito",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Dario Argento",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Calvin Klein (stilista)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "John Irving",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Edoardo Bove",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Takeshi Kitano",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -59,6 +199,21 @@
         },
         {
           "nome": "Marcello Colafigli"
+        },
+        {
+          "nome": "Ali al-Sistani"
+        },
+        {
+          "nome": "Mario Borghezio"
+        },
+        {
+          "nome": "Ahmad Jannati"
+        },
+        {
+          "nome": "Sophia Loren"
+        },
+        {
+          "nome": "Calvin Klein (stilista)"
         }
       ],
       "totPunti": 0
@@ -66,6 +221,52 @@
     {
       "nome_squadra": "(re)al creatore",
       "proprietario": "Emma",
+      "partecipanti": [
+        {
+          "nome": "Isabel Allende"
+        },
+        {
+          "nome": "Margaret Atwood"
+        },
+        {
+          "nome": "Tadej Pogačar"
+        },
+        {
+          "nome": "Bella Thorne"
+        },
+        {
+          "nome": "Mina (cantante)"
+        },
+        {
+          "nome": "Lele Mora"
+        },
+        {
+          "nome": "Buddy Valastro"
+        },
+        {
+          "nome": "Adonis"
+        },
+        {
+          "nome": "Alfredo Cospito"
+        },
+        {
+          "nome": "Dario Argento"
+        },
+        {
+          "nome": "John Irving"
+        },
+        {
+          "nome": "Edoardo Bove"
+        },
+        {
+          "nome": "Takeshi Kitano"
+        }
+      ],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "Prima Morta",
+      "proprietario": "ScheGia",
       "partecipanti": [],
       "totPunti": 0
     }
