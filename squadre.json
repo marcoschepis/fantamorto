@@ -58,6 +58,12 @@
       "proprietario": "Emma",
       "partecipanti": [],
       "totPunti": 0
+    },
+    {
+      "nome_squadra": "In Memori(AI)m",
+      "proprietario": "Gemini AI",
+      "partecipanti": [],
+      "totPunti": 0
     }
   ]
 }
