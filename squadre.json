@@ -1,74 +1,74 @@
 {
-    "config": {
-        "crediti_iniziali": 330
+  "config": {
+    "crediti_iniziali": 330
+  },
+  "morituri": [
+    {
+      "nome": "Ketama126",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     },
-    "morituri": [
+    {
+      "nome": "Side Baby",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mr. Rain",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Andrea Bocelli",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    }
+  ],
+  "campionato": [
+    {
+      "nome_squadra": "Hellas Verano",
+      "proprietario": "Marco",
+      "partecipanti": [
         {
-            "nome": "Ketama126",
-            "prezzo": 20,
-            "status": "vivo",
-            "punti": 0,
-            "rimborso": 0
+          "nome": "Ketama126"
         },
         {
-            "nome": "Side Baby",
-            "prezzo": 20,
-            "status": "vivo",
-            "punti": 0,
-            "rimborso": 0
+          "nome": "Side Baby"
         },
         {
-            "nome": "Mr. Rain",
-            "prezzo": 10,
-            "status": "vivo",
-            "punti": 0,
-            "rimborso": 0
+          "nome": "Mr. Rain"
         },
         {
-            "nome": "Andrea Bocelli",
-            "prezzo": 35,
-            "status": "vivo",
-            "punti": 0,
-            "rimborso": 0
+          "nome": "Andrea Bocelli"
         }
-    ],
-    "campionato": [
-        {
-            "nome_squadra": "Hellas Verano",
-            "proprietario": "Marco",
-            "partecipanti": [
-                {
-                    "nome": "Ketama126"
-                },
-                {
-                    "nome": "Side Baby"
-                },
-                {
-                    "nome": "Mr. Rain"
-                },
-                {
-                    "nome": "Andrea Bocelli"
-                }
-            ],
-            "totPunti": 0
-        },
-        {
-            "nome_squadra": "Real Mortis",
-            "proprietario": "Luca",
-            "partecipanti": [],
-            "totPunti": 0
-        },
-        {
-            "nome_squadra": "Morituri Te Salutant",
-            "proprietario": "Giulia",
-            "partecipanti": [],
-            "totPunti": 0
-        },
-        {
-            "nome_squadra": "I Morti Viventi",
-            "proprietario": "Alessandro",
-            "partecipanti": [],
-            "totPunti": 0
-        }
-    ]
+      ],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "Real Mortis",
+      "proprietario": "Luca",
+      "partecipanti": [],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "Morituri Te Salutant",
+      "proprietario": "Giulia",
+      "partecipanti": [],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "I Morti Viventi",
+      "proprietario": "Alessandro",
+      "partecipanti": [],
+      "totPunti": 0
+    }
+  ]
 }
