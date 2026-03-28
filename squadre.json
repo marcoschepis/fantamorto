@@ -52,6 +52,12 @@
         }
       ],
       "totPunti": 0
+    },
+    {
+      "nome_squadra": "(re)al creatore",
+      "proprietario": "Emma",
+      "partecipanti": [],
+      "totPunti": 0
     }
   ]
 }
