@@ -213,6 +213,76 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Massimo Zanetti",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Gentiloni",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Federico Faggin",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mahmūd Abbās",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Gustav Thöni",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nick Nolte",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Herbie Hancock",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carlo Taormina",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Brian De Palma",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Tom Jones (cantante)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -221,16 +291,7 @@
       "proprietario": "Marco",
       "partecipanti": [
         {
-          "nome": "Marcello Colafigli"
-        },
-        {
           "nome": "Ali al-Sistani"
-        },
-        {
-          "nome": "Mario Borghezio"
-        },
-        {
-          "nome": "Ahmad Jannati"
         },
         {
           "nome": "Sophia Loren"
@@ -252,6 +313,15 @@
         },
         {
           "nome": "Kevin Spacey"
+        },
+        {
+          "nome": "Massimo Zanetti"
+        },
+        {
+          "nome": "Paolo Gentiloni"
+        },
+        {
+          "nome": "Federico Faggin"
         }
       ],
       "totPunti": 0,
@@ -307,7 +377,29 @@
     {
       "nome_squadra": "Prima Morta",
       "proprietario": "ScheGia",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Mahmūd Abbās"
+        },
+        {
+          "nome": "Gustav Thöni"
+        },
+        {
+          "nome": "Nick Nolte"
+        },
+        {
+          "nome": "Herbie Hancock"
+        },
+        {
+          "nome": "Carlo Taormina"
+        },
+        {
+          "nome": "Brian De Palma"
+        },
+        {
+          "nome": "Tom Jones (cantante)"
+        }
+      ],
       "totPunti": 0
     },
     {
