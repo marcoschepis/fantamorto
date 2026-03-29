@@ -318,6 +318,20 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Muhammad Yunus",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Martin Sheen",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -432,9 +446,6 @@
           "nome": "Brian De Palma"
         },
         {
-          "nome": "Tom Jones (cantante)"
-        },
-        {
           "nome": "Raúl Castro"
         },
         {
@@ -448,6 +459,12 @@
         },
         {
           "nome": "Pupi Avati"
+        },
+        {
+          "nome": "Muhammad Yunus"
+        },
+        {
+          "nome": "Martin Sheen"
         }
       ],
       "totPunti": 0
