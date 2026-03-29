@@ -1,0 +1,50 @@
+:root { color-scheme: dark; --background-body: #121212; --card-bg: #1e1e1e; --accent: #ff4444; }
+
+body {
+    background-color: var(--background-body);
+    color: #eeeeee;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Menu Navigazione */
+nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+nav button { background: transparent; border: 1px solid #444; color: #777; cursor: pointer; padding: 10px 20px; transition: 0.3s; }
+nav button.active { border-color: var(--accent); color: var(--accent); background: #251010; font-weight: bold; }
+#btn-admin { display: none; } /* Nascosto di default */
+
+.view { display: none; }
+.view.active { display: block; }
+
+/* Card e Tabelle */
+.card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+#rank-container { display: grid; grid-template-columns: 1fr; }
+.team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.rank-punti { color: #fff; font-weight: bold; font-size: 1.5rem; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
+
+/* Allineamenti Classifica */
+.col-nome { text-align: left; width: 70%; }
+.col-punti { text-align: right; width: 30%; font-weight: bold; color: #fff; }
+.dead-text { color: #fff; }
+
+/* Allineamenti Admin */
+.admin-header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+.admin-squad-info { display: flex; align-items: center; gap: 5px; }
+.admin-input-header { background: #111; border: 1px solid #444; color: #fff; padding: 6px 8px; font-size: 0.9rem; border-radius: 4px; font-weight: 500; }
+.admin-input-header:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+.admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
+.admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+.admin-table th { background: #0a0a0a; color: #888; font-weight: bold; font-size: 0.8rem; padding: 8px 4px; text-align: center; border: 1px solid #333; }
+.admin-table th:first-child { text-align: left; }
+.admin-table td { padding: 6px 4px; border: 1px solid #2a2a2a; vertical-align: middle; text-align: center; font-size: 0.85rem; }
+.admin-table td:first-child { text-align: left; padding-left: 6px; }
+.admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
+.admin-table button:hover { background: var(--accent); border-color: var(--accent); }
+.admin-row-dead { background: #1a0a0a; }
+.admin-row-dead input { background: #0a0505; }
+
+textarea { width: 100%; height: 120px; font-family: 'Courier New', monospace; background: #000; color: #0f0; border: 1px solid #444; margin-top: 10px; }
