@@ -329,31 +329,42 @@ function render() {
 
             // 2. Renderizza la tabella dei partecipanti
             mercatoEditor.innerHTML = `
-                <table>
+                <style>
+                    @media (max-width: 600px) {
+                        .hide-mobile { display: none; }
+                        .mercato-table td { padding: 8px 4px !important; font-size: 0.9rem; }
+                        .mercato-table th { font-size: 0.7rem; }
+                    }
+                </style>
+                <table class="mercato-table" style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr>
-                            <th style="width: 7%; white-space: nowrap;">Capitano</th>
-                            <th>Nome</th>
-                            <th style="text-align:center;">Bossetti</th>
-                            <th style="text-align:right;">Azione</th>
+                            <th style="width: 40px; text-align: center;">Cap.</th>
+                            <th style="text-align: left;">Nome</th>
+                            <th style="text-align: center; width: 60px;">BS</th>
+                            <th style="text-align: right; width: 50px;">Elimina</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${s.partecipanti.map((p, i) => {
                             const m = getMortoByName(p.nome);
-                            const isCapitano = s.capitano === p.nome; // Verifica se è il capitano
+                            const isCapitano = s.capitano === p.nome;
                             return `
                             <tr>
-                                <td style="width: 7%; white-space: nowrap; text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem; padding: 10px 5px;" 
+                                <td style="text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem; padding: 10px 0;" 
                                     onclick="setCapitano(${userIdx}, ${i})" 
                                     title="Rendi Capitano">
                                     ${isCapitano ? '⭐' : '⚪'}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">${p.nome}</td>
-                                <td style="text-align: center; vertical-align: middle; color: #aaa;">${m ? m.prezzo : 0} <small>BS</small></td>
+                                <td style="text-align: left; vertical-align: middle; word-break: break-word;">
+                                    <div style="font-weight: bold; color: #eee;">${p.nome}</div>
+                                </td>
+                                <td style="text-align: center; vertical-align: middle; color: #aaa; font-family: monospace;">
+                                    ${m ? m.prezzo : 0}
+                                </td>
                                 <td style="text-align: right; vertical-align: middle;">
                                     <button class="btn-del" 
-                                        style="height: 32px; width: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: #333; border: 1px solid #444;"
+                                        style="height: 35px; width: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: #222; border: 1px solid #444; border-radius: 4px;"
                                         onclick="db.campionato[${userIdx}].partecipanti.splice(${i},1);render();">❌</button>
                                 </td>
                             </tr>`;
@@ -364,13 +375,11 @@ function render() {
                 <div style="display:flex; flex-wrap: wrap; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
                     <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
                         oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
-                        style="flex: 2; min-width: 180px;">
-                    
-                    <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" 
-                        style="flex: 1; min-width: 70px; max-width: 100px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; text-align: center;">
+                        style="flex: 1 1 100%; min-width: 180px;"> <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" 
+                        style="flex: 1; min-width: 60px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; text-align: center;">
                     
                     <button class="btn-add" onclick="aggiungiADb(${userIdx}, 'user-add-nome')" 
-                        style="flex: 1; min-width: 120px; padding: 10px; white-space: nowrap; background: var(--accent); color: black; font-weight: bold;">
+                        style="flex: 2; padding: 10px; white-space: nowrap; background: var(--accent); color: black; font-weight: bold;">
                         ➕ Aggiungi
                     </button>
                 </div>
