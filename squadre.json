@@ -213,6 +213,20 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Massimo Zanetti",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Gentiloni",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -221,16 +235,7 @@
       "proprietario": "Marco",
       "partecipanti": [
         {
-          "nome": "Marcello Colafigli"
-        },
-        {
           "nome": "Ali al-Sistani"
-        },
-        {
-          "nome": "Mario Borghezio"
-        },
-        {
-          "nome": "Ahmad Jannati"
         },
         {
           "nome": "Sophia Loren"
@@ -252,6 +257,12 @@
         },
         {
           "nome": "Kevin Spacey"
+        },
+        {
+          "nome": "Massimo Zanetti"
+        },
+        {
+          "nome": "Paolo Gentiloni"
         }
       ],
       "totPunti": 0,
