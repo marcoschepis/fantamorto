@@ -283,6 +283,41 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Raúl Castro",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Jon Voight",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Iva Zanicchi",
+      "prezzo": 70,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Phil Knight",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Pupi Avati",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -398,6 +433,21 @@
         },
         {
           "nome": "Tom Jones (cantante)"
+        },
+        {
+          "nome": "Raúl Castro"
+        },
+        {
+          "nome": "Jon Voight"
+        },
+        {
+          "nome": "Iva Zanicchi"
+        },
+        {
+          "nome": "Phil Knight"
+        },
+        {
+          "nome": "Pupi Avati"
         }
       ],
       "totPunti": 0
