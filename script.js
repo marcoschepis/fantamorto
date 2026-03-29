@@ -12,6 +12,15 @@ const REPO_INFO = {
 const SECRET_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 let isAuthorized = false;
 
+let btnMercato = document.getElementById('btn-mercato');
+let userIdx = document.getElementById('user-team-select').value;
+let mercatoEditor = document.getElementById('mercato-editor');
+let morituriDisplay = document.getElementById('mercato-morituri-display');
+let budgetDisplay = document.getElementById('mercato-budget-display');
+let userSelect = document.getElementById('user-team-select');
+let headerMercato = document.querySelector('#view-mercato .card > div:first-child');
+let saveBtnMercato = document.querySelector('#view-mercato button[onclick*="saveToGitHub"]');
+
 // Entry point
 verifyAdmin().then(loadData);
 
@@ -31,7 +40,20 @@ async function verifyAdmin() {
     }
 }
 
+function loadElements() {
+    btnMercato = document.getElementById('btn-mercato');
+    userIdx = document.getElementById('user-team-select').value;
+    mercatoEditor = document.getElementById('mercato-editor');
+    morituriDisplay = document.getElementById('mercato-morituri-display');
+    budgetDisplay = document.getElementById('mercato-budget-display');
+    userSelect = document.getElementById('user-team-select');
+    headerMercato = document.querySelector('#view-mercato .card > div:first-child');
+    saveBtnMercato = document.querySelector('#view-mercato button[onclick*="saveToGitHub"]');
+}
+
 function loadData() {
+    loadElements();
+
     fetch(REPO_INFO.PATH + '?' + new Date().getTime())
         .then(r => r.json())
         .then(data => {
@@ -62,6 +84,8 @@ function switchView(name) {
 }
 
 function render() {
+    loadElements();
+
     const rankCont = document.getElementById('rank-container');
     const teamsCont = document.getElementById('teams-container');
     const adminCont = document.getElementById('admin-container');
@@ -299,15 +323,6 @@ function render() {
 
 
     // Gestione Squadra
-    const btnMercato = document.getElementById('btn-mercato');
-    const userIdx = document.getElementById('user-team-select').value;
-    const mercatoEditor = document.getElementById('mercato-editor');
-    const morituriDisplay = document.getElementById('mercato-morituri-display');
-    const budgetDisplay = document.getElementById('mercato-budget-display');
-    const userSelect = document.getElementById('user-team-select');
-    const headerMercato = document.querySelector('#view-mercato .card > div:first-child');
-    const saveBtnMercato = document.querySelector('#view-mercato button[onclick*="saveToGitHub"]');
-
     if (db.config.mostra_mercato) {
         btnMercato.innerHTML = "⚙️ Gestione Squadra";
 
@@ -329,20 +344,13 @@ function render() {
 
             // 2. Renderizza la tabella dei partecipanti
             mercatoEditor.innerHTML = `
-                <style>
-                    @media (max-width: 600px) {
-                        .hide-mobile { display: none; }
-                        .mercato-table td { padding: 8px 4px !important; font-size: 0.9rem; }
-                        .mercato-table th { font-size: 0.7rem; }
-                    }
-                </style>
-                <table class="mercato-table" style="width: 100%; border-collapse: collapse;">
+                <table class="mercato-table" style="width: 100%; border-collapse: collapse; padding: 0px 0px 0px 0px;">
                     <thead>
                         <tr>
-                            <th style="width: 40px; text-align: center;">Cap.</th>
-                            <th style="text-align: left;">Nome</th>
-                            <th style="text-align: center; width: 60px;">BS</th>
-                            <th style="text-align: right; width: 50px;">Elimina</th>
+                            <th style="width: 60px; text-align: center; vertical-align: middle; font-size: 0.8rem;">Capitano</th>
+                            <th style="text-align: left; vertical-align: middle;">Nome</th>
+                            <th style="text-align: center; vertical-align: middle; width: 60px;">BS</th>
+                            <th style="text-align: right; vertical-align: middle; width: 55px;">Elimina</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -351,7 +359,7 @@ function render() {
                             const isCapitano = s.capitano === p.nome;
                             return `
                             <tr>
-                                <td style="text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem; padding: 10px 0;" 
+                                <td style="text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem;" 
                                     onclick="setCapitano(${userIdx}, ${i})" 
                                     title="Rendi Capitano">
                                     ${isCapitano ? '⭐' : '⚪'}

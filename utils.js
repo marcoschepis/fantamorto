@@ -260,6 +260,15 @@ async function saveToGitHub() {
     autore = sel.options[sel.selectedIndex].text || 'utente';
 
     if (autore == "-- Seleziona la tua squadra --") autore = "ADMIN";
+
+    if (autore !== "ADMIN" && userIdx !== "") {
+        // Controllo per l'utente singolo
+        const squadra = db.campionato[userIdx];
+        if (!squadra.capitano || squadra.capitano === "") {
+            alert("⚠️ ATTENZIONE: Non hai selezionato un Capitano per la tua squadra\nClicca sulla ⚪ accanto ad un nome per renderlo capitano.");
+            return; // Blocca il salvataggio
+        }
+    }
     
     let token = localStorage.getItem('fantamorto_access_token');
     
