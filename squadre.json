@@ -217,43 +217,56 @@
       "proprietario": "Emma",
       "partecipanti": [
         {
-          "nome": "Isabel Allende"
+          "nome": "Isabel Allende",
+          "capitano": false
         },
         {
-          "nome": "Margaret Atwood"
+          "nome": "Margaret Atwood",
+          "capitano": false
         },
         {
-          "nome": "Tadej Pogačar"
+          "nome": "Tadej Pogačar",
+          "capitano": false
         },
         {
-          "nome": "Bella Thorne"
+          "nome": "Bella Thorne",
+          "capitano": false
         },
         {
-          "nome": "Mina (cantante)"
+          "nome": "Mina (cantante)",
+          "capitano": true
         },
         {
-          "nome": "Lele Mora"
+          "nome": "Lele Mora",
+          "capitano": false
         },
         {
-          "nome": "Buddy Valastro"
+          "nome": "Buddy Valastro",
+          "capitano": false
         },
         {
-          "nome": "Adonis"
+          "nome": "Adonis",
+          "capitano": false
         },
         {
-          "nome": "Alfredo Cospito"
+          "nome": "Alfredo Cospito",
+          "capitano": false
         },
         {
-          "nome": "Dario Argento"
+          "nome": "Dario Argento",
+          "capitano": false
         },
         {
-          "nome": "John Irving"
+          "nome": "John Irving",
+          "capitano": false
         },
         {
-          "nome": "Edoardo Bove"
+          "nome": "Edoardo Bove",
+          "capitano": false
         },
         {
-          "nome": "Takeshi Kitano"
+          "nome": "Takeshi Kitano",
+          "capitano": false
         }
       ],
       "totPunti": 0
