@@ -402,11 +402,8 @@
         function setCapitano(tIdx, pIdx) {
             const squadra = db.campionato[tIdx];
             
-            // Rimuoviamo il capitano attuale da tutti
-            squadra.partecipanti.forEach(p => p.capitano = false);
-            
             // Impostiamo il nuovo capitano
-            squadra.partecipanti[pIdx].capitano = true;
+            squadra.capitano = squadra.partecipanti[pIdx].nome;
             
             render();
         }
@@ -427,7 +424,7 @@
 
                     // LOGICA BONUS CAPITANO
                     let bonusCapitano = 0;
-                    if (p.capitano === true && morto && morto.status === 'morto') {
+                    if (p.nome === s.capitano && morto && morto.status === 'morto') {
                         bonusCapitano = 10;
                     }
 
@@ -522,11 +519,12 @@
                             }).map(p => {
                                 const morto = getMortoByName(p.nome);
                                 const isDead = morto && morto.status === 'morto';
+                                const isCapitano = s.capitano === p.nome;
                                 return `
                                     <tr class="${isDead ? 'dead-row' : ''}">
                                         <td class="col-nome" style="width: 40%; text-align: left;">
                                             <span style="margin-right: 5px;">${isDead ? '💀' : '😒'}</span>
-                                            <span style="color: #eee;">${p.nome}</span>
+                                            <span style="color: #eee;">${isCapitano ? '⭐ ' : ''}${p.nome}</span>
                                         </td>
                                         <td style="width: 20%; text-align: center; font-size: 1rem; color: #aaa; font-family: monospace;">
                                             ${morto ? morto.prezzo : '?'} <small style="color: #555; text-align: center;">BS</small>
@@ -703,7 +701,7 @@
                             <tbody>
                                 ${s.partecipanti.map((p, i) => {
                                     const m = getMortoByName(p.nome);
-                                    const isCapitano = p.capitano === true; 
+                                    const isCapitano = s.capitano === p.nome; // Verifica se è il capitano
                                     return `
                                     <tr>
                                         <td style="width: 7%; white-space: nowrap; text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem; padding: 10px 5px;" 
