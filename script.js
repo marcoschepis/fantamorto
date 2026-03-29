@@ -4,8 +4,8 @@ let db = { config: { crediti_iniziali: 330 }, campionato: [] };
 const REPO_INFO = {
     OWNER: 'marcoschepis',
     REPO: 'fantamorto',
-    PATH: 'squadre.json',
-    MORITURI: 'morituri.json'
+    PATH: 'data/squadre.json',
+    MORITURI: 'data/morituri.json'
 };
 
 // Hash della password
