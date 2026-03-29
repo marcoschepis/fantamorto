@@ -339,6 +339,20 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Paola Ruffo di Calabria",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paola Binetti",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -381,6 +395,9 @@
         },
         {
           "nome": "Michael McKean"
+        },
+        {
+          "nome": "Paola Binetti"
         }
       ],
       "totPunti": 0,
