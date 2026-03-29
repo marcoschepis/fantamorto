@@ -27,6 +27,8 @@ let userSelect = document.getElementById('user-team-select');
 let headerMercato = document.querySelector('#view-mercato .card > div:first-child');
 let saveBtnMercato = document.querySelector('#view-mercato button[onclick*="saveToGitHub"]');
 
+let currentView = 'rank';
+
 // Entry point
 verifyAdmin().then(loadData);
 
@@ -86,10 +88,13 @@ function loadData() {
 
 function switchView(name) {
     if (name === 'admin' && !isAuthorized) return;
+
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
     document.getElementById('view-' + name).classList.add('active');
     document.getElementById('btn-' + name).classList.add('active');
+
+    currentView = name;
     render();
 }
 
@@ -104,15 +109,23 @@ function render() {
     db.campionato.forEach(s => { puntiSquadra(s); });
     const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
 
-    // --- View Classifica ---
-    rankCont.innerHTML = renderClassifica(sortedTeams);
-
-    // --- View Squadre ---
-    teamsCont.innerHTML = renderSquadre(sortedTeams);
-
-    // --- View Admin ---
-    adminCont.innerHTML = renderAdmin();
-
-    // --- View Mercato ---
-    renderMercato();
+    switch (currentView) {
+        case 'rank':
+            rankCont.innerHTML = renderClassifica(sortedTeams);
+            break;
+            
+        case 'teams':
+            teamsCont.innerHTML = renderSquadre(sortedTeams);
+            break;
+            
+        case 'admin':
+            if (isAuthorized) {
+                adminCont.innerHTML = renderAdmin();
+            }
+            break;
+            
+        case 'mercato':
+            renderMercato();
+            break;
+    }
 }
