@@ -227,6 +227,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Federico Faggin",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -263,6 +270,9 @@
         },
         {
           "nome": "Paolo Gentiloni"
+        },
+        {
+          "nome": "Federico Faggin"
         }
       ],
       "totPunti": 0,
