@@ -178,6 +178,41 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Wanna Marchi",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Jim Belushi",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Silvan",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marco Tardelli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Kevin Spacey",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -185,12 +220,6 @@
       "nome_squadra": "Hellas Verano",
       "proprietario": "Marco",
       "partecipanti": [
-        {
-          "nome": "Ketama126"
-        },
-        {
-          "nome": "Side Baby"
-        },
         {
           "nome": "Marcello Colafigli"
         },
@@ -208,9 +237,25 @@
         },
         {
           "nome": "Calvin Klein (stilista)"
+        },
+        {
+          "nome": "Wanna Marchi"
+        },
+        {
+          "nome": "Jim Belushi"
+        },
+        {
+          "nome": "Silvan"
+        },
+        {
+          "nome": "Marco Tardelli"
+        },
+        {
+          "nome": "Kevin Spacey"
         }
       ],
-      "totPunti": 0
+      "totPunti": 0,
+      "capitano": "Sophia Loren"
     },
     {
       "nome_squadra": "(re)al creatore",
