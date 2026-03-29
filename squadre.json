@@ -215,58 +215,46 @@
     {
       "nome_squadra": "(re)al creatore",
       "proprietario": "Emma",
+      "capitano": "Mina (cantante)",
       "partecipanti": [
         {
-          "nome": "Isabel Allende",
-          "capitano": false
+          "nome": "Isabel Allende"
         },
         {
-          "nome": "Margaret Atwood",
-          "capitano": false
+          "nome": "Margaret Atwood"
         },
         {
-          "nome": "Tadej Pogačar",
-          "capitano": false
+          "nome": "Tadej Pogačar"
         },
         {
-          "nome": "Bella Thorne",
-          "capitano": false
+          "nome": "Bella Thorne"
         },
         {
-          "nome": "Mina (cantante)",
-          "capitano": true
+          "nome": "Mina (cantante)"
         },
         {
-          "nome": "Lele Mora",
-          "capitano": false
+          "nome": "Lele Mora"
         },
         {
-          "nome": "Buddy Valastro",
-          "capitano": false
+          "nome": "Buddy Valastro"
         },
         {
-          "nome": "Adonis",
-          "capitano": false
+          "nome": "Adonis"
         },
         {
-          "nome": "Alfredo Cospito",
-          "capitano": false
+          "nome": "Alfredo Cospito"
         },
         {
-          "nome": "Dario Argento",
-          "capitano": false
+          "nome": "Dario Argento"
         },
         {
-          "nome": "John Irving",
-          "capitano": false
+          "nome": "John Irving"
         },
         {
-          "nome": "Edoardo Bove",
-          "capitano": false
+          "nome": "Edoardo Bove"
         },
         {
-          "nome": "Takeshi Kitano",
-          "capitano": false
+          "nome": "Takeshi Kitano"
         }
       ],
       "totPunti": 0
