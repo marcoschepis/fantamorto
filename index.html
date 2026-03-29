@@ -408,6 +408,34 @@
             render();
         }
 
+        function puntiMorto(s, p) {
+            const morto = getMortoByName(p.nome);
+            let puntiBase = morto ? morto.punti : 0;
+
+            return puntiBase;
+        }
+
+        function puntiCapitano(s, p) {
+            const morto = getMortoByName(p.nome);
+
+            let bonusCapitano = 0;
+            if (p.nome === s.capitano && morto && morto.status === 'morto') {
+                bonusCapitano = 10;
+            }
+
+            return bonusCapitano;
+        }
+
+        function puntiMortoTot(s, p) {
+            return puntiMorto(s, p) + puntiCapitano(s, p);
+        }
+
+        function puntiSquadra(s, p){
+            s.totPunti = s.partecipanti.reduce((acc, p) => {
+                return acc + puntiMorto(s, p) + puntiCapitano(s, p);
+            }, 0);
+        }
+
         function render() {
             const rankCont = document.getElementById('rank-container');
             const teamsCont = document.getElementById('teams-container');
@@ -417,20 +445,7 @@
             adminCont.innerHTML = '';
 
             // Calcoli totali per squadra
-            db.campionato.forEach(s => {
-                s.totPunti = s.partecipanti.reduce((acc, p) => {
-                    const morto = getMortoByName(p.nome);
-                    let puntiBase = morto ? morto.punti : 0;
-
-                    // LOGICA BONUS CAPITANO
-                    let bonusCapitano = 0;
-                    if (p.nome === s.capitano && morto && morto.status === 'morto') {
-                        bonusCapitano = 10;
-                    }
-
-                    return acc + puntiBase + bonusCapitano;
-                }, 0);
-            });
+            db.campionato.forEach(s => { puntiSquadra(s); });
 
             const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
 
@@ -515,7 +530,7 @@
                             ${[...s.partecipanti].sort((a, b) => {
                                 const mA = getMortoByName(a.nome);
                                 const mB = getMortoByName(b.nome);
-                                return (mB?.punti || 0) - (mA?.punti || 0);
+                                return (puntiMortoTot(s, b)) - (puntiMortoTot(s, a));
                             }).map(p => {
                                 const morto = getMortoByName(p.nome);
                                 const isDead = morto && morto.status === 'morto';
@@ -533,7 +548,7 @@
                                             ${morto ? morto.rimborso : '?'} <small style="color: #555; text-align: center;">BS</small>
                                         </td>
                                         <td class="col-punti" style="width: 20%; text-align: right; font-weight: bold;">
-                                            ${morto && morto.punti > 0 ? '+' + morto.punti : '0'}
+                                            ${puntiMortoTot(s, p)}
                                         </td>
                                     </tr>
                                 `;
