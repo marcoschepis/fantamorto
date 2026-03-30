@@ -353,6 +353,13 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Cristina Jorio",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -360,9 +367,6 @@
       "nome_squadra": "Hellas Verano",
       "proprietario": "Marco",
       "partecipanti": [
-        {
-          "nome": "Ali al-Sistani"
-        },
         {
           "nome": "Sophia Loren"
         },
@@ -398,6 +402,9 @@
         },
         {
           "nome": "Paola Binetti"
+        },
+        {
+          "nome": "Cristina Jorio"
         }
       ],
       "totPunti": 0,
