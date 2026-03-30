@@ -430,6 +430,20 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Gianni Alemanno",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giampiero Mughini",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -594,9 +608,6 @@
           "nome": "Giovanna Ralli"
         },
         {
-          "nome": "Harvey Weinstein"
-        },
-        {
           "nome": "Carol Burnett"
         },
         {
@@ -604,6 +615,12 @@
         },
         {
           "nome": "Carola Rackete"
+        },
+        {
+          "nome": "Gianni Alemanno"
+        },
+        {
+          "nome": "Giampiero Mughini"
         }
       ],
       "totPunti": 0,
@@ -624,18 +641,6 @@
     {
       "nome_squadra": "Zero fama, zero bara",
       "proprietario": "Lisa",
-      "partecipanti": [],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "I down di Ruffini",
-      "proprietario": "Andrea",
-      "partecipanti": [],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "Breaking Dead",
-      "proprietario": "Krystal",
       "partecipanti": [],
       "totPunti": 0
     }
