@@ -409,27 +409,6 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
-    },
-    {
-      "nome": "Carol Burnett",
-      "prezzo": 20,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Sia (cantante)",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Carola Rackete",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
     }
   ],
   "campionato": [
@@ -595,15 +574,6 @@
         },
         {
           "nome": "Harvey Weinstein"
-        },
-        {
-          "nome": "Carol Burnett"
-        },
-        {
-          "nome": "Sia (cantante)"
-        },
-        {
-          "nome": "Carola Rackete"
         }
       ],
       "totPunti": 0,
@@ -624,6 +594,18 @@
     {
       "nome_squadra": "Zero fama, zero bara",
       "proprietario": "Lisa",
+      "partecipanti": [],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "I down di Ruffini",
+      "proprietario": "Andrea",
+      "partecipanti": [],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "Breaking Dead",
+      "proprietario": "Krystal",
       "partecipanti": [],
       "totPunti": 0
     }
