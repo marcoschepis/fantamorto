@@ -744,12 +744,6 @@
       "partecipanti": [],
       "totPunti": 0
     },
-        {
-      "nome_squadra": "I down di Ruffini",
-      "proprietario": "Andrea",
-      "partecipanti": [],
-      "totPunti": 0
-    },
     {
       "nome_squadra": "I down di Ruffini",
       "proprietario": "Andrea",
@@ -796,6 +790,12 @@
       ],
       "totPunti": 0,
       "capitano": "Roberto Benigni"
+    },
+    {
+      "nome_squadra": "Breaking Dead",
+      "proprietario": "Krystal",
+      "partecipanti": [],
+      "totPunti": 0
     }
   ]
 }
