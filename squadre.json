@@ -446,42 +446,42 @@
       "rimborso": 0
     },
     {
-      "nome": "Angela Finocchiaro",
-      "prezzo": 10,
+      "nome": "Michael J. Fox",
+      "prezzo": 75,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Laura Boldrini",
-      "prezzo": 10,
+      "nome": "Adriano Celentano",
+      "prezzo": 100,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Haruki Murakami",
-      "prezzo": 10,
+      "nome": "Amadeus (conduttore televisivo)",
+      "prezzo": 25,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Paolo Ruffini (attore)",
+      "nome": "Morgan (cantante)",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Max Verstappen",
       "prezzo": 20,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Iginio Massari",
-      "prezzo": 50,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Angelo Bonelli",
+      "nome": "Lazza",
       "prezzo": 10,
       "status": "vivo",
       "punti": 0,
@@ -495,64 +495,36 @@
       "rimborso": 0
     },
     {
-      "nome": "Antonello Venditti",
-      "prezzo": 45,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Olly",
-      "prezzo": 15,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Roberto Benigni",
-      "prezzo": 55,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Mara Venier",
+      "nome": "Donatella Versace",
       "prezzo": 50,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Quentin Tarantino",
-      "prezzo": 20,
+      "nome": "Marco Columbro",
+      "prezzo": 35,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Sofia di Grecia",
-      "prezzo": 20,
+      "nome": "Carlo III del Regno Unito",
+      "prezzo": 100,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Eleonora Brigliadori",
+      "nome": "Alexandria Ocasio-Cortez",
       "prezzo": 10,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Antonia Fraser",
-      "prezzo": 25,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Francesca Cipriani",
-      "prezzo": 10,
+      "nome": "Bill Gates",
+      "prezzo": 30,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
@@ -720,7 +692,19 @@
           "nome": "Giovanna Ralli"
         },
         {
-          "nome": "Harvey Weinstein"
+          "nome": "Carol Burnett"
+        },
+        {
+          "nome": "Sia (cantante)"
+        },
+        {
+          "nome": "Carola Rackete"
+        },
+        {
+          "nome": "Gianni Alemanno"
+        },
+        {
+          "nome": "Giampiero Mughini"
         }
       ],
       "totPunti": 0,
@@ -745,63 +729,33 @@
       "totPunti": 0
     },
     {
-      "nome_squadra": "I down di Ruffini",
-      "proprietario": "Andrea",
+      "nome_squadra": "Breaking Dead",
+      "proprietario": "Krystal",
       "partecipanti": [
         {
-          "nome": "Andrea Bocelli"
+          "nome": "Max Verstappen"
         },
         {
-          "nome": "Paolo Ruffini (attore)"
-        },
-        {
-          "nome": "Iginio Massari"
-        },
-        {
-          "nome": "Angelo Bonelli"
+          "nome": "Lazza"
         },
         {
           "nome": "Laura Pausini"
         },
         {
-          "nome": "Antonello Venditti"
+          "nome": "Donatella Versace"
         },
         {
-          "nome": "Olly"
+          "nome": "Carlo III del Regno Unito"
         },
         {
-          "nome": "Roberto Benigni"
+          "nome": "Alexandria Ocasio-Cortez"
         },
         {
-          "nome": "Quentin Tarantino"
-        },
-        {
-          "nome": "Sofia di Grecia"
-        },
-        {
-          "nome": "Eleonora Brigliadori"
-        },
-        {
-          "nome": "Antonia Fraser"
-        },
-        {
-          "nome": "Francesca Cipriani"
+          "nome": "Bill Gates"
         }
       ],
       "totPunti": 0,
-      "capitano": "Roberto Benigni"
-    },
-    {
-      "nome_squadra": "Breaking Dead",
-      "proprietario": "Krystal",
-      "partecipanti": [],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "Nadia Taffo",
-      "proprietario": "Samoggino",
-      "partecipanti": [],
-      "totPunti": 0
+      "capitano": "Carlo III del Regno Unito"
     }
   ]
 }
