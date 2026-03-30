@@ -459,7 +459,7 @@
     },
     {
       "nome_squadra": "Prima Morta",
-      "proprietario": "ScheGia",
+      "proprietario": "Schegia",
       "partecipanti": [
         {
           "nome": "Mahmūd Abbās"
@@ -507,6 +507,12 @@
     {
       "nome_squadra": "Caronte & Tourist",
       "proprietario": "Alessandro",
+      "partecipanti": [],
+      "totPunti": 0
+    },
+    {
+      "nome_squadra": "I Concimabili",
+      "proprietario": "Nicola",
       "partecipanti": [],
       "totPunti": 0
     }
