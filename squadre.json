@@ -578,7 +578,7 @@
       "punti": 0,
       "rimborso": 0
     },
-        {
+    {
       "nome": "Antonello Venditti",
       "prezzo": 45,
       "status": "vivo",
@@ -849,7 +849,7 @@
       "partecipanti": [],
       "totPunti": 0
     },
-        {
+    {
       "nome_squadra": "I down di Ruffini",
       "proprietario": "Andrea",
       "partecipanti": [
@@ -924,6 +924,12 @@
       ],
       "totPunti": 0,
       "capitano": "Carlo III del Regno Unito"
+    },
+    {
+      "nome_squadra": "Nadia Taffo",
+      "proprietario": "Samoggino",
+      "partecipanti": [],
+      "totPunti": 0
     }
   ]
 }
