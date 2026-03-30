@@ -494,7 +494,8 @@
           "nome": "Martin Sheen"
         }
       ],
-      "totPunti": 0
+      "totPunti": 0,
+      "capitano": "Iva Zanicchi"
     },
     {
       "nome_squadra": "Caronte & Tourist",
