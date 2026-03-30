@@ -411,56 +411,91 @@
       "rimborso": 0
     },
     {
-      "nome": "Carol Burnett",
+      "nome": "Paolo Ruffini (attore)",
       "prezzo": 20,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Sia (cantante)",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Carola Rackete",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Gianni Alemanno",
-      "prezzo": 10,
-      "status": "vivo",
-      "punti": 0,
-      "rimborso": 0
-    },
-    {
-      "nome": "Giampiero Mughini",
+      "nome": "Iginio Massari",
       "prezzo": 50,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Angela Finocchiaro",
+      "nome": "Angelo Bonelli",
       "prezzo": 10,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Laura Boldrini",
+      "nome": "Laura Pausini",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Antonello Venditti",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Olly",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Roberto Benigni",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mara Venier",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Quentin Tarantino",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sofia di Grecia",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Eleonora Brigliadori",
       "prezzo": 10,
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
     },
     {
-      "nome": "Haruki Murakami",
+      "nome": "Antonia Fraser",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Francesca Cipriani",
       "prezzo": 10,
       "status": "vivo",
       "punti": 0,
@@ -629,28 +664,7 @@
           "nome": "Giovanna Ralli"
         },
         {
-          "nome": "Carol Burnett"
-        },
-        {
-          "nome": "Sia (cantante)"
-        },
-        {
-          "nome": "Carola Rackete"
-        },
-        {
-          "nome": "Gianni Alemanno"
-        },
-        {
-          "nome": "Giampiero Mughini"
-        },
-        {
-          "nome": "Angela Finocchiaro"
-        },
-        {
-          "nome": "Laura Boldrini"
-        },
-        {
-          "nome": "Haruki Murakami"
+          "nome": "Harvey Weinstein"
         }
       ],
       "totPunti": 0,
@@ -675,16 +689,51 @@
       "totPunti": 0
     },
     {
-      "nome_squadra": "Breaking Dead",
-      "proprietario": "Krystal",
-      "partecipanti": [],
-      "totPunti": 0
-    },
-    {
-      "nome_squadra": "Nadia Taffo",
-      "proprietario": "Samoggino",
-      "partecipanti": [],
-      "totPunti": 0
+      "nome_squadra": "I down di Ruffini",
+      "proprietario": "Andrea",
+      "partecipanti": [
+        {
+          "nome": "Andrea Bocelli"
+        },
+        {
+          "nome": "Paolo Ruffini (attore)"
+        },
+        {
+          "nome": "Iginio Massari"
+        },
+        {
+          "nome": "Angelo Bonelli"
+        },
+        {
+          "nome": "Laura Pausini"
+        },
+        {
+          "nome": "Antonello Venditti"
+        },
+        {
+          "nome": "Olly"
+        },
+        {
+          "nome": "Roberto Benigni"
+        },
+        {
+          "nome": "Quentin Tarantino"
+        },
+        {
+          "nome": "Sofia di Grecia"
+        },
+        {
+          "nome": "Eleonora Brigliadori"
+        },
+        {
+          "nome": "Antonia Fraser"
+        },
+        {
+          "nome": "Francesca Cipriani"
+        }
+      ],
+      "totPunti": 0,
+      "capitano": "Roberto Benigni"
     }
   ]
 }
