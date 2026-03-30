@@ -360,6 +360,55 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Giovanni Allevi",
+      "prezzo": 70,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Stephen King",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nancy Pelosi",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giucas Casella",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carolyn Smith",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giovanna Ralli",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Harvey Weinstein",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -507,8 +556,28 @@
     {
       "nome_squadra": "Caronte & Tourist",
       "proprietario": "Alessandro",
-      "partecipanti": [],
-      "totPunti": 0
+      "partecipanti": [
+        {
+          "nome": "Giovanni Allevi"
+        },
+        {
+          "nome": "Stephen King"
+        },
+        {
+          "nome": "Nancy Pelosi"
+        },
+        {
+          "nome": "Giucas Casella"
+        },
+        {
+          "nome": "Giovanna Ralli"
+        },
+        {
+          "nome": "Harvey Weinstein"
+        }
+      ],
+      "totPunti": 0,
+      "capitano": "Giovanni Allevi"
     },
     {
       "nome_squadra": "I Concimabili",
