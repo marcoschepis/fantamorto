@@ -444,6 +444,27 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Anna Finocchiaro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Boldrini",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Haruki Murakami",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -621,6 +642,15 @@
         },
         {
           "nome": "Giampiero Mughini"
+        },
+        {
+          "nome": "Anna Finocchiaro"
+        },
+        {
+          "nome": "Laura Boldrini"
+        },
+        {
+          "nome": "Haruki Murakami"
         }
       ],
       "totPunti": 0,
