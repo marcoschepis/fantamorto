@@ -528,6 +528,118 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Angela Finocchiaro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Boldrini",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Haruki Murakami",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Ruffini (attore)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Iginio Massari",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Angelo Bonelli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Pausini",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+        {
+      "nome": "Antonello Venditti",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Olly",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Roberto Benigni",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mara Venier",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Quentin Tarantino",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sofia di Grecia",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Eleonora Brigliadori",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Antonia Fraser",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Francesca Cipriani",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -691,6 +803,9 @@
         {
           "nome": "Giovanna Ralli"
         },
+                {
+          "nome": "Harvey Weinstein"
+        },
         {
           "nome": "Carol Burnett"
         },
@@ -727,6 +842,53 @@
       "proprietario": "Lisa",
       "partecipanti": [],
       "totPunti": 0
+    },
+        {
+      "nome_squadra": "I down di Ruffini",
+      "proprietario": "Andrea",
+      "partecipanti": [
+        {
+          "nome": "Andrea Bocelli"
+        },
+        {
+          "nome": "Paolo Ruffini (attore)"
+        },
+        {
+          "nome": "Iginio Massari"
+        },
+        {
+          "nome": "Angelo Bonelli"
+        },
+        {
+          "nome": "Laura Pausini"
+        },
+        {
+          "nome": "Antonello Venditti"
+        },
+        {
+          "nome": "Olly"
+        },
+        {
+          "nome": "Roberto Benigni"
+        },
+        {
+          "nome": "Quentin Tarantino"
+        },
+        {
+          "nome": "Sofia di Grecia"
+        },
+        {
+          "nome": "Eleonora Brigliadori"
+        },
+        {
+          "nome": "Antonia Fraser"
+        },
+        {
+          "nome": "Francesca Cipriani"
+        }
+      ],
+      "totPunti": 0,
+      "capitano": "Roberto Benigni"
     },
     {
       "nome_squadra": "Breaking Dead",
