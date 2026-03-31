@@ -10,11 +10,50 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Update JSON File
+      - name: Merge
+        env:
+          # Passiamo il payload come variabile d'ambiente per evitare errori di sintassi
+          SQUADRA_JSON: ${{ toJson(github.event.client_payload.squadra) }}
         run: |
-          echo '${{ github.event.client_payload.db }}' > squadre.json
+          node -e "
+            const fs = require('fs');
+            const file = 'squadre.json';
+            
+            try {
+              // 1. Leggi il DB attuale
+              let db = JSON.parse(fs.readFileSync(file, 'utf8'));
+              
+              // 2. Prendi la squadra dalla variabile d'ambiente
+              const nuovaSquadra = JSON.parse(process.env.SQUADRA_JSON);
+              
+              if (!nuovaSquadra || !nuovaSquadra.nome_squadra) {
+                console.error('Dati squadra mancanti o errati');
+                process.exit(1);
+              }
+
+              // 3. Cerca e aggiorna
+              const index = db.campionato.findIndex(s => s.nome_squadra === nuovaSquadra.nome_squadra);
+              
+              if (index !== -1) {
+                db.campionato[index] = nuovaSquadra;
+                console.log('Aggiornata squadra: ' + nuovaSquadra.nome_squadra);
+              } else {
+                db.campionato.push(nuovaSquadra);
+                console.log('Aggiunta nuova squadra: ' + nuovaSquadra.nome_squadra);
+              }
+              
+              // 4. Scrittura finale
+              fs.writeFileSync(file, JSON.stringify(db, null, 2));
+            } catch (err) {
+              console.error('Errore durante il merge:', err);
+              process.exit(1);
+            }
+          "
+      - name: Push delle modifiche
+        run: |
           git config user.name "Fantamorto Bot"
           git config user.email "actions@github.com"
           git add squadre.json
-          git commit -m "Update: ${{ github.event.client_payload.autore }}"
-          git push
+          git commit -m "Update: ${{ github.event.client_payload.autore }}" || exit 0
+          git pull --rebase origin main
+          git push origin main
