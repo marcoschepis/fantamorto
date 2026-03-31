@@ -640,6 +640,97 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Emma Bonino",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Liliana Segre",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Clint Eastwood",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Condò",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Christian De Sica",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nicolás Maduro",
+      "prezzo": 60,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Adriano Pappalardo",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alain Prost",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Angeliño",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Corrado Augias",
+      "prezzo": 60,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bernie Sanders",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alberto Rimedio",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Daniela Santanchè",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -834,8 +925,37 @@
     {
       "nome_squadra": "I Concimabili",
       "proprietario": "Nicola",
-      "partecipanti": [],
-      "totPunti": 0
+      "partecipanti": [
+        {
+          "nome": "Emma Bonino"
+        },
+        {
+          "nome": "Paolo Condò"
+        },
+        {
+          "nome": "Christian De Sica"
+        },
+        {
+          "nome": "Adriano Pappalardo"
+        },
+        {
+          "nome": "Alain Prost"
+        },
+        {
+          "nome": "Corrado Augias"
+        },
+        {
+          "nome": "Bernie Sanders"
+        },
+        {
+          "nome": "Alberto Rimedio"
+        },
+        {
+          "nome": "Daniela Santanchè"
+        }
+      ],
+      "totPunti": 0,
+      "capitano": "Emma Bonino"
     },
     {
       "nome_squadra": "All’ultimo respiro",
