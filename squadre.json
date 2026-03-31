@@ -731,6 +731,76 @@
       "status": "vivo",
       "punti": 0,
       "rimborso": 0
+    },
+    {
+      "nome": "Lil Nas X",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Stephen Fry",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "James Cameron",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alessandro Baricco",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Madonna (cantante)",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paul Anderson",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giulio Golia",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Luca Argentero",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Fabio Rovazzi",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Elena Sofia Ricci",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
     }
   ],
   "campionato": [
@@ -1021,13 +1091,7 @@
       "proprietario": "Krystal",
       "partecipanti": [
         {
-          "nome": "Max Verstappen"
-        },
-        {
           "nome": "Lazza"
-        },
-        {
-          "nome": "Laura Pausini"
         },
         {
           "nome": "Donatella Versace"
@@ -1040,6 +1104,30 @@
         },
         {
           "nome": "Bill Gates"
+        },
+        {
+          "nome": "Lil Nas X"
+        },
+        {
+          "nome": "Alessandro Baricco"
+        },
+        {
+          "nome": "Madonna (cantante)"
+        },
+        {
+          "nome": "Paul Anderson"
+        },
+        {
+          "nome": "Giulio Golia"
+        },
+        {
+          "nome": "Luca Argentero"
+        },
+        {
+          "nome": "Fabio Rovazzi"
+        },
+        {
+          "nome": "Elena Sofia Ricci"
         }
       ],
       "totPunti": 0,
