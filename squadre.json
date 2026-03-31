@@ -401,75 +401,103 @@
       "capitano": "Giovanni Allevi"
     },
     {
+      "capitano": "Emma Bonino",
       "nome_squadra": "I Concimabili",
-      "proprietario": "Nicola",
       "partecipanti": [
         {
           "nome": "Emma Bonino",
           "prezzo": 100,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Paolo Condò",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Christian De Sica",
           "prezzo": 40,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
-        },
-        {
-          "nome": "Adriano Pappalardo",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
-        },
-        {
-          "nome": "Alain Prost",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Corrado Augias",
           "prezzo": 60,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Bernie Sanders",
           "prezzo": 35,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Alberto Rimedio",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
-          "nome": "Daniela Santanchè",
-          "prezzo": 25,
-          "status": "vivo",
+          "nome": "Nuno Markl",
+          "prezzo": 15,
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Vince Neil",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Caitlyn Jenner",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Cardi B",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Hugo Weaving",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Jim Belushi",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Vera Wang",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
         }
       ],
-      "totPunti": 0,
-      "capitano": "Emma Bonino"
+      "proprietario": "Nicola",
+      "totPunti": 0
     },
     {
       "nome_squadra": "All’ultimo respiro",
