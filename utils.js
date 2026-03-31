@@ -244,3 +244,13 @@ async function saveToGitHub() {
         alert("❌ Errore di connessione.");
     }
 }
+
+function updateMortoStatusSync(nome, statusAttuale) {
+    const nuovoStatus = statusAttuale === 'vivo' ? 'morto' : 'vivo';
+    db.campionato.forEach(s => {
+        s.partecipanti.forEach(p => {
+            if (p.nome === nome) p.status = nuovoStatus;
+        });
+    });
+    render();
+}
