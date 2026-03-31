@@ -3,102 +3,898 @@
     "crediti_iniziali": 330,
     "mostra_mercato": true
   },
-  "morituri": [],
+  "morituri": [
+    {
+      "nome": "Ketama126",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Side Baby",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mr. Rain",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Andrea Bocelli",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marcello Colafigli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Ali al-Sistani",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mario Borghezio",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Ahmad Jannati",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sophia Loren",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Isabel Allende",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Margaret Atwood",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Tadej Pogačar",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bella Thorne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mina (cantante)",
+      "prezzo": 75,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Lele Mora",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Avril Lavigne",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marcelino Abad Tolentino",
+      "prezzo": 65,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Buddy Valastro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Adonis",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alfredo Cospito",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Dario Argento",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Calvin Klein (stilista)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "John Irving",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Edoardo Bove",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Takeshi Kitano",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Wanna Marchi",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Jim Belushi",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Silvan",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marco Tardelli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Kevin Spacey",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Massimo Zanetti",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Gentiloni",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Federico Faggin",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mahmūd Abbās",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Gustav Thöni",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nick Nolte",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Herbie Hancock",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carlo Taormina",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Brian De Palma",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Tom Jones (cantante)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Raúl Castro",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Jon Voight",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Iva Zanicchi",
+      "prezzo": 70,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Phil Knight",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Pupi Avati",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Muhammad Yunus",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Martin Sheen",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Michael McKean",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paola Ruffo di Calabria",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paola Binetti",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Cristina Jorio",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giovanni Allevi",
+      "prezzo": 70,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Stephen King",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nancy Pelosi",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giucas Casella",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carolyn Smith",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giovanna Ralli",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Harvey Weinstein",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carol Burnett",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sia (cantante)",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carola Rackete",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Gianni Alemanno",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giampiero Mughini",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Michael J. Fox",
+      "prezzo": 75,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Adriano Celentano",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Amadeus (conduttore televisivo)",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Morgan (cantante)",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Max Verstappen",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Lazza",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Pausini",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Donatella Versace",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Marco Columbro",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Carlo III del Regno Unito",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alexandria Ocasio-Cortez",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bill Gates",
+      "prezzo": 30,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Angela Finocchiaro",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Boldrini",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Haruki Murakami",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Ruffini (attore)",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Iginio Massari",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Angelo Bonelli",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Laura Pausini",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Antonello Venditti",
+      "prezzo": 45,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Olly",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Roberto Benigni",
+      "prezzo": 55,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Mara Venier",
+      "prezzo": 50,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Quentin Tarantino",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Sofia di Grecia",
+      "prezzo": 20,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Eleonora Brigliadori",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Antonia Fraser",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Francesca Cipriani",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Emma Bonino",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Liliana Segre",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Clint Eastwood",
+      "prezzo": 100,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paolo Condò",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Christian De Sica",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nicolás Maduro",
+      "prezzo": 60,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Adriano Pappalardo",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alain Prost",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Angeliño",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Corrado Augias",
+      "prezzo": 60,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Bernie Sanders",
+      "prezzo": 35,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alberto Rimedio",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Daniela Santanchè",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Lil Nas X",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Stephen Fry",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "James Cameron",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Alessandro Baricco",
+      "prezzo": 25,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Madonna (cantante)",
+      "prezzo": 40,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Paul Anderson",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Giulio Golia",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Luca Argentero",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Fabio Rovazzi",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Elena Sofia Ricci",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Nuno Markl",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Vince Neil",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Ciarán Hinds",
+      "prezzo": 15,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Caitlyn Jenner",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Cardi B",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Hugo Weaving",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    },
+    {
+      "nome": "Vera Wang",
+      "prezzo": 10,
+      "status": "vivo",
+      "punti": 0,
+      "rimborso": 0
+    }
+  ],
   "campionato": [
     {
       "nome_squadra": "Hellas Verano",
       "proprietario": "Marco",
       "partecipanti": [
         {
-          "nome": "Sophia Loren",
-          "prezzo": 100,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Sophia Loren"
         },
         {
-          "nome": "Calvin Klein (stilista)",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Calvin Klein (stilista)"
         },
         {
-          "nome": "Wanna Marchi",
-          "prezzo": 50,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Wanna Marchi"
         },
         {
-          "nome": "Jim Belushi",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Jim Belushi"
         },
         {
-          "nome": "Silvan",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Silvan"
         },
         {
-          "nome": "Marco Tardelli",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Marco Tardelli"
         },
         {
-          "nome": "Kevin Spacey",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Kevin Spacey"
         },
         {
-          "nome": "Massimo Zanetti",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Massimo Zanetti"
         },
         {
-          "nome": "Paolo Gentiloni",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Paolo Gentiloni"
         },
         {
-          "nome": "Federico Faggin",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Federico Faggin"
         },
         {
-          "nome": "Michael McKean",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Michael McKean"
         },
         {
-          "nome": "Paola Binetti",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Paola Binetti"
         },
         {
-          "nome": "Cristina Jorio",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Cristina Jorio"
         }
       ],
       "totPunti": 0,
@@ -110,95 +906,43 @@
       "capitano": "Mina (cantante)",
       "partecipanti": [
         {
-          "nome": "Isabel Allende",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Isabel Allende"
         },
         {
-          "nome": "Margaret Atwood",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Margaret Atwood"
         },
         {
-          "nome": "Tadej Pogačar",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Tadej Pogačar"
         },
         {
-          "nome": "Bella Thorne",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Bella Thorne"
         },
         {
-          "nome": "Mina (cantante)",
-          "prezzo": 75,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Mina (cantante)"
         },
         {
-          "nome": "Lele Mora",
-          "prezzo": 45,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Lele Mora"
         },
         {
-          "nome": "Buddy Valastro",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Buddy Valastro"
         },
         {
-          "nome": "Adonis",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Adonis"
         },
         {
-          "nome": "Alfredo Cospito",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Alfredo Cospito"
         },
         {
-          "nome": "Dario Argento",
-          "prezzo": 45,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Dario Argento"
         },
         {
-          "nome": "John Irving",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "John Irving"
         },
         {
-          "nome": "Edoardo Bove",
-          "prezzo": 25,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Edoardo Bove"
         },
         {
-          "nome": "Takeshi Kitano",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Takeshi Kitano"
         }
       ],
       "totPunti": 0
@@ -208,95 +952,43 @@
       "proprietario": "Schegia",
       "partecipanti": [
         {
-          "nome": "Mahmūd Abbās",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Mahmūd Abbās"
         },
         {
-          "nome": "Gustav Thöni",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Gustav Thöni"
         },
         {
-          "nome": "Nick Nolte",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Nick Nolte"
         },
         {
-          "nome": "Herbie Hancock",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Herbie Hancock"
         },
         {
-          "nome": "Carlo Taormina",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Carlo Taormina"
         },
         {
-          "nome": "Brian De Palma",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Brian De Palma"
         },
         {
-          "nome": "Raúl Castro",
-          "prezzo": 55,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Raúl Castro"
         },
         {
-          "nome": "Jon Voight",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Jon Voight"
         },
         {
-          "nome": "Iva Zanicchi",
-          "prezzo": 70,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Iva Zanicchi"
         },
         {
-          "nome": "Phil Knight",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Phil Knight"
         },
         {
-          "nome": "Pupi Avati",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Pupi Avati"
         },
         {
-          "nome": "Muhammad Yunus",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Muhammad Yunus"
         },
         {
-          "nome": "Martin Sheen",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Martin Sheen"
         }
       ],
       "totPunti": 0,
@@ -307,95 +999,43 @@
       "proprietario": "Alessandro",
       "partecipanti": [
         {
-          "nome": "Giovanni Allevi",
-          "prezzo": 70,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Giovanni Allevi"
         },
         {
-          "nome": "Stephen King",
-          "prezzo": 40,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Stephen King"
         },
         {
-          "nome": "Nancy Pelosi",
-          "prezzo": 25,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Nancy Pelosi"
         },
         {
-          "nome": "Giucas Casella",
-          "prezzo": 45,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Giucas Casella"
         },
         {
-          "nome": "Giovanna Ralli",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Giovanna Ralli"
         },
         {
-          "nome": "Carol Burnett",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Carol Burnett"
         },
         {
-          "nome": "Sia (cantante)",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Sia (cantante)"
         },
         {
-          "nome": "Carola Rackete",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Carola Rackete"
         },
         {
-          "nome": "Gianni Alemanno",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Gianni Alemanno"
         },
         {
-          "nome": "Giampiero Mughini",
-          "prezzo": 50,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Giampiero Mughini"
         },
         {
-          "nome": "Angela Finocchiaro",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Angela Finocchiaro"
         },
         {
-          "nome": "Laura Boldrini",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Laura Boldrini"
         },
         {
-          "nome": "Haruki Murakami",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Haruki Murakami"
         }
       ],
       "totPunti": 0,
@@ -406,67 +1046,43 @@
       "proprietario": "Nicola",
       "partecipanti": [
         {
-          "nome": "Emma Bonino",
-          "prezzo": 100,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Emma Bonino"
         },
         {
-          "nome": "Paolo Condò",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Paolo Condò"
         },
         {
-          "nome": "Christian De Sica",
-          "prezzo": 40,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Christian De Sica"
         },
         {
-          "nome": "Adriano Pappalardo",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Corrado Augias"
         },
         {
-          "nome": "Alain Prost",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Bernie Sanders"
         },
         {
-          "nome": "Corrado Augias",
-          "prezzo": 60,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Alberto Rimedio"
         },
         {
-          "nome": "Bernie Sanders",
-          "prezzo": 35,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Nuno Markl"
         },
         {
-          "nome": "Alberto Rimedio",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Vince Neil"
         },
         {
-          "nome": "Daniela Santanchè",
-          "prezzo": 25,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Caitlyn Jenner"
+        },
+        {
+          "nome": "Cardi B"
+        },
+        {
+          "nome": "Hugo Weaving"
+        },
+        {
+          "nome": "Jim Belushi"
+        },
+        {
+          "nome": "Vera Wang"
         }
       ],
       "totPunti": 0,
@@ -496,88 +1112,40 @@
             "rimborso": 0
         },
         {
-          "nome": "Paolo Ruffini (attore)",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Paolo Ruffini (attore)"
         },
         {
-          "nome": "Iginio Massari",
-          "prezzo": 50,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Iginio Massari"
         },
         {
-          "nome": "Angelo Bonelli",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Angelo Bonelli"
         },
         {
-          "nome": "Laura Pausini",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Laura Pausini"
         },
         {
-          "nome": "Antonello Venditti",
-          "prezzo": 45,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Antonello Venditti"
         },
         {
-          "nome": "Olly",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Olly"
         },
         {
-          "nome": "Roberto Benigni",
-          "prezzo": 55,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Roberto Benigni"
         },
         {
-          "nome": "Quentin Tarantino",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Quentin Tarantino"
         },
         {
-          "nome": "Sofia di Grecia",
-          "prezzo": 20,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Sofia di Grecia"
         },
         {
-          "nome": "Eleonora Brigliadori",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Eleonora Brigliadori"
         },
         {
-          "nome": "Antonia Fraser",
-          "prezzo": 25,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Antonia Fraser"
         },
         {
-          "nome": "Francesca Cipriani",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Francesca Cipriani"
         }
       ],
       "totPunti": 0,
@@ -588,95 +1156,43 @@
       "proprietario": "Krystal",
       "partecipanti": [
         {
-          "nome": "Lazza",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Lazza"
         },
         {
-          "nome": "Donatella Versace",
-          "prezzo": 50,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Donatella Versace"
         },
         {
-          "nome": "Carlo III del Regno Unito",
-          "prezzo": 100,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Carlo III del Regno Unito"
         },
         {
-          "nome": "Alexandria Ocasio-Cortez",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Alexandria Ocasio-Cortez"
         },
         {
-          "nome": "Bill Gates",
-          "prezzo": 30,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Bill Gates"
         },
         {
-          "nome": "Lil Nas X",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Lil Nas X"
         },
         {
-          "nome": "Alessandro Baricco",
-          "prezzo": 25,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Alessandro Baricco"
         },
         {
-          "nome": "Madonna (cantante)",
-          "prezzo": 40,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Madonna (cantante)"
         },
         {
-          "nome": "Paul Anderson",
-          "prezzo": 15,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Paul Anderson"
         },
         {
-          "nome": "Giulio Golia",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Giulio Golia"
         },
         {
-          "nome": "Luca Argentero",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Luca Argentero"
         },
         {
-          "nome": "Fabio Rovazzi",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Fabio Rovazzi"
         },
         {
-          "nome": "Elena Sofia Ricci",
-          "prezzo": 10,
-          "status": "vivo",
-          "punti": 0,
-          "rimborso": 0
+          "nome": "Elena Sofia Ricci"
         }
       ],
       "totPunti": 0,
