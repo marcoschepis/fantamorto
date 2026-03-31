@@ -2,6 +2,10 @@ name: Save Team Data
 on:
   repository_dispatch:
     types: [update_json]
+    
+concurrency:
+  group: update-json-group
+  cancel-in-progress: false
 
 jobs:
   update:
