@@ -488,9 +488,6 @@
       "proprietario": "Andrea",
       "partecipanti": [
         {
-          "nome": "Andrea Bocelli"
-        },
-        {
           "nome": "Paolo Ruffini (attore)",
           "prezzo": 20,
           "status": "vivo",
@@ -570,6 +567,13 @@
         {
           "nome": "Francesca Cipriani",
           "prezzo": 10,
+          "status": "vivo",
+          "punti": 0,
+          "rimborso": 0
+        },
+        {
+          "nome": "Andrea Bocelli",
+          "prezzo": 35,
           "status": "vivo",
           "punti": 0,
           "rimborso": 0
