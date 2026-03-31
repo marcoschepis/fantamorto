@@ -181,9 +181,9 @@ async function saveToGitHub() {
 
     if (autore == "-- Seleziona la tua squadra --") autore = "ADMIN";
 
+    const squadra = db.campionato[userIdx];
     if (autore !== "ADMIN" && userIdx !== "") {
         // Controllo per l'utente singolo
-        const squadra = db.campionato[userIdx];
         if (!squadra.capitano || squadra.capitano === "") {
             alert("⚠️ ATTENZIONE: Non hai selezionato un Capitano per la tua squadra\nClicca sulla ⚪ accanto ad un nome per renderlo capitano.");
             return; // Blocca il salvataggio
@@ -215,7 +215,7 @@ async function saveToGitHub() {
                 event_type: "update_json",
                 client_payload: {
                     autore: autore,
-                    db: JSON.stringify(db, null, 2)
+                    squadra: squadra
                 }
             })
         });
