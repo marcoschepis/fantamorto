@@ -35,12 +35,9 @@ function renderSquadre(sortedTeams) {
 
                 <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
                     ${[...s.partecipanti].sort((a, b) => {
-                        const mA = getMortoByName(a.nome);
-                        const mB = getMortoByName(b.nome);
                         return (puntiMortoTot(s, b)) - (puntiMortoTot(s, a));
                     }).map(p => {
-                        const morto = getMortoByName(p.nome);
-                        const isDead = morto && morto.status === 'morto';
+                        const isDead = isPDead(p);
                         const isCapitano = s.capitano === p.nome;
                         return `
                             <tr class="${isDead ? 'dead-row' : ''}">
@@ -49,10 +46,10 @@ function renderSquadre(sortedTeams) {
                                     <span style="color: #eee;">${isCapitano ? '⭐ ' : ''}${p.nome}</span>
                                 </td>
                                 <td style="width: 20%; text-align: center; font-size: 1rem; color: #aaa; font-family: monospace;">
-                                    ${morto ? morto.prezzo : '?'} <small style="color: #555; text-align: center;">BS</small>
+                                    ${p ? p.prezzo : '?'} <small style="color: #555; text-align: center;">BS</small>
                                 </td>
                                 <td style="width: 20%; text-align: center; font-size: 1rem; color: #aaa; font-family: monospace;">
-                                    ${morto ? morto.rimborso : '?'} <small style="color: #555; text-align: center;">BS</small>
+                                    ${p ? p.rimborso : '?'} <small style="color: #555; text-align: center;">BS</small>
                                 </td>
                                 <td class="col-punti" style="width: 20%; text-align: right; font-weight: bold;">
                                     ${puntiMortoTot(s, p)}

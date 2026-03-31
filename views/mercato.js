@@ -31,7 +31,6 @@ function renderMercato() {
                     </thead>
                     <tbody>
                         ${s.partecipanti.map((p, i) => {
-                            const m = getMortoByName(p.nome);
                             const isCapitano = s.capitano === p.nome;
                             return `
                             <tr>
@@ -44,7 +43,7 @@ function renderMercato() {
                                     <div style="font-weight: bold; color: #eee;">${p.nome}</div>
                                 </td>
                                 <td style="text-align: center; vertical-align: middle; color: #aaa; font-family: monospace;">
-                                    ${m ? m.prezzo : 0}
+                                    ${p ? p.prezzo : 0}
                                 </td>
                                 <td style="text-align: right; vertical-align: middle;">
                                     <button class="btn-del" 

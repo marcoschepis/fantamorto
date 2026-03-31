@@ -1,6 +1,17 @@
 function renderAdmin() {
     let html = '';
 
+    const morituriMappa = {};
+    db.campionato.forEach(squadra => {
+        squadra.partecipanti.forEach(p => {
+            // Se non l'abbiamo ancora aggiunto alla mappa, lo aggiungiamo
+            if (!morituriMappa[p.nome]) {
+                morituriMappa[p.nome] = p; 
+            }
+        });
+    });
+    const listaUnicaMorituri = Object.values(morituriMappa);
+
     if (isAuthorized) {
         // Configurazione Visibilità
         html += `
@@ -17,6 +28,7 @@ function renderAdmin() {
         `;
 
         // Gestione Morituri
+        /*
         html += `
             <div class="card" style="border: 2px solid var(--accent);">
                 <h3 style="margin-top: 0; color: var(--accent);">💀 Gestione Morituri</h3>
@@ -32,7 +44,7 @@ function renderAdmin() {
                         </tr>
                     </thead>
                     <tbody>
-                        ${db.morituri.map((m, mIdx) => `
+                        ${listaUnicaMorituri.map((m, mIdx) => `
                             <tr style="background: ${m.status === 'morto' ? '#1a0a0a' : ''};">
                                 <td><strong>${m.nome}</strong></td>
                                 <td><input type="number" value="${m.prezzo}" onchange="updateMortoPrezzo(${mIdx}, this.value)" style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white; box-sizing: border-box;"></td>
@@ -106,6 +118,7 @@ function renderAdmin() {
                 }).join('')}
             </div>
         `;
+        */
     }
 
     return html;

@@ -1,69 +1,5 @@
-function updateMortoStatus(idx) {
-    db.morituri[idx].status = db.morituri[idx].status === 'vivo' ? 'morto' : 'vivo';
-    render();
-}
-
-function updateMortoPoints(idx, points) {
-    db.morituri[idx].punti = parseInt(points) || 0;
-    render();
-}
-
-function updateMortoPrezzo(idx, prezzo) {
-    db.morituri[idx].prezzo = parseInt(prezzo) || 0;
-    render();
-}
-
-function updateMortoRimborso(idx, val) {
-    db.morituri[idx].rimborso = parseInt(val) || 0;
-    render();
-}
-
-function getMortoByName(nome) {
-    return db.morituri.find(m => m.nome === nome);
-}
-
-function removeMorto(idx) {
-    if (confirm('Rimuovere ' + db.morituri[idx].nome + '?')) {
-        db.morituri.splice(idx, 1);
-        render();
-    }
-}
-
-function addMorto() {
-    const nome = document.getElementById('new-morto-nome').value.trim();
-    
-    if (!nome) { alert('Inserisci un nome'); return; }
-
-    if (db.morituri.find(m => m.nome === nome)) { alert('Morto già esistente'); return; }
-
-    const infoDalCatalogo = catalogoMorituri.find(m => m.nome.toLowerCase() === nome.toLowerCase());
-
-    if (infoDalCatalogo) {
-        db.morituri.push({
-            nome: infoDalCatalogo.nome,
-            prezzo: infoDalCatalogo.prezzo,
-            status: 'vivo',
-            punti: 0,
-            rimborso: 0
-        });
-    } else {
-        // Se non lo trova usa il prezzo inserito manualmente nell'input
-        const prezzoManuale = parseInt(document.getElementById('new-morto-prezzo').value) || 0;
-        
-        db.morituri.push({
-            nome: nomeInput,
-            prezzo: prezzoManuale,
-            nascita: "",
-            descrizione: "Inserimento manuale",
-            status: 'vivo',
-            punti: 0,
-            rimborso: 0
-        });
-    }
-
-    document.getElementById('new-morto-nome').value = '';
-    document.getElementById('new-morto-prezzo').value = '0';
-    render();
+function isPDead(p) {
+    return p && p.status === 'morto';
 }
 
 function addSquadra() {
@@ -85,11 +21,10 @@ function removeSquadra(idx) {
 
 function calculateCreditiSquadra(squadra) {
     return squadra.partecipanti.reduce((acc, p) => {
-        const morto = getMortoByName(p.nome);
-        const costo = morto ? morto.prezzo : 0;
+        const costo = p ? p.prezzo : 0;
         let rimborso = 0;
-        if (morto && morto.status === 'morto') {
-            rimborso = (morto.rimborso || 0);
+        if (isPDead(p)) {
+            rimborso = (p.rimborso || 0);
         }
         else {
             rimborso = 0;
@@ -101,8 +36,7 @@ function calculateCreditiSquadra(squadra) {
 
 function calculateCreditiInizialiSquadra(squadra) {
     return squadra.partecipanti.reduce((acc, p) => {
-        const morto = getMortoByName(p.nome);
-        const costo = morto ? morto.prezzo : 0;
+        const costo = p ? p.prezzo : 0;
 
         return acc + costo;
     }, 0);
@@ -110,10 +44,9 @@ function calculateCreditiInizialiSquadra(squadra) {
 
 function calculateRimborsoCreditiSquadra(squadra) {
     return squadra.partecipanti.reduce((acc, p) => {
-        const morto = getMortoByName(p.nome);
         let rimborso = 0;
-        if (morto && morto.status === 'morto') {
-            rimborso = (morto.rimborso || 0);
+        if (isPDead(p)) {
+            rimborso = (p.rimborso || 0);
         }
         else {
             rimborso = 0;
@@ -126,6 +59,22 @@ function calculateRimborsoCreditiSquadra(squadra) {
 function calculateCreditiResidui(squadra) {
     const spesa = calculateCreditiSquadra(squadra);
     return (db.config.crediti_iniziali || 330) - spesa;
+}
+
+function numeroMaxPartecipanti(squadra) {
+    const conteggioMorti = squadra.partecipanti.filter(p => {
+        return isPDead(p);
+    }).length;
+    return 13 + conteggioMorti;
+}
+
+function setCapitano(tIdx, pIdx) {
+    const squadra = db.campionato[tIdx];
+    
+    // Impostiamo il nuovo capitano
+    squadra.capitano = squadra.partecipanti[pIdx].nome;
+    
+    render();
 }
 
 function aggiornaPrezzoAutomatico(nomeInserito, inputElement) {
@@ -145,20 +94,12 @@ function aggiornaPrezzoAutomatico(nomeInserito, inputElement) {
     }
 }
 
-function numeroMaxPartecipanti(squadra) {
-    const conteggioMorti = squadra.partecipanti.filter(p => {
-        const m = getMortoByName(p.nome);
-        return m && m.status === 'morto';
-    }).length;
-    return 13 + conteggioMorti;
-}
-
 function aggiungiADb(tIdx, fonteInputId) {
     const inputElement = document.getElementById(fonteInputId);
     const nomeSelezionato = inputElement.value.trim();
     
     if (!nomeSelezionato || nomeSelezionato.startsWith("--")) {
-        alert("Seleziona o inserisci un nome valido.");
+        alert("Seleziona un nome valido.");
         return;
     }
 
@@ -167,21 +108,17 @@ function aggiungiADb(tIdx, fonteInputId) {
     const infoMorituro = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeSelezionato.toLowerCase());
 
     if (!infoMorituro) {
-        alert("Errore: Il personaggio non è presente nel listino ufficiale.");
+        alert("Errore: Il personaggio non è presente nel listino.");
         return;
     }
 
-    // --- CONTROLLO 1: Già in squadra ---
+    // --- CONTROLLO 1: Già in squadra ---q 
     if (squadra.partecipanti.find(p => p.nome.toLowerCase() === infoMorituro.nome.toLowerCase())) {
         alert(`⚠️ ${infoMorituro.nome} è già presente in questa squadra.`);
         return;
     }
 
     // --- CONTROLLO 2: Limite 13 partecipanti ---
-    const conteggioMorti = squadra.partecipanti.filter(p => {
-        const m = getMortoByName(p.nome);
-        return m && m.status === 'morto';
-    }).length;
     if (squadra.partecipanti.length >= numeroMaxPartecipanti(squadra)) {
         alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha raggiunto il limite di morituri.`);
         return;
@@ -196,47 +133,30 @@ function aggiungiADb(tIdx, fonteInputId) {
     }
 
     // --- ESECUZIONE ---
-    // 1. Se il morto non esiste ancora nel DB globale dei punteggi, lo aggiungiamo come 'vivo'
-    if (!getMortoByName(infoMorituro.nome)) {
-        db.morituri.push({
-            nome: infoMorituro.nome,
-            prezzo: infoMorituro.prezzo,
-            status: 'vivo',
-            punti: 0,
-            rimborso: 0
-        });
-    }
-
-    // 2. Aggiungiamo il partecipante alla squadra
-    squadra.partecipanti.push({ nome: infoMorituro.nome });
+    // Aggiungiamo il partecipante alla squadra
+    squadra.partecipanti.push({
+        nome: infoMorituro.nome,
+        prezzo: infoMorituro.prezzo,
+        status: 'vivo',
+        punti: 0,
+        rimborso: 0
+    });
     
-    // Reset input (se è un text input)
+    // Reset input
     if (inputElement.tagName === "INPUT") inputElement.value = "";
     
     render();
 }
 
-function setCapitano(tIdx, pIdx) {
-    const squadra = db.campionato[tIdx];
-    
-    // Impostiamo il nuovo capitano
-    squadra.capitano = squadra.partecipanti[pIdx].nome;
-    
-    render();
-}
-
-function puntiMorto(s, p) {
-    const morto = getMortoByName(p.nome);
-    let puntiBase = morto ? morto.punti : 0;
+function puntiMorto(p) {
+    let puntiBase = p ? p.punti : 0;
 
     return puntiBase;
 }
 
 function puntiCapitano(s, p) {
-    const morto = getMortoByName(p.nome);
-
     let bonusCapitano = 0;
-    if (p.nome === s.capitano && morto && morto.status === 'morto') {
+    if (p.nome === s.capitano && isPDead(p)) {
         bonusCapitano = 10;
     }
 
@@ -244,12 +164,12 @@ function puntiCapitano(s, p) {
 }
 
 function puntiMortoTot(s, p) {
-    return puntiMorto(s, p) + puntiCapitano(s, p);
+    return puntiMorto(p) + puntiCapitano(s, p);
 }
 
 function puntiSquadra(s, p){
     s.totPunti = s.partecipanti.reduce((acc, p) => {
-        return acc + puntiMorto(s, p) + puntiCapitano(s, p);
+        return acc + puntiMorto(p) + puntiCapitano(s, p);
     }, 0);
 }
 
