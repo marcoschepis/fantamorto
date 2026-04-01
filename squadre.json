@@ -500,9 +500,74 @@
       "totPunti": 0
     },
     {
+      "capitano": "Lino Banfi",
       "nome_squadra": "All’ultimo respiro",
+      "partecipanti": [
+        {
+          "nome": "Lino Banfi",
+          "prezzo": 100,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Baby Gang",
+          "prezzo": 45,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "J. D. Vance",
+          "prezzo": 35,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Pier Luigi Bersani",
+          "prezzo": 20,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Anna Oxa",
+          "prezzo": 20,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Sal Da Vinci",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Mojtaba Khamenei",
+          "prezzo": 60,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Ibrahim Traoré (militare)",
+          "prezzo": 20,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Alba Parietti",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        }
+      ],
       "proprietario": "Anna",
-      "partecipanti": [],
       "totPunti": 0
     },
     {
