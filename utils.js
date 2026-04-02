@@ -118,7 +118,11 @@ function aggiungiADb(tIdx, fonteInputId) {
         return;
     }
 
-    // --- CONTROLLO 2: Limite 13 partecipanti ---
+    // --- CONTROLLO 2: Limite 13 <= partecipanti <= 13 + morti ---
+    if (squadra.partecipanti.length < 13) {
+        alert(`⚠️ Numero minimo non raggiunto! Aggiungi almeno 13 partecipanti.`);
+        return;
+    }
     if (squadra.partecipanti.length >= numeroMaxPartecipanti(squadra)) {
         alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha raggiunto il limite di morituri.`);
         return;
