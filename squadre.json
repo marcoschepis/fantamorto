@@ -571,9 +571,102 @@
       "totPunti": 0
     },
     {
+      "capitano": "James Hong",
       "nome_squadra": "Zero fama, zero bara",
+      "partecipanti": [
+        {
+          "nome": "Abdelmadjid Tebboune",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Liliana Segre",
+          "prezzo": 100,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Bianca Pitzorno",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "António Guterres",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Ban Ki-moon",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Bernie Sanders",
+          "prezzo": 35,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Matteo Piantedosi",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Babaman",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Paul Biya",
+          "prezzo": 40,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Chuck Grassley",
+          "prezzo": 20,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "James Hong",
+          "prezzo": 25,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Francesco Lollobrigida",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Anna Maria Bernini",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        }
+      ],
       "proprietario": "Lisa",
-      "partecipanti": [],
       "totPunti": 0
     },
     {
