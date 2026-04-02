@@ -868,9 +868,102 @@
       "capitano": "Carlo III del Regno Unito"
     },
     {
+      "capitano": "Benjamin Netanyahu",
       "nome_squadra": "Nadia Taffo",
+      "partecipanti": [
+        {
+          "nome": "Benjamin Netanyahu",
+          "prezzo": 100,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Gabriele Gravina",
+          "prezzo": 25,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Claudio Lotito",
+          "prezzo": 40,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Michele Bravi",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Antonella Clerici",
+          "prezzo": 20,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Elodie (cantante)",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Luchè",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Geolier",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Joe Rogan",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Daniel Radcliffe",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Fiorella Mannoia",
+          "prezzo": 25,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Gigi D'Alessio",
+          "prezzo": 30,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Olly",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        }
+      ],
       "proprietario": "Samoggino",
-      "partecipanti": [],
       "totPunti": 0
     }
   ]
