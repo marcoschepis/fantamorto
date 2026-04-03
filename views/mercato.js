@@ -58,7 +58,9 @@ function renderMercato() {
                 <div style="display:flex; flex-wrap: wrap; gap:10px; margin-top:20px; background:#111; padding:15px; border-radius:8px; border: 1px solid #333;">
                     <input type="text" id="user-add-nome" list="lista-suggerimenti" placeholder="Cerca nel listino..." 
                         oninput="aggiornaPrezzoAutomatico(this.value, 'user-add-prezzo')"
-                        style="flex: 1 1 100%; min-width: 180px;"> <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" 
+                        style="flex: 1 1 100%; min-width: 180px;">
+                        
+                    <input type="number" id="user-add-prezzo" placeholder="BS" readonly value="0" 
                         style="flex: 1; min-width: 60px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; text-align: center;">
                     
                     <button class="btn-add" onclick="aggiungiADb(${userIdx}, 'user-add-nome')" 

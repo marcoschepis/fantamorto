@@ -14,6 +14,7 @@ let isAuthorized = false;
 
 let rankCont = document.getElementById('rank-container');
 let teamsCont = document.getElementById('teams-container');
+let pointsCont = document.getElementById('points-container');
 let adminCont = document.getElementById('admin-container');
 
 const datalist = document.getElementById('lista-suggerimenti');
@@ -51,6 +52,7 @@ async function verifyAdmin() {
 function loadElements() {
     rankCont = document.getElementById('rank-container');
     teamsCont = document.getElementById('teams-container');
+    pointsCont = document.getElementById('points-container');
     adminCont = document.getElementById('admin-container');
 
     btnMercato = document.getElementById('btn-mercato');
@@ -116,6 +118,10 @@ function render() {
             
         case 'teams':
             teamsCont.innerHTML = renderSquadre(sortedTeams);
+            break;
+
+        case 'points':
+            pointsCont.innerHTML = renderPunti();
             break;
             
         case 'admin':

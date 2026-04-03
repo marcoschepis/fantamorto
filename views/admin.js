@@ -16,6 +16,17 @@ function renderAdmin() {
             </div>
         `;
 
+        // Assegnazione Punti
+        html += `
+            <div class="card" style="border: 2px solid #ffcc00;">
+                <h3 style="color: #ffcc00; margin-top:0;">➕ Assegna Punti</h3>
+                <input type="text" placeholder="Cerca morituro per assegnare punti..." 
+                    onkeyup="adminSearchMorituro(this.value)" 
+                    style="width:100%; padding:10px; background:#111; border:1px solid #ffcc00; color:white;">
+                <div id="admin-search-results" style="margin-top:15px;"></div>
+            </div>
+        `;
+
         // Gestione Squadre
         html += `
             <div class="card" style="border: 2px solid var(--accent); margin-top: 30px;">

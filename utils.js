@@ -297,3 +297,92 @@ function aggiungiEvento(tIdx, pIdx) {
         alert("Evento o punti non validi.");
     }
 }
+
+function adminSearchMorituro(query) {
+    const container = document.getElementById('admin-search-results');
+    if (!query || query.length < 2) {
+        container.innerHTML = '';
+        return;
+    }
+
+    let html = '<table class="admin-table"><tbody>';
+    db.campionato.forEach((s, sIdx) => {
+        s.partecipanti.forEach((p, pIdx) => {
+            if (p.nome.toLowerCase().includes(query.toLowerCase())) {
+                html += `
+                    <tr>
+                        <td><strong>${p.nome}</strong> <br><small>${s.nome_squadra}</small></td>
+                        <td style="text-align:right;">
+                            <button onclick="aggiungiEvento(${sIdx}, ${pIdx})" style="background:var(--accent); color:black; font-weight:bold;">⚡ Assegna Punti</button>
+                        </td>
+                    </tr>
+                `;
+            }
+        });
+    });
+    html += '</tbody></table>';
+    container.innerHTML = html;
+}
+
+function searchAndRenderTable(query, found) {
+    const container = document.getElementById('search-results-container');
+    if (!found) {
+        container.innerHTML = 'Scrivi un nome valido per visualizzare i dettagli.';
+        return;
+    }
+
+    let resultsHtml = '';
+    const q = query.toLowerCase();
+
+    db.campionato.forEach(squadra => {
+        squadra.partecipanti.forEach(p => {
+            if (p.nome.toLowerCase().includes(q)) {
+                resultsHtml += `
+                    <div class="card" style="border-left: 4px solid var(--accent);">
+                        <h4 style="margin:0 0 10px 0;">${p.nome} <span style="font-size:0.8rem; color:#888;">(${squadra.nome_squadra})</span></h4>
+                        <p>Punti Totali: <strong>${p.punti || 0}</strong></p>
+                        <table class="admin-table">
+                            <thead>
+                                <tr><th>Data</th><th>Evento</th><th>Punti</th></tr>
+                            </thead>
+                            <tbody>
+                                ${(p.eventi || []).map(e => `
+                                    <tr>
+                                        <td>${e.data}</td>
+                                        <td>${e.desc}</td>
+                                        <td style="color:var(--accent)">+${e.valore}</td>
+                                    </tr>
+                                `).join('') || '<tr><td colspan="3">Nessun evento registrato</td></tr>'}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+        });
+    });
+
+    container.innerHTML = resultsHtml || '<p>Non fa parte di nessuna squadra.</p>';
+}
+
+function getLastEvents(limit) {
+    let allEvents = [];
+    db.campionato.forEach(s => {
+        s.partecipanti.forEach(p => {
+            if (p.eventi) {
+                p.eventi.forEach(e => {
+                    allEvents.push({ nome: p.nome, ...e });
+                });
+            }
+        });
+    });
+    // Ordina per data (assumendo formato YYYY-MM-DD o timestamp)
+    allEvents.sort((a, b) => new Date(b.data) - new Date(a.data));
+    
+    return allEvents.slice(0, limit).map(e => `
+        <tr>
+            <td>${e.nome}</td>
+            <td>${e.desc}</td>
+            <td style="color:var(--accent); font-weight:bold;">+${e.valore}</td>
+        </tr>
+    `).join('');
+}

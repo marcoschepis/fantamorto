@@ -29,6 +29,7 @@
         <nav id="main-nav">
             <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
             <button id="btn-teams"  onclick="switchView('teams')">👪 Squadre</button>
+            <button id="btn-points" onclick="switchView('points')">📊 Punteggi</button>
             <button id="btn-mercato" onclick="switchView('mercato')">⚙️ Gestione Squadra</button>
             <button id="btn-admin" onclick="switchView('admin')">🔧 Gestione Admin</button>
         </nav>
@@ -40,6 +41,10 @@
 
     <div id="view-teams" class="view">
         <div id="teams-container"></div>
+    </div>
+
+    <div id="view-points" class="view">
+        <div id="points-container"></div>
     </div>
 
     <div id="view-mercato" class="view">
@@ -68,7 +73,8 @@
 
     <script src="views/classifica.js"></script>
     <script src="views/squadre.js"></script>
-    <script src="views/admin.js"></script>
+    <script src="views/punteggi.js"></script>
     <script src="views/mercato.js"></script>
+    <script src="views/admin.js"></script>
 </body>
 </html>
