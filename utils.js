@@ -195,7 +195,7 @@ async function saveToGitHub() {
     // Chiediamo il codice segreto agli amici (il tuo Token)
     // Lo metteranno una volta sola, poi il browser lo ricorda
     const sel = document.getElementById('user-team-select');
-    autore = sel.options[sel.selectedIndex].text || 'utente';
+    autore = sel.options[sel.selectedIndex].text || 'ADMIN';
 
     if (autore == "-- Seleziona la tua squadra --") autore = "ADMIN";
 
