@@ -1004,6 +1004,62 @@
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
+        },
+        {
+          "nome": "Joe Bastianich",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Caparezza",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "António Guterres",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Joe Rogan",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Rachele Mussolini",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Oscar Piastri",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Caterina Balivo",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Buddy Valastro",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
         }
       ],
       "proprietario": "Federica",
