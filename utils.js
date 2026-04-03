@@ -94,6 +94,24 @@ function aggiornaPrezzoAutomatico(nomeInserito, inputElement) {
     }
 }
 
+function aggiornaNomeAutomatico(nomeInserito, inputElement) {
+    const nomeInput = document.getElementById(inputElement);
+    
+    // Cerchiamo nel catalogo se il nome inserito corrisponde esattamente a uno esistente
+    const trovato = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeInserito.toLowerCase());
+    
+    if (trovato) {
+        // Se lo trova, aggiorna la casella del prezzo con il valore ufficiale
+        nomeInput.value = trovato.nome;
+        nomeInput.style.borderColor = "#44ff44";
+        return true;
+    } else {
+        // Se non lo trova (sta ancora scrivendo o è un nome nuovo), resetta
+        nomeInput.style.borderColor = "#444";
+        return false;
+    }
+}
+
 function aggiungiADb(tIdx, fonteInputId) {
     const inputElement = document.getElementById(fonteInputId);
     const nomeSelezionato = inputElement.value.trim();
@@ -118,11 +136,7 @@ function aggiungiADb(tIdx, fonteInputId) {
         return;
     }
 
-    // --- CONTROLLO 2: Limite 13 <= partecipanti <= 13 + morti ---
-    if (squadra.partecipanti.length < 13) {
-        alert(`⚠️ Numero minimo non raggiunto! Aggiungi almeno 13 partecipanti.`);
-        return;
-    }
+    // --- CONTROLLO 2: Limite 13 + morti ---
     if (squadra.partecipanti.length >= numeroMaxPartecipanti(squadra)) {
         alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha raggiunto il limite di morituri.`);
         return;
@@ -257,4 +271,29 @@ function updateMortoStatusSync(nome, statusAttuale) {
         });
     });
     render();
+}
+
+function aggiungiEvento(tIdx, pIdx) {
+    const desc = prompt("Descrizione evento (es: Morte, Ricovero):");
+    const punti = parseInt(prompt("Punti da assegnare:", "10"));
+    
+    if (desc && !isNaN(punti)) {
+        const morituro = db.campionato[tIdx].partecipanti[pIdx];
+        if (!morituro.eventi) morituro.eventi = [];
+        
+        // Aggiunge l'evento
+        morituro.eventi.push({
+            data: new Date().toISOString().split('T')[0],
+            desc: desc,
+            valore: punti
+        });
+        
+        // Aggiorna il totale punti del morituro
+        morituro.punti = (morituro.punti || 0) + punti;
+        
+        render(); // Ricarica tutto
+        alert(`Assegnati ${punti} punti a ${morituro.nome}`);
+    } else {
+        alert("Evento o punti non validi.");
+    }
 }
