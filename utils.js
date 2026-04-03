@@ -130,7 +130,7 @@ function aggiungiADb(tIdx, fonteInputId) {
         return;
     }
 
-    // --- CONTROLLO 1: Già in squadra ---q 
+    // --- CONTROLLO 1: Già in squadra ---
     if (squadra.partecipanti.find(p => p.nome.toLowerCase() === infoMorituro.nome.toLowerCase())) {
         alert(`⚠️ ${infoMorituro.nome} è già presente in questa squadra.`);
         return;
@@ -138,7 +138,7 @@ function aggiungiADb(tIdx, fonteInputId) {
 
     // --- CONTROLLO 2: Limite 13 + morti ---
     if (squadra.partecipanti.length >= numeroMaxPartecipanti(squadra)) {
-        alert(`⚠️ Limite raggiunto! ${squadra.nome_squadra} ha raggiunto il limite di morituri.`);
+        alert(`⚠️ Limite raggiunto!\nPuoi avere al massimo ${numeroMaxPartecipanti(squadra)} partecipanti (13 + morti).`);
         return;
     }
 
@@ -200,6 +200,12 @@ async function saveToGitHub() {
     if (autore == "-- Seleziona la tua squadra --") autore = "ADMIN";
 
     const squadra = db.campionato[userIdx];
+    
+    if (squadra.partecipanti.length < 13) {
+        alert(`⚠️ Aggiungi almeno 13 morituri!`);
+        return;
+    }
+    
     if (autore !== "ADMIN" && userIdx !== "") {
         // Controllo per l'utente singolo
         if (!squadra.capitano || squadra.capitano === "") {
