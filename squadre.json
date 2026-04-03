@@ -965,6 +965,12 @@
       ],
       "proprietario": "Samoggino",
       "totPunti": 0
+    },
+    {
+      "nome_squadra": "Chi vivrà vedrà",
+      "partecipanti": [],
+      "proprietario": "Federica",
+      "totPunti": 0
     }
   ]
 }
