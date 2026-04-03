@@ -967,8 +967,45 @@
       "totPunti": 0
     },
     {
+      "capitano": "Yayoi Kusama",
       "nome_squadra": "Chi vivrà vedrà",
-      "partecipanti": [],
+      "partecipanti": [
+        {
+          "nome": "Benjamin Netanyahu",
+          "prezzo": 100,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Yayoi Kusama",
+          "prezzo": 25,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Liliana Segre",
+          "prezzo": 100,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Andrea Pucci",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Bruno Barbieri (chef)",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        }
+      ],
       "proprietario": "Federica",
       "totPunti": 0
     }
