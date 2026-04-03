@@ -10,31 +10,32 @@ body {
 /* Menu Navigazione */
 nav { 
     display: flex; 
-    /* Cambiato da center a flex-start per permettere lo scorrimento da sinistra */
+    /* Fondamentale: non usare center qui se vuoi lo scroll */
     justify-content: flex-start; 
     gap: 10px; 
     margin-bottom: 25px; 
-    padding: 0 15px 12px 15px; /* Padding laterale per non far toccare i bordi */
+    padding: 0 15px 12px 15px;
     border-bottom: 1px solid #333; 
     width: 100%;
     
     /* ABILITA SCROLL */
     overflow-x: auto;
     flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch; /* Fluidità su iOS */
+    -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 }
 
-/* Nasconde la barra di scorrimento su Chrome, Safari e Opera */
-nav::-webkit-scrollbar {
-    display: none;
+/* TRUCCO PER CENTRARE: Aggiungiamo degli "spaziatori" invisibili prima e dopo */
+nav::before,
+nav::after {
+    content: '';
+    margin: auto;
 }
 
-/* Nasconde la barra su Firefox e IE/Edge */
-nav {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
-}
+/* Nasconde la barra di scorrimento */
+nav::-webkit-scrollbar { display: none; }
+nav { -ms-overflow-style: none; scrollbar-width: none; }
+
 nav button { 
     background: transparent; 
     border: 1px solid #444; 
@@ -42,18 +43,19 @@ nav button {
     cursor: pointer; 
     padding: 10px 20px; 
     transition: 0.3s; 
-    /* IMPORTANTE: Impedisce ai bottoni di rimpicciolirsi */
     flex: 0 0 auto; 
-    border-radius: 8px; /* Un tocco di design moderno */
-    white-space: nowrap; /* Impedisce al testo di andare a capo */
+    border-radius: 8px; 
+    white-space: nowrap;
 }
 
+/* Quando il bottone è attivo */
 nav button.active { 
     border-color: var(--accent); 
     color: var(--accent); 
     background: #251010; 
     font-weight: bold; 
 }
+
 #btn-admin { display: none; } /* Nascosto di default */
 
 .view { display: none; }
