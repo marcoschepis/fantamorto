@@ -10,7 +10,7 @@ const LAST_ID_FILE = 'last_id.txt';
 
 // Caricamento nomi dal JSON
 const db = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
-const nomiInGioco = ["Federica Pellegrini"];
+const nomiInGioco = [];
 db.campionato.forEach(s => s.partecipanti.forEach(p => {
     if (p.status !== 'morto') nomiInGioco.push(p.nome);
 }));
@@ -23,7 +23,6 @@ function inviaTelegram(messaggio) {
     const data = JSON.stringify({
         chat_id: MY_CHAT_ID,
         text: messaggio
-        // Non serve parse_mode se mandi solo un link
     });
 
     const req = https.request(url, {
