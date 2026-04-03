@@ -201,7 +201,7 @@ async function saveToGitHub() {
 
     const squadra = db.campionato[userIdx];
     
-    if (squadra.partecipanti.length < 13) {
+    if (autore !== "ADMIN" && squadra.partecipanti.length < 13) {
         alert(`⚠️ Aggiungi almeno 13 morituri!`);
         return;
     }
