@@ -1,17 +1,6 @@
 function renderAdmin() {
     let html = '';
 
-    const morituriMappa = {};
-    db.campionato.forEach(squadra => {
-        squadra.partecipanti.forEach(p => {
-            // Se non l'abbiamo ancora aggiunto alla mappa, lo aggiungiamo
-            if (!morituriMappa[p.nome]) {
-                morituriMappa[p.nome] = p; 
-            }
-        });
-    });
-    const listaUnicaMorituri = Object.values(morituriMappa);
-
     if (isAuthorized) {
         // Configurazione Visibilità
         html += `
@@ -26,57 +15,6 @@ function renderAdmin() {
                 </label>
             </div>
         `;
-
-        /*
-        // Gestione Morituri
-        html += `
-            <div class="card" style="border: 2px solid var(--accent);">
-                <h3 style="margin-top: 0; color: var(--accent);">💀 Gestione Morituri (Estratti dalle Squadre)</h3>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 40%;">Nome</th>
-                            <th style="width: 10%;">BS</th>
-                            <th style="width: 10%;">Punti</th>
-                            <th style="width: 10%;">Status</th>
-                            <th style="width: 10%;">Rimborso</th>
-                            <th style="width: 10%;">Azione</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${listaUnicaMorituri.map((m) => `
-                            <tr style="background: ${m.status === 'morto' ? '#1a0a0a' : ''};">
-                                <td><strong>${m.nome}</strong></td>
-                                <td>
-                                    <input type="number" value="${m.prezzo}" 
-                                    onchange="updateMortoPrezzoSync('${m.nome}', this.value)" 
-                                    style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white;">
-                                </td>
-                                <td>
-                                    <input type="number" value="${m.punti}" 
-                                    onchange="updateMortoPointsSync('${m.nome}', this.value)" 
-                                    style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white;">
-                                </td>
-                                <td style="text-align: center; cursor: pointer; font-size: 1.2rem;" 
-                                    onclick="updateMortoStatusSync('${m.nome}', '${m.status}')">
-                                    ${m.status === 'morto' ? '💀' : '😒'}
-                                </td>
-                                <td>
-                                    <input type="number" value="${m.rimborso || 0}" 
-                                    onchange="updateMortoRimborsoSync('${m.nome}', this.value)" 
-                                    style="width: 100%; padding: 4px; background: #111; border: 1px solid #444; color: white;">
-                                </td>
-                                <td>
-                                    <button onclick="rimuoviOvunque('${m.nome}')" 
-                                        style="width: 100%; padding: 4px; background: #8B0000; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️</button>
-                                </td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                </div>
-        `;
-        */
 
         // Gestione Squadre
         html += `
