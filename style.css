@@ -10,7 +10,6 @@ body {
 /* Menu Navigazione */
 nav { 
     display: flex; 
-    /* Fondamentale: non usare center qui se vuoi lo scroll */
     justify-content: flex-start; 
     gap: 10px; 
     margin-bottom: 25px; 
@@ -23,18 +22,39 @@ nav {
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
+
+    /* REGOLE PER PC (Scrollbar visibile ma discreta) */
+    scrollbar-width: thin; /* Per Firefox: barra sottile */
+    scrollbar-color: var(--accent) #1e1e1e; /* Per Firefox: colore maniglia e traccia */
 }
 
-/* TRUCCO PER CENTRARE: Aggiungiamo degli "spaziatori" invisibili prima e dopo */
+/* Trucco per centrare se i bottoni sono pochi */
 nav::before,
 nav::after {
     content: '';
     margin: auto;
 }
 
-/* Nasconde la barra di scorrimento */
-nav::-webkit-scrollbar { display: none; }
-nav { -ms-overflow-style: none; scrollbar-width: none; }
+/* Personalizzazione barra di scorrimento per Chrome, Edge e Safari */
+nav::-webkit-scrollbar {
+    height: 6px; /* Altezza della barra orizzontale */
+    display: block; /* La riattiviamo */
+}
+
+nav::-webkit-scrollbar-track {
+    background: #121212; /* Sfondo della traccia */
+    border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-thumb {
+    background: #333; /* Colore della maniglia */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+    background: var(--accent); /* Diventa rossa quando ci passi sopra */
+}
 
 nav button { 
     background: transparent; 
