@@ -246,7 +246,7 @@ async function saveToGitHub(mode = 'user') {
         });
 
         if (response.ok) {
-            btn.innerText = "🚀 Inviato! Aggiornamento tra 30s.";
+            btn.innerText = "🚀 Inviato! Il sito si aggiornerà tra circa 30 secondi.";
             btn.style.backgroundColor = "#28a745";
             setTimeout(() => {
                 btn.innerText = originalText;
