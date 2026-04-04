@@ -21,21 +21,6 @@ function removeSquadra(idx) {
 function calculateCreditiSquadra(squadra) {
     return squadra.partecipanti.reduce((acc, p) => {
         const costo = p ? p.prezzo : 0;
-        let rimborso = 0;
-        if (isPDead(p)) {
-            rimborso = (p.rimborso || 0);
-        }
-        else {
-            rimborso = 0;
-        }
-
-        return acc + costo - rimborso;
-    }, 0);
-}
-
-function calculateCreditiInizialiSquadra(squadra) {
-    return squadra.partecipanti.reduce((acc, p) => {
-        const costo = p ? p.prezzo : 0;
 
         return acc + costo;
     }, 0);
@@ -57,21 +42,29 @@ function calculateRimborsoCreditiSquadra(squadra) {
 
 function calculateCreditiResidui(squadra) {
     const spesa = calculateCreditiSquadra(squadra);
-    return (db.config.crediti_iniziali || 330) - spesa;
+    const rimborso = calculateRimborsoCreditiSquadra(squadra);
+    return (db.config.crediti_iniziali || 330) + rimborso - spesa;
 }
 
 function numeroMaxPartecipanti(squadra) {
     const conteggioMorti = squadra.partecipanti.filter(p => {
         return isPDead(p);
     }).length;
-    return 13 + conteggioMorti;
+    return 13 + conteggioMorti*2; // Ogni morto permette di avere 2 partecipanti extra (1 sostituto + 1 bonus)
 }
 
 function setCapitano(tIdx, pIdx) {
     const squadra = db.campionato[tIdx];
-    
+    const candidatoCapitano = squadra.partecipanti[pIdx];
+
+    // 1. Controllo se il morituro che vuoi nominare ORA è già morto
+    if (isPDead(candidatoCapitano)) {
+        alert(`⚠️ Non puoi nominare ${candidatoCapitano.nome} come capitano perché è già morto.`);
+        return;
+    }
+
     // Impostiamo il nuovo capitano
-    squadra.capitano = squadra.partecipanti[pIdx].nome;
+    squadra.capitano = candidatoCapitano.nome;
     
     render();
 }
@@ -210,6 +203,10 @@ async function saveToGitHub(mode = 'user') {
             alert("⚠️ ATTENZIONE: Non hai selezionato un Capitano per la tua squadra\nClicca sulla ⚪ accanto ad un nome per renderlo capitano.");
             return;
         }
+        if (isPDead(squadra.partecipanti.find(p => p.nome === squadra.capitano))) {
+            alert("⚠️ ATTENZIONE: Non puoi selezionare un capitano che è già morto.\nControlla di aver selezionato un capitano che è ancora vivo.");
+            return;
+        }
         payload.squadra = squadra;
         payload.tipo = "SQUADRA";
     } else {
@@ -280,29 +277,78 @@ function updateMortoStatusSync(nome, statusAttuale) {
     render();
 }
 
-function aggiungiEvento(tIdx, pIdx) {
+function aggiungiEvento(nomeMorituro) {
     const desc = prompt("Descrizione evento (Bonus, Malus):");
     const punti = parseInt(prompt("Punti da assegnare:", "10"));
-    
-    if (desc && !isNaN(punti)) {
-        const morituro = db.campionato[tIdx].partecipanti[pIdx];
-        if (!morituro.eventi) morituro.eventi = [];
-        
-        // Aggiunge l'evento
-        morituro.eventi.push({
-            data: new Date().toISOString().split('T')[0],
-            desc: desc,
-            valore: punti
-        });
-        
-        // Aggiorna il totale punti del morituro
-        morituro.punti = (morituro.punti || 0) + punti;
-        
-        render(); // Ricarica tutto
-        alert(`Assegnati ${punti} punti a ${morituro.nome}`);
-    } else {
-        alert("Evento o punti non validi.");
+
+    if (!desc || isNaN(punti)) {
+        alert("Operazione annullata: descrizione o punti non validi.");
+        return;
     }
+
+    const dataOggi = new Date().toISOString().split('T')[0];
+
+    // Scansioniamo tutte le squadre nel database
+    db.campionato.forEach(squadra => {
+        squadra.partecipanti.forEach(p => {
+            // Se il nome corrisponde esattamente
+            if (p.nome === nomeMorituro) {
+                if (!p.eventi) p.eventi = [];
+                p.eventi.push({
+                    data: dataOggi,
+                    desc: desc,
+                    valore: punti
+                });
+                p.punti = (p.punti || 0) + punti;
+            }
+        });
+    });
+
+    render();
+}
+
+function toggleMorte(nomeMorituro) {
+    let morituroEsempio = null;
+    db.campionato.some(s => {
+        morituroEsempio = s.partecipanti.find(p => p.nome === nomeMorituro);
+        return morituroEsempio; // Esce dal ciclo appena ne trova uno
+    });
+
+    if (!morituroEsempio) return;
+
+    const isOraMorto = morituroEsempio.status !== 'morto';
+    const messaggio = isOraMorto 
+        ? `Segnare ${nomeMorituro} come MORTO in TUTTE le squadre?`
+        : `Resuscitare ${nomeMorituro} in TUTTE le squadre?`;
+
+    if (!confirm(messaggio)) return;
+    const rimborso = parseInt(prompt("Rimborso (quotazione corrente + 15):", "100"));
+    if (isNaN(rimborso)) return;
+
+    // 2. Applichiamo la modifica a tappeto su tutto il database
+    db.campionato.forEach(squadra => {
+        squadra.partecipanti.forEach(p => {
+            if (p.nome === nomeMorituro) {
+                if (isOraMorto) {
+                    p.status = 'morto';
+                    p.rimborso = rimborso;
+                    p.punti += 10; // Calcolo del capitano escluso
+                    
+                    if (!p.eventi) p.eventi = [];
+                    p.eventi.push({
+                        data: new Date().toISOString().split('T')[0],
+                        desc: "💀 Morte",
+                        valore: 10
+                    });
+                } else {
+                    p.status = 'vivo';
+                    p.rimborso = 0;
+                    p.punti -= 10;
+                    p.eventi = (p.eventi || []).filter(e => !e.desc.includes("💀 Morte"));
+                }
+            }
+        });
+    });
 }
 
 function adminSearchMorituro(query) {
@@ -313,14 +359,27 @@ function adminSearchMorituro(query) {
     }
 
     let html = '<table class="admin-table"><tbody>';
-    db.campionato.forEach((s, sIdx) => {
-        s.partecipanti.forEach((p, pIdx) => {
-            if (p.nome.toLowerCase().includes(query.toLowerCase())) {
+    const nomiTrovati = [];
+    db.campionato.forEach((s) => {
+        s.partecipanti.forEach((p) => {
+            if (p.nome.toLowerCase().includes(query.toLowerCase()) && !nomiTrovati.includes(p.nome)) {
+                nomiTrovati.push(p.nome);
+                const isDead = p.status === 'morto';
                 html += `
-                    <tr>
-                        <td><strong>${p.nome}</strong> <br><small>${s.nome_squadra}</small></td>
-                        <td style="text-align:right;">
-                            <button onclick="aggiungiEvento(${sIdx}, ${pIdx})" style="background:var(--accent); color:black; font-weight:bold;">⚡ Assegna Punti</button>
+                    <tr style="${isDead ? 'background: #251010;' : ''}">
+                        <td style="padding: 10px;">
+                            <strong style="color: ${isDead ? 'var(--accent)' : '#fff'}">${isDead ? '💀 ' : '😒 '}${p.nome}</strong> 
+                        </td>
+                        <td style="text-align:right; white-space: nowrap; padding-right: 10px;">
+                            <button onclick="toggleMorte('${p.nome}')" 
+                                style="background: ${isDead ? '#fff' : '#444'}; color: #000; margin-right: 5px; border: none; padding: 8px;">
+                                ${isDead ? '😇 Resuscita' : '💀 Segna Morto'}
+                            </button>
+                            
+                            <button onclick="aggiungiEvento('${p.nome}')" 
+                                style="background: var(--accent); color:black; font-weight:bold; border: none; padding: 8px;">
+                                ⚡ Punti
+                            </button>
                         </td>
                     </tr>
                 `;
@@ -373,16 +432,25 @@ function searchAndRenderTable(query, found) {
 
 function getLastEvents(limit) {
     let allEvents = [];
+    const chiaviEventi = new Set();
+
     db.campionato.forEach(s => {
         s.partecipanti.forEach(p => {
             if (p.eventi) {
                 p.eventi.forEach(e => {
-                    allEvents.push({ nome: p.nome, ...e });
+                    // Creiamo una firma unica per l'evento
+                    const chiaveUnica = `${p.nome}-${e.data}-${e.desc}-${e.valore}`;
+
+                    if (!chiaviEventi.has(chiaveUnica)) {
+                        chiaviEventi.add(chiaveUnica);
+                        allEvents.push({ nome: p.nome, ...e });
+                    }
                 });
             }
         });
     });
-    // Ordina per data (assumendo formato YYYY-MM-DD o timestamp)
+
+    // Ordina per data dalla più recente
     allEvents.sort((a, b) => new Date(b.data) - new Date(a.data));
     
     return allEvents.slice(0, limit).map(e => `

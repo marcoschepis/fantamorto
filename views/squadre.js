@@ -15,8 +15,8 @@ function renderSquadre(sortedTeams) {
                     <div style="flex: 0 0 20%; text-align: center;">
                         <div style="color: #888; font-size: 0.75rem; text-align: center; ">Bossetti utilizzati</div>
                         <div style="color: #fff; font-weight: bold;">
-                            ${calculateCreditiInizialiSquadra(s)}
-                            <span style="font-weight: normal; color: #fff; font-size: 0.8em;"> / ${db.config.crediti_iniziali || 330}</span>
+                            ${calculateCreditiSquadra(s)}
+                            <span style="font-weight: normal; color: #fff; font-size: 0.8em;"> / ${(db.config.crediti_iniziali || 330) + calculateRimborsoCreditiSquadra(s)}</span>
                         </div>
                     </div>
 

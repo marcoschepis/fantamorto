@@ -108,8 +108,7 @@ function render() {
     adminCont.innerHTML = '';
 
     // Calcoli totali per squadra e ordinamento classifica
-    db.campionato.forEach(s => { puntiSquadra(s); });
-    const sortedTeams = [...db.campionato].sort((a, b) => b.totPunti - a.totPunti);
+    const sortedTeams = [...db.campionato].sort((a, b) => puntiSquadra(b) - puntiSquadra(a));
 
     switch (currentView) {
         case 'rank':
