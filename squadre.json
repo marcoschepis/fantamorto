@@ -5,103 +5,103 @@
   },
   "campionato": [
     {
+      "capitano": "Sophia Loren",
       "nome_squadra": "Hellas Verano",
-      "proprietario": "Marco",
       "partecipanti": [
         {
           "nome": "Sophia Loren",
           "prezzo": 100,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Calvin Klein (stilista)",
           "prezzo": 20,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Wanna Marchi",
           "prezzo": 50,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Jim Belushi",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Silvan",
           "prezzo": 35,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Marco Tardelli",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Kevin Spacey",
           "prezzo": 15,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Massimo Zanetti",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Paolo Gentiloni",
           "prezzo": 10,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Federico Faggin",
           "prezzo": 15,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Michael McKean",
           "prezzo": 15,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
           "nome": "Paola Binetti",
           "prezzo": 15,
-          "status": "vivo",
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         },
         {
-          "nome": "Cristina Jorio",
-          "prezzo": 20,
-          "status": "vivo",
+          "nome": "2 Chainz",
+          "prezzo": 25,
           "punti": 0,
-          "rimborso": 0
+          "rimborso": 0,
+          "status": "vivo"
         }
       ],
-      "totPunti": 0,
-      "capitano": "Sophia Loren"
+      "proprietario": "Marco",
+      "totPunti": 0
     },
     {
       "nome_squadra": "(re)al creatore",
