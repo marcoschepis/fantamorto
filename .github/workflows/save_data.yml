@@ -2,7 +2,7 @@ name: Save Team Data
 on:
   repository_dispatch:
     types: [update_json]
-    
+
 concurrency:
   group: update-json-group
   cancel-in-progress: false
@@ -14,42 +14,40 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Merge
+      - name: Merge Data
         env:
-          # Passiamo il payload come variabile d'ambiente per evitare errori di sintassi
-          SQUADRA_JSON: ${{ toJson(github.event.client_payload.squadra) }}
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
         run: |
           node -e "
             const fs = require('fs');
             const file = 'squadre.json';
+            const payload = JSON.parse(process.env.PAYLOAD);
             
             try {
-              // 1. Leggi il DB attuale
-              let db = JSON.parse(fs.readFileSync(file, 'utf8'));
-              
-              // 2. Prendi la squadra dalla variabile d'ambiente
-              const nuovaSquadra = JSON.parse(process.env.SQUADRA_JSON);
-              
-              if (!nuovaSquadra || !nuovaSquadra.nome_squadra) {
-                console.error('Dati squadra mancanti o errati');
-                process.exit(1);
+              let currentDb = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+              if (payload.tipo === 'FULL_DB') {
+                // CASO ADMIN: Sovrascriviamo tutto il database
+                currentDb = payload.db;
+                console.log('Admin: Sovrascrittura database completa');
+              } else {
+                // CASO UTENTE: Merge della singola squadra
+                const nuovaSquadra = payload.squadra;
+                if (!nuovaSquadra || !nuovaSquadra.nome_squadra) throw new Error('Dati squadra corrotti');
+
+                const index = currentDb.campionato.findIndex(s => s.nome_squadra === nuovaSquadra.nome_squadra);
+                if (index !== -1) {
+                  currentDb.campionato[index] = nuovaSquadra;
+                  console.log('Update squadra: ' + nuovaSquadra.nome_squadra);
+                } else {
+                  currentDb.campionato.push(nuovaSquadra);
+                  console.log('New squadra: ' + nuovaSquadra.nome_squadra);
+                }
               }
 
-              // 3. Cerca e aggiorna
-              const index = db.campionato.findIndex(s => s.nome_squadra === nuovaSquadra.nome_squadra);
-              
-              if (index !== -1) {
-                db.campionato[index] = nuovaSquadra;
-                console.log('Aggiornata squadra: ' + nuovaSquadra.nome_squadra);
-              } else {
-                db.campionato.push(nuovaSquadra);
-                console.log('Aggiunta nuova squadra: ' + nuovaSquadra.nome_squadra);
-              }
-              
-              // 4. Scrittura finale
-              fs.writeFileSync(file, JSON.stringify(db, null, 2));
+              fs.writeFileSync(file, JSON.stringify(currentDb, null, 2));
             } catch (err) {
-              console.error('Errore durante il merge:', err);
+              console.error('Errore durante il salvataggio:', err.message);
               process.exit(1);
             }
           "

@@ -191,40 +191,44 @@ function puntiSquadra(s, p){
     }, 0);
 }
 
-async function saveToGitHub() {
-    // Chiediamo il codice segreto agli amici (il tuo Token)
-    // Lo metteranno una volta sola, poi il browser lo ricorda
-    const sel = document.getElementById('user-team-select');
-    autore = sel.options[sel.selectedIndex].text || 'ADMIN';
+async function saveToGitHub(mode = 'user') {
+    const btn = event.target;
+    const originalText = btn.innerText;
+    let payload = { autore: "" };
 
-    if (autore == "-- Seleziona la tua squadra --") autore = "ADMIN";
+    // --- LOGICA PRE-INVIO ---
+    if (mode === 'user') {
+        const sel = document.getElementById('user-team-select');
+        payload.autore = sel.options[sel.selectedIndex].text;
+        if (payload.autore === "-- Seleziona la tua squadra --") return;
 
-    const squadra = db.campionato[userIdx];
-    
-    if (autore !== "ADMIN" && squadra.partecipanti.length < 13) {
-        alert(`⚠️ Aggiungi almeno 13 morituri!`);
-        return;
-    }
-    
-    if (autore !== "ADMIN" && userIdx !== "") {
-        // Controllo per l'utente singolo
+        const squadra = db.campionato[userIdx];
+        if (squadra.partecipanti.length < 13) {
+            alert(`⚠️ Aggiungi almeno 13 morituri!`);
+            return;
+        }
         if (!squadra.capitano || squadra.capitano === "") {
             alert("⚠️ ATTENZIONE: Non hai selezionato un Capitano per la tua squadra\nClicca sulla ⚪ accanto ad un nome per renderlo capitano.");
-            return; // Blocca il salvataggio
+            return;
         }
+        payload.squadra = squadra;
+        payload.tipo = "SQUADRA";
+    } else {
+        // Modalità ADMIN
+        payload.autore = "Admin";
+        payload.db = db;
+        payload.tipo = "FULL_DB";
     }
-    
+
+    // --- GESTIONE TOKEN ---
     let token = localStorage.getItem('fantamorto_access_token');
-    
     if (!token) {
-        token = prompt("🔑 Inserisci il codice segreto per autorizzare il salvataggio:");
+        token = prompt("🔑 Inserisci il codice segreto:");
         if (token) localStorage.setItem('fantamorto_access_token', token);
         else return;
     }
 
-    const btn = event.target;
-    const originalText = btn.innerText;
-    btn.innerText = "⏳ Invio in corso...";
+    btn.innerText = "⏳ Invio...";
     btn.disabled = true;
 
     try {
@@ -237,35 +241,33 @@ async function saveToGitHub() {
             },
             body: JSON.stringify({
                 event_type: "update_json",
-                client_payload: {
-                    autore: autore,
-                    squadra: squadra
-                }
+                client_payload: payload
             })
         });
 
         if (response.ok) {
-            btn.innerText = "🚀 Richiesta inviata! Il sito si aggiornerà tra circa 30 secondi.";
-            btn.style.backgroundColor = "#28a745"; // Opzionale: diventa verde
-            
-            // Dopo 5 secondi lo facciamo tornare normale se vuoi
+            btn.innerText = "🚀 Inviato! Aggiornamento tra 30s.";
+            btn.style.backgroundColor = "#28a745";
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.disabled = false;
                 btn.style.backgroundColor = ""; 
             }, 5000);
         } else {
-            const err = await response.json();
             if (response.status === 401 || response.status === 403) {
-                alert("❌ Accesso negato o Token scaduto.");
-                localStorage.removeItem('fantamorto_access_token'); // Rimuove il token sbagliato
+                alert("❌ Token errato o scaduto.");
+                localStorage.removeItem('fantamorto_access_token');
             } else {
                 const err = await response.json();
                 alert("❌ Errore: " + err.message);
             }
+            btn.innerText = originalText;
+            btn.disabled = false;
         }
     } catch (e) {
         alert("❌ Errore di connessione.");
+        btn.innerText = originalText;
+        btn.disabled = false;
     }
 }
 
