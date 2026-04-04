@@ -158,6 +158,24 @@ function aggiungiADb(tIdx, fonteInputId) {
     render();
 }
 
+function removeFromDb(userIdx, i) {
+    // Per rimuovere deve avere 0 punti
+    const partecipante = db.campionato[userIdx].partecipanti[i];
+    if (partecipante.punti !== 0) {
+        alert(`⚠️ Non puoi rimuovere ${partecipante.nome} perché ha già accumulato punti!`);
+        return;
+    }
+
+    // Se è il capitano rimuoviamo il capitano
+    if (db.campionato[userIdx].capitano === partecipante.nome) {
+        db.campionato[userIdx].capitano = "";
+    }
+
+    // Esegui
+    db.campionato[userIdx].partecipanti.splice(i,1);
+    render();
+}
+
 function puntiMorto(p) {
     let puntiBase = p ? p.punti : 0;
 

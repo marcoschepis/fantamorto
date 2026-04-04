@@ -43,7 +43,7 @@ function renderMercato() {
                                 <td style="text-align: right; vertical-align: middle;">
                                     <button class="btn-del" 
                                         style="height: 35px; width: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: #222; border: 1px solid #444; border-radius: 4px;"
-                                        onclick="db.campionato[${userIdx}].partecipanti.splice(${i},1);render();">❌</button>
+                                        onclick="removeFromDb(${userIdx}, ${i})">❌</button>
                                 </td>
                             </tr>`;
                         }).join('')}
