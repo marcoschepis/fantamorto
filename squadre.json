@@ -1060,6 +1060,12 @@
       ],
       "proprietario": "Federica",
       "totPunti": 0
+    },
+    {
+      "nome_squadra": "Nuova Squadra",
+      "partecipanti": [],
+      "proprietario": "Proprietario",
+      "totPunti": 0
     }
   ],
   "config": {
