@@ -325,6 +325,25 @@ function aggiungiEvento(nomeMorituro) {
     render();
 }
 
+function rimuoviEvento(nomeMorituro, idx) {
+    if (!confirm(`Vuoi eliminare definitivamente?`)) return;
+
+    db.campionato.forEach(squadra => {
+        squadra.partecipanti.forEach(p => {
+            if (p.nome === nomeMorituro && p.eventi && p.eventi[idx]) {
+                // Sottraiamo il punteggio dell'evento rimosso dal totale della squadra
+                const valoreDaTogliere = p.eventi[idx].valore;
+                p.punti = (p.punti || 0) - valoreDaTogliere;
+                
+                // Rimuoviamo l'evento dall'array
+                p.eventi.splice(idx, 1);
+            }
+        });
+    });
+
+    render();
+}
+
 function toggleMorte(nomeMorituro) {
     let morituroEsempio = null;
     db.campionato.some(s => {
@@ -340,14 +359,14 @@ function toggleMorte(nomeMorituro) {
         : `Resuscitare ${nomeMorituro} in TUTTE le squadre?`;
 
     if (!confirm(messaggio)) return;
-    const rimborso = parseInt(prompt("Rimborso (quotazione corrente + 15):", "100"));
-    if (isNaN(rimborso)) return;
 
     // 2. Applichiamo la modifica a tappeto su tutto il database
     db.campionato.forEach(squadra => {
         squadra.partecipanti.forEach(p => {
             if (p.nome === nomeMorituro) {
                 if (isOraMorto) {
+                    const rimborso = parseInt(prompt("Rimborso (quotazione corrente + 15):", "100"));
+                    if (isNaN(rimborso)) return;
                     p.status = 'morto';
                     p.rimborso = rimborso;
                     p.punti += 10; // Calcolo del capitano escluso
@@ -367,6 +386,8 @@ function toggleMorte(nomeMorituro) {
             }
         });
     });
+
+    render();
 }
 
 function adminSearchMorituro(query) {
@@ -383,6 +404,7 @@ function adminSearchMorituro(query) {
             if (p.nome.toLowerCase().includes(query.toLowerCase()) && !nomiTrovati.includes(p.nome)) {
                 nomiTrovati.push(p.nome);
                 const isDead = p.status === 'morto';
+                const eventi = p.eventi || [];
                 html += `
                     <tr style="${isDead ? 'background: #251010;' : ''}">
                         <td style="padding: 10px;">
@@ -398,6 +420,33 @@ function adminSearchMorituro(query) {
                                 style="background: var(--accent); color:black; font-weight:bold; border: none; padding: 8px;">
                                 ⚡ Punti
                             </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="padding: 0 10px 10px 10px; border-bottom: 2px solid #333;">
+                            <table style="width:100%; font-size:0.8rem; background:#000; border-radius:4px;">
+                                ${eventi.map((e, idx) => {
+                                    // Controlliamo se è l'evento morte
+                                    const isDeathEvent = e.desc.includes("💀") || e.desc.toLowerCase().includes("decesso");
+
+                                    return `
+                                        <tr>
+                                            <td style="color:#888; padding:4px;">${e.data}</td>
+                                            <td style="padding:4px;">${e.desc}</td>
+                                            <td style="color:var(--accent); padding:4px;">${e.valore}pt</td>
+                                            <td style="text-align:right; padding:4px;">
+                                                ${!isDeathEvent ? `
+                                                    <button onclick="rimuoviEventoSpecificoGlobal('${p.nome.replace(/'/g, "\\'")}', ${idx})" 
+                                                            style="background:none; border:none; color:#ff4444; cursor:pointer; font-size:1rem;">
+                                                        &times;
+                                                    </button>
+                                                ` : '<span title="Usa il toggle morte per gestire questo evento" style="cursor:help; opacity:0.3;">🔒</span>'}
+                                            </td>
+                                        </tr>
+                                    `;
+                                }).join('') || '<tr><td colspan="4" style="color:#444; padding:4px;">Nessun evento</td></tr>'}
+                            </table>
                         </td>
                     </tr>
                 `;
