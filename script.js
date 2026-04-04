@@ -102,6 +102,16 @@ function switchView(name) {
 
 function render() {
     loadElements();
+    
+    if (db.config.mostra_mercato) {
+        btnMercato.innerHTML = "⚙️ Gestione Squadra";
+        if (headerMercato) headerMercato.style.display = 'flex';
+        if (saveBtnMercato) saveBtnMercato.style.display = 'inline-block';
+    } else {
+        btnMercato.innerHTML = "🔒 Mercato Chiuso";
+        if (headerMercato) headerMercato.style.display = 'none';
+        if (saveBtnMercato) saveBtnMercato.style.display = 'none';
+    }
 
     rankCont.innerHTML = '';
     teamsCont.innerHTML = '';

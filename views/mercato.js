@@ -1,10 +1,5 @@
 function renderMercato() {  
     if (db.config.mostra_mercato) {
-        btnMercato.innerHTML = "⚙️ Gestione Squadra";
-
-        if (headerMercato) headerMercato.style.display = 'flex';
-        if (saveBtnMercato) saveBtnMercato.style.display = 'inline-block';
-
         // Popola la select se vuota (una sola volta)
         if (userSelect && userSelect.options.length <= 1) {
             userSelect.innerHTML = '<option value="">-- Seleziona la tua squadra --</option>' + db.campionato.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
@@ -75,10 +70,6 @@ function renderMercato() {
             if(mercatoEditor) mercatoEditor.innerHTML = '<p style="text-align:center; color:#666;">Seleziona la tua squadra per iniziare.</p>';
         }
     } else {
-        btnMercato.innerHTML = "🔒 Mercato Chiuso";
-        if (headerMercato) headerMercato.style.display = 'none';
-        if (saveBtnMercato) saveBtnMercato.style.display = 'none';
-        
         if (mercatoEditor) {
             mercatoEditor.innerHTML = `
                 <div style="text-align: center; padding: 60px 20px; color: #555;">
