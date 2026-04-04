@@ -96,8 +96,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Marco",
-      "totPunti": 0
+      "proprietario": "Marco"
     },
     {
       "capitano": "Mina (cantante)",
@@ -195,8 +194,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Emma",
-      "totPunti": 0
+      "proprietario": "Emma"
     },
     {
       "capitano": "Iva Zanicchi",
@@ -294,8 +292,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Schegia",
-      "totPunti": 0
+      "proprietario": "Schegia"
     },
     {
       "capitano": "Giovanni Allevi",
@@ -393,8 +390,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Alessandro",
-      "totPunti": 0
+      "proprietario": "Alessandro"
     },
     {
       "capitano": "Emma Bonino",
@@ -492,8 +488,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Nicola",
-      "totPunti": 0
+      "proprietario": "Nicola"
     },
     {
       "capitano": "Lino Banfi",
@@ -563,8 +558,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Anna",
-      "totPunti": 0
+      "proprietario": "Anna"
     },
     {
       "capitano": "James Hong",
@@ -662,8 +656,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Lisa",
-      "totPunti": 0
+      "proprietario": "Lisa"
     },
     {
       "capitano": "Roberto Benigni",
@@ -761,8 +754,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Andrea",
-      "totPunti": 0
+      "proprietario": "Andrea"
     },
     {
       "capitano": "Carlo III del Regno Unito",
@@ -860,8 +852,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Krystal",
-      "totPunti": 0
+      "proprietario": "Krystal"
     },
     {
       "capitano": "Benjamin Netanyahu",
@@ -959,8 +950,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Samoggino",
-      "totPunti": 0
+      "proprietario": "Samoggino"
     },
     {
       "capitano": "Yayoi Kusama",
@@ -1058,8 +1048,7 @@
           "status": "vivo"
         }
       ],
-      "proprietario": "Federica",
-      "totPunti": 0
+      "proprietario": "Federica"
     }
   ],
   "config": {

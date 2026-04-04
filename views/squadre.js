@@ -29,7 +29,7 @@ function renderSquadre(sortedTeams) {
 
                     <div style="flex: 0 0 20%; text-align: right;">
                         <div style="color: #888; font-size: 0.75rem;">Punti</div>
-                        <div class="rank-punti" style="line-height: 1; margin-top: 2px;">${s.totPunti}</div>
+                        <div class="rank-punti" style="line-height: 1; margin-top: 2px;">${puntiSquadra(s)}</div>
                     </div>
                 </div>
 

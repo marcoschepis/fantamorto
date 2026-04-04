@@ -6,8 +6,7 @@ function addSquadra() {
     db.campionato.push({
         nome_squadra: "Nuova Squadra",
         proprietario: "Proprietario",
-        partecipanti: [],
-        totPunti: 0
+        partecipanti: []
     });
     render();
 }
@@ -185,9 +184,9 @@ function puntiMortoTot(s, p) {
     return puntiMorto(p) + puntiCapitano(s, p);
 }
 
-function puntiSquadra(s, p){
-    s.totPunti = s.partecipanti.reduce((acc, p) => {
-        return acc + puntiMorto(p) + puntiCapitano(s, p);
+function puntiSquadra(s){
+    return s.partecipanti.reduce((acc, p) => {
+        return acc + puntiMortoTot(s, p);
     }, 0);
 }
 
@@ -282,7 +281,7 @@ function updateMortoStatusSync(nome, statusAttuale) {
 }
 
 function aggiungiEvento(tIdx, pIdx) {
-    const desc = prompt("Descrizione evento (es: Morte, Ricovero):");
+    const desc = prompt("Descrizione evento (Bonus, Malus):");
     const punti = parseInt(prompt("Punti da assegnare:", "10"));
     
     if (desc && !isNaN(punti)) {

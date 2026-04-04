@@ -35,7 +35,7 @@ function renderClassifica(sortedTeams) {
                     </div>
                 </div>
                 <div style="text-align: right; font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1;">
-                    ${s.totPunti}
+                    ${puntiSquadra(s)}
                 </div>
             </div>
         `;
