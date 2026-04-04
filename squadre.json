@@ -1064,6 +1064,6 @@
   ],
   "config": {
     "crediti_iniziali": 330,
-    "mostra_mercato": true
+    "mostra_mercato": false
   }
 }
