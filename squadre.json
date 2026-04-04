@@ -1060,16 +1060,10 @@
       ],
       "proprietario": "Federica",
       "totPunti": 0
-    },
-    {
-      "nome_squadra": "Nuova Squadra",
-      "partecipanti": [],
-      "proprietario": "Proprietario",
-      "totPunti": 0
     }
   ],
   "config": {
     "crediti_iniziali": 330,
-    "mostra_mercato": false
+    "mostra_mercato": true
   }
 }
