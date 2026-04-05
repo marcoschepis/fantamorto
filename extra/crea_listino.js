@@ -18,9 +18,13 @@ javascript:(async function(){
             if (cols.length >= 6) {
                 // 1. Nome (dall'anchor dentro la prima cella)
                 let linkNome = cols[0].querySelector('a');
-                let nome = linkNome ? linkNome.innerText.trim() : cols[0].innerText.trim();
+                let nomeRaw = linkNome ? linkNome.innerText.trim() : cols[0].innerText.trim();
+                
+                // --- MODIFICA FONDAMENTALE PER PULIRE I BACKSLASH ---
+                // Rimuoviamo eventuali backslash esistenti e normalizziamo gli apici
+                let nome = nomeRaw.replace(/\\/g, "").replace(/[\u2018\u2019]/g, "'");
 
-                // 3. Prezzo/Quotazione (quarta cella - index 3)
+                // 2. Prezzo (Quarta cella - index 3)
                 let prezzoRaw = cols[3].innerText.replace(/[^0-9]/g, '');
                 let prezzo = parseInt(prezzoRaw) || 0;
 

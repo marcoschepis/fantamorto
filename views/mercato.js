@@ -63,7 +63,39 @@ function renderMercato() {
                         ➕ Aggiungi
                     </button>
                 </div>
+
+            <div class="card" style="margin-top:30px; border: 1px solid #333; background: #080808; padding: 0;">
+                <div style="padding: 15px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <h3 style="color: var(--accent); margin:0;">📋 Listino Morituri</h3>
+                    <input type="text" id="search-listino-infinite" placeholder="Cerca nome..." 
+                        oninput="resetAndSearchInfinite(${userIdx})"
+                        style="width:160px; padding:8px; background:#111; border:1px solid #444; color:white; border-radius:5px;">
+                </div>
+
+                <div id="infinite-list-container" style="max-height: 500px; overflow-y: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead style="position: sticky; top: 0; background: #111; z-index: 10;">
+                            <tr style="color: #666; text-transform: uppercase; font-size: 0.7rem; border-bottom: 1px solid #333;">
+                                <th style="text-align:left; padding:12px; cursor:pointer;" onclick="setSort('nome', ${userIdx})">
+                                    Nome <span id="sort-nome">↕️</span>
+                                </th>
+                                <th style="text-align:center; padding:12px; cursor:pointer; width: 60px;" onclick="setSort('prezzo', ${userIdx})">
+                                    BS <span id="sort-prezzo">↕️</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="infinite-items-body"></tbody>
+                    </table>
+                    <div id="infinite-sentinel" style="height: 50px; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.8rem;">
+                        Caricamento...
+                    </div>
+                </div>
+            </div>
             `;
+
+            // Inizializzazione variabili globali e Observer
+            window.currentLimit = 30; // Quanti caricarne alla volta
+            setTimeout(() => initInfiniteScroll(), 50);
         } else {
             // Pulisce se non è selezionato nulla
             if(budgetDisplay) budgetDisplay.innerHTML = "";

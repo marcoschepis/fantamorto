@@ -209,7 +209,7 @@
     },
     {
         "nome": "Abedi Pelé",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Abel Ferrara",
@@ -273,7 +273,7 @@
     },
     {
         "nome": "Achille Bonito Oliva",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Achille Lauro (rapper)",
@@ -440,6 +440,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Adriano Caprioli",
+        "prezzo": 20
+    },
+    {
         "nome": "Adriano Celentano",
         "prezzo": 100
     },
@@ -449,7 +453,7 @@
     },
     {
         "nome": "Adriano Galliani",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Adriano Guidetti",
@@ -661,7 +665,7 @@
     },
     {
         "nome": "Alain Elkann",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Alain-Guillaume Bunyoni",
@@ -773,7 +777,7 @@
     },
     {
         "nome": "Albano Bufalini",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Alba Parietti",
@@ -881,7 +885,7 @@
     },
     {
         "nome": "Alberto Zaccheroni",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Al B. Sure!",
@@ -949,7 +953,7 @@
     },
     {
         "nome": "Alea O'Shea",
-        "prezzo": 20
+        "prezzo": 30
     },
     {
         "nome": "Alec Baldwin",
@@ -1004,7 +1008,7 @@
         "prezzo": 10
     },
     {
-        "nome": "Aleksandr Gel\\'evič Dugin",
+        "nome": "Aleksandr Gel'evič Dugin",
         "prezzo": 15
     },
     {
@@ -1036,8 +1040,12 @@
         "prezzo": 10
     },
     {
+        "nome": "Alessandro Abbio",
+        "prezzo": 15
+    },
+    {
         "nome": "Alessandro Altobelli",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Alessandro Barbero",
@@ -1292,6 +1300,10 @@
         "prezzo": 15
     },
     {
+        "nome": "Alex Karp",
+        "prezzo": 15
+    },
+    {
         "nome": "Alex Lowes",
         "prezzo": 15
     },
@@ -1460,10 +1472,6 @@
         "prezzo": 15
     },
     {
-        "nome": "Alireza Tangsiri",
-        "prezzo": 15
-    },
-    {
         "nome": "Ali Şen",
         "prezzo": 20
     },
@@ -1513,7 +1521,7 @@
     },
     {
         "nome": "Alonso López",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Alonso López (motociclista)",
@@ -2145,10 +2153,6 @@
     },
     {
         "nome": "Angus Young",
-        "prezzo": 15
-    },
-    {
-        "nome": "Aníbal Cavaco Silva",
         "prezzo": 20
     },
     {
@@ -2229,7 +2233,7 @@
     },
     {
         "nome": "Anna Mazzamauro",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Anna Moroni",
@@ -2576,10 +2580,6 @@
         "prezzo": 25
     },
     {
-        "nome": "Antonio Marzano",
-        "prezzo": 25
-    },
-    {
         "nome": "Antonio Matarrese",
         "prezzo": 15
     },
@@ -2838,6 +2838,10 @@
     {
         "nome": "Artem Dovbyk",
         "prezzo": 30
+    },
+    {
+        "nome": "Artem Tkachuk",
+        "prezzo": 15
     },
     {
         "nome": "Art Garfunkel",
@@ -3189,7 +3193,7 @@
     },
     {
         "nome": "Barack Obama",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Barbara Alberti",
@@ -3253,7 +3257,7 @@
     },
     {
         "nome": "Barbara Palombelli",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Barbara Pitotti",
@@ -3325,7 +3329,7 @@
     },
     {
         "nome": "Bashar al-Assad",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Basilio Cottone",
@@ -3404,10 +3408,6 @@
         "prezzo": 25
     },
     {
-        "nome": "Belén Rodríguez",
-        "prezzo": 15
-    },
-    {
         "nome": "Bella Hadid",
         "prezzo": 15
     },
@@ -3421,7 +3421,7 @@
     },
     {
         "nome": "Bello Turji Kachalla",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Ben Affleck",
@@ -3430,10 +3430,6 @@
     {
         "nome": "Ben Askren",
         "prezzo": 15
-    },
-    {
-        "nome": "Benedetta di Danimarca",
-        "prezzo": 20
     },
     {
         "nome": "Benedetta Parodi",
@@ -3445,10 +3441,6 @@
     },
     {
         "nome": "Benedetto De Angelis",
-        "prezzo": 25
-    },
-    {
-        "nome": "Benedetto Spera",
         "prezzo": 25
     },
     {
@@ -3677,11 +3669,11 @@
     },
     {
         "nome": "Bianca Balti",
-        "prezzo": 55
+        "prezzo": 60
     },
     {
         "nome": "Bianca Berlinguer",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Bianca Censori",
@@ -3729,7 +3721,7 @@
     },
     {
         "nome": "Bill Clinton",
-        "prezzo": 45
+        "prezzo": 50
     },
     {
         "nome": "Bill Conti",
@@ -3858,10 +3850,6 @@
     {
         "nome": "Birgitte van Deurs",
         "prezzo": 15
-    },
-    {
-        "nome": "Birte Christoffersen",
-        "prezzo": 30
     },
     {
         "nome": "Bisan Owda",
@@ -4061,15 +4049,11 @@
     },
     {
         "nome": "Boris Johnson",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Boris Kravtsov",
         "prezzo": 25
-    },
-    {
-        "nome": "Borislav Mihajlov",
-        "prezzo": 15
     },
     {
         "nome": "Boris Majorov",
@@ -4110,10 +4094,6 @@
     {
         "nome": "Bradley Cooper",
         "prezzo": 10
-    },
-    {
-        "nome": "Bradley Whitford",
-        "prezzo": 15
     },
     {
         "nome": "Brad Pitt",
@@ -4289,7 +4269,7 @@
     },
     {
         "nome": "Bruce Campbell",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Bruce Dern",
@@ -4533,11 +4513,15 @@
     },
     {
         "nome": "Calvin Klein (stilista)",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Cameron Diaz",
         "prezzo": 10
+    },
+    {
+        "nome": "Cameron Suafoa",
+        "prezzo": 25
     },
     {
         "nome": "Cameron Zink",
@@ -4565,7 +4549,7 @@
     },
     {
         "nome": "Camilla Shand",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Camille Rowe",
@@ -4844,6 +4828,10 @@
         "prezzo": 10
     },
     {
+        "nome": "Carlos Villalobos",
+        "prezzo": 20
+    },
+    {
         "nome": "Carlos Zurita",
         "prezzo": 15
     },
@@ -5064,10 +5052,6 @@
         "prezzo": 20
     },
     {
-        "nome": "Celia Imrie",
-        "prezzo": 15
-    },
-    {
         "nome": "Celia Rodriguez",
         "prezzo": 20
     },
@@ -5116,6 +5100,10 @@
         "prezzo": 15
     },
     {
+        "nome": "César Virata",
+        "prezzo": 25
+    },
+    {
         "nome": "Chad Gilbert",
         "prezzo": 15
     },
@@ -5154,10 +5142,6 @@
     {
         "nome": "Charles Dance",
         "prezzo": 15
-    },
-    {
-        "nome": "Charles de Ganahl Koch",
-        "prezzo": 25
     },
     {
         "nome": "Charles Duke",
@@ -5200,7 +5184,7 @@
         "prezzo": 20
     },
     {
-        "nome": "Charli D\\'Amelio",
+        "nome": "Charli D'Amelio",
         "prezzo": 10
     },
     {
@@ -5528,6 +5512,10 @@
         "prezzo": 10
     },
     {
+        "nome": "Christopher North",
+        "prezzo": 15
+    },
+    {
         "nome": "Christopher Walken",
         "prezzo": 15
     },
@@ -5665,15 +5653,11 @@
     },
     {
         "nome": "Claudia Mori",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Claudia Pandolfi",
         "prezzo": 10
-    },
-    {
-        "nome": "Claudia Schiffer",
-        "prezzo": 15
     },
     {
         "nome": "Claudia Sheinbaum",
@@ -5761,7 +5745,7 @@
     },
     {
         "nome": "Claudio Ranieri",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Claudio Scajola",
@@ -5940,10 +5924,6 @@
         "prezzo": 15
     },
     {
-        "nome": "Corrado Stajano",
-        "prezzo": 25
-    },
-    {
         "nome": "Corrado Tedeschi (conduttore televisivo)",
         "prezzo": 10
     },
@@ -6036,7 +6016,7 @@
         "prezzo": 20
     },
     {
-        "nome": "Cristina D\\'Avena",
+        "nome": "Cristina D'Avena",
         "prezzo": 10
     },
     {
@@ -6477,7 +6457,7 @@
     },
     {
         "nome": "Dario Argento",
-        "prezzo": 45
+        "prezzo": 50
     },
     {
         "nome": "Dario Ballantini",
@@ -7153,7 +7133,7 @@
     },
     {
         "nome": "Diego Armando Maradona Junior",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Diego Bianchi",
@@ -7356,10 +7336,6 @@
         "prezzo": 15
     },
     {
-        "nome": "Dominique Sanda",
-        "prezzo": 15
-    },
-    {
         "nome": "Dominique Strauss-Kahn",
         "prezzo": 10
     },
@@ -7414,6 +7390,10 @@
     {
         "nome": "Donatella Versace",
         "prezzo": 50
+    },
+    {
+        "nome": "Donato Renzetti",
+        "prezzo": 15
     },
     {
         "nome": "Donato Toma",
@@ -7617,7 +7597,7 @@
     },
     {
         "nome": "Dustin Hoffman",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Dustin Poirier",
@@ -7753,11 +7733,11 @@
     },
     {
         "nome": "Edoardo Bennato",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Edoardo Bove",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Edoardo, conte di Wessex",
@@ -7796,7 +7776,7 @@
         "prezzo": 40
     },
     {
-        "nome": "Ed O\\'Neill",
+        "nome": "Ed O'Neill",
         "prezzo": 15
     },
     {
@@ -7829,7 +7809,7 @@
     },
     {
         "nome": "Edward, duca di Kent",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Edward Fenech-Adami",
@@ -8081,7 +8061,7 @@
     },
     {
         "nome": "Elly Schlein",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Elodie (cantante)",
@@ -8576,6 +8556,10 @@
         "prezzo": 15
     },
     {
+        "nome": "Ernesto Palacio",
+        "prezzo": 15
+    },
+    {
         "nome": "Ernest Simoni",
         "prezzo": 20
     },
@@ -8657,7 +8641,7 @@
     },
     {
         "nome": "Esther Rantzen",
-        "prezzo": 65
+        "prezzo": 70
     },
     {
         "nome": "Ethan Torchio",
@@ -8665,7 +8649,7 @@
     },
     {
         "nome": "Ethel Caterham",
-        "prezzo": 65
+        "prezzo": 70
     },
     {
         "nome": "Ettore Andenna",
@@ -8792,7 +8776,7 @@
         "prezzo": 25
     },
     {
-        "nome": "Eva Robin\\'s",
+        "nome": "Eva Robin's",
         "prezzo": 10
     },
     {
@@ -8917,7 +8901,7 @@
     },
     {
         "nome": "Fabio Rovazzi",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Fabio Testi",
@@ -9045,7 +9029,7 @@
     },
     {
         "nome": "Fausto Leali",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Fausto Silva",
@@ -9073,7 +9057,7 @@
     },
     {
         "nome": "Fedele Confalonieri",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Federica Brignone",
@@ -9317,7 +9301,7 @@
     },
     {
         "nome": "Fiorella Mannoia",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Fiorello",
@@ -9341,7 +9325,7 @@
     },
     {
         "nome": "Flavio Briatore",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Flavio Giurato",
@@ -9385,10 +9369,6 @@
     },
     {
         "nome": "F. Murray Abraham",
-        "prezzo": 15
-    },
-    {
-        "nome": "Foly Dirane",
         "prezzo": 15
     },
     {
@@ -9597,7 +9577,7 @@
     },
     {
         "nome": "Francesco Petrullo",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Francesco Renga",
@@ -9682,6 +9662,10 @@
     {
         "nome": "Francis Ford Coppola",
         "prezzo": 50
+    },
+    {
+        "nome": "Francis Heaulme",
+        "prezzo": 15
     },
     {
         "nome": "Francis Rigaud",
@@ -10122,6 +10106,10 @@
     {
         "nome": "Gabrielle Drake",
         "prezzo": 20
+    },
+    {
+        "nome": "Gabriel Rosenstock",
+        "prezzo": 15
     },
     {
         "nome": "Gabriel Woolf",
@@ -10688,6 +10676,10 @@
         "prezzo": 50
     },
     {
+        "nome": "Gian Arturo Ferrari",
+        "prezzo": 20
+    },
+    {
         "nome": "Gianbattista Baronchelli",
         "prezzo": 15
     },
@@ -10873,7 +10865,7 @@
     },
     {
         "nome": "Gianna Nannini",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Gianni Alemanno",
@@ -11160,10 +11152,6 @@
         "prezzo": 20
     },
     {
-        "nome": "Giorgio Bogi",
-        "prezzo": 25
-    },
-    {
         "nome": "Giorgio Bontempi",
         "prezzo": 30
     },
@@ -11281,7 +11269,7 @@
     },
     {
         "nome": "Giovanni Angelo Becciu",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Giovanni Arvedi",
@@ -11369,7 +11357,7 @@
     },
     {
         "nome": "Giovanni Rana",
-        "prezzo": 70
+        "prezzo": 75
     },
     {
         "nome": "Giovanni Riina",
@@ -11641,7 +11629,7 @@
     },
     {
         "nome": "Giuseppe Valditara",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Giuseppe Vignolo",
@@ -12225,7 +12213,7 @@
     },
     {
         "nome": "Harvey Weinstein",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Hasan Masood",
@@ -12273,7 +12261,7 @@
     },
     {
         "nome": "Hayao Miyazaki",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Hayat Al-Fahad",
@@ -12461,7 +12449,7 @@
     },
     {
         "nome": "Hillary Clinton",
-        "prezzo": 30
+        "prezzo": 25
     },
     {
         "nome": "Hina Khan",
@@ -12605,7 +12593,7 @@
     },
     {
         "nome": "Iacopo Jacomelli",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Iacopo Melio",
@@ -12669,7 +12657,7 @@
     },
     {
         "nome": "Iginio Massari",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Igli Tare",
@@ -13001,7 +12989,7 @@
     },
     {
         "nome": "Ivanka Trump",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Ivan Klasnić",
@@ -13384,10 +13372,6 @@
         "prezzo": 20
     },
     {
-        "nome": "James Tolkan",
-        "prezzo": 20
-    },
-    {
         "nome": "James Valentine",
         "prezzo": 15
     },
@@ -13532,6 +13516,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Jaume Guardeño",
+        "prezzo": 25
+    },
+    {
         "nome": "Javiera Contador",
         "prezzo": 15
     },
@@ -13610,6 +13598,10 @@
     {
         "nome": "Jean Lodge",
         "prezzo": 25
+    },
+    {
+        "nome": "Jean-Marie Bigard",
+        "prezzo": 15
     },
     {
         "nome": "Jean-Marie Lehn",
@@ -13693,6 +13685,10 @@
     },
     {
         "nome": "Jeff Koons",
+        "prezzo": 15
+    },
+    {
+        "nome": "Jeff Mauro",
         "prezzo": 15
     },
     {
@@ -14373,7 +14369,7 @@
     },
     {
         "nome": "Johnny Dorelli",
-        "prezzo": 45
+        "prezzo": 50
     },
     {
         "nome": "Johnny Holland",
@@ -14885,7 +14881,7 @@
     },
     {
         "nome": "Juan Abreu",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Juan Alberto Puiggari",
@@ -14922,6 +14918,10 @@
     {
         "nome": "Juan Luis Cipriani Thorne",
         "prezzo": 20
+    },
+    {
+        "nome": "Juan Ramón de la Fuente",
+        "prezzo": 15
     },
     {
         "nome": "Juan Sandoval Íñiguez",
@@ -15184,6 +15184,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Kamal Kharazi",
+        "prezzo": 20
+    },
+    {
         "nome": "Kamal Quliyev",
         "prezzo": 15
     },
@@ -15289,7 +15293,7 @@
     },
     {
         "nome": "Katia Ricciarelli",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Katie Thurston",
@@ -15313,7 +15317,7 @@
     },
     {
         "nome": "Katy Perry",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Kawhi Leonard",
@@ -15576,12 +15580,12 @@
         "prezzo": 10
     },
     {
-        "nome": "Khaled Mesh\\'al",
-        "prezzo": 20
+        "nome": "Khaled Mesh'al",
+        "prezzo": 25
     },
     {
         "nome": "Khalid Bin Mohsen Shaari",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Khalifa Belqasim Haftar",
@@ -15857,7 +15861,7 @@
     },
     {
         "nome": "Kyōsei Tsukui",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Kyrie Irving",
@@ -16040,6 +16044,10 @@
         "prezzo": 20
     },
     {
+        "nome": "László Szabó",
+        "prezzo": 20
+    },
+    {
         "nome": "Laura Boldrini",
         "prezzo": 10
     },
@@ -16213,7 +16221,7 @@
     },
     {
         "nome": "Leoluca Bagarella",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Leoluca Orlando",
@@ -16400,10 +16408,6 @@
         "prezzo": 10
     },
     {
-        "nome": "Liamine Zéroual",
-        "prezzo": 20
-    },
-    {
         "nome": "Liam Neeson",
         "prezzo": 10
     },
@@ -16449,7 +16453,7 @@
     },
     {
         "nome": "Liliana Cavani",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Liliana Segre",
@@ -16624,10 +16628,6 @@
         "prezzo": 10
     },
     {
-        "nome": "Lisa Gastoni",
-        "prezzo": 25
-    },
-    {
         "nome": "Lisa Kudrow",
         "prezzo": 10
     },
@@ -16669,7 +16669,7 @@
     },
     {
         "nome": "Liza Minnelli",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Liz Torres",
@@ -16805,7 +16805,7 @@
     },
     {
         "nome": "Loretta Goggi",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Loris Capirossi",
@@ -16925,7 +16925,7 @@
     },
     {
         "nome": "Luca Cordero di Montezemolo",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Luca Dirisio",
@@ -17253,7 +17253,7 @@
     },
     {
         "nome": "Luis Antonio Ferreyra",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Luis Aparicio",
@@ -17322,10 +17322,6 @@
     {
         "nome": "Lupita D'Alessio",
         "prezzo": 15
-    },
-    {
-        "nome": "Lydia Mancinelli",
-        "prezzo": 20
     },
     {
         "nome": "Lyle Menendez",
@@ -17582,10 +17578,6 @@
     {
         "nome": "Marc Alaimo",
         "prezzo": 20
-    },
-    {
-        "nome": "Marcelino Abad Tolentino",
-        "prezzo": 65
     },
     {
         "nome": "Marcella Bella",
@@ -17884,10 +17876,6 @@
         "prezzo": 20
     },
     {
-        "nome": "Margherita dei Paesi Bassi",
-        "prezzo": 20
-    },
-    {
         "nome": "Margherita di Borbone-Spagna",
         "prezzo": 30
     },
@@ -17933,7 +17921,7 @@
     },
     {
         "nome": "Maria da Conceição Brito",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Maria De Filippi",
@@ -17973,7 +17961,7 @@
     },
     {
         "nome": "Maria Giovanna Elmi",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Maria Grazia Buccella",
@@ -18164,10 +18152,6 @@
         "prezzo": 15
     },
     {
-        "nome": "Marinella",
-        "prezzo": 20
-    },
-    {
         "nome": "Marino Bartoletti",
         "prezzo": 10
     },
@@ -18201,7 +18185,7 @@
     },
     {
         "nome": "Mario Borghezio",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Mario Botta",
@@ -18222,10 +18206,6 @@
     {
         "nome": "Mario Capecchi",
         "prezzo": 15
-    },
-    {
-        "nome": "Mario Casati",
-        "prezzo": 20
     },
     {
         "nome": "Mario Cipollini",
@@ -18289,7 +18269,7 @@
     },
     {
         "nome": "Mario Monti",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Mario Moretti",
@@ -18628,10 +18608,6 @@
         "prezzo": 30
     },
     {
-        "nome": "Mary Rand",
-        "prezzo": 20
-    },
-    {
         "nome": "Mary Woronov",
         "prezzo": 20
     },
@@ -18669,7 +18645,7 @@
     },
     {
         "nome": "Masoud Pezeshkian",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Massiel",
@@ -18801,7 +18777,7 @@
     },
     {
         "nome": "Massimo Ranieri",
-        "prezzo": 45
+        "prezzo": 50
     },
     {
         "nome": "Massimo Recalcati",
@@ -19104,6 +19080,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Mauro Mendonça",
+        "prezzo": 25
+    },
+    {
         "nome": "Mauro Pagani",
         "prezzo": 20
     },
@@ -19376,10 +19356,6 @@
         "prezzo": 20
     },
     {
-        "nome": "Michael Heseltine",
-        "prezzo": 25
-    },
-    {
         "nome": "Michael Horse",
         "prezzo": 15
     },
@@ -19613,7 +19589,7 @@
     },
     {
         "nome": "Michele Placido",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Michele Santoro",
@@ -19800,7 +19776,7 @@
         "prezzo": 10
     },
     {
-        "nome": "Mikheil Saak\\'ashvili",
+        "nome": "Mikheil Saak'ashvili",
         "prezzo": 10
     },
     {
@@ -19909,7 +19885,7 @@
     },
     {
         "nome": "Mircea Lucescu",
-        "prezzo": 20
+        "prezzo": 30
     },
     {
         "nome": "Mirek Topolánek",
@@ -20149,7 +20125,7 @@
     },
     {
         "nome": "Mojtaba Khamenei",
-        "prezzo": 60
+        "prezzo": 65
     },
     {
         "nome": "Mojtaba Rahmandoust",
@@ -20569,7 +20545,7 @@
     },
     {
         "nome": "Nathan Merritt",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Nat Myers",
@@ -20705,7 +20681,7 @@
     },
     {
         "nome": "Nevio Scala",
-        "prezzo": 10
+        "prezzo": 15
     },
     {
         "nome": "Neymar",
@@ -20821,7 +20797,7 @@
     },
     {
         "nome": "Nicola Di Bari (cantante)",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Nicola Fratoianni",
@@ -21049,7 +21025,7 @@
     },
     {
         "nome": "Nino Frassica",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Niño Guerrero",
@@ -21144,6 +21120,10 @@
         "prezzo": 15
     },
     {
+        "nome": "Norvell Austin",
+        "prezzo": 15
+    },
+    {
         "nome": "Novak Đoković",
         "prezzo": 20
     },
@@ -21208,7 +21188,7 @@
         "prezzo": 15
     },
     {
-        "nome": "Oleksandr Syrs\\'kyj",
+        "nome": "Oleksandr Syrs'kyj",
         "prezzo": 10
     },
     {
@@ -21249,7 +21229,7 @@
     },
     {
         "nome": "Olly",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Olu Jacobs",
@@ -21741,7 +21721,7 @@
     },
     {
         "nome": "Paolo Ruffini (attore)",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Paolo Savona",
@@ -21813,7 +21793,7 @@
     },
     {
         "nome": "Pat Caputo",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Pat Dodson",
@@ -22225,7 +22205,7 @@
     },
     {
         "nome": "Pete Murray",
-        "prezzo": 55
+        "prezzo": 60
     },
     {
         "nome": "Péter Boross",
@@ -22308,6 +22288,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Peter North",
+        "prezzo": 15
+    },
+    {
         "nome": "Peter Purves",
         "prezzo": 15
     },
@@ -22369,7 +22353,7 @@
     },
     {
         "nome": "Phil Collins",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Phil Foden",
@@ -22574,10 +22558,6 @@
     {
         "nome": "Pierre Alechinsky",
         "prezzo": 25
-    },
-    {
-        "nome": "Pierre-Galmier Gagnaire",
-        "prezzo": 15
     },
     {
         "nome": "Pierre Gasly",
@@ -23020,6 +23000,10 @@
         "prezzo": 15
     },
     {
+        "nome": "Raimonds Pauls",
+        "prezzo": 20
+    },
+    {
         "nome": "Rainer Langhans",
         "prezzo": 20
     },
@@ -23057,7 +23041,7 @@
     },
     {
         "nome": "Ralph Lauren",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Ralph Macchio",
@@ -23148,6 +23132,10 @@
         "prezzo": 15
     },
     {
+        "nome": "Ras Natty Baby",
+        "prezzo": 15
+    },
+    {
         "nome": "Ratko Mladić",
         "prezzo": 20
     },
@@ -23157,7 +23145,7 @@
     },
     {
         "nome": "Raúl Castro",
-        "prezzo": 55
+        "prezzo": 60
     },
     {
         "nome": "Raul Cremona",
@@ -23237,7 +23225,7 @@
     },
     {
         "nome": "Reggie Bannister",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Reginaldo Ferreira da Silva",
@@ -23721,7 +23709,7 @@
     },
     {
         "nome": "Rita Moreno",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Rita Pavone",
@@ -23781,6 +23769,10 @@
     },
     {
         "nome": "Roberta Morise",
+        "prezzo": 15
+    },
+    {
+        "nome": "Roberta Oberti",
         "prezzo": 15
     },
     {
@@ -23913,7 +23905,7 @@
     },
     {
         "nome": "Roberto Calderoli",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Roberto Capucci",
@@ -24293,7 +24285,7 @@
     },
     {
         "nome": "Roman Polański",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Roman Reigns",
@@ -24345,7 +24337,7 @@
     },
     {
         "nome": "Ron Duguay",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Rongbong Terang",
@@ -24460,6 +24452,10 @@
         "prezzo": 50
     },
     {
+        "nome": "Roseanne Barr",
+        "prezzo": 15
+    },
+    {
         "nome": "Rosemary Forsyth",
         "prezzo": 20
     },
@@ -24469,7 +24465,7 @@
     },
     {
         "nome": "Rosemary Harris",
-        "prezzo": 25
+        "prezzo": 30
     },
     {
         "nome": "Rosemary Prinz",
@@ -24496,11 +24492,11 @@
         "prezzo": 20
     },
     {
-        "nome": "Rossa Caputo",
+        "nome": "Rosie O'Donnell",
         "prezzo": 15
     },
     {
-        "nome": "Ross the Boss",
+        "nome": "Rossa Caputo",
         "prezzo": 15
     },
     {
@@ -24514,6 +24510,10 @@
     {
         "nome": "Roy Andersson",
         "prezzo": 20
+    },
+    {
+        "nome": "Roy Drinkard",
+        "prezzo": 30
     },
     {
         "nome": "Roy Emerson",
@@ -24641,7 +24641,7 @@
     },
     {
         "nome": "Ruy de Carvalho",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Ruy Guerra",
@@ -24893,7 +24893,7 @@
     },
     {
         "nome": "Sami Modiano",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Samira Lui",
@@ -24932,7 +24932,7 @@
         "prezzo": 15
     },
     {
-        "nome": "Samuel Eto\\'o",
+        "nome": "Samuel Eto'o",
         "prezzo": 10
     },
     {
@@ -25097,7 +25097,7 @@
     },
     {
         "nome": "Sargento Reginauro",
-        "prezzo": 20
+        "prezzo": 30
     },
     {
         "nome": "Sarocha Pornudomsak",
@@ -25324,6 +25324,10 @@
         "prezzo": 20
     },
     {
+        "nome": "Sergio Carpanesi",
+        "prezzo": 20
+    },
+    {
         "nome": "Sergio Cassingena",
         "prezzo": 10
     },
@@ -25456,10 +25460,6 @@
         "prezzo": 15
     },
     {
-        "nome": "Seymour Hersh",
-        "prezzo": 20
-    },
-    {
         "nome": "Seyyed Mohammad Mehdi Mirbagheri",
         "prezzo": 15
     },
@@ -25489,10 +25489,6 @@
     },
     {
         "nome": "Shahram Lasemi",
-        "prezzo": 15
-    },
-    {
-        "nome": "Shahram Shabpareh",
         "prezzo": 15
     },
     {
@@ -25718,6 +25714,10 @@
     {
         "nome": "Silvio Anselmo",
         "prezzo": 25
+    },
+    {
+        "nome": "Silvio Baldini",
+        "prezzo": 15
     },
     {
         "nome": "Silvio Benedetto",
@@ -26104,6 +26104,10 @@
         "prezzo": 25
     },
     {
+        "nome": "Stéphanie di Monaco",
+        "prezzo": 15
+    },
+    {
         "nome": "Stephan Lichtsteiner",
         "prezzo": 10
     },
@@ -26477,7 +26481,7 @@
     },
     {
         "nome": "Sylvester Stallone",
-        "prezzo": 40
+        "prezzo": 45
     },
     {
         "nome": "Tabea Rößner",
@@ -26580,7 +26584,7 @@
         "prezzo": 25
     },
     {
-        "nome": "Tat\\'jana Pileckaja",
+        "nome": "Tat'jana Pileckaja",
         "prezzo": 20
     },
     {
@@ -26629,7 +26633,7 @@
     },
     {
         "nome": "Teddy Reno",
-        "prezzo": 65
+        "prezzo": 70
     },
     {
         "nome": "Ted Neeley",
@@ -26689,7 +26693,7 @@
     },
     {
         "nome": "Teo Teocoli",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Teremoana Rapley",
@@ -26929,7 +26933,7 @@
     },
     {
         "nome": "Tim Curry",
-        "prezzo": 35
+        "prezzo": 40
     },
     {
         "nome": "Tim Matheson",
@@ -26950,10 +26954,6 @@
     {
         "nome": "Timothy Dalton",
         "prezzo": 20
-    },
-    {
-        "nome": "Timothy Laurence",
-        "prezzo": 15
     },
     {
         "nome": "Timothy Spall",
@@ -26985,7 +26985,7 @@
     },
     {
         "nome": "Tinto Brass",
-        "prezzo": 55
+        "prezzo": 60
     },
     {
         "nome": "Tionne Watkins",
@@ -27220,6 +27220,10 @@
         "prezzo": 10
     },
     {
+        "nome": "Tonino Carotone",
+        "prezzo": 15
+    },
+    {
         "nome": "Toni Servillo",
         "prezzo": 10
     },
@@ -27309,7 +27313,7 @@
     },
     {
         "nome": "Tony Renis",
-        "prezzo": 30
+        "prezzo": 35
     },
     {
         "nome": "Tony Serra",
@@ -27461,10 +27465,6 @@
     },
     {
         "nome": "Tullio Solenghi",
-        "prezzo": 15
-    },
-    {
-        "nome": "Tupou VI delle Tonga",
         "prezzo": 15
     },
     {
@@ -27700,11 +27700,7 @@
         "prezzo": 10
     },
     {
-        "nome": "Valerij Jakovlevič Leont'ev",
-        "prezzo": 15
-    },
-    {
-        "nome": "Valerij Vasil\\'evič Gerasimov",
+        "nome": "Valerij Vasil'evič Gerasimov",
         "prezzo": 15
     },
     {
@@ -27817,7 +27813,7 @@
     },
     {
         "nome": "Vasco Rossi",
-        "prezzo": 65
+        "prezzo": 70
     },
     {
         "nome": "Vasile Bătrânac",
@@ -27941,7 +27937,7 @@
     },
     {
         "nome": "Viktor Orbán",
-        "prezzo": 15
+        "prezzo": 20
     },
     {
         "nome": "Viktor Sokolov",
@@ -28009,7 +28005,7 @@
     },
     {
         "nome": "Vincenzo Rimedio",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Vincenzo Salemme",
@@ -28038,10 +28034,6 @@
     {
         "nome": "Vincenzo Voccia",
         "prezzo": 25
-    },
-    {
-        "nome": "Vince Tempera",
-        "prezzo": 15
     },
     {
         "nome": "Vin Diesel",
@@ -28125,7 +28117,7 @@
     },
     {
         "nome": "Vittorio Brumotti",
-        "prezzo": 60
+        "prezzo": 65
     },
     {
         "nome": "Vittorio Camarrone",
@@ -28333,7 +28325,7 @@
     },
     {
         "nome": "Wanna Marchi",
-        "prezzo": 50
+        "prezzo": 55
     },
     {
         "nome": "Waris Hussein",
@@ -28341,7 +28333,7 @@
     },
     {
         "nome": "Warren Beatty",
-        "prezzo": 20
+        "prezzo": 25
     },
     {
         "nome": "Warren Buffett",
@@ -28601,7 +28593,7 @@
     },
     {
         "nome": "Woody Allen",
-        "prezzo": 65
+        "prezzo": 70
     },
     {
         "nome": "Woody Woodbury",
@@ -28662,10 +28654,6 @@
     {
         "nome": "Yahya Jammeh",
         "prezzo": 10
-    },
-    {
-        "nome": "Yahya Safavi",
-        "prezzo": 15
     },
     {
         "nome": "Yair Lapid",
@@ -28761,7 +28749,7 @@
     },
     {
         "nome": "Yōko Ono",
-        "prezzo": 75
+        "prezzo": 80
     },
     {
         "nome": "Yolanda Andrade",

@@ -596,3 +596,106 @@ function renderStoricoSquadra(sIdx) {
 
     container.innerHTML = html;
 }
+
+// Variabili di stato globali
+let observer;
+window.currentSort = { key: 'nome', dir: 'asc' }; 
+window.currentLimit = 30;
+
+function initInfiniteScroll() {
+    window.currentLimit = 30;
+    const tbody = document.getElementById('infinite-items-body');
+    const sentinel = document.getElementById('infinite-sentinel');
+    const container = document.getElementById('infinite-list-container');
+
+    if (!tbody || !sentinel) return;
+
+    // Pulizia
+    tbody.innerHTML = "";
+    if (observer) observer.disconnect();
+
+    // Creazione Osservatore
+    observer = new IntersectionObserver((entries) => {
+        // Se la sentinella entra nel campo visivo...
+        if (entries[0].isIntersecting) {
+            // Carichiamo altri 30
+            window.currentLimit += 30;
+            renderItems();
+        }
+    }, {
+        root: container,
+        rootMargin: '100px', // Carica un po' prima che l'utente arrivi in fondo
+        threshold: 0.1
+    });
+
+    // Avvio
+    renderItems();
+    observer.observe(sentinel);
+}
+
+function renderItems() {
+    const tbody = document.getElementById('infinite-items-body');
+    const sentinel = document.getElementById('infinite-sentinel');
+    const query = document.getElementById('search-listino-infinite').value.toLowerCase();
+    
+    // 1. FILTRO
+    let filtrati = catalogoMorituri.filter(item => item.nome.toLowerCase().includes(query));
+
+    // 2. ORDINAMENTO
+    filtrati.sort((a, b) => {
+        let valA = a[window.currentSort.key];
+        let valB = b[window.currentSort.key];
+
+        // Se ordiniamo per prezzo, convertiamo in numero
+        if (window.currentSort.key === 'prezzo') {
+            valA = parseInt(valA);
+            valB = parseInt(valB);
+        }
+
+        if (window.currentSort.dir === 'asc') {
+            return valA > valB ? 1 : -1;
+        } else {
+            return valA < valB ? 1 : -1;
+        }
+    });
+
+    // Aggiorna icone header
+    const iconNome = document.getElementById('sort-nome');
+    const iconPrezzo = document.getElementById('sort-prezzo');
+    if (iconNome) iconNome.innerText = window.currentSort.key === 'nome' ? (window.currentSort.dir === 'asc' ? '🔼' : '🔽') : '↕️';
+    if (iconPrezzo) iconPrezzo.innerText = window.currentSort.key === 'prezzo' ? (window.currentSort.dir === 'asc' ? '🔼' : '🔽') : '↕️';
+
+    // 3. TAGLIO E RENDER
+    const visualizzati = filtrati.slice(0, window.currentLimit);
+
+    tbody.innerHTML = visualizzati.map(item => `
+        <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px; font-weight: bold; color: #ddd;">${item.nome}</td>
+            <td style="padding: 12px; text-align: center; font-family: monospace; color: var(--accent);">${item.prezzo}</td>
+        </tr>
+    `).join('');
+
+    // Gestione visibilità sentinella
+    if (sentinel) {
+        sentinel.style.display = window.currentLimit >= filtrati.length ? 'none' : 'flex';
+    }
+}
+
+function setSort(key, uIdx) {
+    // Se clicchi sulla stessa colonna, inverti l'ordine, altrimenti imposta asc
+    if (window.currentSort.key === key) {
+        window.currentSort.dir = window.currentSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+        window.currentSort.key = key;
+        window.currentSort.dir = 'asc';
+    }
+    
+    // Reset e aggiorna icone
+    resetAndSearchInfinite(uIdx);
+}
+
+function resetAndSearchInfinite(uIdx) {
+    window.currentLimit = 30; // Reset del contatore
+    document.getElementById('infinite-list-container').scrollTop = 0; // Torna su
+    renderItems(uIdx); // Riesegui il disegno
+}
