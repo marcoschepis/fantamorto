@@ -502,13 +502,6 @@
           "status": "vivo"
         },
         {
-          "nome": "Baby Gang",
-          "prezzo": 45,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
           "nome": "J. D. Vance",
           "prezzo": 35,
           "punti": 0,
@@ -537,13 +530,6 @@
           "status": "vivo"
         },
         {
-          "nome": "Mojtaba Khamenei",
-          "prezzo": 60,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
           "nome": "Ibrahim Traoré (militare)",
           "prezzo": 20,
           "punti": 0,
@@ -553,6 +539,48 @@
         {
           "nome": "Alba Parietti",
           "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Alessandro Cattelan",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Angelina Jolie",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Wes Anderson",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Uma Thurman",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Anna Fendi",
+          "prezzo": 35,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Travis Scott",
+          "prezzo": 20,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
