@@ -26,5 +26,18 @@ function renderPunti() {
             <div id="search-results-container" style="margin-top:20px;"></div>
         </div>`;
 
+    // SEZIONE 3: Storico per Squadra
+    html += `
+        <div class="card">
+            <h3 style="color: var(--accent);">🛡️ Eventi Squadra</h3>
+            <select id="select-squadra-punti" onchange="renderStoricoSquadra(this.value)" 
+                style="width:100%; padding:10px; background:#000; border:1px solid #444; color:white; border-radius:8px; cursor:pointer;">
+                <option value="">Seleziona una squadra...</option>
+                ${db.campionato.map((s, idx) => `<option value="${idx}">${s.nome_squadra}</option>`).join('')}
+            </select>
+
+            <div id="squadra-events-container" style="margin-top:20px;"></div>
+        </div>`;
+
     return html;
 }

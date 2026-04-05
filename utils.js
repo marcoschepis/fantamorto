@@ -432,7 +432,7 @@ function adminSearchMorituro(query) {
 
                                     return `
                                         <tr>
-                                            <td style="color:#888; padding:4px;">${e.data}</td>
+                                            <td style="color:#888; padding:4px;">${formatDate(e.data)}</td>
                                             <td style="padding:4px;">${e.desc}</td>
                                             <td style="color:var(--accent); padding:4px;">${e.valore}pt</td>
                                             <td style="text-align:right; padding:4px;">
@@ -522,9 +522,77 @@ function getLastEvents(limit) {
     
     return allEvents.slice(0, limit).map(e => `
         <tr>
-            <td>${e.nome}</td>
+            <td>${formatDate(e.data)}</td>
             <td>${e.desc}</td>
             <td style="color:var(--accent); font-weight:bold;">+${e.valore}</td>
         </tr>
     `).join('');
+}
+
+function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function renderStoricoSquadra(sIdx) {
+    const container = document.getElementById('squadra-events-container');
+    if (!sIdx) {
+        container.innerHTML = '<p style="color:#666; font-style:italic; text-align:center;">Seleziona una squadra per vedere tutti i suoi punti</p>';
+        return;
+    }
+
+    const squadra = db.campionato[sIdx];
+    let allEvents = [];
+
+    // Raccogliamo tutti gli eventi di ogni partecipante della squadra
+    squadra.partecipanti.forEach(p => {
+        if (p.eventi && p.eventi.length > 0) {
+            p.eventi.forEach(e => {
+                allEvents.push({
+                    nomeMorituro: p.nome,
+                    data: e.data,
+                    desc: e.desc,
+                    valore: e.valore
+                });
+            });
+        }
+    });
+
+    // Ordiniamo per data (più recenti in alto)
+    allEvents.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+    if (allEvents.length === 0) {
+        container.innerHTML = '<p style="text-align:center; padding:20px; color:#888;">Nessun punto assegnato a questa squadra.</p>';
+        return;
+    }
+
+    let html = `
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Morituro</th>
+                    <th>Evento</th>
+                    <th style="text-align:right;">Punti</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${allEvents.map(e => `
+                    <tr>
+                        <td style="font-size:0.8rem; color:#888; white-space:nowrap;">${formatDate(e.data)}</td>
+                        <td style="font-weight:bold;">${e.nomeMorituro}</td>
+                        <td style="font-size:0.9rem;">${e.desc}</td>
+                        <td style="text-align:right; font-weight:bold; color:${e.valore >= 0 ? 'var(--accent)' : '#ff4444'};">
+                            ${e.valore >= 0 ? '+' : ''}${e.valore}
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+
+    container.innerHTML = html;
 }
