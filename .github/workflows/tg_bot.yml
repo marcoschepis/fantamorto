@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_id.txt
-          key: fantamorto-last-id-${{ github.run_id }}
+          key: telegram-last-id-${{ github.run_id }}
           restore-keys: |
             telegram-last-id-
 
@@ -36,4 +36,4 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: last_id.txt
-          key: fantamorto-last-id-${{ github.run_id }}
+          key: telegram-last-id-${{ github.run_id }}
