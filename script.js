@@ -102,6 +102,7 @@ function switchView(name) {
 
 function render() {
     loadElements();
+    updateDays();
     
     if (db.config.mostra_mercato) {
         btnMercato.innerHTML = "⚙️ Gestione Squadra";

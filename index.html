@@ -25,7 +25,13 @@
 <body>
     <datalist id="lista-suggerimenti"></datalist>
     <header>
-        <h1 style="text-align: center;">☠️ Fantamorto Cup 2026</h1>
+        <div class="header">
+            <h1>☠️ Fantamorto Cup 2026</h1>
+            <div class="days-container">
+                <span id="days-number">0</span>
+                <span class="days-label"> giorni alla fine</span>
+            </div>
+        </div>
         <nav id="main-nav">
             <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
             <button id="btn-teams"  onclick="switchView('teams')">👪 Squadre</button>

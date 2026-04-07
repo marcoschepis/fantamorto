@@ -699,3 +699,13 @@ function resetAndSearchInfinite(uIdx) {
     document.getElementById('infinite-list-container').scrollTop = 0; // Torna su
     renderItems(uIdx); // Riesegui il disegno
 }
+
+function updateDays() {
+    const fineCampionato = new Date("March 31, 2027 23:59:59").getTime();
+    const ora = new Date().getTime();
+    const diff = fineCampionato - ora;
+
+    // Calcolo giorni (minimo 0)
+    const giorni = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    document.getElementById('days-number').innerText = giorni;
+}
