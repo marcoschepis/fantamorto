@@ -17,23 +17,39 @@ db.campionato.forEach(s => s.partecipanti.forEach(p => {
 
 let lastReadId = fs.existsSync(LAST_ID_FILE) ? parseInt(fs.readFileSync(LAST_ID_FILE, 'utf8').trim()) : 0;
 
+process.on('uncaughtException', (err) => {
+    console.error('⚠️ Eccezione evitata:', err.message);
+});
+
 // FUNZIONE DI INVIO MINIMALE
 function inviaTelegram(messaggio) {
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
     const data = JSON.stringify({
         chat_id: MY_CHAT_ID,
         text: messaggio
     });
 
-    const req = https.request(url, {
+    const options = {
+        hostname: 'api.telegram.org',
+        path: `/bot${BOT_TOKEN}/sendMessage`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Content-Length': Buffer.byteLength(data)
         }
-    }, (res) => {
-        if (res.statusCode === 200) console.log("✅ Link inviato!");
-        else console.error(`❌ Errore: ${res.statusCode}`);
+    };
+
+    const req = https.request(options, (res) => {
+        let body = '';
+        res.on('data', (chunk) => body += chunk);
+        res.on('end', () => {
+            if (res.statusCode === 200) console.log("✅ Link inviato!");
+            else console.error(`❌ Errore API: ${res.statusCode}`, body);
+        });
+    });
+
+    // --- AGGIUNTA FONDAMENTALE: Gestione errore di rete ---
+    req.on('error', (e) => {
+        console.error(`🚨 Errore di rete (ECONNRESET o simili): ${e.message}`);
     });
 
     req.write(data);
@@ -67,7 +83,7 @@ https.get(`https://t.me/s/${CHANNEL_NAME}`, { headers: { 'User-Agent': 'Mozilla/
                         console.log(`🚨 ALERT per ${nome}! Invio link post...`);
                         
                         // COSTRUIAMO IL LINK DIRETTO AL POST
-                        const linkPost = `https://t.me/${CHANNEL_NAME}/${currentId}`;
+                        const linkPost = `🚨 ALERT per ${nome}!\nhttps://t.me/${CHANNEL_NAME}/${currentId}`;
                         
                         // INVIAMO SOLO IL LINK (Telegram farà il resto)
                         inviaTelegram(linkPost); 

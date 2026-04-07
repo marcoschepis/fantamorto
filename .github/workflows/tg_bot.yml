@@ -18,7 +18,7 @@ jobs:
           path: last_id.txt
           key: fantamorto-last-id-${{ github.run_id }}
           restore-keys: |
-            fantamorto-last-id-
+            telegram-last-id-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
