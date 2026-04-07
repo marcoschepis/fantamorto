@@ -131,7 +131,7 @@ table td, table th {
 
 .header h1 {
     margin: 0;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     flex-shrink: 1;
 }
 
@@ -147,7 +147,7 @@ table td, table th {
 }
 
 #days-number {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 900;
     line-height: 1;
 }
