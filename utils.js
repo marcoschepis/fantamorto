@@ -476,16 +476,37 @@ function searchAndRenderTable(query, found) {
                         <p>Punti Totali: <strong>${p.punti || 0}</strong></p>
                         <table class="admin-table">
                             <thead>
-                                <tr><th>Data</th><th>Evento</th><th>Punti</th></tr>
+                                <th style="text-align: left; padding: 10px;">Data</th>
+                                <th style="text-align: left; padding: 10px;">Morituro</th>
+                                <th style="text-align: left; padding: 10px;">Evento</th>
+                                <th style="text-align: right; padding: 10px;">Punti</th>
                             </thead>
                             <tbody>
-                                ${(p.eventi || []).map(e => `
-                                    <tr>
-                                        <td>${e.data}</td>
-                                        <td>${e.desc}</td>
-                                        <td style="color:var(--accent)">+${e.valore}</td>
+                                ${(p.eventi || []).map(e => {
+                                    const isPositive = e.valore > 0;
+                                    const isNegative = e.valore < 0;
+                                    const segno = isPositive ? '+' : '';
+                                    
+                                    const colorePunti = isPositive ? '#44ff44' : isNegative ? '#ff4444' : '#888';
+
+                                    return `
+                                    <tr class="event-row">
+                                        <td style="color: #666; font-size: 0.8rem; padding: 12px 10px;">${formatDate(e.data)}</td>
+                                        <td style="font-weight: bold; color: #eee; padding: 12px 10px;">${p.nome}</td>
+                                        <td style="color: #aaa; padding: 12px 10px;">${e.desc}</td>
+                                        <td style="text-align: right; padding: 12px 10px;">
+                                            <span style="
+                                                color: ${colorePunti}; 
+                                                font-weight: 900; 
+                                                font-family: monospace; 
+                                                font-size: 1.1rem;
+                                                text-shadow: 0 0 10px ${colorePunti}44;
+                                            ">
+                                                ${segno}${e.valore}
+                                            </span>
+                                        </td>
                                     </tr>
-                                `).join('') || '<tr><td colspan="3">Nessun evento registrato</td></tr>'}
+                                `}).join('') || '<tr><td colspan="3">Nessun evento registrato</td></tr>'}
                             </tbody>
                         </table>
                     </div>
@@ -519,14 +540,33 @@ function getLastEvents(limit) {
 
     // Ordina per data dalla più recente
     allEvents.sort((a, b) => new Date(b.data) - new Date(a.data));
-    
-    return allEvents.slice(0, limit).map(e => `
-        <tr>
-            <td>${formatDate(e.data)}</td>
-            <td>${e.desc}</td>
-            <td style="color:var(--accent); font-weight:bold;">+${e.valore}</td>
-        </tr>
-    `).join('');
+
+    return allEvents.slice(0, limit).map(e => {
+        const isPositive = e.valore > 0;
+        const isNegative = e.valore < 0;
+        const segno = isPositive ? '+' : '';
+        
+        const colorePunti = isPositive ? '#44ff44' : isNegative ? '#ff4444' : '#888';
+
+        return `
+            <tr class="event-row">
+                <td style="color: #666; font-size: 0.8rem; padding: 12px 10px;">${formatDate(e.data)}</td>
+                <td style="font-weight: bold; color: #eee; padding: 12px 10px;">${e.nome}</td>
+                <td style="color: #aaa; padding: 12px 10px;">${e.desc}</td>
+                <td style="text-align: right; padding: 12px 10px;">
+                    <span style="
+                        color: ${colorePunti}; 
+                        font-weight: 900; 
+                        font-family: monospace; 
+                        font-size: 1.1rem;
+                        text-shadow: 0 0 10px ${colorePunti}44;
+                    ">
+                        ${segno}${e.valore}
+                    </span>
+                </td>
+            </tr>
+        `;
+    }).join('');
 }
 
 function formatDate(dateStr) {
@@ -552,7 +592,7 @@ function renderStoricoSquadra(sIdx) {
         if (p.eventi && p.eventi.length > 0) {
             p.eventi.forEach(e => {
                 allEvents.push({
-                    nomeMorituro: p.nome,
+                    nome: p.nome,
                     data: e.data,
                     desc: e.desc,
                     valore: e.valore
@@ -580,16 +620,32 @@ function renderStoricoSquadra(sIdx) {
                 </tr>
             </thead>
             <tbody>
-                ${allEvents.map(e => `
-                    <tr>
-                        <td style="font-size:0.8rem; color:#888; white-space:nowrap;">${formatDate(e.data)}</td>
-                        <td style="font-weight:bold;">${e.nomeMorituro}</td>
-                        <td style="font-size:0.9rem;">${e.desc}</td>
-                        <td style="text-align:right; font-weight:bold; color:${e.valore >= 0 ? 'var(--accent)' : '#ff4444'};">
-                            ${e.valore >= 0 ? '+' : ''}${e.valore}
-                        </td>
-                    </tr>
-                `).join('')}
+                ${allEvents.map(e => {
+                    const isPositive = e.valore > 0;
+                    const isNegative = e.valore < 0;
+                    const segno = isPositive ? '+' : '';
+                    
+                    const colorePunti = isPositive ? '#44ff44' : isNegative ? '#ff4444' : '#888';
+
+                    return `
+                        <tr class="event-row">
+                            <td style="color: #666; font-size: 0.8rem; padding: 12px 10px;">${formatDate(e.data)}</td>
+                            <td style="font-weight: bold; color: #eee; padding: 12px 10px;">${e.nome}</td>
+                            <td style="color: #aaa; padding: 12px 10px;">${e.desc}</td>
+                            <td style="text-align: right; padding: 12px 10px;">
+                                <span style="
+                                    color: ${colorePunti}; 
+                                    font-weight: 900; 
+                                    font-family: monospace; 
+                                    font-size: 1.1rem;
+                                    text-shadow: 0 0 10px ${colorePunti}44;
+                                ">
+                                    ${segno}${e.valore}
+                                </span>
+                            </td>
+                        </tr>
+                    `;
+                }).join('')}
             </tbody>
         </table>
     `;

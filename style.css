@@ -85,21 +85,11 @@ nav button.active {
 .card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
 #rank-container { display: grid; grid-template-columns: 1fr; }
 .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.rank-punti { color: #fff; font-weight: bold; font-size: 1.5rem; }
 
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
 th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
 
-/* Allineamenti Classifica */
-.col-nome { text-align: left; width: 70%; }
-.col-punti { text-align: right; width: 30%; font-weight: bold; color: #fff; }
-.dead-text { color: #fff; }
-
 /* Allineamenti Admin */
-.admin-header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #333; }
-.admin-squad-info { display: flex; align-items: center; gap: 5px; }
-.admin-input-header { background: #111; border: 1px solid #444; color: #fff; padding: 6px 8px; font-size: 0.9rem; border-radius: 4px; font-weight: 500; }
-.admin-input-header:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
 .admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
 .admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
@@ -109,15 +99,7 @@ th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
 .admin-table td:first-child { text-align: left; padding-left: 6px; }
 .admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
 .admin-table button:hover { background: var(--accent); border-color: var(--accent); }
-.admin-row-dead { background: #1a0a0a; }
 .admin-row-dead input { background: #0a0505; }
-
-textarea { width: 100%; height: 120px; font-family: 'Courier New', monospace; background: #000; color: #0f0; border: 1px solid #444; margin-top: 10px; }
-
-/* Riduciamo il padding globale delle tabelle */
-table td, table th {
-    padding: 8px 4px; /* Sopra-Sotto 8px, Destra-Sinistra 4px */
-}
 
 .header {
     display: flex;
@@ -157,6 +139,106 @@ table td, table th {
     color: #666;
     white-space: nowrap;
 }
+
+/* Classifica */
+.team-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+}
+
+.team-card:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.rank-badge {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* Squadre */
+.team-header {
+    border-bottom: 1px dashed #333;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.dead-row {
+    background: rgba(255, 0, 0, 0.05); /* Un leggero tocco rosso per i morti */
+    opacity: 0.8;
+}
+
+.dead-row td {
+    color: #999 !important;
+}
+
+.status-icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+table {
+    border-spacing: 0;
+}
+
+td {
+    padding: 10px 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+table td, table th {
+    padding: 8px 4px;
+    font-size: 1rem;
+}
+
+/* Punteggi */
+.event-row {
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    transition: background 0.2s;
+}
+.event-row:hover { background: rgba(255,255,255,0.02); }
+
+.input-modern {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: block;
+}
+.input-modern:focus {
+    border-color: #44ff44 !important;
+    box-shadow: 0 0 10px rgba(68, 255, 68, 0.1);
+}
+
+    
 
 /* Regola specifica per il cellulare */
 @media (max-width: 600px) {
