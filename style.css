@@ -181,7 +181,7 @@ th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
 
 /* Squadre */
 .team-header {
-    border-bottom: 1px dashed #333;
+    border-bottom: #333;
     padding-bottom: 15px;
     margin-bottom: 15px;
 }

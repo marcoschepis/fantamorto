@@ -5,36 +5,40 @@ function renderSquadre(sortedTeams) {
         const rimborsoTotale = calculateRimborsoCreditiSquadra(s);
         const creditiMax = (db.config.crediti_iniziali || 330) + rimborsoTotale;
 
+        // Logica colore Punti Totali
+        const ptsSquadra = puntiSquadra(s);
+        const colorPtsSquadra = ptsSquadra > 0 ? '#44ff44' : ptsSquadra < 0 ? '#ff4444' : '#fff';
+
         return `
             <div class="card">
-                <div class="team-header" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px;">
-                    <div style="flex: 1; min-width: 200px;">
-                        <div style="font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px;">
+                <div class="team-header" style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 5px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                             ${s.nome_squadra}
                         </div>
-                        <div style="font-size: 0.85rem; color: #666;">
+                        <div style="font-size: 0.85rem; color: #666; white-space: nowrap;">
                             Proprietario: <span style="color: #aaa;">${s.proprietario}</span> • 
                             Residui: <span style="color: #aaa; font-weight: bold;">${creditiResidui} BS</span>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 20px; text-align: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
-                        <div>
-                            <div style="color: #555; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;">Budget Usato</div>
-                            <div style="color: #fff; font-weight: bold; font-size: 0.9rem;">
-                                ${creditiUsati} <span style="color: #444;">/ ${creditiMax}</span>
+                    <div style="display: flex; flex-shrink: 0; gap: clamp(5px, 2vw, 15px); text-align: center; background: rgba(0,0,0,0.2); padding: clamp(5px, 1.5vw, 10px); border-radius: 10px; white-space: nowrap;">
+                        <div style="display: flex; flex-direction: column; justify-content: center;">
+                            <div style="color: #555; font-size: clamp(0.5rem, 1.5vw, 0.65rem); text-transform: uppercase; letter-spacing: 1px;">Budget</div>
+                            <div style="color: #fff; font-weight: bold; font-size: clamp(0.7rem, 2vw, 0.9rem);">
+                                ${creditiUsati}<span style="color: #444; font-size: 0.8em;">/${creditiMax}</span>
                             </div>
                         </div>
-                        <div style="border-left: 1px solid #333; padding-left: 20px;">
-                            <div style="color: #555; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;">Punti Totali</div>
-                            <div style="color: #44ff44; font-weight: 900; font-size: 1.2rem; line-height: 1;">
-                                ${puntiSquadra(s)}
+                        <div style="border-left: 1px solid #333; padding-left: clamp(5px, 2vw, 15px); display: flex; flex-direction: column; justify-content: center;">
+                            <div style="color: #555; font-size: clamp(0.5rem, 1.5vw, 0.65rem); text-transform: uppercase; letter-spacing: 1px;">Punti</div>
+                            <div style="color: ${colorPtsSquadra}; font-weight: 900; font-size: clamp(0.9rem, 3vw, 1.2rem); line-height: 1;">
+                                ${ptsSquadra}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+                <table style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 15px;">
                     <thead>
                         <tr style="font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 1px;">
                             <th style="text-align: left; padding-bottom: 10px; width: 45%;">Nome</th>
@@ -47,23 +51,21 @@ function renderSquadre(sortedTeams) {
                         ${[...s.partecipanti].sort((a, b) => puntiMortoTot(s, b) - puntiMortoTot(s, a)).map(p => {
                             const isDead = isPDead(p);
                             const isCapitano = s.capitano === p.nome;
-                            
+                            const ptsInd = puntiMortoTot(s, p);
+                            const colorPtsInd = ptsInd > 0 ? '#44ff44' : ptsInd < 0 ? '#ff4444' : (isDead ? '#fff' : '#666');
+
                             return `
                                 <tr class="${isDead ? 'dead-row' : ''}">
-                                    <td style="text-align: left;">
+                                    <td style="text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                         <span class="status-icon">${isDead ? '💀' : '⏳'}</span>
                                         <span style="color: ${isCapitano ? '#FFD700' : '#eee'}; font-weight: ${isCapitano ? 'bold' : 'normal'};">
-                                            ${isCapitano ? '<span title="Capitano">⭐</span> ' : ''}${p.nome}
+                                            ${isCapitano ? '⭐' : ''}${p.nome}
                                         </span>
                                     </td>
-                                    <td style="text-align: center; font-family: monospace; color: #888;">
-                                        ${p.prezzo || 0}<small style="color: #444;"> BS</small>
-                                    </td>
-                                    <td style="text-align: center; font-family: monospace; color: #888;">
-                                        ${p.rimborso || 0}<small style="color: #444;"> BS</small>
-                                    </td>
-                                    <td style="text-align: right; font-weight: bold; color: ${isDead ? '#fff' : '#666'}; font-size: 1.1rem;">
-                                        ${puntiMortoTot(s, p)}
+                                    <td style="text-align: center; font-family: monospace; color: #888;">${p.prezzo || 0}</td>
+                                    <td style="text-align: center; font-family: monospace; color: #888;">${p.rimborso || 0}</td>
+                                    <td style="text-align: right; font-weight: bold; color: ${colorPtsInd}; font-size: 1.1rem;">
+                                        ${ptsInd}
                                     </td>
                                 </tr>
                             `;
