@@ -22,7 +22,7 @@ function renderSquadre(sortedTeams) {
 
                     <div style="display: flex; flex-shrink: 0; text-align: center; background: rgba(0,0,0,0.2); padding: clamp(8px, 2vw, 15px); border-radius: 12px; white-space: nowrap; border: 1px solid rgba(255,255,255,0.05);">
                         <div style="display: flex; flex-direction: column; justify-content: center;">
-                            <div style="color: #555; font-size: clamp(0.55rem, 1.5vw, 0.7rem); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px;">Punti Totali</div>
+                            <div style="color: #555; font-size: clamp(0.55rem, 1.5vw, 0.7rem); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px;">Punti</div>
                             <div style="color: ${colorPtsSquadra}; font-weight: 900; font-size: clamp(1.4rem, 5vw, 2rem); line-height: 1; text-shadow: 0 0 15px ${colorPtsSquadra}33;">
                                 ${ptsSquadra}
                             </div>
