@@ -765,3 +765,33 @@ function updateDays() {
     const giorni = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
     document.getElementById('days-number').innerText = giorni;
 }
+
+function switchView(name) {
+    if (name === 'admin' && !isAuthorized) return;
+
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('view-' + name).classList.add('active');
+    document.getElementById('btn-' + name).classList.add('active');
+
+    currentView = name;
+    render();
+}
+
+function goToTeam(nomeSquadra) {
+    // Go to teams
+    switchView('teams');
+    
+    setTimeout(() => {
+        const element = document.getElementById(nomeSquadra);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            element.style.outline = "2px solid #44ff44";
+            setTimeout(() => element.style.outline = "none", 2000);
+        }
+    }, 100);
+}

@@ -88,18 +88,6 @@ function loadData() {
         .catch(e => console.error("Errore caricamento dati:", e));
 }
 
-function switchView(name) {
-    if (name === 'admin' && !isAuthorized) return;
-
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById('view-' + name).classList.add('active');
-    document.getElementById('btn-' + name).classList.add('active');
-
-    currentView = name;
-    render();
-}
-
 function render() {
     loadElements();
     updateDays();

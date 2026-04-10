@@ -5,9 +5,10 @@ function renderSquadre(sortedTeams) {
         // Logica colore Punti Totali
         const ptsSquadra = puntiSquadra(s);
         const colorPtsSquadra = ptsSquadra > 0 ? '#44ff44' : ptsSquadra < 0 ? '#ff4444' : '#fff';
+        const teamId = "team-" + s.nome_squadra.replace(/\s+/g, '-').toLowerCase();
 
         return `
-            <div class="card">
+            <div class="card" id="${teamId}">
                 <div class="team-header" style="display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 10px;">
                     
                     <div style="flex: 1; min-width: 0;">

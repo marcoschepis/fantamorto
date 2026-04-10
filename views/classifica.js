@@ -21,8 +21,10 @@ function renderClassifica(sortedTeams) {
         const style = colors[posizione] || colors.default;
         const icona = posizione === 1 ? '🥇' : posizione === 2 ? '🥈' : posizione === 3 ? '🥉' : posizione;
 
+        const teamId = "team-" + s.nome_squadra.replace(/\s+/g, '-').toLowerCase();
+
         return `
-            <div class="team-card" style="border-left: 4px solid ${style.main}">
+            <div class="team-card" onclick="goToTeam('${teamId}')" style="border-left: 4px solid ${style.main}">
                 <div style="flex: 0 0 50px;">
                     <div class="rank-badge" style="color: ${style.main}">${icona}</div>
                 </div>
