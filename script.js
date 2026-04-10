@@ -84,6 +84,7 @@ function loadData() {
             }
             
             render();
+            document.getElementById('loading-screen').classList.add('fade-out');
         })
         .catch(e => console.error("Errore caricamento dati:", e));
 }

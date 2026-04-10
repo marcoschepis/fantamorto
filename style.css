@@ -1,3 +1,50 @@
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-container {
+    text-align: center;
+}
+
+.loader-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loader-progress {
+    width: 40%; /* Valore iniziale */
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #44ff44, transparent);
+    animation: loading-bar 1s infinite linear;
+}
+
+/* Classe per nascondere il caricamento */
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
 :root { color-scheme: dark; --background-body: #121212; --card-bg: #1e1e1e; --accent: #ff4444; }
 
 body {
@@ -253,4 +300,15 @@ table td, table th {
 
     .header-compact h1 { font-size: 1.1rem; }
     #days-number { font-size: 1.5rem; }
+}
+
+/* Animazioni */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 20px rgba(68, 255, 68, 0.4)); }
+}
+
+@keyframes loading-bar {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
