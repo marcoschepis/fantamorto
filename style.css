@@ -1,3 +1,5 @@
+/*--------------------------------------------------*/
+/* Loading screen */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -39,7 +41,6 @@
     animation: loading-bar 1s infinite linear;
 }
 
-/* Classe per nascondere il caricamento */
 .fade-out {
     opacity: 0;
     visibility: hidden;
@@ -54,6 +55,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*--------------------------------------------------*/
 /* Menu Navigazione */
 nav { 
     display: flex; 
@@ -64,43 +66,39 @@ nav {
     border-bottom: 1px solid #333; 
     width: 100%;
     
-    /* ABILITA SCROLL */
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 
-    /* REGOLE PER PC (Scrollbar visibile ma discreta) */
-    scrollbar-width: thin; /* Per Firefox: barra sottile */
-    scrollbar-color: var(--accent) #1e1e1e; /* Per Firefox: colore maniglia e traccia */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) #1e1e1e;
 }
 
-/* Trucco per centrare se i bottoni sono pochi */
 nav::before,
 nav::after {
     content: '';
     margin: auto;
 }
 
-/* Personalizzazione barra di scorrimento per Chrome, Edge e Safari */
 nav::-webkit-scrollbar {
-    height: 6px; /* Altezza della barra orizzontale */
-    display: block; /* La riattiviamo */
+    height: 6px;
+    display: block;
 }
 
 nav::-webkit-scrollbar-track {
-    background: #121212; /* Sfondo della traccia */
+    background: #121212;
     border-radius: 10px;
 }
 
 nav::-webkit-scrollbar-thumb {
-    background: #333; /* Colore della maniglia */
+    background: #333;
     border-radius: 10px;
     transition: 0.3s;
 }
 
 nav::-webkit-scrollbar-thumb:hover {
-    background: var(--accent); /* Diventa rossa quando ci passi sopra */
+    background: var(--accent);
 }
 
 nav button { 
@@ -115,7 +113,7 @@ nav button {
     white-space: nowrap;
 }
 
-/* Quando il bottone è attivo */
+
 nav button.active { 
     border-color: var(--accent); 
     color: var(--accent); 
@@ -123,31 +121,8 @@ nav button.active {
     font-weight: bold; 
 }
 
-#btn-admin { display: none; } /* Nascosto di default */
-
-.view { display: none; }
-.view.active { display: block; }
-
-/* Card e Tabelle */
-.card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-#rank-container { display: grid; grid-template-columns: 1fr; }
-.team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-
-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
-
-/* Allineamenti Admin */
-.admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
-.admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
-.admin-table th { background: #0a0a0a; color: #888; font-weight: bold; font-size: 0.8rem; padding: 8px 4px; text-align: center; border: 1px solid #333; }
-.admin-table th:first-child { text-align: left; }
-.admin-table td { padding: 6px 4px; border: 1px solid #2a2a2a; vertical-align: middle; text-align: center; font-size: 0.85rem; }
-.admin-table td:first-child { text-align: left; padding-left: 6px; }
-.admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
-.admin-table button:hover { background: var(--accent); border-color: var(--accent); }
-.admin-row-dead input { background: #0a0505; }
-
+/*--------------------------------------------------*/
+/* Classifica */
 .header {
     display: flex;
     align-items: center;
@@ -187,7 +162,6 @@ th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
     white-space: nowrap;
 }
 
-/* Classifica */
 .team-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
@@ -226,40 +200,120 @@ th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
     backdrop-filter: blur(10px);
 }
 
+/*--------------------------------------------------*/
 /* Squadre */
-.team-header {
-    border-bottom: #333;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+.apex-card{
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+/* Header squadra */
+.apex-header {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.dead-row {
-    background: rgba(255, 0, 0, 0.05); /* Un leggero tocco rosso per i morti */
-    opacity: 0.8;
+.apex-info-group {
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex: 1;
 }
 
-.dead-row td {
-    color: #999 !important;
+.apex-team-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.status-icon {
-    display: inline-block;
-    width: 20px;
+.apex-owner {
+    font-size: 0.7rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.apex-stats-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.apex-stat-item {
     text-align: center;
 }
 
-table {
-    border-spacing: 0;
+.apex-stat-value {
+    font-size: 1.4rem;
+    font-weight: 950;
+    line-height: 1;
+    color: #fff;
 }
 
-td {
-    padding: 10px 5px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+.apex-stat-label {
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    color: #444;
 }
 
-table td, table th {
-    padding: 8px 4px;
-    font-size: 1rem;
+.apex-divider {
+    width: 1px;
+    height: 25px;
+    background: #222;
+}
+.label-positive { color: #44ff44; }
+.label-negative { color: #ff4444; }
+.label-neutral { color: #fff; }
+/* Tabella */
+.apex-body {
+    padding: 8px 8px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.apex-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.apex-row:last-child { border-bottom: none; }
+
+.col-name { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+.col-numb  { width: 50px; text-align: center; font-weight: 800; font-size: 0.9rem; }
+.label-col {font-size: 0.6rem; color: #444; font-weight: 800; }
+
+.apex-table-header {
+    display: flex;
+    align-items: center;
+    padding: 0 0 8px 0;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #222;
+}
+
+.dead-text { text-decoration: line-through; opacity: 0.4; }
+.status-dot { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+.cap-badge { 
+    font-size: 0.5rem; 
+    color: #FFD700; 
+    border: 1px solid rgba(255, 215, 0, 0.3); 
+    padding: 1px 4px; 
+    border-radius: 3px; 
+    font-weight: 900;
 }
 
 /* Punteggi */
@@ -285,23 +339,41 @@ table td, table th {
     box-shadow: 0 0 10px rgba(68, 255, 68, 0.1);
 }
 
-    
+/*--------------------------------------------------*/
+/* Roba che non so se serve, non ancora controllata */
+#btn-admin { display: none; }
+.view { display: none; }
+.view.active { display: block; }
+.card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+#rank-container { display: grid; grid-template-columns: 1fr; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
 
-/* Regola specifica per il cellulare */
+/* Allineamenti Admin */
+.admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
+.admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+.admin-table th { background: #0a0a0a; color: #888; font-weight: bold; font-size: 0.8rem; padding: 8px 4px; text-align: center; border: 1px solid #333; }
+.admin-table th:first-child { text-align: left; }
+.admin-table td { padding: 6px 4px; border: 1px solid #2a2a2a; vertical-align: middle; text-align: center; font-size: 0.85rem; }
+.admin-table td:first-child { text-align: left; padding-left: 6px; }
+.admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
+.admin-table button:hover { background: var(--accent); border-color: var(--accent); }
+.admin-row-dead input { background: #0a0505; }
+
+/*--------------------------------------------------*/
+/* Regole per telefono */
 @media (max-width: 600px) {
     table td, table th {
         padding: 4px 2px !important; /* Padding ancora più piccolo su mobile */
         font-size: 0.85rem;          /* Testo leggermente più piccolo */
-    }
-    
-    .col-nome {
-        padding-left: 0 !important;
     }
 
     .header-compact h1 { font-size: 1.1rem; }
     #days-number { font-size: 1.5rem; }
 }
 
+/*--------------------------------------------------*/
 /* Animazioni */
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.5; }
