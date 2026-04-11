@@ -18,7 +18,8 @@ function renderClassifica(sortedTeams) {
     `;
 
     html += restanti.map((s, index) => {
-        const icona = index + 4;
+        const isLast = index === restanti.length - 1;
+        const icona = isLast ? "🕯️" : index + 4;
         const teamId = "team-" + s.nome_squadra.replace(/\s+/g, '-').toLowerCase();
 
         return `
