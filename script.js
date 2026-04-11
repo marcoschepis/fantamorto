@@ -30,6 +30,20 @@ let saveBtnMercato = document.querySelector('#view-mercato button[onclick*="save
 
 let currentView = 'rank';
 
+const sortConfig = {
+    punti: {
+        label: 'punti',
+        color: '#ff6b00',
+        icon: '🏆'
+    },
+    RIP: {
+        label: 'RIP',
+        color: '#bb00ff',
+        icon: '💀'
+    }
+};
+let currentSortKey = 'punti';
+
 // Entry point
 verifyAdmin().then(loadData);
 
@@ -107,8 +121,7 @@ function render() {
     teamsCont.innerHTML = '';
     adminCont.innerHTML = '';
 
-    // Calcoli totali per squadra e ordinamento classifica
-    const sortedTeams = [...db.campionato].sort((a, b) => puntiSquadra(b) - puntiSquadra(a));
+    const sortedTeams = sortedTeamsBy();
 
     switch (currentView) {
         case 'rank':

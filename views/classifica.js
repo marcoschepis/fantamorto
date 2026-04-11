@@ -5,12 +5,14 @@ function renderClassifica(sortedTeams) {
     const podio = sortedTeams.slice(0, 3);
     const restanti = sortedTeams.slice(3);
 
+    // Podium
     let html = `
-        <div style="display: flex; align-items: flex-end; justify-content: center; margin: 0 0 20px 0; min-height: 160px;">
+        <div style="display: flex; align-items: flex-end; justify-content: center; margin: 0 0 20px 0; min-height: 160px">
             ${renderPodiumStep(podio[1], 2)} ${renderPodiumStep(podio[0], 1)} ${renderPodiumStep(podio[2], 3)}
         </div>
     `;
 
+    // Remaining
     html += restanti.map((s, index) => {
         const isLast = index === restanti.length - 1;
         const icona = isLast ? "🕯️" : index + 4;
@@ -32,12 +34,12 @@ function renderClassifica(sortedTeams) {
                     </div>
                 </div>
 
-                <div class="points-unified style="color: #ff6b00">
+                <div class="points-unified" style="border: 1px solid #ff6b00">
                     <div class="points-value" style="font-size: 1.4rem; color: #ff6b00">${puntiSquadra(s)}</div>
-                    <div class="points-label" style="font-size: 0.7rem; color: #ff6b00">PTS</div>
+                    <div class="points-label" style="font-size: 0.7rem; color: #ff6b00">punti</div>
                 </div>
 
-                <div class="points-unified" style="color: #bb00ff">
+                <div class="points-unified" style="border: 1px solid #bb00ff"">
                     <div class="points-value" style="font-size: 1.4rem; color: #bb00ff">${numMorti}</div>
                     <div class="points-label" style="font-size: 0.7rem; color: #bb00ff">RIP</div>
                 </div>
@@ -87,23 +89,33 @@ function renderPodiumStep(squadra, posizione) {
     const c = configs[posizione];
     const teamId = `team-${squadra.nome_squadra.replace(/\s+/g, '-').toLowerCase()}`;
     const numMorti = squadra.partecipanti.filter(p => isPDead(p)).length;
+    const current = sortConfig[currentSortKey];
 
     return `
-        <div onclick="goToTeam('${teamId}')" style="flex: ${c.flex}; display: flex; flex-direction: column; align-items: center; cursor: pointer; z-index: ${c.zIndex}">
-            <div style="font-size: ${c.fontNome}; font-weight: 900; color: ${c.colore}; margin-bottom: 5px; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                ${squadra.nome_squadra}
-            </div>
+        <div style="flex: ${c.flex}; display: flex; flex-direction: column; align-items: center; cursor: pointer; z-index: ${c.zIndex}; min-height: 160px; position: relative">
+            ${posizione === 3 ? `
+                <div onclick="toggleSort()" class="points-unified" style="position: absolute; top: 0; right: 0; border: 1px solid ${current.color}; margin-bottom: 10px; max-width: 70%;">
+                    <span class="points-label" style="font-size: 0.7rem; color: ${current.color}">
+                        Ordinata per ${current.label}
+                    </span>
+                </div>
+            ` : ''}
 
-            <div style="background: linear-gradient(180deg, ${c.colore} 0%, ${c.gradiente} 100%); width: 100%; height: ${c.altezza}; border-radius: 12px 12px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; box-shadow: 0 10px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-bottom: none; padding: 10px 0;">
-                <span style="font-size: 1.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">${c.icona}</span>
-                <div style="display: flex; align-items: center; gap: 2px;">
-                    <div class="points-unified" style="border: 1px solid #ff6b00">
-                        <span class="points-value" style="font-size: 0.8rem; color: #ff6b00">${puntiSquadra(squadra)}</span>
-                        <span class="points-label" style="font-size: 0.7rem; color: #ff6b00">PTS</span>
-                    </div>
-                    <div class="points-unified" style="border: 1px solid #bb00ff;">
-                        <span class="points-value" style="font-size: 0.8rem; color: #bb00ff">${numMorti}</span>
-                        <span class="points-label" style="font-size: 0.7rem; color: #bb00ff">RIP</span>
+            <div onclick="goToTeam('${teamId}')" style="width: 100%; position: absolute; bottom: 0; ">
+                <div style="font-size: ${c.fontNome}; font-weight: 900; color: ${c.colore}; margin-bottom: 5px; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    ${squadra.nome_squadra}
+                </div>
+                <div style="background: linear-gradient(180deg, ${c.colore} 0%, ${c.gradiente} 100%); width: 100%; height: ${c.altezza}; border-radius: 12px 12px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; box-shadow: 0 10px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-bottom: none; padding: 10px 0;">
+                    <span style="font-size: 1.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">${c.icona}</span>
+                    <div style="display: flex; align-items: center; gap: 2px;">
+                        <div class="points-unified" style="border: 1px solid #ff6b00">
+                            <span class="points-value" style="font-size: 0.8rem; color: #ff6b00">${puntiSquadra(squadra)}</span>
+                            <span class="points-label" style="font-size: 0.7rem; color: #ff6b00">punti</span>
+                        </div>
+                        <div class="points-unified" style="border: 1px solid #bb00ff;">
+                            <span class="points-value" style="font-size: 0.8rem; color: #bb00ff">${numMorti}</span>
+                            <span class="points-label" style="font-size: 0.7rem; color: #bb00ff">RIP</span>
+                        </div>
                     </div>
                 </div>
             </div>

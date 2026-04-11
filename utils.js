@@ -784,3 +784,23 @@ function goToTeam(nomeSquadra) {
         }
     }, 100);
 }
+
+function sortedTeamsBy() {
+    if (currentSortKey == "punti")
+    {
+        return [...db.campionato].sort((a, b) => puntiSquadra(b) - puntiSquadra(a));
+    }
+    else
+    {
+        return [...db.campionato].sort((a, b) => {
+            const ripB = b.partecipanti.filter(p => isPDead(p)).length;
+            const ripA = a.partecipanti.filter(p => isPDead(p)).length;
+            return ripB - ripA;
+        });   
+    }
+}
+
+function toggleSort(){
+    currentSortKey = (currentSortKey === 'punti') ? 'RIP' : 'punti';
+    render();
+}
