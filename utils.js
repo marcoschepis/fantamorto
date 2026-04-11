@@ -63,6 +63,13 @@ function setCapitano(tIdx, pIdx) {
         return;
     }
 
+    // 2. Controllo se l'ex capitano è morto o lo stiamo solo cambiando a finestra di mercato
+    const pCapitano = squadra.partecipanti.find(p => p.nome === squadra.capitano);
+    if (isPDead(pCapitano)) {
+        if (!squadra.excapitani) squadra.excapitani = [];
+        squadra.excapitani.push(squadra.capitano);
+    }
+
     // Impostiamo il nuovo capitano
     squadra.capitano = candidatoCapitano.nome;
     
