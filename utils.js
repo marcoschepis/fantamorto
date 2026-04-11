@@ -182,22 +182,9 @@ function puntiMorto(p) {
     return puntiBase;
 }
 
-function puntiCapitano(s, p) {
-    let bonusCapitano = 0;
-    if (p.nome === s.capitano && isPDead(p)) {
-        bonusCapitano = 10;
-    }
-
-    return bonusCapitano;
-}
-
-function puntiMortoTot(s, p) {
-    return puntiMorto(p) + puntiCapitano(s, p);
-}
-
 function puntiSquadra(s){
     return s.partecipanti.reduce((acc, p) => {
-        return acc + puntiMortoTot(s, p);
+        return acc + puntiMorto(p);
     }, 0);
 }
 
@@ -369,7 +356,8 @@ function toggleMorte(nomeMorituro) {
                     if (isNaN(rimborso)) return;
                     p.status = 'morto';
                     p.rimborso = rimborso;
-                    p.punti += 10; // Calcolo del capitano escluso
+                    p.punti += 10;
+                    if (p.nome === squadra.capitano) p.punti += 10; // Capitano
                     
                     if (!p.eventi) p.eventi = [];
                     p.eventi.push({
@@ -381,6 +369,7 @@ function toggleMorte(nomeMorituro) {
                     p.status = 'vivo';
                     p.rimborso = 0;
                     p.punti -= 10;
+                    if (p.nome === squadra.capitano) p.punti -= 10; // Capitano
                     p.eventi = (p.eventi || []).filter(e => !e.desc.includes("💀 Morte"));
                 }
             }
@@ -437,7 +426,7 @@ function adminSearchMorituro(query) {
                                             <td style="color:var(--accent); padding:4px;">${e.valore}pt</td>
                                             <td style="text-align:right; padding:4px;">
                                                 ${!isDeathEvent ? `
-                                                    <button onclick="rimuoviEventoSpecificoGlobal('${p.nome.replace(/'/g, "\\'")}', ${idx})" 
+                                                    <button onclick="rimuoviEvento('${p.nome}', ${idx})" 
                                                             style="background:none; border:none; color:#ff4444; cursor:pointer; font-size:1rem;">
                                                         &times;
                                                     </button>

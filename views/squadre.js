@@ -34,13 +34,13 @@ function renderSquadre(sortedTeams) {
 
                     <div class="apex-body">
                         <div class="apex-table-header">
-                            <div class="col-name label-col">Partecipante</div>
+                            <div class="col-name label-col">Componenti</div>
                             <div class="col-numb label-col">Costo</div>
                             <div class="col-numb label-col">Rimborso</div>
                             <div class="col-numb label-col">Punti</div>
                         </div>
 
-                        ${[...s.partecipanti].sort((a, b) => puntiMortoTot(s, b) - puntiMortoTot(s, a)).map(p => {
+                        ${[...s.partecipanti].sort((a, b) => puntiMorto(s, b) - puntiMorto(s, a)).map(p => {
                             const isDead = isPDead(p);
                             const isCap = s.capitano === p.nome;
                             const rowPtsClass = p.punti > 0 ? 'label-positive' : (p.punti < 0 ? 'label-negative' : 'label-neutral');
