@@ -199,6 +199,20 @@ nav button.active {
     margin-bottom: 25px;
     backdrop-filter: blur(10px);
 }
+/* Points target */
+.points-unified {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 8px;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    gap: 4px;
+}
+.points-value { font-weight: 950; line-height: 1; }
+.points-label { font-weight: 950; opacity: 0.8; }
 
 /*--------------------------------------------------*/
 /* Squadre */
