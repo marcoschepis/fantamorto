@@ -51,7 +51,7 @@ function renderSquadre(sortedTeams) {
                         return `
                         <div class="apex-row">
                             <div class="col-name">
-                                <div class="status-dot" style="opacity: ${isDead ? '1' : '0.2'}">${isDead ? '💀' : '⏳'}</div>
+                                <div class="status-dot">${isDead ? '💀' : '⏳'}</div>
                                 ${hasBeenCap ? `<span class="cap-badge" style="color: ${badgeColor}; border: 1px solid ${badgeColor}">${badgeText}</span>` : ''}
                                 <span class="${isDead ? 'dead-text' : ''}" style="color: ${badgeColor}; font-weight: bold">
                                     ${p.nome}
