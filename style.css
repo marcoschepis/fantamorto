@@ -48,6 +48,11 @@
 
 :root { color-scheme: dark; --background-body: #121212; --card-bg: #1e1e1e; --accent: #ff4444; }
 
+html, body {
+    overflow-x: hidden;
+    align-items: center;
+}
+
 body {
     background-color: var(--background-body);
     color: #eeeeee;
