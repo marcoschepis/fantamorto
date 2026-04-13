@@ -214,7 +214,7 @@ async function checkAndReloadSite() {
                 alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
         } else {
-            const jobsRes = await fetch(lastRun.jobs_url);
+            const jobsRes = await fetch(run.jobs_url);
             const jobsData = await jobsRes.json();
             console.log(jobsData);
             setTimeout(checkAndReloadSite, 5000);
