@@ -205,18 +205,12 @@ async function checkAndReloadSite() {
         
         if (run.status === 'completed') {
             if (run.conclusion === 'success') {
-                console.log("Ricarico...");
-                /*
                 const urlBase = window.location.origin + window.location.pathname
-                window.location.href = `${urlBase}?t=${new Date().getTime()}`;
-                */
+                window.location.href = `${urlBase}?t=${new Date().getTime()}`; // forza l'hard refresh
             } else {
                 alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
         } else {
-            const jobsRes = await fetch(run.jobs_url);
-            const jobsData = await jobsRes.json();
-            console.log(jobsData);
             setTimeout(checkAndReloadSite, 5000);
         }
     } catch (error) {
