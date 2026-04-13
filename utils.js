@@ -195,6 +195,23 @@ function puntiSquadra(s){
     }, 0);
 }
 
+async function checkAndReloadSite() {
+    console.log("Controllo lo stato del workflow...");
+    
+    const response = await fetch('https://api.github.com/repos/marcoschepis/fantamorto/actions/runs');
+    const data = await response.json();
+    const run = data.workflow_runs[0];
+
+    if (run.status === 'completed') {
+        console.log("Lavoro finito! Ricarico la pagina...");
+        location.reload(); 
+    } else {
+        console.log("Il server sta ancora elaborando i nuovi dati...");
+        setTimeout(checkAndReloadSite, 3000);
+        return;
+    }
+}
+
 async function saveToGitHub(mode = 'user') {
     const btn = event.target;
     const originalText = btn.innerText;
@@ -254,13 +271,9 @@ async function saveToGitHub(mode = 'user') {
         });
 
         if (response.ok) {
-            btn.innerText = "🚀 Inviato! Il sito si aggiornerà tra circa 30 secondi.";
+            btn.innerText = "🚀 Inviato! Il sito si ricaricherà automaticamente fra circa 30 secondi.";
             btn.style.backgroundColor = "#28a745";
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-                btn.style.backgroundColor = ""; 
-            }, 5000);
+            checkAndReloadSite();
         } else {
             if (response.status === 401 || response.status === 403) {
                 alert("❌ Token errato o scaduto.");
