@@ -206,7 +206,10 @@ async function checkAndReloadSite() {
         if (run.status === 'completed') {
             if (run.conclusion === 'success') {
                 console.log("Ricarico...");
-                window.location.href = `${window.location.origin}?t=${new Date().getTime()}`;
+                /*
+                const urlBase = window.location.origin + window.location.pathname
+                window.location.href = `${urlBase}?t=${new Date().getTime()}`;
+                */
             } else {
                 alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
