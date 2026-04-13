@@ -198,17 +198,26 @@ function puntiSquadra(s){
 async function checkAndReloadSite() {
     console.log("Controllo lo stato del workflow...");
     
-    const response = await fetch('https://api.github.com/repos/marcoschepis/fantamorto/actions/runs');
-    const data = await response.json();
-    const run = data.workflow_runs[0];
-
-    if (run.status === 'completed') {
-        console.log("Lavoro finito! Ricarico la pagina...");
-        location.reload(); 
-    } else {
-        console.log("Il server sta ancora elaborando i nuovi dati...");
-        setTimeout(checkAndReloadSite, 3000);
-        return;
+    try {
+        const response = await fetch('https://api.github.com/repos/marcoschepis/fantamorto/actions/runs');
+        const data = await response.json();
+        const run = data.workflow_runs[0];
+        
+        if (run.status === 'completed') {
+            if (run.conclusion === 'success') {
+                console.log("Lavoro finito con successo! Ricarico...");
+                location.reload();
+            } else {
+                console.error("Il workflow è fallito!");
+                alert("Errore durante l'aggiornamento del server. Controlla GitHub.");
+            }
+        } else {
+            console.log(`Stato attuale: ${run.status}... riprovo tra 5 secondi`);
+            setTimeout(checkAndReloadSite, 5000); // 5 secondi è un polling più "gentile" per le API
+        }
+    } catch (error) {
+        console.error("Errore durante il fetch:", error);
+        setTimeout(checkAndReloadSite, 5000); // Riprova comunque in caso di errore di rete
     }
 }
 
@@ -273,7 +282,7 @@ async function saveToGitHub(mode = 'user') {
         if (response.ok) {
             btn.innerText = "🚀 Inviato! Il sito si ricaricherà automaticamente fra circa 30 secondi.";
             btn.style.backgroundColor = "#28a745";
-            checkAndReloadSite();
+            setTimeout(checkAndReloadSite, 5000);
         } else {
             if (response.status === 401 || response.status === 403) {
                 alert("❌ Token errato o scaduto.");
