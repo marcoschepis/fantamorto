@@ -205,19 +205,19 @@ async function checkAndReloadSite() {
         
         if (run.status === 'completed') {
             if (run.conclusion === 'success') {
-                console.log("Lavoro finito con successo! Ricarico...");
-                location.reload();
+                console.log("Ricarico...");
+                window.location.href = `${window.location.origin}?t=${new Date().getTime()}`;
             } else {
-                console.error("Il workflow è fallito!");
-                alert("Errore durante l'aggiornamento del server. Controlla GitHub.");
+                alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
         } else {
-            console.log(`Stato attuale: ${run.status}... riprovo tra 5 secondi`);
-            setTimeout(checkAndReloadSite, 5000); // 5 secondi è un polling più "gentile" per le API
+            console.log(`Riprovo tra 5 secondi`);
+            console.log(run);
+            setTimeout(checkAndReloadSite, 5000);
         }
     } catch (error) {
         console.error("Errore durante il fetch:", error);
-        setTimeout(checkAndReloadSite, 5000); // Riprova comunque in caso di errore di rete
+        setTimeout(checkAndReloadSite, 5000);
     }
 }
 
