@@ -205,8 +205,7 @@ async function checkAndReloadSite() {
         
         if (run.status === 'completed') {
             if (run.conclusion === 'success') {
-                const urlBase = window.location.origin + window.location.pathname
-                window.location.href = `${urlBase}?t=${new Date().getTime()}`; // forza l'hard refresh
+                location.reload;
             } else {
                 alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
