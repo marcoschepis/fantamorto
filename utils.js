@@ -205,7 +205,7 @@ async function checkAndReloadSite() {
         
         if (run.status === 'completed') {
             if (run.conclusion === 'success') {
-                location.reload;
+                location.reload();
             } else {
                 alert("Errore durante l'aggiornamento del server. Contatta l'amministatore.");
             }
@@ -277,7 +277,7 @@ async function saveToGitHub(mode = 'user') {
         });
 
         if (response.ok) {
-            btn.innerText = "🚀 Inviato! Il sito si ricaricherà automaticamente fra circa 30 secondi.";
+            btn.innerText = "🚀 Inviato! Il sito si ricaricherà automaticamente in meno di 1 minuto.";
             btn.style.backgroundColor = "#28a745";
             setTimeout(checkAndReloadSite, 5000);
         } else {
