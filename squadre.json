@@ -887,9 +887,16 @@
       "nome_squadra": "Nadia Taffo",
       "partecipanti": [
         {
+          "eventi": [
+            {
+              "data": "2026-04-27",
+              "desc": "Remissione (Cancro al testicolo)",
+              "valore": -4
+            }
+          ],
           "nome": "Benjamin Netanyahu",
           "prezzo": 100,
-          "punti": 0,
+          "punti": -4,
           "rimborso": 0,
           "status": "vivo"
         },
@@ -985,9 +992,16 @@
       "nome_squadra": "Chi vivrà vedrà",
       "partecipanti": [
         {
+          "eventi": [
+            {
+              "data": "2026-04-27",
+              "desc": "Remissione (Cancro al testicolo)",
+              "valore": -4
+            }
+          ],
           "nome": "Benjamin Netanyahu",
           "prezzo": 100,
-          "punti": 0,
+          "punti": -4,
           "rimborso": 0,
           "status": "vivo"
         },
