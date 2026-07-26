@@ -15,19 +15,21 @@ db.campionato.forEach(s => s.partecipanti.forEach(p => {
     if (p.status !== 'morto') nomiInGioco.push(p.nome);
 }));
 
-let lastReadId = fs.existsSync(LAST_ID_FILE) ? parseInt(fs.readFileSync(LAST_ID_FILE, 'utf8').trim()) : 0;
+// --- DEBUG: Verifica se il file cache è stato letto dal runner ---
+let lastReadId = 0;
+if (fs.existsSync(LAST_ID_FILE)) {
+    lastReadId = parseInt(fs.readFileSync(LAST_ID_FILE, 'utf8').trim()) || 0;
+    console.log(`ℹ️ Cache trovata! Ultimo ID letto in precedenza: ${lastReadId}`);
+} else {
+    console.log(`⚠️ Nessun file ${LAST_ID_FILE} trovato. Si parte da ID: 0`);
+}
 
 process.on('uncaughtException', (err) => {
     console.error('⚠️ Eccezione evitata:', err.message);
 });
 
-// FUNZIONE DI INVIO MINIMALE
 function inviaTelegram(messaggio) {
-    const data = JSON.stringify({
-        chat_id: MY_CHAT_ID,
-        text: messaggio
-    });
-
+    const data = JSON.stringify({ chat_id: MY_CHAT_ID, text: messaggio });
     const options = {
         hostname: 'api.telegram.org',
         path: `/bot${BOT_TOKEN}/sendMessage`,
@@ -47,11 +49,7 @@ function inviaTelegram(messaggio) {
         });
     });
 
-    // --- AGGIUNTA FONDAMENTALE: Gestione errore di rete ---
-    req.on('error', (e) => {
-        console.error(`🚨 Errore di rete (ECONNRESET o simili): ${e.message}`);
-    });
-
+    req.on('error', (e) => console.error(`🚨 Errore di rete: ${e.message}`));
     req.write(data);
     req.end();
 }
@@ -70,29 +68,39 @@ https.get(`https://t.me/s/${CHANNEL_NAME}`, { headers: { 'User-Agent': 'Mozilla/
             if (!idMatch) return;
             
             const currentId = parseInt(idMatch[1]);
+            
+            // Aggiorniamo SEMPRE il tracciamento del post più recente visto
+            if (currentId > nuovoUltimoId) {
+                nuovoUltimoId = currentId;
+            }
+
+            // Ignoriamo i post già elaborati nelle esecuzioni precedenti
             if (currentId <= lastReadId) return;
 
+            console.log(`🔍 Analizzo NUOVO post ID: ${currentId}`);
+
             if (blocco.includes('js-message_text')) {
-                // Estraiamo il testo solo per il controllo dei nomi (pulito da HTML)
                 const contenuto = blocco.split('js-message_text" dir="auto">')[1].split('</div>')[0];
                 const testoSemplice = contenuto.replace(/<[^>]*>/g, ' ').toLowerCase();
 
                 nomiInGioco.forEach(nome => {
-                    const regex = new RegExp(`\\b${nome}\\b`, 'gi');
+                    // Rimosso il flag 'g' per evitare bug con .test()
+                    const regex = new RegExp(`\\b${nome.toLowerCase()}\\b`, 'i');
                     if (regex.test(testoSemplice)) {
-                        console.log(`🚨 ALERT per ${nome}! Invio link post...`);
-                        
-                        // COSTRUIAMO IL LINK DIRETTO AL POST
+                        console.log(`🚨 MATCH TROVATO per "${nome}" nel post ${currentId}!`);
                         const linkPost = `🚨 ALERT per ${nome}!\nhttps://t.me/${CHANNEL_NAME}/${currentId}`;
-                        
-                        // INVIAMO SOLO IL LINK (Telegram farà il resto)
                         inviaTelegram(linkPost); 
                     }
                 });
             }
-            if (currentId > nuovoUltimoId) nuovoUltimoId = currentId;
         });
 
-        if (nuovoUltimoId > lastReadId) fs.writeFileSync(LAST_ID_FILE, nuovoUltimoId.toString());
+        // Salva il nuovo ID massimo raggiunto
+        if (nuovoUltimoId > lastReadId) {
+            console.log(`💾 Aggiorno ${LAST_ID_FILE} da ${lastReadId} a ${nuovoUltimoId}`);
+            fs.writeFileSync(LAST_ID_FILE, nuovoUltimoId.toString());
+        } else {
+            console.log(`💤 Nessun nuovo post da salvare (ID rimasto a ${lastReadId}).`);
+        }
     });
 });
