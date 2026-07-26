@@ -12,11 +12,14 @@ jobs:
       - name: Checkout Codice
         uses: actions/checkout@v4
 
-      - name: Gestisci Cache ID
-        uses: actions/cache@v3
+      # 1. RIPRISTINA LA CACHE PIÙ RECENTE DISPONIBILE
+      - name: Ripristina Cache ID
+        uses: actions/cache/restore@v3
         with:
           path: last_id.txt
-          key: telegram-last-id-v1
+          key: telegram-last-id-${{ github.run_id }}
+          restore-keys: |
+            telegram-last-id-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,3 +31,11 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram_scraper.js
+
+      # 2. SALVA SEMPRE LA NUOVA CACHE A FINE RUN
+      - name: Salva Nuovo ID in Cache
+        if: always()
+        uses: actions/cache/save@v3
+        with:
+          path: last_id.txt
+          key: telegram-last-id-${{ github.run_id }}
