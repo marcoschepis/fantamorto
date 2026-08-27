@@ -892,11 +892,16 @@
               "data": "2026-04-27",
               "desc": "Remissione (Cancro alla prostata)",
               "valore": -4
+            },
+            {
+              "data": "2026-08-27",
+              "desc": "Mandato arresto (Guai Giudiziari)",
+              "valore": 2
             }
           ],
           "nome": "Benjamin Netanyahu",
           "prezzo": 100,
-          "punti": -4,
+          "punti": -2,
           "rimborso": 0,
           "status": "vivo"
         },
@@ -997,11 +1002,16 @@
               "data": "2026-04-27",
               "desc": "Remissione (Cancro alla prostata)",
               "valore": -4
+            },
+            {
+              "data": "2026-08-27",
+              "desc": "Mandato arresto (Guai Giudiziari)",
+              "valore": 2
             }
           ],
           "nome": "Benjamin Netanyahu",
           "prezzo": 100,
-          "punti": -4,
+          "punti": -2,
           "rimborso": 0,
           "status": "vivo"
         },
