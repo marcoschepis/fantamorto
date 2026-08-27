@@ -1016,11 +1016,23 @@
           "status": "vivo"
         },
         {
+          "eventi": [
+            {
+              "data": "2026-08-27",
+              "desc": "💀 Morte",
+              "valore": 10
+            },
+            {
+              "data": "2026-08-27",
+              "desc": "Speedy Gonzales",
+              "valore": 3
+            }
+          ],
           "nome": "Yayoi Kusama",
           "prezzo": 25,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
+          "punti": 23,
+          "rimborso": 40,
+          "status": "morto"
         },
         {
           "nome": "Liliana Segre",
