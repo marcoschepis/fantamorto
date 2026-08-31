@@ -117,9 +117,16 @@
           "status": "vivo"
         },
         {
+          "eventi": [
+            {
+              "data": "2026-08-31",
+              "desc": "Ricovero",
+              "valore": 6
+            }
+          ],
           "nome": "Tadej Pogačar",
           "prezzo": 15,
-          "punti": 0,
+          "punti": 6,
           "rimborso": 0,
           "status": "vivo"
         },
