@@ -29,10 +29,14 @@ function popolaMercato(squadre){
     // Se il mercato non è aperto è una modifica per morte di qualcuno
     const mercatoOpen = db.config.mostra_mercato;
     
-    // Popola la select se vuota (una sola volta)
+    // Popola la select associando il valore all'indice reale in db.campionato
     if (userSelect && userSelect.options.length <= 1) {
         userSelect.innerHTML = '<option value="">-- Seleziona la tua squadra --</option>' +
-        squadre.map((s, i) => `<option value="${i}">${s.nome_squadra} - ${s.proprietario}</option>`).join('');
+        squadre.map((s) => {
+            // Trova l'indice reale della squadra all'interno del database principale
+            const realIndex = db.campionato.findIndex(item => item === s || item.nome_squadra === s.nome_squadra);
+            return `<option value="${realIndex}">${s.nome_squadra} - ${s.proprietario}</option>`;
+        }).join('');
     }
 
     if (userIdx !== "" && mercatoEditor) {
