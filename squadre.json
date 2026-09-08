@@ -404,9 +404,16 @@
       "nome_squadra": "I Concimabili",
       "partecipanti": [
         {
+          "eventi": [
+            {
+              "data": "2026-09-08",
+              "desc": "Ricovero",
+              "valore": 6
+            }
+          ],
           "nome": "Emma Bonino",
           "prezzo": 100,
-          "punti": 0,
+          "punti": 6,
           "rimborso": 0,
           "status": "vivo"
         },
