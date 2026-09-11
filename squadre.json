@@ -505,68 +505,54 @@
       "proprietario": "Nicola"
     },
     {
-      "capitano": "Lino Banfi",
+      "capitano": "Adriano Celentano",
       "nome_squadra": "All’ultimo respiro",
       "partecipanti": [
         {
-          "nome": "Lino Banfi",
+          "nome": "Greta Thunberg",
+          "prezzo": 55,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Arisa",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Marina Berlusconi",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Caitlyn Jenner",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Al Bano",
+          "prezzo": 70,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Adriano Celentano",
           "prezzo": 100,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "J. D. Vance",
-          "prezzo": 35,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Pier Luigi Bersani",
-          "prezzo": 20,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Anna Oxa",
-          "prezzo": 20,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Sal Da Vinci",
-          "prezzo": 15,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Ibrahim Traoré (militare)",
-          "prezzo": 20,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Alba Parietti",
-          "prezzo": 15,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Alessandro Cattelan",
-          "prezzo": 15,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Angelina Jolie",
-          "prezzo": 15,
+          "nome": "Zoë Kravitz",
+          "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
@@ -579,22 +565,36 @@
           "status": "vivo"
         },
         {
-          "nome": "Uma Thurman",
+          "nome": "Victoria De Angelis",
           "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "Anna Fendi",
-          "prezzo": 35,
+          "nome": "Tony Hawk",
+          "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "Travis Scott",
-          "prezzo": 20,
+          "nome": "Miley Cyrus",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Michelle Obama",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Kid Cudi",
+          "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
