@@ -409,13 +409,18 @@
               "data": "2026-09-08",
               "desc": "Ricovero",
               "valore": 6
+            },
+            {
+              "data": "2026-09-11",
+              "desc": "💀 Morte",
+              "valore": 10
             }
           ],
           "nome": "Emma Bonino",
           "prezzo": 100,
-          "punti": 6,
-          "rimborso": 0,
-          "status": "vivo"
+          "punti": 26,
+          "rimborso": 115,
+          "status": "morto"
         },
         {
           "nome": "Paolo Condò",
