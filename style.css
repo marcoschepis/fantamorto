@@ -62,57 +62,83 @@ body {
 
 /*--------------------------------------------------*/
 /* Menu Navigazione */
-/* Barra fissa in basso */
+/* 1. BARRA PRINCIPALE (Effetto Vetro sfocato) */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 56px;
-  background-color: #1a1a1a;
-  border-top: 1px solid #333;
+  height: 64px;
+  background: rgba(18, 18, 18, 0.85); /* Sfondo semi-trasparente */
+  backdrop-filter: blur(12px);         /* Sfumatura sfocata dietro la barra */
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 1000;
+  padding: 0 4px;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Stile per ciascun bottone */
+/* 2. STILE BASE DEL BOTTONE */
 .nav-item {
-  background: none;
+  background: transparent;
   border: none;
-  color: #888;
+  color: #8e8e93; /* Grigio iOS/Android moderno */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1;
+  height: 50px;
+  border-radius: 14px; /* Angoli arrotondati per l'effetto pillola */
   padding: 4px 0;
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-icon {
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.2s ease;
 }
 
 .nav-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
-  margin-top: 2px;
-  white-space: nowrap;
+  margin-top: 3px;
+  letter-spacing: 0.2px;
 }
 
-/* Stato Attivo */
+/* 3. EFFETTO PASSAGGIO MOUSE (Desktop) */
+.nav-item:hover:not(.active) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 4. STATO ATTIVO (La vista selezionata) */
 .nav-item.active {
-  color: #ff4444; /* Tuo colore di accento */
+  color: #ff4444; /* Tuo colore rosso accento */
+  background: rgba(255, 68, 68, 0.12); /* Pillola rossa semi-trasparente */
 }
 
-/* Margine inferiore al body per non coprire i contenuti della pagina */
-body {
-  padding-bottom: 65px;
+.nav-item.active .nav-icon {
+  transform: scale(1.15); /* Leggero ingrandimento dell'icona attiva */
+}
+
+/* 5. RIMUOVE L'EFFETTO DI FOCUS RESIDUO AL CLICK */
+.nav-item:focus,
+.nav-item:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 6. EFFETTO PRESSIONE AL TOUCH */
+.nav-item:active {
+  transform: scale(0.95);
 }
 
 /*--------------------------------------------------*/
