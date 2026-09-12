@@ -62,68 +62,57 @@ body {
 
 /*--------------------------------------------------*/
 /* Menu Navigazione */
-nav { 
-    display: flex; 
-    justify-content: flex-start; 
-    gap: 10px; 
-    margin-bottom: 25px; 
-    padding: 0 15px 12px 15px;
-    border-bottom: 1px solid #333; 
-    width: 100%;
-    
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    box-sizing: border-box;
-
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) #1e1e1e;
+/* Barra fissa in basso */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-nav::before,
-nav::after {
-    content: '';
-    margin: auto;
+/* Stile per ciascun bottone */
+.nav-item {
+  background: none;
+  border: none;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
 }
 
-nav::-webkit-scrollbar {
-    height: 6px;
-    display: block;
+.nav-icon {
+  font-size: 16px;
+  line-height: 1.2;
 }
 
-nav::-webkit-scrollbar-track {
-    background: #121212;
-    border-radius: 10px;
+.nav-label {
+  font-size: 9px;
+  font-weight: 500;
+  margin-top: 2px;
+  white-space: nowrap;
 }
 
-nav::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
-    transition: 0.3s;
+/* Stato Attivo */
+.nav-item.active {
+  color: #ff4444; /* Tuo colore di accento */
 }
 
-nav::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-}
-
-nav button { 
-    background: transparent; 
-    border: 1px solid #444; 
-    color: #777; 
-    cursor: pointer; 
-    padding: 10px 20px; 
-    transition: 0.3s; 
-    flex: 0 0 auto; 
-    border-radius: 8px; 
-    white-space: nowrap;
-}
-
-
-nav button.active { 
-    border-color: var(--accent); 
-    color: var(--accent); 
-    background: #251010; 
-    font-weight: bold; 
+/* Margine inferiore al body per non coprire i contenuti della pagina */
+body {
+  padding-bottom: 65px;
 }
 
 /*--------------------------------------------------*/

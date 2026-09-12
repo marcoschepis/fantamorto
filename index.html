@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
     <link rel="icon" type="image/svg+xml" href="logo_fantamorto.svg">
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div id="loading-screen">
@@ -40,12 +42,31 @@
                 <span class="days-label"> giorni alla fine</span>
             </div>
         </div>
-        <nav id="main-nav">
-            <button id="btn-rank" class="active" onclick="switchView('rank')">🏆 Classifica</button>
-            <button id="btn-teams"  onclick="switchView('teams')">👪 Squadre</button>
-            <button id="btn-points" onclick="switchView('points')">📊 Punteggi</button>
-            <button id="btn-mercato" onclick="switchView('mercato')">⚙️ Gestione Squadra</button>
-            <button id="btn-admin" onclick="switchView('admin')">🔧 Gestione Admin</button>
+        <nav id="main-nav" class="bottom-nav">
+            <button id="btn-rank" class="nav-item active" onclick="switchView('rank')">
+                <span class="nav-icon">🏆</span>
+                <span class="nav-label">Classifica</span>
+            </button>
+            <button id="btn-teams" class="nav-item" onclick="switchView('teams')">
+                <span class="nav-icon">👪</span>
+                <span class="nav-label">Squadre</span>
+            </button>
+            <button id="btn-points" class="nav-item" onclick="switchView('points')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Punteggi</span>
+            </button>
+            <button id="btn-mercato" class="nav-item" onclick="switchView('mercato')">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">Mercato</span>
+            </button>
+            <button id="btn-regolamento" class="nav-item" onclick="switchView('regolamento')">
+                <span class="nav-icon">📜</span>
+                <span class="nav-label">Regole</span>
+            </button>
+            <button id="btn-admin" class="nav-item" onclick="switchView('admin')">
+                <span class="nav-icon">🔧</span>
+                <span class="nav-label">Admin</span>
+            </button>
         </nav>
     </header>
 
@@ -82,6 +103,12 @@
         </div>
     </div>
 
+    <div id="view-regolamento" class="view">
+        <div class="card" style="padding: 20px; background: #111; color: #eee; border: 1px solid #333; line-height: 1.6;">
+            <div id="regolamento-container">Caricamento regolamento...</div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="utils.js"></script>
 
@@ -90,5 +117,6 @@
     <script src="views/punteggi.js"></script>
     <script src="views/mercato.js"></script>
     <script src="views/admin.js"></script>
+    <script src="views/regolamento.js"></script>
 </body>
 </html>

@@ -5,7 +5,8 @@ const REPO_INFO = {
     OWNER: 'marcoschepis',
     REPO: 'fantamorto',
     PATH: 'squadre.json',
-    MORITURI: 'morituri.json'
+    MORITURI: 'morituri.json',
+    REGOLAMENTO: 'Regolamento/Regolamento Fantamorto.md'
 };
 
 // Hash della password
@@ -16,6 +17,7 @@ let rankCont = document.getElementById('rank-container');
 let teamsCont = document.getElementById('teams-container');
 let pointsCont = document.getElementById('points-container');
 let adminCont = document.getElementById('admin-container');
+let regolamentoCont = document.getElementById('regolamento-container');
 
 const datalist = document.getElementById('lista-suggerimenti');
 
@@ -59,7 +61,7 @@ async function verifyAdmin() {
 
     if (hashedKey === SECRET_HASH) {
         isAuthorized = true;
-        document.getElementById('btn-admin').style.display = 'block';
+        document.getElementById('btn-admin').style.display = 'flex';
     }
 }
 
@@ -68,6 +70,7 @@ function loadElements() {
     teamsCont = document.getElementById('teams-container');
     pointsCont = document.getElementById('points-container');
     adminCont = document.getElementById('admin-container');
+    regolamentoCont = document.getElementById('regolamento-container');
 
     btnMercato = document.getElementById('btn-mercato');
     userIdx = document.getElementById('user-team-select').value;
@@ -107,16 +110,23 @@ function render() {
     loadElements();
     updateDays();
     
-    if (db.config.mostra_mercato) {
-        btnMercato.innerHTML = "⚙️ Gestione Squadra";
+    if (db.config.mostra_mercato)
+    {
+        btnMercato.innerHTML = `
+            <span class="nav-icon">⚙️</span>
+            <span class="nav-label">Gestione Squadra</span>
+        `;
     } else {
-        btnMercato.innerHTML = "🔒 Mercato Chiuso";
+        btnMercato.innerHTML = `
+            <span class="nav-icon">🔒</span>
+            <span class="nav-label">Mercato Chiuso</span>
+        `;
     }
 
     rankCont.innerHTML = '';
     teamsCont.innerHTML = '';
     adminCont.innerHTML = '';
-
+    regolamentoCont.innerHTML = '';
     const sortedTeams = sortedTeamsBy();
 
     switch (currentView) {
@@ -140,6 +150,10 @@ function render() {
             
         case 'mercato':
             renderMercato();
+            break;
+
+        case 'regolamento':
+            renderRegolamento();
             break;
     }
 }

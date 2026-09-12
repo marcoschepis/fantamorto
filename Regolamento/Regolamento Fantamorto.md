@@ -50,12 +50,14 @@ I seguenti bonus vengono assegnati solo in abbinata al bonus Morte:
 *   **Zona Cesarini**: +3 pt all'ultimo morituro della stagione.
 
 ## Bonus disgrazie
+*   **Coma**: +8 pt. nel caso il morituro finisca in coma, anche nel caso di coma vigile, ma non nel caso di coma etilico, glicemico o farmacologicamente indotto da personale medico;
 *   **Ricovero**: +6 pt se il morituro viene ricoverato in strutture ospedaliere o sanitarie per problemi di salute, disintossicazione, interventi di chirurgia estetica, interventi in day hospital o cure palliative. Il bonus non viene assegnato in caso di trasferimento in una nuova struttura per lo stesso motivo del ricovero precedente e non è valido se il ricovero avviene come parte di un ciclo di cure. Se il ricovero è conseguenza di un infortunio o incidente avvenuto in diretta tv o streaming, viene considerato valido il ricovero solo per chi lo schierava prima dell'infortunio.
-*   **Guai giudiziari** +2 pt se il morituro viene **arrestato** o **condannato** in uno qualsiasi dei gradi di giudizio previsti dall’ordinamento di un Paese riconosciuto dall’ONU. Sono validi anche i casi di estradizione, mandato di arresto internazionale o stato di fermo. Il bonus viene attribuito una sola volta per ciascun procedimento, anche in presenza di più capi d’accusa, e può essere cumulato con il malus “Scagionamento” in caso di assoluzione. Non sono validi ai fini del bonus: perquisizioni, condanne di tipo morale o provvedimenti di organi non appartenenti all’ordinamento giudiziario (es. giustizia sportiva, ordini professionali, ecc.).
+*   **Guai giudiziari**: +2 pt se il morituro viene **arrestato** o **condannato** in uno qualsiasi dei gradi di giudizio previsti dall’ordinamento di un Paese riconosciuto dall’ONU. Sono validi anche i casi di estradizione, mandato di arresto internazionale o stato di fermo. Il bonus viene attribuito una sola volta per ciascun procedimento, anche in presenza di più capi d’accusa, e può essere cumulato con il malus “Scagionamento” in caso di assoluzione. Non sono validi ai fini del bonus: perquisizioni, condanne di tipo morale o provvedimenti di organi non appartenenti all’ordinamento giudiziario (es. giustizia sportiva, ordini professionali, ecc.).
 
 ## Malus vitae
-*   **Remissione** -4pt nel caso il morituro guarisca da una malattia grave o invalidante.
-*   **Scagionamento** -4 pt nel caso in cui il morituro venga scagionato o graziato dalle accuse che lo avevano portato in tribunale. Il malus viene attribuito una sola volta per ciascun procedimento, anche in presenza di più capi d’accusa, e può essere cumulato con il bonus “Guai giudiziari” in caso di condanna. Il malus non si applica in caso di prescrizione o archiviazione del reato.
+*   **Remissione**: -4 pt nel caso il morituro guarisca da una malattia grave o invalidante.
+*   **Scagionamento**: -4 pt nel caso in cui il morituro venga scagionato o graziato dalle accuse che lo avevano portato in tribunale. Il malus viene attribuito una sola volta per ciascun procedimento, anche in presenza di più capi d’accusa, e può essere cumulato con il bonus “Guai giudiziari” in caso di condanna. Il malus non si applica in caso di prescrizione o archiviazione del reato.
+*   **Coma exit**: -2 pt nel malaugurato caso il morituro si risvegli dal coma; il malus si applica anche nel caso di coma vigile, ma non nel caso di coma etilico, glicemico o farmacologicamente indotto da personale medico.
 
 # Classifiche
 Alla fine del campionato verranno stilate due classifiche:
