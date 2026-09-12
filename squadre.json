@@ -47,13 +47,6 @@
           "status": "vivo"
         },
         {
-          "nome": "Kevin Spacey",
-          "prezzo": 15,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
           "nome": "Massimo Zanetti",
           "prezzo": 10,
           "punti": 0,
@@ -89,8 +82,15 @@
           "status": "vivo"
         },
         {
-          "nome": "Cristina Jorio",
-          "prezzo": 20,
+          "nome": "Maria Scicolone",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Woody Woodbury",
+          "prezzo": 25,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
