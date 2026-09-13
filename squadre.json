@@ -400,7 +400,10 @@
       "proprietario": "Alessandro"
     },
     {
-      "capitano": "Emma Bonino",
+      "capitano": "Buzz Aldrin",
+      "excapitani": [
+        "Emma Bonino"
+      ],
       "nome_squadra": "I Concimabili",
       "partecipanti": [
         {
@@ -430,13 +433,6 @@
           "status": "vivo"
         },
         {
-          "nome": "Christian De Sica",
-          "prezzo": 40,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
           "nome": "Corrado Augias",
           "prezzo": 60,
           "punti": 0,
@@ -453,13 +449,6 @@
         {
           "nome": "Alberto Rimedio",
           "prezzo": 10,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
-          "nome": "Nuno Markl",
-          "prezzo": 15,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
@@ -501,6 +490,34 @@
         },
         {
           "nome": "Vera Wang",
+          "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Buzz Aldrin",
+          "prezzo": 60,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Juan Carlos I di Spagna",
+          "prezzo": 55,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Lele Mora",
+          "prezzo": 45,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Paola Egonu",
           "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
