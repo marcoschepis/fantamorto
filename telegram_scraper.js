@@ -12,7 +12,7 @@ const LAST_ID_FILE = 'last_id.txt';
 const db = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
 const nomiInGioco = [];
 db.campionato.forEach(s => s.partecipanti.forEach(p => {
-    if (p.status !== 'morto') nomiInGioco.push(p.nome);
+    nomiInGioco.push(p.nome);
 }));
 
 // --- DEBUG: Verifica se il file cache è stato letto dal runner ---
