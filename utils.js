@@ -797,6 +797,15 @@ function switchView(name) {
     document.getElementById('btn-' + name).classList.add('active');
 
     currentView = name;
+
+    // Notify google analytics
+    if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+            page_title: view,
+            page_path: '/' + view
+        });
+    }
+    
     render();
 }
 
