@@ -48,7 +48,7 @@ function popolaMercato(squadre){
         console.log(initialTeam);
 
         // 1. Aggiorna il numero e il budget accanto alla select
-        morituriDisplay.innerHTML = `<strong>Morituri: <span style="color: #44ff44">${s.partecipanti.length}</span>/${numeroMercatoPartecipanti(s)}</strong>`;
+        morituriDisplay.innerHTML = `<strong>Morituri: <span style="color: #44ff44">${s.partecipanti.filter(p => p.status== 'vivo').length}</span>/${numeroMercatoPartecipanti(s)}</strong>`;
         budgetDisplay.innerHTML = `<strong>Crediti: <span style="color: #44ff44">${res} BS</span></strong>`;
 
         // 2. Renderizza la tabella dei partecipanti
