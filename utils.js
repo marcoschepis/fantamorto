@@ -53,6 +53,13 @@ function numeroMaxPartecipanti(squadra) {
     return 13 + conteggioMorti*2; // Ogni morto permette di avere 2 partecipanti extra (1 sostituto + 1 bonus)
 }
 
+function numeroMercatoPartecipanti(squadra) {
+    const conteggioMorti = squadra.partecipanti.filter(p => {
+        return isPDead(p);
+    }).length;
+    return 13 + conteggioMorti; // Ogni morto permette di avere 1 partecipante extra
+}
+
 function setCapitano(tIdx, pIdx) {
     const squadra = db.campionato[tIdx];
     const candidatoCapitano = squadra.partecipanti[pIdx];
