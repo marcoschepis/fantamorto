@@ -796,6 +796,15 @@ function switchView(name) {
     document.getElementById('view-' + name).classList.add('active');
     document.getElementById('btn-' + name).classList.add('active');
 
+    // Invio evento page_view dinamico a GA4
+    if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+            page_title: name.charAt(0).toUpperCase() + name.slice(1) + ' - Fantamorto Cup',
+            page_path: '/' + name,
+            send_to: 'G-RN4LEG6EJ5'
+        });
+    }
+
     currentView = name;
     render();
 }

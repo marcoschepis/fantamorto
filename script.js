@@ -62,6 +62,8 @@ async function verifyAdmin() {
     if (hashedKey === SECRET_HASH) {
         isAuthorized = true;
         document.getElementById('btn-admin').style.display = 'flex';
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
     }
 }
 
