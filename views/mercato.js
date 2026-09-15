@@ -45,7 +45,6 @@ function popolaMercato(squadre){
 
         const isCapDead = getCapitanoStatus(s, userIdx);
         const initialTeam = getInitialMembers(s, userIdx);
-        console.log(initialTeam);
 
         // 1. Aggiorna il numero e il budget accanto alla select
         morituriDisplay.innerHTML = `<strong>Morituri: <span style="color: #44ff44">${s.partecipanti.filter(p => p.status== 'vivo').length}</span>/${numeroMercatoPartecipanti(s)}</strong>`;
