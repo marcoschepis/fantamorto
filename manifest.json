@@ -1,0 +1,18 @@
+{
+  "name": "Fantamorto Cup 2026",
+  "short_name": "Fantamorto",
+  "description": "App ufficiale per la gestione della lega Fantamorto Cup",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "loghi/logo_fantamorto.png",
+      "sizes": "170x170",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
