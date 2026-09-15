@@ -1029,7 +1029,10 @@
       "proprietario": "Samoggino"
     },
     {
-      "capitano": "Yayoi Kusama",
+      "capitano": "Liliana Segre",
+      "excapitani": [
+        "Yayoi Kusama"
+      ],
       "nome_squadra": "Chi vivrà vedrà",
       "partecipanti": [
         {
@@ -1085,13 +1088,6 @@
           "status": "vivo"
         },
         {
-          "nome": "Bruno Barbieri (chef)",
-          "prezzo": 15,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
-        },
-        {
           "nome": "Joe Bastianich",
           "prezzo": 10,
           "punti": 0,
@@ -1120,29 +1116,43 @@
           "status": "vivo"
         },
         {
-          "nome": "Rachele Mussolini",
+          "nome": "Luca Zaia",
           "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "Oscar Piastri",
+          "nome": "Salvatore Aranzulla",
           "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "Caterina Balivo",
+          "nome": "Fernando Alonso",
           "prezzo": 10,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
         },
         {
-          "nome": "Buddy Valastro",
+          "nome": "Michael Phelps",
           "prezzo": 10,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Zayn",
+          "prezzo": 15,
+          "punti": 0,
+          "rimborso": 0,
+          "status": "vivo"
+        },
+        {
+          "nome": "Roby Facchinetti",
+          "prezzo": 40,
           "punti": 0,
           "rimborso": 0,
           "status": "vivo"
