@@ -47,7 +47,7 @@ function popolaMercato(squadre){
         const initialTeam = getInitialMembers(s, userIdx);
 
         // 1. Aggiorna il numero e il budget accanto alla select
-        morituriDisplay.innerHTML = `<strong>Morituri: <span style="color: #44ff44">${s.partecipanti.filter(p => p.status== 'vivo').length}</span>/${numeroMercatoPartecipanti(s)}</strong>`;
+        morituriDisplay.innerHTML = `<strong>Morituri: <span style="color: #44ff44">${s.partecipanti.length}</span>/${numeroMaxPartecipanti(s)}</strong>`;
         budgetDisplay.innerHTML = `<strong>Crediti: <span style="color: #44ff44">${res} BS</span></strong>`;
 
         // 2. Renderizza la tabella dei partecipanti
@@ -62,8 +62,9 @@ function popolaMercato(squadre){
                     </tr>
                 </thead>
                 <tbody>
-                    ${s.partecipanti.filter(p => p.status == 'vivo').map((p, i) => {
+                    ${s.partecipanti.map((p, i) => {
                         const isCapitano = s.capitano === p.nome;
+                        const canDelete = !isPDead(p) && (mercatoOpen || !initialTeam.includes(p.nome));
                         return `
                         <tr>
                             <td style="text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem;" 
@@ -80,8 +81,8 @@ function popolaMercato(squadre){
                             <td style="text-align: right; vertical-align: middle;">
                                 <button class="btn-del" 
                                     style="height: 35px; width: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: #222; border: 1px solid #444; border-radius: 4px;"
-                                    ${(!initialTeam.includes(p.nome) || mercatoOpen) ? `onclick="removeFromDb(${userIdx}, ${i})"` : ''}>
-                                    ${(!initialTeam.includes(p.nome) || mercatoOpen) ? '❌' : '🔒'}
+                                    ${canDelete ? `onclick="removeFromDb(${userIdx}, ${i})"` : ''}>
+                                    ${canDelete ? '❌' : '🔒'}
                                 </button>
                             </td>
                         </tr>`;
