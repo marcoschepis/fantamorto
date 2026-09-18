@@ -487,7 +487,7 @@ function searchAndRenderTable(query, found) {
             if (p.nome.toLowerCase().includes(q)) {
                 resultsHtml += `
                     <div class="card" style="border-left: 4px solid var(--accent);">
-                        <h4 style="margin:0 0 10px 0;">${p.nome} <span style="font-size:0.8rem; color:#888;">(${squadra.nome_squadra})</span></h4>
+                        <h4 style="margin:0 0 10px 0;">${p.nome} <span style="font-size:0.8rem; color:#888;">(${squadra.nome_squadra})</span> <span class="apex-owner">@${squadra.proprietario}</span></h4>
                         <p>Punti Totali: <strong>${p.punti || 0}</strong></p>
                         <table class="admin-table">
                             <thead>
