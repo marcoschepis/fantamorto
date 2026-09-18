@@ -1,6 +1,6 @@
 function renderMercato() {
     const squadreEditabili = db.campionato.filter(s => {
-        return s.partecipanti.length < numeroMaxPartecipanti(s);
+        return (s.partecipanti.length < numeroMaxPartecipanti(s) && calculateCreditiResidui(s) > 0);
     });
 
     if (db.config.mostra_mercato) {
