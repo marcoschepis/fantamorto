@@ -70,7 +70,7 @@ function popolaMercato(squadre){
                             <td style="text-align: center; vertical-align: middle; cursor: pointer; font-size: 1.2rem;" 
                                 ${(isCapDead || mercatoOpen) ? `onclick="setCapitano(${userIdx}, ${i})"` : ''}
                                 title="Rendi Capitano">
-                                ${isCapitano ? '⭐' : (isCapDead || mercatoOpen) ? '⚪' : '🔒'}
+                                ${isCapitano ? '⭐' : (isPDead(p) ? '💀' : (isCapDead || mercatoOpen) ? '⚪' : '🔒')}
                             </td>
                             <td style="text-align: left; vertical-align: middle; word-break: break-word;">
                                 <div style="font-weight: bold; color: #eee;">${p.nome}</div>
