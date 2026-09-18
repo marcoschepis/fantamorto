@@ -9,10 +9,6 @@ const REPO_INFO = {
     REGOLAMENTO: 'Regolamento/Regolamento Fantamorto.md'
 };
 
-// Hash della password
-const SECRET_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
-let isAuthorized = false;
-
 let rankCont = document.getElementById('rank-container');
 let teamsCont = document.getElementById('teams-container');
 let pointsCont = document.getElementById('points-container');
@@ -46,26 +42,43 @@ const sortConfig = {
 };
 let currentSortKey = 'punti';
 
-// Entry point
-verifyAdmin().then(loadData);
+// ENTRY POINT: Inizia quando il DOM è completamente pronto
+document.addEventListener('DOMContentLoaded', async () => {
+    await checkAdminAuth();
+    loadData();
+});
 
-async function verifyAdmin() {
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get('admin');
-    if (!key) return;
 
-    const msg = new TextEncoder().encode(key);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msg);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashedKey = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-    if (hashedKey === SECRET_HASH) {
-        isAuthorized = true;
-        document.getElementById('btn-admin').style.display = 'flex';
-        const cleanUrl = window.location.pathname + window.location.hash;
-        window.history.replaceState({}, document.title, cleanUrl);
+
+
+// Hash della password
+const SECRET_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
+let isAuthorized = false;
+let clickCount = 0;
+let clickTimer;
+// Clicca per diventare admin (5 click entro 2 secondi)
+document.getElementById('site-logo')?.addEventListener('click', () => {
+    clickCount++;
+    clearTimeout(clickTimer);
+    if (clickCount === 5) {
+        clickCount = 0;
+        if (!isAuthorized) loginAdmin();
+        else logoutAdmin();
+    }
+    
+    clickTimer = setTimeout(() => { clickCount = 0; }, 2000);
+});
+
+
+async function checkAdminAuth() {
+    const savedHash = localStorage.getItem('adminToken');
+    if (savedHash === SECRET_HASH) {
+        setAdminState(true);
     }
 }
+
+
 
 function loadElements() {
     rankCont = document.getElementById('rank-container');

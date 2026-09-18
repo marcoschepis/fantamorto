@@ -839,3 +839,37 @@ function toggleSort(){
     currentSortKey = (currentSortKey === 'punti') ? 'RIP' : 'punti';
     render();
 }
+
+
+// ADMIN FUNCTIONS
+async function loginAdmin() {
+    let token = localStorage.getItem('adminToken');
+    let hashedKey = token;
+    if (!token) {
+        token = prompt('Inserisci la password Admin:');
+        const msg = new TextEncoder().encode(token);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msg);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        hashedKey = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');   
+    }
+
+    if (hashedKey === SECRET_HASH) {
+        localStorage.setItem('adminToken', hashedKey);
+        setAdminState(true);
+        render();
+        return true;
+    } else {
+        alert('Password Admin errata');
+        return false;
+    }
+}
+
+function logoutAdmin() {
+    setAdminState(false);
+}
+
+function setAdminState(authorized) {
+    isAuthorized = authorized;
+    const btnAdmin = document.getElementById('btn-admin');
+    if (btnAdmin) btnAdmin.style.display = authorized ? 'flex' : 'none';
+}
