@@ -31,7 +31,7 @@ function renderAdmin() {
         html += `
             <div class="card" style="border: 2px solid var(--accent); margin-top: 30px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin: 0; color: var(--accent);">⚽ Gestione Squadre</h3>
+                    <h3 style="margin: 0; color: var(--accent);">👪 Gestione Squadre</h3>
                     <button onclick="addSquadra()" style="padding: 8px 15px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
                 </div>
                 ${db.campionato.map((s, tIdx) => {

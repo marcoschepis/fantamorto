@@ -142,8 +142,20 @@ body {
   transform: scale(0.95);
 }
 
+/* --------------------------------------------------*/
+/* Titolo */
+#site-logo {
+  -webkit-user-select: none; /* Per Safari su iOS e Mac */
+  -moz-user-select: none;    /* Per vecchie versioni di Firefox */
+  user-select: none;         /* Standard moderno */
+  cursor: pointer;           /* Fa capire visivamente che è cliccabile */
+}
+
+
 /*--------------------------------------------------*/
 /* Classifica */
+#rank-container { display: grid; grid-template-columns: 1fr; }
+
 .header {
     display: flex;
     align-items: center;
@@ -348,6 +360,7 @@ body {
     font-weight: 900;
 }
 
+/*--------------------------------------------------*/
 /* Punteggi */
 .event-row {
     border-bottom: 1px solid rgba(255,255,255,0.03);
@@ -372,16 +385,8 @@ body {
 }
 
 /*--------------------------------------------------*/
-/* Roba che non so se serve, non ancora controllata */
+/* Admin */
 #btn-admin { display: none; }
-.view { display: none; }
-.view.active { display: block; }
-.card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-#rank-container { display: grid; grid-template-columns: 1fr; }
-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
-
-/* Allineamenti Admin */
 .admin-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .admin-table input { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #444; color: #fff; padding: 6px 4px; font-size: 0.85rem; }
 .admin-table input:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
@@ -391,8 +396,23 @@ th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
 .admin-table td:first-child { text-align: left; padding-left: 6px; }
 .admin-table button { background: #333; border: 1px solid #555; color: #fff; padding: 4px 8px; cursor: pointer; border-radius: 4px; font-size: 0.8rem; transition: 0.2s; }
 .admin-table button:hover { background: var(--accent); border-color: var(--accent); }
-.admin-row-dead input { background: #0a0505; }
 
+
+/*--------------------------------------------------*/
+/* Sfusa */
+.view { display: none; }
+.view.active { display: block; }
+.card { background: var(--card-bg); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
+
+
+
+
+
+
+
+/*--------------------------------------------------*/
 /*--------------------------------------------------*/
 /* Regole per telefono */
 @media (max-width: 600px) {
