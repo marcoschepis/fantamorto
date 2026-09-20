@@ -13,7 +13,6 @@
     });
     </script>
 
-    <!-- Script -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -124,6 +123,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="js/utils.js"></script>
 
     <script src="js/views/classifica.js"></script>
@@ -134,5 +134,68 @@
     <script src="js/views/regolamento.js"></script>
 
     <script src="js/script.js"></script>
+
+    <!-- Banner Avviso Offline / Cache -->
+    <div id="offline-toast"></div>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(err => console.error('Errore SW:', err));
+            });
+
+            let countdownInterval = null;
+
+            // Mostra toast offline
+            const showOfflineToast = () => {
+                const toast = document.getElementById('offline-toast');
+                if (!toast) return;
+
+                // Interrompe un eventuale conto alla rovescia in corso se torna offline
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                toast.textContent = '✈️ Sei Offline: Stai visualizzando i dati salvati in cache.';
+                toast.className = 'offline';
+                toast.style.display = 'block';
+            };
+
+            // Mostra toast verde online con conto alla rovescia e reload
+            const showOnlineToast = () => {
+                const toast = document.getElementById('offline-toast');
+                if (!toast || toast.style.display === 'none') return;
+
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                let secondsLeft = 3;
+                toast.className = 'online';
+                toast.textContent = `🌐 Connessione ripristinata! Ricarica pagina tra ${secondsLeft}s...`;
+                toast.style.display = 'block';
+
+                countdownInterval = setInterval(() => {
+                    secondsLeft--;
+                    if (secondsLeft > 0) {
+                        toast.textContent = `🌐 Connessione ripristinata! Ricarica pagina tra ${secondsLeft}s...`;
+                    } else {
+                        clearInterval(countdownInterval);
+                        window.location.reload();
+                    }
+                }, 1000);
+            };
+
+            // Stato iniziale
+            if (!navigator.onLine) showOfflineToast();
+
+            // Eventi di cambio rete
+            window.addEventListener('offline', showOfflineToast);
+            window.addEventListener('online', showOnlineToast);
+
+            // Notifica da SW se carica da cache
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                if (event.data && event.data.type === 'USING_CACHE') {
+                    showOfflineToast();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
