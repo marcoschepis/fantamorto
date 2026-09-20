@@ -217,7 +217,7 @@ async function checkAndReloadSite() {
     }
 }
 
-async function saveToGitHub(mode = 'user') {
+async function saveToGitHub(event, mode = 'user') {
     const btn = event.target;
     const originalText = btn.innerText;
     let payload = { autore: "" };
