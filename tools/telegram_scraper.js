@@ -5,7 +5,7 @@ const https = require('https');
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const MY_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const CHANNEL_NAME = 'aifantamorto';
-const FILE_PATH = 'squadre.json';
+const FILE_PATH = 'data/squadre.json';
 const LAST_ID_FILE = 'last_id.txt';
 
 // Caricamento nomi dal JSON

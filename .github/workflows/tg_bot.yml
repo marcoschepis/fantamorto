@@ -30,7 +30,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: node telegram_scraper.js
+        run: node tools/telegram_scraper.js
 
       # 2. SALVA SEMPRE LA NUOVA CACHE A FINE RUN
       - name: Salva Nuovo ID in Cache

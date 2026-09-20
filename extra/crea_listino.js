@@ -70,7 +70,7 @@ javascript:(async function(){
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = "morituri.json";
+        a.download = "data/morituri.json";
         a.click();
         alert("Scaricati " + listaTotale.length + " elementi!");
     } else {

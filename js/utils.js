@@ -121,7 +121,6 @@ function aggiungiADb(tIdx, fonteInputId) {
     }
 
     const squadra = db.campionato[tIdx];
-    // Cerchiamo le info nel catalogo generale (morituri.json)
     const infoMorituro = catalogoMorituri.find(m => m.nome.toLowerCase() === nomeSelezionato.toLowerCase());
 
     if (!infoMorituro) {

@@ -20,7 +20,7 @@ jobs:
         run: |
           node -e "
             const fs = require('fs');
-            const file = 'squadre.json';
+            const file = 'data/squadre.json';
             const payload = JSON.parse(process.env.PAYLOAD);
             
             try {
@@ -55,7 +55,7 @@ jobs:
         run: |
           git config user.name "Fantamorto Bot"
           git config user.email "actions@github.com"
-          git add squadre.json
+          git add data/squadre.json
           git commit -m "Update: ${{ github.event.client_payload.autore }}" || exit 0
           git pull --rebase origin main
           git push origin main

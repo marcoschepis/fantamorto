@@ -16,6 +16,6 @@ Sito visualizzabile a https://marcoschepis.github.io/fantamorto.
 
 ## 📁 Struttura dei Dati
 
-* `squadre.json`: Contiene le impostazioni del campionato, l'elenco delle squadre, i budget rimanenti e i punteggi aggiornati.
-* `morituri.json`: Database dei personaggi selezionabili nel mercato per alimentare i suggerimenti di ricerca.
+* `data/squadre.json`: Contiene le impostazioni del campionato, l'elenco delle squadre, i budget rimanenti e i punteggi aggiornati.
+* `data/morituri.json`: Database dei personaggi selezionabili nel mercato per alimentare i suggerimenti di ricerca.
 * `Regolamento/Regolamento Fantamorto.md`: Testo del regolamento mostrato all'interno dell'applicazione.

@@ -1,8 +1,7 @@
 const fs = require('fs'); // Modulo per leggere i file
 
 // 1. CARICA IL FILE DAL DISCO
-// Assicurati che 'squadre.json' sia nella stessa cartella di migrate.js
-const fileName = 'squadre.json'; 
+const fileName = 'data/squadre.json'; 
 
 try {
     const rawData = fs.readFileSync(fileName, 'utf8');
