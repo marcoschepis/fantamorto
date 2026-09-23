@@ -1,12 +1,12 @@
 function renderPunti() {
-    let html = `<div class="punti-wrapper" style="max-width: 800px; margin: auto;">`;
+    let html = `<div style="max-width: 800px; margin: auto;">`;
 
-    // SEZIONE 1: ULTIMI AGGIORNAMENTI (Il "Feed")
+    // SEZIONE 1: ULTIMI AGGIORNAMENTI
     html += `
         <div class="card" style="border-top: 3px solid #44ff44;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                <span style="font-size: 1.5rem;">🕒</span>
-                <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px; color: #fff;">Ultimi Eventi</h3>
+            <div class="card-header">
+                <span class="card-icon">🕒</span>
+                <h3 style="text-transform: uppercase;">Ultimi eventi</h3>
             </div>
             
             <div style="overflow-x: auto;">
@@ -26,12 +26,13 @@ function renderPunti() {
             </div>
         </div>`;
 
-    // SEZIONE 2: RICERCA (Focus visivo sull'input)
+    // SEZIONE 2: RICERCA
     html += `
         <div class="card">
-            <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
-                <span>🔍</span> Cerca Morituro
-            </h3>
+            <div class="card-header">
+                <span class="card-icon">🔍</span>
+                <h3>Cerca Morituro</h3>
+            </div>
             
             <div style="position: relative;">
                 <input type="text" id="search-morituro" class="input-modern" list="lista-suggerimenti" 
@@ -42,12 +43,13 @@ function renderPunti() {
             <div id="search-results-container" style="margin-top:20px;"></div>
         </div>`;
 
-    // SEZIONE 3: STORICO SQUADRA (Stile Report)
+    // SEZIONE 3: STORICO SQUADRA
     html += `
-        <div class="card" style="background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);">
-            <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
-                <span>🛡️</span> Analisi Squadra
-            </h3>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🛡️</span>
+                <h3>Analisi Squadra</h3>
+            </div>
             
             <select id="select-squadra-punti" class="input-modern" onchange="renderStoricoSquadra(this.value)" style="cursor: pointer;">
                 <option value="">Seleziona una squadra per vedere i bonus...</option>

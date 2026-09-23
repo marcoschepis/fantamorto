@@ -20,16 +20,16 @@ function renderAdmin() {
         html += `
             <div class="card" style="border: 2px solid #ffcc00;">
                 <h3 style="color: #ffcc00; margin-top:0;">➕ Assegna Punti</h3>
-                <input type="text" placeholder="Cerca morituro per assegnare punti..." 
-                    onkeyup="adminSearchMorituro(this.value)" 
-                    style="width:100%; padding:10px; background:#111; border:1px solid #ffcc00; color:white;">
+                <input type="text" placeholder="Cerca morituro per assegnare punti..."
+                    onkeyup="adminSearchMorituro(this.value)"
+                    style="width:100%; box-sizing:border-box; padding:10px; background:#111; border:1px solid #ffcc00; color:white;">
                 <div id="admin-search-results" style="margin-top:15px;"></div>
             </div>
         `;
 
         // Gestione Squadre
         html += `
-            <div class="card" style="border: 2px solid var(--accent); margin-top: 30px;">
+            <div class="card" style="border: 2px solid var(--accent);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3 style="margin: 0; color: var(--accent);">👪 Gestione Squadre</h3>
                     <button onclick="addSquadra()" style="padding: 8px 15px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
