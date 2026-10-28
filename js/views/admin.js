@@ -29,10 +29,10 @@ function renderAdmin() {
 
         // Gestione Squadre
         html += `
-            <div class="card" style="border: 2px solid var(--accent);">
+            <div class="card" style="border: 2px solid #ff4444;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="margin: 0; color: var(--accent);">👪 Gestione Squadre</h3>
-                    <button onclick="addSquadra()" style="padding: 8px 15px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
+                    <h3 style="margin: 0; color: #ff4444;">👪 Gestione Squadre</h3>
+                    <button onclick="addSquadra()" style="padding: 8px 15px; background: #ff4444; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">➕ Nuova Squadra</button>
                 </div>
                 ${db.campionato.map((s, tIdx) => {
                     const residui = calculateCreditiResidui(s);
@@ -42,7 +42,7 @@ function renderAdmin() {
                                 <input type="text" value="${s.proprietario}" onchange="db.campionato[${tIdx}].proprietario = this.value; render();" placeholder="Proprietario" style="flex: 0.6; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;">
                                 <span style="padding: 6px; color: ${residui < 0 ? '#ff4444' : '#44ff44'}; font-weight: bold;">Crediti residui: ${residui}</span>
                                 <button onclick="removeSquadra(${tIdx})"
-                                        style="padding: 6px 12px; background: var(--accent); border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">🗑️
+                                        style="padding: 6px 12px; background: #ff4444; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">🗑️
                                 </button>
                             </div>
                     `;

@@ -99,14 +99,14 @@ function popolaMercato(squadre){
                     style="flex: 1; min-width: 60px; padding: 6px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; text-align: center;">
                 
                 <button class="btn-add" onclick="aggiungiADb(${userIdx}, 'user-add-nome')" 
-                    style="flex: 2; padding: 10px; white-space: nowrap; background: var(--accent); color: black; font-weight: bold;">
+                    style="flex: 2; padding: 10px; white-space: nowrap; background: #ff4444; color: black; font-weight: bold;">
                     ➕ Aggiungi
                 </button>
             </div>
 
         <div class="card" style="margin-top:30px; border: 1px solid #333; background: #080808; padding: 0;">
             <div style="padding: 15px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <h3 style="color: var(--accent); margin:0;">📋 Listino Morituri</h3>
+                <h3 style="color: #ff4444; margin:0;">📋 Listino Morituri</h3>
                 <input type="text" id="search-listino-infinite" placeholder="Cerca nome..." 
                     oninput="resetAndSearchInfinite(${userIdx})"
                     style="width:160px; padding:8px; background:#111; border:1px solid #444; color:white; border-radius:5px;">

@@ -422,7 +422,7 @@ function adminSearchMorituro(query) {
                 html += `
                     <tr style="${isDead ? 'background: #251010;' : ''}">
                         <td style="padding: 10px;">
-                            <strong style="color: ${isDead ? 'var(--accent)' : '#fff'}">${isDead ? '💀 ' : '😒 '}${p.nome}</strong> 
+                            <strong style="color: ${isDead ? '#ff4444' : '#fff'}">${isDead ? '💀 ' : '😒 '}${p.nome}</strong> 
                         </td>
                         <td style="text-align:right; white-space: nowrap; padding-right: 10px;">
                             <button onclick="toggleMorte('${p.nome}')" 
@@ -431,7 +431,7 @@ function adminSearchMorituro(query) {
                             </button>
                             
                             <button onclick="aggiungiEvento('${p.nome}')" 
-                                style="background: var(--accent); color:black; font-weight:bold; border: none; padding: 8px;">
+                                style="background: #ff4444; color: black; font-weight:bold; border: none; padding: 8px;">
                                 ⚡ Punti
                             </button>
                         </td>
@@ -448,7 +448,7 @@ function adminSearchMorituro(query) {
                                         <tr>
                                             <td style="color:#888; padding:4px;">${formatDate(e.data)}</td>
                                             <td style="padding:4px;">${e.desc}</td>
-                                            <td style="color:var(--accent); padding:4px;">${e.valore}pt</td>
+                                            <td style="color:#ff4444; padding:4px;">${e.valore}pt</td>
                                             <td style="text-align:right; padding:4px;">
                                                 ${!isDeathEvent ? `
                                                     <button onclick="rimuoviEvento('${p.nome}', ${idx})" 
@@ -485,7 +485,7 @@ function searchAndRenderTable(query, found) {
         squadra.partecipanti.forEach(p => {
             if (p.nome.toLowerCase().includes(q)) {
                 resultsHtml += `
-                    <div class="card" style="border-left: 4px solid var(--accent);">
+                    <div class="card" style="border-left: 4px solid #44ff44;">
                         <h4 style="margin:0 0 10px 0;">${p.nome} <span style="font-size:0.8rem; color:#888;">(${squadra.nome_squadra})</span> <span class="apex-owner">@${squadra.proprietario}</span></h4>
                         <p>Punti Totali: <strong>${p.punti || 0}</strong></p>
                         <table class="admin-table">
@@ -741,7 +741,7 @@ function renderItems() {
     tbody.innerHTML = visualizzati.map(item => `
         <tr style="border-bottom: 1px solid #111;">
             <td style="padding: 12px; font-weight: bold; color: #ddd;">${item.nome}</td>
-            <td style="padding: 12px; text-align: center; font-family: monospace; color: var(--accent);">${item.prezzo}</td>
+            <td style="padding: 12px; text-align: center; font-family: monospace; color: #ff4444;">${item.prezzo}</td>
         </tr>
     `).join('');
 
