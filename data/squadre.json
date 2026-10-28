@@ -769,9 +769,16 @@
           "status": "vivo"
         },
         {
+          "eventi": [
+            {
+              "data": "2026-10-28",
+              "desc": "Ricovero",
+              "valore": 6
+            }
+          ],
           "nome": "Antonello Venditti",
           "prezzo": 45,
-          "punti": 0,
+          "punti": 6,
           "rimborso": 0,
           "status": "vivo"
         },
