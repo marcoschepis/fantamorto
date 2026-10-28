@@ -125,18 +125,8 @@ function render() {
     loadElements();
     updateDays();
     
-    if (db.config.mostra_mercato)
-    {
-        btnMercato.innerHTML = `
-            <span class="nav-icon">⚙️</span>
-            <span class="nav-label">Gestione Squadra</span>
-        `;
-    } else {
-        btnMercato.innerHTML = `
-            <span class="nav-icon">🔒</span>
-            <span class="nav-label">Mercato Chiuso</span>
-        `;
-    }
+    if (db.config.mostra_mercato) btnMercato.style.display = 'flex';
+    else btnMercato.style.display = 'none';
 
     rankCont.innerHTML = '';
     teamsCont.innerHTML = '';
