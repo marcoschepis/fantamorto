@@ -125,7 +125,7 @@ function render() {
     loadElements();
     updateDays();
     
-    if (db.config.mostra_mercato) btnMercato.style.display = 'flex';
+    if (db.config.mostra_mercato || squadreMercato().length > 0) btnMercato.style.display = 'flex';
     else btnMercato.style.display = 'none';
 
     rankCont.innerHTML = '';
