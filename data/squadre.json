@@ -433,11 +433,18 @@
           "status": "vivo"
         },
         {
+          "eventi": [
+            {
+              "data": "2026-11-19",
+              "desc": "💀 Morte",
+              "valore": 10
+            }
+          ],
           "nome": "Corrado Augias",
           "prezzo": 60,
-          "punti": 0,
-          "rimborso": 0,
-          "status": "vivo"
+          "punti": 10,
+          "rimborso": 65,
+          "status": "morto"
         },
         {
           "nome": "Bernie Sanders",
